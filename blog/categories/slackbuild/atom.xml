@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: slackbuild | My Personal Blog]]></title>
+  <link href="http://budiariyanto.github.io/blog/categories/slackbuild/atom.xml" rel="self"/>
+  <link href="http://budiariyanto.github.io/"/>
+  <updated>2014-05-22T09:43:14+07:00</updated>
+  <id>http://budiariyanto.github.io/</id>
+  <author>
+    <name><![CDATA[Budi Ariyanto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Membuat Paket TGZ dengan SlackBuild Script]]></title>
+    <link href="http://budiariyanto.github.io/blog/2008/12/06/membuat-paket-tgz-dengan-slackbuild/"/>
+    <updated>2008-12-06T12:24:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2008/12/06/membuat-paket-tgz-dengan-slackbuild</id>
+    <content type="html"><![CDATA[<div class='post'>
+Jika Anda menggunakan Slackware Linux sebagai sistem operasi Anda, sebagai alternatif menginstall aplikasi / library selain compile + install manual dari source code, Anda bisa menggunakan Slackbuild script yg bisa didownload dari <a href="http://www.slackbuild.org/">http://www.slackbuild.org/</a>. Tapi.. bagaimana ya cara menggunakan Slackbuild script tersebut?Mudah kok. Ikuti saja langkah-langkah berikut ini:<br /><ol><li>Download source code aplikasi yang ingin diinstall dan slackbuild script aplikasi yang bersangkutan dari <a href="http://www.slackbuild.org/">http://www.slackbuild.org/</a></li><li>Extract Slackbuild script karena Slackbuild script dikompres dalam paket tar.gz.(tar zxvf <nama_paket slackbuildscript.tar.gz="">)</nama_paket></li><li>Copy paket source ke dalam folder dari paket Slackbuild yang barusan diextract tadi. </li><li>Jika semua langkah 1-3 sudah benar, buka konsole. Masuk ke direktori Slackbuild, lalu cari file dengan ekstensi .Slackbuild. Jika sudah ketemu, buka konsole dan ketik ./nama_aplikasi.Slackbuild(misal ./pidgin.Slackbuild, tergantung dari slackbuild yang Anda download). Anda harus login sebagai root.</li><li>Tunggu proses pencompilan selesai. Menunggu proses ini kadang memang lama, apalagi kalau paket yang Anda compile berukuran besar. Jika sudah selesai, secara default Anda dapat mengambil paket TGZ tersebut di /tmp/SBo/.</li></ol></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>akhul</div>
+<div class='content'>
+makasiiiiiiiiih bgt....</div>
+</div>
+<div class='comment'>
+<div class='author'>ivan</div>
+<div class='content'>
+Wah info yang bagus nich, thanks yach....<br><br>Salam Kenal...<br><br><a href="http://sports.ivanslackers.com/" rel="nofollow" rel="nofollow">Kinds Of Sports</a></div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

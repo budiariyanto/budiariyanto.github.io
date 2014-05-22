@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Personal Blog</title>
+  <meta name="author" content="Budi Ariyanto">
+
+  
+  <meta name="description" content="After someone compile and then install a shared library for an application on linux system, the most common problem is the shared library don&#8217; &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://budiariyanto.github.io/blog/page/9/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Personal Blog" type="application/atom+xml">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<meta property="fb:app_id" content="494926367287079" />
+
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <div id="logo">
+  	<div id="logoLeft">{</div>
+  	<div id="logoText">;-)</div>
+  	<div id="logoRight">}</div>
+  	<div class="clear"></div>
+  </div>
+  <h1><a href="/">My Personal Blog</a></h1>
+  
+    <h2>About my thoughts and activities.</h2>
+  
+  <div class="clear"></div>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:budiariyanto.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2010/02/24/updating-shared-library/">Updating Shared Library Path</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-24T08:13:00+07:00" pubdate data-updated="true">Feb 24<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+After someone compile and then install a shared library for an application on linux system, the most common problem is the shared library don&#8217;t load properly. For example, usually you will get an error message like this :<br /><br /><blockquote><span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">error while loading shared libraries: </span><span id="main" style="font-family: &quot;Courier New&quot;,Courier,monospace; visibility: visible;"><span id="search" style="visibility: visible;">libqt-mt-so.3</span></span></span><span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">: cannot open shared object file: No such file or directory</span></span></blockquote>It means the LD_LIBRARY_PATH is not updated yet, because you install the library manually from the tarball/source using<span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: x-small;"> <span style="font-size: small;">./configure</span></span>, <span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: small;">make</span> and<span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: x-small;"> <span style="font-size: small;">make install</span></span>. You can solve this problem by running <span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: small;">ldconfig</span> as root. Remember to always run this command after manually installing a new shared library on your linux system.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2010/02/23/beginning-dna-research/">Beginning DNA Research</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-23T20:34:00+07:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/_X_0MuvVWBIc/S4PaGk_oFVI/AAAAAAAAABA/hFKpOekyxLE/s1600-h/290px-A-DNA,_B-DNA_and_Z-DNA.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="130" src="http://4.bp.blogspot.com/_X_0MuvVWBIc/S4PaGk_oFVI/AAAAAAAAABA/hFKpOekyxLE/s200/290px-A-DNA,_B-DNA_and_Z-DNA.png" width="200" /></a></div>Today I get a little experience about biotechnology information. One of my friend in my office will do some research about DNA. So, she download a massive gen and protein data from the <a href="http://www.ncbi.nlm.nih.gov/">National Center for  Biotechnology Information</a>(<a href="http://www.ncbi.nlm.nih.gov/">NCBI)</a> in order to collect DNA sequences. The amount of data is over 200 million. O.o<br />I know it&#8217;s not an easy appointment but i hope in the future she can find something new and useful information from her research.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2010/02/23/i-think-vlc-player-105-is-wonderful/">I Think VLC Player 1.0.5 Is Wonderful</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-23T07:47:00+07:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Instead of great media player such as Mplayer or SMPlayer, VLC is great too! :D. I think this VLC is better than the previous version. It&#8217;s also supports large number of <a href="http://www.videolan.org/vlc/features.html">video format</a> and has a full support under linux systems. You can get this great player by <a href="http://www.videolan.org/vlc/">clicking here</a>.<br />And for <a href="http://www.slackware.com/">Slackware</a> user like me, you can easily build and install it with <a href="http://www.slackbuilds.org/">slackbuild</a> script on your system, complete with all codecs and needed or optional library by <a href="http://connie.slackware.com/%7Ealien/slackbuilds/vlc/build/">visiting this repository</a>.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2010/02/23/technorati-widget-temporary-unavailable/">Technorati Widget Temporary Unavailable</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-23T07:27:00+07:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+This morning when i want to customize my blog by adding technorati widget, obviously the widget is temporary unavailable. So, i must wait the technorati&#8217;s team to make it available again. oww&#8230;<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_X_0MuvVWBIc/S4MgtgyCY5I/AAAAAAAAAA4/tqWMGb1hcnU/s1600-h/detect2.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="304" src="http://2.bp.blogspot.com/_X_0MuvVWBIc/S4MgtgyCY5I/AAAAAAAAAA4/tqWMGb1hcnU/s640/detect2.png" width="640" /></a></div></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2010/02/22/test/">Vadrum Meets Mario 3</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-22T23:03:00+07:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Hello folks, i want to show you this amazing video. <span class="short_text" id="result_box"><span style="background-color: white;" title="mungkin banyak orang yang sudah mengetahui">Probably  many people already know</span></span> this person, because he is so famous now. Yes, his name is Andrea Vadrucci, an amazing Italian drummer. He has produce many drum videos from video game soundtracks, a song, or even from cellphone ringtone in the medley. And this is his best drum video i think. Enjoy it! :D<br /><object height="344" width="425"><param name="movie" value="http://www.youtube.com/v/dXKN1j_vrn4&amp;hl=en_US&amp;fs=1&amp;"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/dXKN1j_vrn4&amp;hl=en_US&amp;fs=1&amp;" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2010/02/22/move-to-new-boarding-house/">Moving to the New Boarding House&#8230;</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-22T22:37:00+07:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Next month i will move to the new boarding house in Alpukat street, Tanjung Duren, West Jakarta. So, within this week i have to move all of my stuff first. This activity will use much of my energy, considering i have to work at my office first in the morning until evening before i do it. huff&#8230; I hope in that new place i can have a better &#8220;new life&#8221;, new friend and new spirit.&nbsp; :D</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2010/02/22/since-january-31-2010-until-nowfebruary/">I Wondered What Pat&#8217;s Team Do&#8230;</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-22T21:29:00+07:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Since January 31, 2010 until now(February 22, 2010), Slackware -current changelog hasn&#8217;t been yet updated, whereas usually there are several update almost everyday. I wonder what is Pat and his team doing at this time. mmm.. Whether that means slackware 13.1 almost ready to released? hohoho.. actually i really can&#8217;t wait it&#8230; :D</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2010/02/22/hello-world/">Hello World!</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-22T21:15:00+07:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Hi all, i really miss to write something in my blog after a long long time i didn&#8217;t do it at all. I hope i can continue it so i can share my knowledge to you or maybe get feedback from you, so i can learn something too. From now on, i will write my post in english because i want to learn english and <a href="http://translate.google.com/">google translate</a> will become my best friend. :LOL:</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+keep up the good work!<br />d(&gt;___&lt;)b</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2009/11/16/banjir-di-ukrida/">Banjir Di Ukrida</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-16T14:38:00+07:00" pubdate data-updated="true">Nov 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Siang ini (16 November 2009), di kampus Ukrida tempat dimana saya bekerja diguyur hujan deras selama kurang lebih 2 jam. Hasilnya adalah banjir hampir setinggi lutut orang dewasa. Kendaraan yang melintasi daerah banjir juga harus didorong. Pada foto terlihat anak-anak SMA BPK Penabur sedang bersama-sama menolong mendorong mobil temannya yang terkena banjir.<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://img109.imageshack.us/img109/5882/image0013i.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://img109.imageshack.us/img109/5882/image0013i.jpg" /></a><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="http://img194.imageshack.us/img194/6846/image0014b.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="240" src="http://img194.imageshack.us/img194/6846/image0014b.jpg" width="320" /></a><br /></div><br /><div class="separator" style="clear: both; text-align: center;"><br /></div></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Aggy</div>
+<div class='content'>
+Edan yach Jakarta, ujan sedikit dah banjir.<br />Kmrn pas ujan gede aku di rumah tanteku di Duren Sawit&#8230;.njuk banjir mlebu rumah&#39;e kacaaauuuuu</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2009/08/29/slackware-130-released/">Slackware 13.0 Released!</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-29T06:39:00+07:00" pubdate data-updated="true">Aug 29<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Akhirnya setelah sekian lama Slackware 13.0 dirilis juga. Perubahan dari Slackware 12.2 cukup banyak, maka disarankan sekali bagi para pengguna untuk mengupgrade Slackware 12.2  ke 13.0. Adapun perubahannya adalah sebagai berikut :<br /><ul><li>KDE 4.2.4</li><li>Koleksi paket-paket X yang telah disempurnakan. Sekarang tidak perlu menggunakan file konfigurasi untuk X (xorg.conf).</li><li>Xfce 4.6.1</li><li>Paket yang terkompresi lebih baik menggunakan .txz</li><li>Paket-paket networking, library, dan aplikasi-aplikasi untuk X yang juga diupgrade.</li><li>Untuk informasi lengkapnya silakan membaca <a href="http://www.slackware.com/announce/13.0.php">official announcement</a> dan <a href="http://www.slackware.com/releasenotes/13.0.php">release notes</a>-nya.</li></ul>Selamat menikmati Slackware 13.0 ini. :D</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/10/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/8/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Budi Ariyanto</h1>
+  <p>Software engineer, currently happy with open source technologies.</p>
+  <ul>
+    <li><i class="fa fa-github-alt"></i>&nbsp;<a href="https://github.com/budiariyanto">github.com/budiariyanto</a></li>
+    <li><i class="fa fa-google-plus"></i>&nbsp;<a href="https://plus.google.com/+BudiAriyanto">+BudiAriyanto</a></li>
+    <li><i class="fa fa-twitter"></i>&nbsp;<a href="https://twitter.com/fxbudiariyanto">@fxbudiariyanto</a></li>
+    <li><i class="fa fa-facebook"></i>&nbsp;<a href="https://www.facebook.com/fx.budi.ariyanto">facebook.com/fx.budi.ariyanto</a></li>
+    <li><i class="fa fa-pinterest"></i>&nbsp;<a href="http://pinterest.com/fxbudiariyanto">pinterest.com/fxbudiariyanto</a></li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/19/maven-multi-project/">Maven Multi Module Project</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/19/maven-multi-module-project/">Maven Multi Module Project</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/17/menjadi-idealis/">Menjadi Idealis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/25/memilih-distro-linux/">Memilih Distro Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/17/tutorial-singkat-maven/">Tutorial Singkat Maven</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/budiariyanto">@budiariyanto</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'budiariyanto',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/+BudiAriyanto?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<section>
+    <h1>Latest Tweets</h1>
+    <a class="twitter-timeline"  href="https://twitter.com/fxbudiariyanto"  data-widget-id="416105439349075968" data-chrome="transparent">Tweets by @fxbudiariyanto</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Budi Ariyanto -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=494926367287079&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

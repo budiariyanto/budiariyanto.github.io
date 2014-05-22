@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: other | My Personal Blog]]></title>
+  <link href="http://budiariyanto.github.io/blog/categories/other/atom.xml" rel="self"/>
+  <link href="http://budiariyanto.github.io/"/>
+  <updated>2014-05-22T09:43:14+07:00</updated>
+  <id>http://budiariyanto.github.io/</id>
+  <author>
+    <name><![CDATA[Budi Ariyanto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Migrating To Octopress]]></title>
+    <link href="http://budiariyanto.github.io/blog/2013/05/12/migrating-to-octopress/"/>
+    <updated>2013-05-12T01:35:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2013/05/12/migrating-to-octopress</id>
+    <content type="html"><![CDATA[<p>Finally I have moved to Octopress from blogger and this is my first Octopress post. I think this is very cool since it uses markdown so I can write my post anywhere, using any text editor. Plain text means lightweight and fast. Next, I want to learn how to change the template and layout.</p>
+
+<p>Testing the markdown syntax on octopress:</p>
+
+<h2>Headers</h2>
+
+<h1>This is H1</h1>
+
+<h2>This is H2</h2>
+
+<h3>This is H3</h3>
+
+<h4>This is H4</h4>
+
+<h5>This is H5</h5>
+
+<h6>This is H6</h6>
+
+<h2>Lists</h2>
+
+<h3>Ordered List</h3>
+
+<ol>
+<li>Item number1</li>
+<li>Item number2</li>
+<li>Item number3</li>
+</ol>
+
+
+<h3>Unordered List</h3>
+
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3</li>
+</ul>
+
+
+<h3>List with paragraph</h3>
+
+<ol>
+<li>Item 1</li>
+</ol>
+
+
+<p>Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsumLorem ipsum lorem ipsum.</p>
+
+<ol>
+<li>Item 2</li>
+</ol>
+
+
+<p>Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsumLorem ipsum lorem ipsum.</p>
+
+<h2>Tables</h2>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Tables        </th>
+<th align="center"> Are           </th>
+<th align="right"> Cool  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> col 3 is      </td>
+<td align="center"> right-aligned </td>
+<td align="right"> $1600 |</td>
+</tr>
+<tr>
+<td></td>
+<td> col 2 is      </td>
+<td align="center"> centered      </td>
+<td align="right">   $12 |</td>
+</tr>
+<tr>
+<td></td>
+<td> zebra stripes </td>
+<td align="center"> are neat      </td>
+<td align="right">    $1 |</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>It seems octopress does not support tables rendering by default</p>
+
+<h2>Bold, Italics and Strikethrough</h2>
+
+<p><em>This is italics</em>
+<strong> This is bold </strong>
+<strong><em>This is bold and italics</em></strong>
+<del>This is strikethrough</del></p>
+
+<p>Is there no underlines?</p>
+
+<h2>Links</h2>
+
+<p><a href="https://www.google.com">Go to google.com</a></p>
+
+<p><a href="http://blog.budib.com">Go to home page of this site</a></p>
+
+<p><a href="http://yahoo.com">This is reference-style link</a></p>
+
+<p>Later link text</p>
+
+<h2>Code with syntax highlighting</h2>
+
+<p>``` java
+public class TestClass {</p>
+
+<pre><code>public static void main(String[] args) {
+    System.out.println("Hellooooooo");
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>Blockquotes</h2>
+
+<blockquote><p>This is blockquotes</p></blockquote>
+
+<h2>Horizontal Rule</h2>
+
+<hr />
+]]></content>
+  </entry>
+  
+</feed>

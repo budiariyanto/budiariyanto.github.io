@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SQL | My Personal Blog]]></title>
+  <link href="http://budiariyanto.github.io/blog/categories/sql/atom.xml" rel="self"/>
+  <link href="http://budiariyanto.github.io/"/>
+  <updated>2014-05-22T09:43:14+07:00</updated>
+  <id>http://budiariyanto.github.io/</id>
+  <author>
+    <name><![CDATA[Budi Ariyanto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Find A Tricky Way To Avoid Slow SQL Query]]></title>
+    <link href="http://budiariyanto.github.io/blog/2010/11/24/find-tricky-way-to-avoid-slow-sql-query/"/>
+    <updated>2010-11-24T17:05:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2010/11/24/find-tricky-way-to-avoid-slow-sql-query</id>
+    <content type="html"><![CDATA[<div class='post'>
+This afternoon I'm doing a task in my office, querying a massive data from mysql with PHP script. The query string contains four join statements and six expressions in the where clause. The result contain data that necessary for all student transcript. I have try querying it at once, but I think I will never get the result at all since it's never finish loading the process. So, I change my PHP script to loop the query for each student and voila!! The process runs smoothly although take a long time to finish.<br />Actually, I have no solution for this problem for the massive data query. I just loop the query and it works. Join statement in SQL is really use a high resource. If you have the solution, you can share it by leaving a comment on this post. Thanks! :)</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SQL Exclusion Join]]></title>
+    <link href="http://budiariyanto.github.io/blog/2010/11/01/sql-exclusion-join/"/>
+    <updated>2010-11-01T14:01:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2010/11/01/sql-exclusion-join</id>
+    <content type="html"><![CDATA[<div class='post'>
+We know that SQL has a join syntax to query data within two tables. For example I have two tables and data like this&nbsp;:<br /><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><b>Rose</b></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">type &nbsp; &nbsp;| &nbsp; &nbsp;price</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">-----------------------</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">Red &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;2</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">White &nbsp; | &nbsp; &nbsp; &nbsp;6</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><b>Lily</b></span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">type &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;price</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">------------------------------</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">Bowl Shaped &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp;5</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">Trumpet Shaped | &nbsp; &nbsp; &nbsp;6</span><br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br /></span><br />If we use a join, the tables must have condition to join them. But, how if we want to query data from one tables which doesn't exist in the other table? For example, I want to retrieve price of rose that not match in the lily? The answer is :<br /><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">select * from rose a where a.price </span><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><b>not in</b></span><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"> (select b.price from lily b)&nbsp;</span><br /><br />I hope this can help you for querying data. :D</div>
+
+]]></content>
+  </entry>
+  
+</feed>

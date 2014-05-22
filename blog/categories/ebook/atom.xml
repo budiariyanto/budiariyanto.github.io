@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ebook | My Personal Blog]]></title>
+  <link href="http://budiariyanto.github.io/blog/categories/ebook/atom.xml" rel="self"/>
+  <link href="http://budiariyanto.github.io/"/>
+  <updated>2014-05-22T09:43:14+07:00</updated>
+  <id>http://budiariyanto.github.io/</id>
+  <author>
+    <name><![CDATA[Budi Ariyanto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Object-Oriented Design & Patterns by Cay Horstmann]]></title>
+    <link href="http://budiariyanto.github.io/blog/2010/04/19/object-oriented-design-patterns-by-cay/"/>
+    <updated>2010-04-19T23:51:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2010/04/19/object-oriented-design-patterns-by-cay</id>
+    <content type="html"><![CDATA[<div class='post'>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_X_0MuvVWBIc/S8xT68Igz0I/AAAAAAAAAB4/xxXV8xh09bU/s1600/oodp2.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="200" src="http://1.bp.blogspot.com/_X_0MuvVWBIc/S8xT68Igz0I/AAAAAAAAAB4/xxXV8xh09bU/s200/oodp2.jpg" width="161" /></a></div>After searching for a book about object oriented, finally I found a very interesting ebook. The title is Object Oriented Design &amp; Patterns by Cay Horstmann. In this book, there are only a few explanation about object oriented rules in programming, but there are many explanation and knowledge about how to design an application that implement the object oriented concept and also about popular design patterns.<br />This book use java programming language. As we know the java programming language is a mature language with many features. So I think it's the best choice to help us understand about object oriented design and patterns. You can download the source code of the sample programs <span id="goog_1249364719"></span><a href="http://www.horstmann.com/oodp2/oodp.zip"><span id="goog_1249364728"></span>he<span id="goog_1249364725"></span><span id="goog_1249364726"></span><span id="goog_1249364731"></span><span id="goog_1249364732"></span>r<span id="goog_1249364722"></span><span id="goog_1249364723"></span>e<span id="goog_1249364729"></span></a><span id="goog_1249364720"></span>.</div>
+
+]]></content>
+  </entry>
+  
+</feed>

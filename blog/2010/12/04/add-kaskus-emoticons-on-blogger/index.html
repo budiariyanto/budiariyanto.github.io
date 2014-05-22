@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Add Kaskus Emoticons On Blogger - My Personal Blog</title>
+  <meta name="author" content="Budi Ariyanto">
+
+  
+  <meta name="description" content="After I install Yahoo + Plurk emoticons for blogger, I&#8217;m adding more emoticons from kaskus. I&#8217;m looking for scripts from userscripts.org &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://budiariyanto.github.io/blog/2010/12/04/add-kaskus-emoticons-on-blogger/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Personal Blog" type="application/atom+xml">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<meta property="fb:app_id" content="494926367287079" />
+
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <div id="logo">
+  	<div id="logoLeft">{</div>
+  	<div id="logoText">;-)</div>
+  	<div id="logoRight">}</div>
+  	<div class="clear"></div>
+  </div>
+  <h1><a href="/">My Personal Blog</a></h1>
+  
+    <h2>About my thoughts and activities.</h2>
+  
+  <div class="clear"></div>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:budiariyanto.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      
+        <h1 class="entry-title">Add Kaskus Emoticons on Blogger</h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-04T07:53:00+07:00" pubdate data-updated="true">Dec 4<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+After I install Yahoo + Plurk emoticons for blogger, I&#8217;m adding more emoticons from <a href="http://www.kaskus.co.id/">kaskus</a>. I&#8217;m looking for scripts from userscripts.org and found it, but not whole emoticons from kaskus are available. So, I modify the script in order to include all the emoticons. You can copy this script and use it with greasemonkey or chrome:<br /><pre class="brush:jscript"><br />// Based on the original emoticonsforblogger by Entry44<br />// Modified by Budi Ariyanto (http://fxbudiariyanto.blogspot.com/)<br /><br />// FEATURES<br />// Works only in Compose modes<br />// Add the emoticons at the end of the text<br /><br />// TODO<br />// modify the script to insert the emoticon directly after the cursor<br />// ==UserScript==<br />// @name           KasKus Smiley<br />// @namespace      http://fxbudiariyanto.blogspot.com/<br />// @description    You can use emoticons in Blogger.<br />// @include        http://*.blogger.com/post-edit.g?*<br />// @include        http://*.blogger.com/post-create.g?*<br />// ==/UserScript==<br /><br />window.addEventListener("load", function(e) {<br /><br /><br />function setemoticons(domname)<br />{<br />var editbar = document.getElementById(domname);<br />if (editbar) {<br /><br /> var buttons = "<br />";<br />//only in kaskus<br />buttons += emoticonButton(":ilovekaskus:", "http://www.kaskus.co.id/images/smilies/s_sm_ilovekaskus.gif");<br />buttons += emoticonButton(":iluvindo:", "http://www.kaskus.co.id/images/smilies/I-Luv-Indonesia.gif");<br />buttons += emoticonButton(":kiss:", "http://www.kaskus.co.id/images/smilies/cewek.gif");<br />buttons += emoticonButton(":maho:", "http://www.kaskus.co.id/images/smilies/s_sm_maho.gif");<br />buttons += emoticonButton(":najis:", "http://www.kaskus.co.id/images/smilies/najis.gif");<br />buttons += emoticonButton(":nosara:", "http://www.kaskus.co.id/images/smilies/nosara.gif");<br />buttons += emoticonButton(":marah:", "http://www.kaskus.co.id/images/smilies/marah.gif");<br />buttons += emoticonButton(":duka:", "http://www.kaskus.co.id/images/smilies/berduka.gif");<br />buttons += emoticonButton(":malu:", "http://www.kaskus.co.id/images/smilies/malu.gif");<br />buttons += emoticonButton(":ngakak:", "http://www.kaskus.co.id/images/smilies/ngakak.gif");<br />buttons += emoticonButton(":repost:", "http://www.kaskus.co.id/images/smilies/s_sm_repost1.gif");<br />buttons += emoticonButton(":repost2:", "http://www.kaskus.co.id/images/smilies/s_sm_repost2.gif");<br />buttons += emoticonButton(":s_up2:", "http://www.kaskus.co.id/images/smilies/sundul.gif");<br />buttons += emoticonButton(":cendolbig:", "http://www.kaskus.co.id/images/smilies/s_big_cendol.gif");<br />buttons += emoticonButton(":bata_big:", "http://www.kaskus.co.id/images/smilies/s_big_batamerah.gif");<br />buttons += emoticonButton(":recsel", "http://www.kaskus.co.id/images/smilies/recseller.gif");<br />buttons += emoticonButton(":takut:", "http://www.kaskus.co.id/images/smilies/takut.gif");<br />buttons += emoticonButton(":ngacir:", "http://www.kaskus.co.id/images/smilies/ngacir2.gif");<br />buttons += emoticonButton(":berjabat:", "http://www.kaskus.co.id/images/smilies/shakehand2.gif");<br />buttons += emoticonButton(":bingung:", "http://www.kaskus.co.id/images/smilies/bingung.gif");<br />buttons += emoticonButton(":cekpm:", "http://www.kaskus.co.id/images/smilies/cekpm.gif");<br />buttons += emoticonButton(":capede:", "http://www.kaskus.co.id/images/smilies/capede.gif");<br />buttons += emoticonButton(":palu:", "http://www.kaskus.co.id/images/smilies/hammer.gif");<br />buttons += emoticonButton(":peluk:", "http://www.kaskus.co.id/images/smilies/peluk.gif");<br />buttons += emoticonButton(":cendoltoast:", "http://www.kaskus.co.id/images/smilies/toastcendol.gif");<br />buttons += emoticonButton(":hoax:", "http://www.kaskus.co.id/images/smilies/hoax.gif");<br />buttons += emoticonButton(":cystg:", "http://www.kaskus.co.id/images/smilies/cystg.gif");<br />buttons += emoticonButton(":dp:", "http://www.kaskus.co.id/images/smilies/dp.gif");<br />buttons += emoticonButton(":selamat:", "http://www.kaskus.co.id/images/smilies/selamat.gif");<br />buttons += emoticonButton(":thumbup:", "http://www.kaskus.co.id/images/smilies/jempol1.gif");<br />buttons += emoticonButton(":thumbup2:", "http://www.kaskus.co.id/images/smilies/jempol2.gif");<br />buttons += emoticonButton(":jrb:", "http://www.kaskus.co.id/images/smilies/fd_1.gif");<br />buttons += emoticonButton(":kaskus_bgt:", "http://www.kaskus.co.id/images/smilies/fd_4.gif");<br />buttons += emoticonButton(":kts:", "http://www.kaskus.co.id/images/smilies/fd_6.gif");<br />buttons += emoticonButton(":sundul:", "http://www.kaskus.co.id/images/smilies/fd_5.gif");<br />buttons += emoticonButton(":kacau_thread:", "http://www.kaskus.co.id/images/smilies/fd_8.gif");<br />buttons += emoticonButton(":cape_de:", "http://www.kaskus.co.id/images/smilies/fd_2.gif");<br />buttons += emoticonButton(":kaskus___:", "http://www.kaskus.co.id/images/smilies/sumbangan/kaskuslove.gif");<br />buttons += emoticonButton("::", "http://img148.imageshack.us/img148/4416/tipiav1.gif");<br /><br />//only in kaskus(small)<br />buttons += emoticonButton(":cendolb", "http://www.kaskus.co.id/images/smilies/s_sm_cendol.gif");<br />buttons += emoticonButton(":)b", "http://www.kaskus.co.id/images/smilies/s_sm_smile.gif");<br />buttons += emoticonButton(":cendols", "http://www.kaskus.co.id/images/smilies/cendols.gif");<br />buttons += emoticonButton(":ioveindonesias", "http://www.kaskus.co.id/images/smilies/iloveindonesias.gif");<br />buttons += emoticonButton(":berdukas", "http://www.kaskus.co.id/images/smilies/berdukas.gif");<br />buttons += emoticonButton(":bingungs", "http://www.kaskus.co.id/images/smilies/bingungs.gif");<br />buttons += emoticonButton(":najiss", "http://www.kaskus.co.id/images/smilies/najiss.gif");<br />buttons += emoticonButton(":ilovekaskuss", "http://www.kaskus.co.id/images/smilies/iluvkaskuss.gif");<br />buttons += emoticonButton(":mads", "http://www.kaskus.co.id/images/smilies/mads.gif");<br />buttons += emoticonButton(":sundulgans", "http://www.kaskus.co.id/images/smilies/sundulgans.gif");<br />buttons += emoticonButton(":hammers", "http://www.kaskus.co.id/images/smilies/hammers.gif");<br />buttons += emoticonButton(":bata", "http://www.kaskus.co.id/images/smilies/s_sm_batamerah.gif");<br />buttons += emoticonButton(":Yb", "http://www.kaskus.co.id/images/smilies/s_sm_peace.gif");<br />buttons += emoticonButton(":batas", "http://www.kaskus.co.id/images/smilies/batas.gif");<br />buttons += emoticonButton(":cekpms", "http://www.kaskus.co.id/images/smilies/cekpms.gif");<br />buttons += emoticonButton(":capedes", "http://www.kaskus.co.id/images/smilies/capedes.gif");<br />buttons += emoticonButton(":mahos", "http://www.kaskus.co.id/images/smilies/mahos.gif");<br />buttons += emoticonButton(":malus", "http://www.kaskus.co.id/images/smilies/malus.gif");<br />buttons += emoticonButton(":kisss", "http://www.kaskus.co.id/images/smilies/kisss.gif");<br />buttons += emoticonButton(":ngakaks", "http://www.kaskus.co.id/images/smilies/ngakaks.gif");<br />buttons += emoticonButton(":takuts", "http://www.kaskus.co.id/images/smilies/takuts.gif");<br />buttons += emoticonButton(":reposts", "http://www.kaskus.co.id/images/smilies/reposts.gif");<br /><br />//standard smilies<br />buttons += emoticonButton(":thumbdown", "http://www.kaskus.co.id/images/smilies/sumbangan/48.gif");<br />buttons += emoticonButton(":metal:", "http://www.kaskus.co.id/images/smilies/sumbangan/q17.gif");<br />buttons += emoticonButton(":afro:", "http://www.kaskus.co.id/images/smilies/sumbangan/kribo.gif");<br />buttons += emoticonButton(":linux2:", "http://www.kaskus.co.id/images/smilies/sumbangan/26.gif");<br />buttons += emoticonButton(":matabelo:", "http://www.kaskus.co.id/images/smilies/sumbangan/004.gif");<br />buttons += emoticonButton(":genit:", "http://www.kaskus.co.id/images/smilies/sumbangan/q03.gif");<br />buttons += emoticonButton(":hi:", "http://www.kaskus.co.id/images/smilies/sumbangan/hi.gif");<br />buttons += emoticonButton(":linux1:", "http://www.kaskus.co.id/images/smilies/sumbangan/25.gif");<br />buttons += emoticonButton(":nohope:", "http://www.kaskus.co.id/images/smilies/sumbangan/q11.gif");<br />buttons += emoticonButton(":norose:", "http://www.kaskus.co.id/images/smilies/sumbangan/35.gif");<br />buttons += emoticonButton(":)", "http://www.kaskus.co.id/images/smilies/sumbangan/15.gif");<br />buttons += emoticonButton(":doctor:", "http://www.kaskus.co.id/images/smilies/sumbangan/18.gif");<br />buttons += emoticonButton(":ngacir:", "http://www.kaskus.co.id/images/smilies/ngacir.gif");<br />buttons += emoticonButton(":rose:", "http://www.kaskus.co.id/images/smilies/sumbangan/34.gif");<br />buttons += emoticonButton(":angel:", "http://www.kaskus.co.id/images/smilies/sumbangan/017.gif");<br />buttons += emoticonButton(":kagets:", "http://www.kaskus.co.id/images/smilies/sumbangan/3.gif");<br />buttons += emoticonButton(":eek:", "http://www.kaskus.co.id/images/smilies/sumbangan/4.gif");<br />buttons += emoticonButton(":fuck:", "http://www.kaskus.co.id/images/smilies/sumbangan/fuck-4.gif");<br />buttons += emoticonButton(":email:", "http://www.kaskus.co.id/images/smilies/sumbangan/43.gif");<br />buttons += emoticonButton(":ck:", "http://www.kaskus.co.id/images/smilies/sumbangan/kaskuslove.gif");<br />buttons += emoticonButton(":ricebowl:", "http://www.kaskus.co.id/images/smilies/sumbangan/32.gif");<br />buttons += emoticonButton(":hammer:", "http://www.kaskus.co.id/images/smilies/sumbangan/8.gif");<br />buttons += emoticonButton(":buldog:", "http://www.kaskus.co.id/images/smilies/sumbangan/woof.gif");<br />buttons += emoticonButton(":rolleyes:", "http://www.kaskus.co.id/images/smilies/sumbangan/01.gif");<br />buttons += emoticonButton(":rainbow:", "http://www.kaskus.co.id/images/smilies/sumbangan/e02.gif");<br />buttons += emoticonButton(":Phone:", "http://www.kaskus.co.id/images/smilies/sumbangan/41.gif");<br />buttons += emoticonButton(":gila:", "http://www.kaskus.co.id/images/smilies/sumbangan/crazy.gif");<br />buttons += emoticonButton(":baby:", "http://www.kaskus.co.id/images/smilies/sumbangan/30.gif");<br />buttons += emoticonButton(":moon:", "http://www.kaskus.co.id/images/smilies/sumbangan/007.gif");<br />buttons += emoticonButton(":tai:", "http://www.kaskus.co.id/images/smilies/sumbangan/shit-3.gif");<br />buttons += emoticonButton(":p", "http://www.kaskus.co.id/images/smilies/sumbangan/6.gif");<br />buttons += emoticonButton(":exclamati", "http://www.kaskus.co.id/images/smilies/sumbangan/52.gif");<br />buttons += emoticonButton(":Onigiri:", "http://www.kaskus.co.id/images/smilies/sumbangan/rice.gif");<br />buttons += emoticonButton(":beer:", "http://www.kaskus.co.id/images/smilies/sumbangan/smiley_beer.gif");<br />buttons += emoticonButton(":kucing:", "http://www.kaskus.co.id/images/smilies/sumbangan/28.gif");<br />buttons += emoticonButton(":shutup:", "http://www.kaskus.co.id/images/smilies/sumbangan/5.gif");<br />buttons += emoticonButton(":breakheart", "http://www.kaskus.co.id/images/smilies/sumbangan/38.gif");<br />buttons += emoticonButton(":D", "http://www.kaskus.co.id/images/smilies/sumbangan/14.gif");<br />buttons += emoticonButton(":bingung:", "http://www.kaskus.co.id/images/smilies/bolakbalik.gif");<br />buttons += emoticonButton(":Peace:", "http://www.kaskus.co.id/images/smilies/sumbangan/005.gif");<br />buttons += emoticonButton(":heart:", "http://www.kaskus.co.id/images/smilies/sumbangan/37.gif");<br />buttons += emoticonButton(":o", "http://www.kaskus.co.id/images/smilies/sumbangan/07.gif");<br />buttons += emoticonButton(":thumbup:", "http://www.kaskus.co.id/images/smilies/sumbangan/47.gif");<br />buttons += emoticonButton(":tabrakan:", "http://www.kaskus.co.id/images/smilies/tabrakan.gif");<br />buttons += emoticonButton(":kissmouth", "http://www.kaskus.co.id/images/smilies/sumbangan/36.gif");<br />buttons += emoticonButton(":(", "http://www.kaskus.co.id/images/smilies/sumbangan/06.gif");<br />buttons += emoticonButton(":siul:", "http://www.kaskus.co.id/images/smilies/sumbangan/020.gif");<br />buttons += emoticonButton(":malu:", "http://www.kaskus.co.id/images/smilies/sumbangan/1.gif");<br />buttons += emoticonButton(":fuck3:", "http://www.kaskus.co.id/images/smilies/sumbangan/fuck-8.gif");<br />buttons += emoticonButton(":army:", "http://www.kaskus.co.id/images/smilies/sumbangan/24.gif");<br />buttons += emoticonButton(":Paws:", "http://www.kaskus.co.id/images/smilies/sumbangan/paw.gif");<br />buttons += emoticonButton(":confused:", "http://www.kaskus.co.id/images/smilies/sumbangan/7.gif");<br />buttons += emoticonButton(":fuck2:", "http://www.kaskus.co.id/images/smilies/sumbangan/fuck-6.gif");<br />buttons += emoticonButton(":tv:", "http://www.kaskus.co.id/images/smilies/sumbangan/44.gif");<br />buttons += emoticonButton(":fm:", "http://www.kaskus.co.id/images/smilies/smileyfm329wj.gif");<br />buttons += emoticonButton(":medicine:", "http://www.kaskus.co.id/images/smilies/sumbangan/33.gif");<br />buttons += emoticonButton(":kissing:", "http://www.kaskus.co.id/images/smilies/sumbangan/014.gif");<br />buttons += emoticonButton(":wowcantik", "http://www.kaskus.co.id/images/smilies/sumbangan/001.gif");<br />buttons += emoticonButton(":mad:", "http://www.kaskus.co.id/images/smilies/sumbangan/12.gif");<br />buttons += emoticonButton(":flower:", "http://www.kaskus.co.id/images/smilies/sumbangan/e03.gif");<br />buttons += emoticonButton(":clock:", "http://www.kaskus.co.id/images/smilies/sumbangan/42.gif");<br />buttons += emoticonButton("amazed:", "http://www.kaskus.co.id/images/smilies/sumbangan/amazed.gif");<br />buttons += emoticonButton(":coffee:", "http://www.kaskus.co.id/images/smilies/sumbangan/31.gif");<br />buttons += emoticonButton(":sun:", "http://www.kaskus.co.id/images/smilies/sumbangan/008.gif");<br />buttons += emoticonButton(":bikini:", "http://www.kaskus.co.id/images/smilies/sumbangan/vana-bum-vanaweb-dot-com.gif");<br />buttons += emoticonButton(":cool:", "http://www.kaskus.co.id/images/smilies/sumbangan/05.gif");<br />buttons += emoticonButton(":rain:", "http://www.kaskus.co.id/images/smilies/sumbangan/60.gif");<br />buttons += emoticonButton(":present:", "http://www.kaskus.co.id/images/smilies/sumbangan/40.gif");<br />buttons += emoticonButton(":kimpoi", "http://www.kaskus.co.id/images/smilies/sumbangan/smiley_couple.gif");<br />buttons += emoticonButton(":anjing:", "http://www.kaskus.co.id/images/smilies/sumbangan/29.gif");<br />buttons += emoticonButton(":think:", "http://www.kaskus.co.id/images/smilies/sumbangan/006.gif");<br />buttons += emoticonButton(":table:", "http://www.kaskus.co.id/images/smilies/sumbangan/39.gif");<br />buttons += emoticonButton(";)", "http://www.kaskus.co.id/images/smilies/sumbangan/13.gif");<br />buttons += emoticonButton(":shakehand", "http://www.kaskus.co.id/images/smilies/sumbangan/49.gif");<br />buttons += emoticonButton(":berbusa:", "http://www.kaskus.co.id/images/smilies/sumbangan/q20.gif");<br />buttons += emoticonButton(":frog:", "http://www.kaskus.co.id/images/smilies/sumbangan/frog.gif");<br />buttons += emoticonButton(":babi:", "http://www.kaskus.co.id/images/smilies/sumbangan/27.gif");<br />buttons += separator();<br /><br /> editbar.innerHTML += buttons;<br />}<br />}<br /><br /><br />function emoticonButton(name, url) {<br />return "<span alt="\\\&quot;&quot;" class="" id="htmlbar_undefined" onmousedown="" onmouseout="ButtonHoverOff(this);" onmouseover="ButtonHoverOn(this);" onmouseup="" rich_body=" rich_edit.contentDocument.getElementsByTagName(\&quot;body\&quot;);rich_body[0].innerHTML+=" rich_edit=" document.getElementById(\&quot;richeditorframe\&quot;);var" src="\\\&quot;&quot;+url+&quot;\\\&quot;" style="display: block;" title="&quot; + name + &quot;">\";})();ButtonMouseDown(this);"&gt;<img alt="&quot; + name + &quot;" border="0" src="http://www.blogger.com/%22%20+%20url%20+%20%22" /></span>\n";<br />}<br /><br />function separator() {<br />return "<div class="\&quot;vertbar\&quot;"><br /><span class="\&quot;g\&quot;"> </span><span class="\&quot;w\&quot;"> </span></div><br />\n";<br />}<br /><br />setemoticons("formatbar");<br /><br />}, false);</pre><br /><br />Notes : If you use google chrome, save this script in the following directory :<br /><div>~/.config/google-chrome/Default/Extensions/</div><div><br /></div><div>Enjoy.</div><br /><img alt=":D" class="emoticon" src="http://www.kaskus.co.id/images/smilies/sumbangan/14.gif" title=":D" /><img alt=":beer:" class="emoticon" src="http://www.kaskus.co.id/images/smilies/sumbangan/smiley_beer.gif" title=":beer:" /><img alt=":afro:" class="emoticon" src="http://www.kaskus.co.id/images/smilies/sumbangan/kribo.gif" title=":afro:" /><img alt=":metal:" class="emoticon" src="http://www.kaskus.co.id/images/smilies/sumbangan/q17.gif" title=":metal:" /><img alt=":nohope:" class="emoticon" src="http://www.kaskus.co.id/images/smilies/sumbangan/q11.gif" title=":nohope:" /><img alt=":)" class="emoticon" src="http://www.kaskus.co.id/images/smilies/sumbangan/15.gif" title=":)" /><img alt=":doctor:" class="emoticon" src="http://www.kaskus.co.id/images/smilies/sumbangan/18.gif" title=":doctor:" /><img alt=":najiss" class="emoticon" src="http://www.kaskus.co.id/images/smilies/najiss.gif" title=":najiss" /><img alt=":mahos" class="emoticon" src="http://www.kaskus.co.id/images/smilies/mahos.gif" title=":mahos" /><img alt=":shakehand" class="emoticon" src="http://www.kaskus.co.id/images/smilies/sumbangan/49.gif" title=":shakehand" /><img alt=":cool:" class="emoticon" src="http://www.kaskus.co.id/images/smilies/sumbangan/05.gif" title=":cool:" /><img alt=":army:" class="emoticon" src="http://www.kaskus.co.id/images/smilies/sumbangan/24.gif" title=":army:" /><img alt=":ilovekaskuss" class="emoticon" src="http://www.kaskus.co.id/images/smilies/iluvkaskuss.gif" title=":ilovekaskuss" /><img alt=":ck:" class="emoticon" src="http://www.kaskus.co.id/images/smilies/sumbangan/kaskuslove.gif" title=":ck:" /><img alt=":ngacir:" class="emoticon" src="http://www.kaskus.co.id/images/smilies/ngacir.gif" title=":ngacir:" /></div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Budi Ariyanto</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-04T07:53:00+07:00" pubdate data-updated="true">Dec 4<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/blogger/'>blogger</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://budiariyanto.github.io/blog/2010/12/04/add-kaskus-emoticons-on-blogger/" data-via="fxbudiariyanto" data-counturl="http://budiariyanto.github.io/blog/2010/12/04/add-kaskus-emoticons-on-blogger/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left articlenav" href="/blog/2010/12/03/yahoo-plurk-emoticon-for-blogger-on/" title="Previous Post: Yahoo + Plurk Emoticon For Blogger On Google Chrome">&laquo; Yahoo + Plurk Emoticon For Blogger On Google Chrome</a>
+      
+      
+        <a class="basic-alignment right articlenav" href="/blog/2010/12/04/several-changes-in-my-blog-design/" title="Next Post: Several Changes In My Blog Design">Several Changes In My Blog Design &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Budi Ariyanto</h1>
+  <p>Software engineer, currently happy with open source technologies.</p>
+  <ul>
+    <li><i class="fa fa-github-alt"></i>&nbsp;<a href="https://github.com/budiariyanto">github.com/budiariyanto</a></li>
+    <li><i class="fa fa-google-plus"></i>&nbsp;<a href="https://plus.google.com/+BudiAriyanto">+BudiAriyanto</a></li>
+    <li><i class="fa fa-twitter"></i>&nbsp;<a href="https://twitter.com/fxbudiariyanto">@fxbudiariyanto</a></li>
+    <li><i class="fa fa-facebook"></i>&nbsp;<a href="https://www.facebook.com/fx.budi.ariyanto">facebook.com/fx.budi.ariyanto</a></li>
+    <li><i class="fa fa-pinterest"></i>&nbsp;<a href="http://pinterest.com/fxbudiariyanto">pinterest.com/fxbudiariyanto</a></li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/19/maven-multi-project/">Maven Multi Module Project</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/19/maven-multi-module-project/">Maven Multi Module Project</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/17/menjadi-idealis/">Menjadi Idealis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/25/memilih-distro-linux/">Memilih Distro Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/17/tutorial-singkat-maven/">Tutorial Singkat Maven</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/budiariyanto">@budiariyanto</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'budiariyanto',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/+BudiAriyanto?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<section>
+    <h1>Latest Tweets</h1>
+    <a class="twitter-timeline"  href="https://twitter.com/fxbudiariyanto"  data-widget-id="416105439349075968" data-chrome="transparent">Tweets by @fxbudiariyanto</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Budi Ariyanto -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=494926367287079&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

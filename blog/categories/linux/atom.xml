@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: linux | My Personal Blog]]></title>
+  <link href="http://budiariyanto.github.io/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://budiariyanto.github.io/"/>
+  <updated>2014-05-22T09:43:14+07:00</updated>
+  <id>http://budiariyanto.github.io/</id>
+  <author>
+    <name><![CDATA[Budi Ariyanto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Memilih Distro Linux]]></title>
+    <link href="http://budiariyanto.github.io/blog/2014/01/25/memilih-distro-linux/"/>
+    <updated>2014-01-25T23:50:10+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2014/01/25/memilih-distro-linux</id>
+    <content type="html"><![CDATA[<p>Saya sudah cukup lama berkelana gonta-ganti distro linux, sejak akhir tahun 2006. Distro yang pernah saya pakai adalah <a href="http://www.ubuntu.com">Ubuntu</a>, <a href="http://www.opensuse.org">openSUSE</a>, <a href="http://fedoraproject.org">Fedora</a>, <a href="http://www.linuxmint.com">Mint</a>, <a href="http://www.slackware.com">Slackware</a> dan <a href="http://www.archlinux.org">Arch</a>. Pernah juga hanya sekedar coba-coba Backtrack(sekarang namanya <a href="http://www.kali.org">Kali Linux</a>), <a href="http://www.slax.org">Slax</a> dan <a href="http://puppylinux.org">Puppy</a>. Orang yang baru berkenalan dengan linux biasanya bernasib sama seperti saya waktu dulu. Bingung dengan banyaknya pilihan distro linux yang sudah seperti hutan belantara. Karena bingung, akhirnya bertanya ke sana kemari distro linux yang ini dengan yang itu bagus yang mana? Jawaban orang-orang yang ditanya pun bervariasi. Orang-orang biasanya menjawab dengan hal-hal yang bagus-bagus mengenai distro linux yang dia gunakan. Karena semuanya bagus, bertanya kepada orang-orang yang sudah menggunakan distro linux tidak menjawab kebingungan saya. Yang ada malah tambah bingung karena kok semuanya bagus. Akhirnya ya harus coba-coba sendiri. Lama kelamaan, saya tau bahwa distro linux itu memang ada faktor selera dan masing-masing distro linux mempunyai rancangan dan tujuan masing-masing. Jadi, tidak ada distro linux yang paling bagus. Semua tergantung selera dan kebutuhan. Maka dari itu, saya ingin membantu Anda yang baru berkenalan dengan linux, dengan membagikan pengalaman saya mengenai perjalanan saya belajar linux. Semoga membantu.</p>
+
+<!--more-->
+
+
+<h2>Bagaimana Caranya Agar Betul-Betul Mengerti Cara Kerja Linux?</h2>
+
+<p>Distro linux adalah distribusi linux. Perbedaan yang paling kelihatan antara distro satu dengan yang lain adalah apa yang Anda dapat ketika pertama kali selesai menginstall distro tersebut. Misalnya kalau kita menginstall Ubuntu, selesai menginstall akan ada GUI bernama Unity(jaman dulu menggunakan GNOME), ada aplikasi office, transmission(untuk download via torrent), firefox dan lain-lain. Kalau install Arch, tidak ada GUI. Harus install sendiri. Yang ada hanya aplikasi CLI yang sangat umum. Tapi apapun distronya, intinya itu adalah linux. Jadi seharusnya mau menggunakan distro apapun kita tetap mengerti cara kerjanya. Nah bagaimana caranya agar kita tidak hanya mengerti distro linux, tapi sampai mengerti cara kerja linux itu sendiri? Berikut ini tips dari saya:</p>
+
+<ol>
+<li><p>Gunakanlah linux yang design-nya sederhana. Yang sederhana design distronya lho ya. Bukan pemakaiannya yang sederhana. Pemakaiannya justru terkesan ribet. Karena sistemnya sederhana, kita harus banyak belajar menggunakan command line interface, compile aplikasi dan dependensinya secara manual, konfigurasi environment variable, system services, partisi, struktur direktori dan lain sebagainya. Maka dari itu, supaya bisa belajar dengan nikmat, pilih distro yang dokumentasinya lengkap. Pilihan saya untuk belajar linux adalah Slackware.</p></li>
+<li><p>Karena harus banyak membaca dokumentasi atau referensi dalam bahasa inggris, ya belajarlah bahasa inggris. Tidak usah sampai bisa berbicara menggunakan bahasa inggris. Cukup sampai bisa membaca dan mengerti kalimat-kalimat dalam bahasa inggris saja.</p></li>
+<li><p>Kalau tidak berani mencoba tidak akan bisa. Perlu diingat, hasil percobaan itu ada 2. Berhasil atau gagal. Kalau berhasil ya syukur, kalau gagal separah-parahnya bisa menlenyapkan seisi harddisk. Maka dari itu saya sangat menyarankan Anda membeli harddisk external untuk membackup semua data yang penting. Yang tidak penting mau ikutan dibackup juga terserah :) Yang penting ada backupnya.</p></li>
+<li><p>Apa daya peralatan untuk percobaan sangat minimal. Misalkan hanya punya 1 laptop atau PC. Ya kalau situasi dan kondisinya seperti ini bisa dengan menginstall linux dan sistem operasi yang lain secara berdampingan(<em>dual-boot</em>).</p></li>
+<li><p>Harddisk untuk backup sudah dibeli dan data sudah dibackup. Seharusnya tidak ada lagi alasan untuk menyerah kecuali mesin yang Anda pakai tiba-tiba rusak total atau meledak. Jangan menyerah ketika belum terbiasa menggunakan linux. Rasanya memang aneh dan tidak enak, tapi begitu sudah terbiasa Anda tidak akan kembali lagi menginstall OS lama Anda yang mungkin sangat mudah terkena virus dan tidak stabil itu. :p</p></li>
+</ol>
+
+
+<p>Setelah nyaman dengan Slackware, barulah coba beralih ke distro lain. Saya rasa kira-kira paling lama 1 minggu Anda sudah bisa mengerti distro lain yang baru Anda pakai itu. Kok bisa? Karena sudah mengerti cara kerja <em>low-level</em>-nya. Cara yang <em>low-level</em> saja bisa kok, apalagi yang cuma <em>klak-klik klak-klik</em> pakai mouse begitu. Distro yang lebih kompleks biasanya menawarkan kemudahan di sisi pengguna. Istilah populernya <em>user-friendly</em>. Semakin <em>user-friendly</em>, cara kerja sistem yang sebenarnya semakin tersembunyi. Maka dari itu kalau kita langsung menggunakan distro yang <em>user-friendly</em>, kita biasanya akan &ldquo;terjebak&rdquo; dengan kemudahan yang ditawarkan, sehingga sudah malas belajar hal-hal yang bersifat <em>low-level</em>. Kalau sudah begini ya kita hanya bisa menggunakan distro tersebut, tapi tidak bisa menggunakan linux yang sebenarnya.</p>
+
+<h2>Distro Linux Yang Mana Yang Harus Saya Pilih?</h2>
+
+<p>Setelah mengerti cara kerja linux, inilah saatnya memilih distro yang sesuai dengan kebutuhan dan selera kita. Berdasarkan pengalaman saya, ada 4 kelompok distro linux berdasarkan tujuannya atau <em>by designnya</em>, yaitu:</p>
+
+<ol>
+<li><p>Minimalis<br/>
+Distro minimalis adalah distro yang design sistemnya sederhana. Pilihan saya untuk distro minimalis ini adalah Slackware dan Arch. Lebih spesifik lagi, kalau kita membutuhkan sistem yang super stabil pakailah Slackware. Cocok untuk dipasang di server maupun desktop. Kalau suka atau butuh sistem yang bisa memberikan sensasi seperti membangun distro sendiri, aplikasi-aplikasinya selalu <em>up to date</em> menggunakan versi rilis yang terakhir dan menggunakan teknologi yang baru muncul(dikenal dengan istilah <em>bleeding edge</em>), pakailah Arch.</p></li>
+<li><p>User-friendly / beginner / desktop<br/>
+Sesuai sebutannya, distro yang <em>user-friendly</em> adalah distro yang mudah digunakan. Saya menyarankan Mint atau Ubuntu karena sangat populer(banyak yang pakai), cukup stabil dan benar-benar mudah. Kendala mungkin ada, tapi hanya sedikit. <em>Tweaking</em> sebentar langsung jalan dengan baik. Biasa diinstall di komputer desktop atau laptop.</p></li>
+<li><p>Khusus server<br/>
+Distro jenis ini sangat memprioritaskan kestabilan sistem daripada teknologi terbaru yang ada saat ini. Kelebihannya, sistemnya sangat stabil tapi kekurangannya adalah aplikasi-aplikasinya banyak yang sudah &ldquo;kuno&rdquo;. Saran saya adalah Debian. Walaupun Debian dikategorikan sebagai distro untuk server, tapi banyak juga orang yang menginstallnya di desktop atau laptop dengan mengikuti <em>branch</em> Debian testing atau sekalian <em>branch</em> unstable(Sid). Kalau tidak suka Debian alternatifnya bisa menggunakan Slackware.</p></li>
+<li><p>Tujuan sangat spesifik<br/>
+Misalnya kita ingin melakukan <em>security penetration test</em>, kita bisa gunakan Kali Linux. Kalau butuh OS yang bisa diinstall dan dijalankan lewat flashdisk, kita bisa install puppy atau slax. Saya sendiri memilih slax karena based on Slackware yang notabene stabil.</p></li>
+</ol>
+
+
+<h2>Distro Paling &ldquo;Josss&rdquo; Menurut Saya</h2>
+
+<p>Untuk desktop/laptop saya memilih Ubuntu. Alasannya:</p>
+
+<ol>
+<li>Karena pekerjaan saya membuat program, maka saya mau linux yang mudah digunakan dan cukup stabil.</li>
+<li>Semua hardware berjalan dengan baik di laptop saya.</li>
+<li>Aplikasi yang tersedia super lengkap.</li>
+<li>Komunitasnya aktif sehingga kalau ada permasalahan menyelesaikannya bisa lebih cepat.</li>
+</ol>
+
+
+<p>Untuk server saya memilih Slackware. Alasannya:</p>
+
+<ol>
+<li>Super stabil.</li>
+<li>Cukup secure.</li>
+<li>Tidak &ldquo;kuno-kuno&rdquo; amat karena biasanya paling lama 1 tahun sudah keluar versi baru dengan aplikasi-aplikasi yang sudah diupdate. Kalau Debian bisa 2 &ndash; 3 tahun baru rilis.</li>
+<li>Aplikasi bawaannya cukup lengkap.</li>
+</ol>
+
+
+<p>Begitulah kira-kira pengalaman saya. Kalau Anda mau ngikut silahkan, mau eksplorasi sendiri juga boleh. Ikuti kebutuhan dan selera Anda :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Xorg Updates On Slackware -current]]></title>
+    <link href="http://budiariyanto.github.io/blog/2011/02/01/xorg-updates-on-slackware-current/"/>
+    <updated>2011-02-01T21:21:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2011/02/01/xorg-updates-on-slackware-current</id>
+    <content type="html"><![CDATA[<div class='post'>
+Today <a href="http://www.slackware.com/changelog/current.php?cpu=i386">Slackware -current updates</a>(Feb 1 2011) makes me happy, because there's a lot of Xorg updates. Now I'm using Slackware 13.1 on my laptop and there are several problems like wireless light indicator keeps turn on even I turned it off, a lot of Fn toggle keys combination that not yet work and touch pad that cannot be turned off. I hope with the Xorg updates can fix my problems in the future when I upgrade my system to Slackware 13.2. Thanks to Robby Workman for this updates. <img class="emoticon" src="http://us.i1.yimg.com/us.yimg.com/i/mesg/emoticons7/41.gif" width="18" alt="applause" title="applause" /><div>There's also added package, xdg-user-dirs to help manage "well-known" user directories like Desktop and music folder. I cannot imagine yet how this package works, but I'm sure there is a better folder management on Slackware 13.2. I just can't wait the Slackware 13.2 to be released and upgrade my system. <img class="emoticon" src="http://statics.plurk.com/4f01bac8a707e5450307f97065ec0fa7.gif" width="30" alt="Banana Cool" title="Banana Cool" /></div></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Esteban Gambino</div>
+<div class='content'>
+I too am patiently awaiting the release of 13.2, as my new notebook will need the latest and greatest tools available in order to function properly! No self respecting linux hacker would burn in a new machine without a fresh install of Slackware.</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Libre Office Finally Released]]></title>
+    <link href="http://budiariyanto.github.io/blog/2011/01/29/libre-office-finally-released/"/>
+    <updated>2011-01-29T20:22:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2011/01/29/libre-office-finally-released</id>
+    <content type="html"><![CDATA[<div class='post'>
+First final release of  open office fork(Libre Office) has been released. It has many new features like import svg files into Draw, 1 million rows in Calc, improved slide handling layout for Impress, bundled Linux Libertine G and Linux Bilonium G font(they are nice :)), implement import of alpha channel on RGBA .tiffs and many more. I recommend you to try it. You can <a href="http://www.libreoffice.org/download/">download Libre Office here</a>.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Wagkangmakulit</div>
+<div class='content'>
+May I know if this is better than openOffice. If so, pls. give me some information regarding the advantages and dis-advantages. I like to get rid pirated Applications and I want to convert on some freeware. Thanks.<br /><br />Mark<br /><a href="http://www.ultrasoundtechnicianschools411.com/" rel="nofollow">ultrasound technician schools</a></div>
+</div>
+<div class='comment'>
+<div class='author'>Mark Lloyd Binar</div>
+<div class='content'>
+I&#39;m now using free software and trying to get away to those pirated software and hope that I can continue that. Libre office is also great to use. Thanks for the share.<br /><br /><a href="http://www.amiramdesign.com/products.php?cat=dining_tables" rel="nofollow">שולחן אוכל</a><br /><br />Have a great day!<br /><br />Mark Lloyd Binar<br /><a href="http://www.amiramdesign.com/products.php?cat=dining_tables" rel="nofollow">שולחן אוכל</a></div>
+</div>
+<div class='comment'>
+<div class='author'>Mark Lloyd Binar</div>
+<div class='content'>
+I&#39;m now using free software and trying to get away to those pirated software and hope that I can continue that. Libre office is also great to use. Thanks for the share.<br /><br />Mark<br /><br /><a href="http://www.amiramdesign.com/products.php?cat=dining_tables" rel="nofollow">שולחן אוכל</a></div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MoC : Music On Console]]></title>
+    <link href="http://budiariyanto.github.io/blog/2011/01/27/moc-music-on-console/"/>
+    <updated>2011-01-27T20:46:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2011/01/27/moc-music-on-console</id>
+    <content type="html"><![CDATA[<div class='post'>
+MoC is music player that running on console. It has GUI created with ncurses library. This application is very simple and lightweight, with two layout on the left(file browser) and right(playlist). It can play common music file format like mp3 and WAV with great sound. MoC's lack is at the poor search feature, that can only search for file on the current directory. So, it's rather useless. This weakness will be covered in the next release maybe, since the improvement on the search feature is on the wishlist. MoC also have equalizer preset, but you have to download it separately from MoC package. You can get the MoC package <a href="http://moc.daper.net/download">here</a>.<div>For Slackware user : MoC will be added to Slackware 13.2, since it's on the -current package now. You have to be happy now since Slackware have default great console music player. :)</div></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SLAX Still Alive]]></title>
+    <link href="http://budiariyanto.github.io/blog/2010/12/18/slax-still-alive/"/>
+    <updated>2010-12-18T16:01:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2010/12/18/slax-still-alive</id>
+    <content type="html"><![CDATA[<div class='post'>
+<a href="http://www.slax.org/">Slax</a> is linux distribution based on <a href="http://slackware.com/">Slackware</a>. It's run with linux-live scripts created by Slax creator, Thomas M. The current stable version is 6.1.2 and it's old. I ever use Slax and it's become one of my favorite distribution. After I join the community for several months, I found that <a href="http://www.slax.org/forum.php?action=view&amp;parentID=52934">Thomas seems not to develop Slax anymore</a>. I'm disappointed for that, but lately I found news on <a href="http://distrowatch.com/weekly.php?issue=20101213#feature">distrowatch weekly issue</a>, that one of the Slax forum member(known as fanthom) keeps Slax alive with <a href="http://www.slax.org/forum.php?action=view&amp;parentID=70793">Slax Remix</a> release. It's use KDE 4 and kernel 2.6.36.1 from Slackware -current. I hope fanthom can keep up this good work and help Thomas to keep Slax alive forever. <img class="emoticon" src="http://statics.plurk.com/1c890273544559b17f090d09238fa763.gif" width="29" alt="Rock" title="Rock" /></div>
+
+]]></content>
+  </entry>
+  
+</feed>

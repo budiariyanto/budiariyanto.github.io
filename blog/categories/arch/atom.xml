@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: arch | My Personal Blog]]></title>
+  <link href="http://budiariyanto.github.io/blog/categories/arch/atom.xml" rel="self"/>
+  <link href="http://budiariyanto.github.io/"/>
+  <updated>2014-05-22T09:43:14+07:00</updated>
+  <id>http://budiariyanto.github.io/</id>
+  <author>
+    <name><![CDATA[Budi Ariyanto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My Next Distro: Arch Linux]]></title>
+    <link href="http://budiariyanto.github.io/blog/2011/11/07/my-next-distro-arch-linux/"/>
+    <updated>2011-11-07T23:46:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2011/11/07/my-next-distro-arch-linux</id>
+    <content type="html"><![CDATA[<div class='post'>
+Slackware is my favourite linux distro since approximately 4.5 years ago. It brings so many useful experience to me at the very beginning I learn linux in early 2008. I still remember how I confuse because there are no desktop environment at the startup, and then I realize that there is one "magic command" that change everything. The <b>startx</b>. LOL .. And then I learn how to get connected to the internet using wireless network, configuring sound card, installing video driver, configuring xorg server, mounting removable disks, compile application from source tarball and slackware package manager, inserting and removing kernel modules, and many more... At the end, Slackware makes me understand how linux look like and how it works. Thanks to Patrick Volkerding who create and mantain this great distro until now.<br />These days, I try to take a new challenge. I want to switch the distro that I used everyday. But I didn't find any distro until I try Arch Linux. At first, I try Ubuntu 11.10 "Oneiric Ocelot" that has package manager that resolve dependency automatically based on the repository. I think it's very useful since make the user more productive with no more searching the package dependency to just install one package. Slackware don't have this feature and I think that's Slackware cons. For example, I have to compile and install 42 dependency package by myself for one vlc package with complete feature. Pheww... Ubuntu is a great distro too, since I like the font in Ubuntu that very readable. easy installing package and almost all configuration done in GUI. But after all, I think it becomes not flexible and I cannot control all the system. The configurations are like totally recreated(ex: no /etc/inittab), so when I use Ubuntu, I just only learn Ubuntu. In addition, there is new desktop environment in Ubuntu called Unity, which is just graduate and I think not stable yet. The Unity cannot be configured easily except compiz-config-settings-manager is installed. Because of this, I want to try another distro that keep simple like Slackware :) I look for the distro, read the top ten disto review at distrowatch.com. After that, I think I found a simple distro called Arch Linux.<br />Arch linux has a small ISO installer package and I dowload for the i686 architecture and install on my laptop. It's installation time is amazingly very short! Just 5-10 minutes and rebooting....... So, the Arch boot in the text mode and yes.... there are no desktop environment at all. damn..... And then I try to install KDE as the desktop environment with <br /><pre>pacman -S kde</pre>Okay.. I wait for a century to finish the download process since the internet connection is slow. Finally after KDE installed, I can start exploring Arch with more comfortable. The KDE here is version 4.7.3. Hmm... 1..2...3... It's like another Slackware.. ;) I install the applicatons that I need and not forget to install codecs too for listening to my mp3 music file.. yeahh!! Hmmm.. looks like everything complete now. So, I can continue my journey with Arch.... installing developer tools that I need and start coding again! :D You should try it too!</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Georgian Cuisine</div>
+<div class='content'>
+Thanks<br /><br />i like your blog ))</div>
+</div>
+<div class='comment'>
+<div class='author'>kavita</div>
+<div class='content'>
+Thanks for sharing the knowledge.For the basic knowledge visit below link.I got deeply and basic knowledge through it.<br /><br />http://letsbeginlinux.blogspot.com/</div>
+</div>
+<div class='comment'>
+<div class='author'>Budi Ariyanto</div>
+<div class='content'>
+Yeah you&#39;re right. I don&#39;t know it at first deal with Arch. But now my system is already at the complete stage. :D Thanks for the info.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+instead of installing the whole kdem maybe you should start with a minimal one and start your customization from there.<br /><br />pacman -S kdebase</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

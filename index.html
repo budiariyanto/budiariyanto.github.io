@@ -1,1 +1,1336 @@
-My Octopress Page is coming soon &hellip;
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Personal Blog</title>
+  <meta name="author" content="Budi Ariyanto">
+
+  
+  <meta name="description" content="Dalam membuat satu project besar, sebaiknya kita bagi menjadi beberapa project kecil. Project kecil ini tujuannya untuk membagi project supaya &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://budiariyanto.github.io/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Personal Blog" type="application/atom+xml">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<meta property="fb:app_id" content="494926367287079" />
+
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <div id="logo">
+  	<div id="logoLeft">{</div>
+  	<div id="logoText">;-)</div>
+  	<div id="logoRight">}</div>
+  	<div class="clear"></div>
+  </div>
+  <h1><a href="/">My Personal Blog</a></h1>
+  
+    <h2>About my thoughts and activities.</h2>
+  
+  <div class="clear"></div>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:budiariyanto.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/05/19/maven-multi-project/">Maven Multi Module Project</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-19T13:02:45+07:00" pubdate data-updated="true">May 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Dalam membuat satu project besar, sebaiknya kita bagi menjadi beberapa project kecil. Project kecil ini tujuannya untuk membagi project supaya strukturnya projectnya lebih mudah dipahami dan juga lebih modular. Maven mempunyai fitur untuk membantu merealisasikan hal ini, yaitu project inheritance dan project aggregation. Mari kita bahas satu per satu.</p>
+
+<h2>Briefing</h2>
+
+<p>Untuk membantu memahami dengan mudah, kita akan membuat sebuah project sederhana bernama &ldquo;Manusia&rdquo; dimana project ini punya modul yang bernama &ldquo;Kepala&rdquo;, &ldquo;Badan&rdquo;, &ldquo;Tangan&rdquo; dan &ldquo;Kaki&rdquo;. Modul-modul ini meng-inherit/mewarisi apa yang menjadi kepunyaan project &ldquo;Manusia&rdquo; dan sekaligus menjadi agregasinya, karena bisa dibayangkan bahwa manusia mempunyai kepala, badan, tangan dan kaki.</p>
+
+<h2>Parent POM</h2>
+
+<p>Buat parent POM di direktori terserah Anda. Pada tutorial ini akan saya buat pada direktori <code>/home/budi/project/manusia</code>. Parent POM adalah POM milik project &ldquo;Manusia&rdquo;. Definisinya sebagai berikut:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+</span><span class='line'>  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.projects<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>manusia<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;name&gt;</span>manusia<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;url&gt;</span>http://manusia.projects.org<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;properties&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/properties&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;dependencies&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;version&gt;</span>1.1.2<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;version&gt;</span>1.7.7<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependencies&gt;</span>
+</span><span class='line'><span class="nt">&lt;/project&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Parent POM sebetulnya adalah POM biasa. Yang perlu diperhatikan adalah <code>packaging</code>nya adalah <strong>pom</strong>.</p>
+
+<h2>Project Inheritance</h2>
+
+<p>Setelah tadi sudah membuat parent POM maka sekarang kita akan membuat POM dari masing-masing modul yang diinherit dari parent POM. Kita akan membuat POM-nya pada direktori:
+&ndash; <code>/home/budi/project/manusia/manusia-kepala</code> untuk modul manusia-kepala
+&ndash; <code>/home/budi/project/manusia/manusia-badan</code> untuk modul manusia-badan
+&ndash; <code>/home/budi/project/manusia/manusia-tangan</code> untuk modul manusia-tangan
+&ndash; <code>/home/budi/project/manusia/manusia-kaki</code> untuk modul manusia-kaki</p>
+
+<p>Berikut ini contoh POMnya:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+</span><span class='line'>  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c">&lt;!-- Penting! Inherit dari parent POM --&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;parent&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>org.project<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>manusia<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/parent&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c">&lt;!-- groupId dan version tidak didefinisikan lagi --&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>manusia-kepala<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;name&gt;</span>manusia-kepala<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;url&gt;</span>http://kepala.manusia.projects.org<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c">&lt;!-- Walaupun dependecy di sini hanya ada 2, yaitu spring-core dan postgresql driver,</span>
+</span><span class='line'><span class="c">         sebetulnya juga ada slf4j, logback-classic dan junit yang diinherit dari parent POM --&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;dependencies&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;artifactId&gt;</span>spring-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;version&gt;</span>4.0.4.RELEASE<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;version&gt;</span>9.3-1100-jdbc41<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependencies&gt;</span>
+</span><span class='line'><span class="nt">&lt;/project&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Untuk POM manusia-badan, manusia-tangan dan manusia-kaki sama saja. tinggal sesuaikan saja artifactId, packaging, name, url dan daftar dependency-nya.</p>
+
+<h2>Project Aggregation</h2>
+
+<p>Project aggregation bertujuan supaya kita dapat mengagregasi module project ke parent project dengan menambahkan tag <code>modules</code> pada parent POM. Jadi, sekarang parent POM nya menjadi seperti ini:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+</span><span class='line'>  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.projects<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>manusia<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;name&gt;</span>manusia<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;url&gt;</span>http://manusia.projects.org<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c">&lt;!-- Agregasi project yang berkaitan.</span>
+</span><span class='line'><span class="c">       Definisinya menggunakan artifact id dari masing-masing modul. --&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;modules&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-kepala<span class="nt">&lt;/module&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-badan<span class="nt">&lt;/module&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-tangan<span class="nt">&lt;/module&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-kaki<span class="nt">&lt;/module&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/modules&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;properties&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/properties&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;dependencies&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;version&gt;</span>1.1.2<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;version&gt;</span>1.7.7<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependencies&gt;</span>
+</span><span class='line'><span class="nt">&lt;/project&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Coba</h2>
+
+<p>Untuk melihat hasilnya seperti apa, masuk ke direktori <code>/home/budi/project/manusia</code> (direktori parent project), lalu jalankan perintah <code>mvn clean package</code></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/05/19/maven-multi-module-project/">Maven Multi Module Project</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-19T13:02:45+07:00" pubdate data-updated="true">May 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Dalam membuat satu project besar, sebaiknya kita bagi menjadi beberapa project kecil. Project kecil ini tujuannya untuk membagi project supaya strukturnya projectnya lebih mudah dipahami dan juga lebih modular. Maven mempunyai fitur untuk membantu merealisasikan hal ini, yaitu project inheritance dan project aggregation. Mari kita bahas satu per satu.</p>
+
+<h2>Briefing</h2>
+
+<p>Untuk membantu memahami dengan mudah, kita akan membuat sebuah project sederhana bernama &ldquo;Manusia&rdquo; dimana project ini punya modul yang bernama &ldquo;Kepala&rdquo;, &ldquo;Badan&rdquo;, &ldquo;Tangan&rdquo; dan &ldquo;Kaki&rdquo;. Modul-modul ini meng-inherit/mewarisi apa yang menjadi kepunyaan project &ldquo;Manusia&rdquo; dan sekaligus menjadi agregasinya, karena bisa dibayangkan bahwa manusia mempunyai kepala, badan, tangan dan kaki.</p>
+
+<h2>Parent POM</h2>
+
+<p>Buat parent POM di direktori terserah Anda. Pada tutorial ini akan saya buat pada direktori <code>/home/budi/project/manusia</code>. Parent POM adalah POM milik project &ldquo;Manusia&rdquo;. Definisinya sebagai berikut:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+</span><span class='line'>  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.projects<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>manusia<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;name&gt;</span>manusia<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;url&gt;</span>http://manusia.projects.org<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;properties&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/properties&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;dependencies&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;version&gt;</span>1.1.2<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;version&gt;</span>1.7.7<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependencies&gt;</span>
+</span><span class='line'><span class="nt">&lt;/project&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Parent POM sebetulnya adalah POM biasa. Yang perlu diperhatikan adalah <code>packaging</code>nya adalah <strong>pom</strong>.</p>
+
+<h2>Project Inheritance</h2>
+
+<p>Setelah tadi sudah membuat parent POM maka sekarang kita akan membuat POM dari masing-masing modul yang diinherit dari parent POM. Kita akan membuat POM-nya pada direktori:
+&ndash; <code>/home/budi/project/manusia/manusia-kepala</code> untuk modul manusia-kepala
+&ndash; <code>/home/budi/project/manusia/manusia-badan</code> untuk modul manusia-badan
+&ndash; <code>/home/budi/project/manusia/manusia-tangan</code> untuk modul manusia-tangan
+&ndash; <code>/home/budi/project/manusia/manusia-kaki</code> untuk modul manusia-kaki</p>
+
+<p>Berikut ini contoh POMnya:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+</span><span class='line'>  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c">&lt;!-- Penting! Inherit dari parent POM --&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;parent&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>org.project<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>manusia<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/parent&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c">&lt;!-- groupId dan version tidak didefinisikan lagi --&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>manusia-kepala<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;name&gt;</span>manusia-kepala<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;url&gt;</span>http://kepala.manusia.projects.org<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c">&lt;!-- Walaupun dependecy di sini hanya ada 2, yaitu spring-core dan postgresql driver,</span>
+</span><span class='line'><span class="c">         sebetulnya juga ada slf4j, logback-classic dan junit yang diinherit dari parent POM --&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;dependencies&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;artifactId&gt;</span>spring-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;version&gt;</span>4.0.4.RELEASE<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;version&gt;</span>9.3-1100-jdbc41<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependencies&gt;</span>
+</span><span class='line'><span class="nt">&lt;/project&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Untuk POM manusia-badan, manusia-tangan dan manusia-kaki sama saja. tinggal sesuaikan saja artifactId, packaging, name, url dan daftar dependency-nya.</p>
+
+<h2>Project Aggregation</h2>
+
+<p>Project aggregation bertujuan supaya kita dapat mengagregasi module project ke parent project dengan menambahkan tag <code>modules</code> pada parent POM. Jadi, sekarang parent POM nya menjadi seperti ini:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+</span><span class='line'>  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.projects<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>manusia<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;name&gt;</span>manusia<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;url&gt;</span>http://manusia.projects.org<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c">&lt;!-- Agregasi project yang berkaitan.</span>
+</span><span class='line'><span class="c">       Definisinya menggunakan artifact id dari masing-masing modul. --&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;modules&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-kepala<span class="nt">&lt;/module&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-badan<span class="nt">&lt;/module&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-tangan<span class="nt">&lt;/module&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-kaki<span class="nt">&lt;/module&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/modules&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;properties&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/properties&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;dependencies&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;version&gt;</span>1.1.2<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;version&gt;</span>1.7.7<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/dependencies&gt;</span>
+</span><span class='line'><span class="nt">&lt;/project&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Coba</h2>
+
+<p>Untuk melihat hasilnya seperti apa, masuk ke direktori <code>/home/budi/project/manusia</code> (direktori parent project), lalu jalankan perintah <code>mvn clean package</code></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/05/17/menjadi-idealis/">Menjadi Idealis</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-17T13:02:10+07:00" pubdate data-updated="true">May 17<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>&ldquo;Udah laaahh.. nggak usah idealis gituu&hellip;&rdquo;. Kalimat ini sering saya dengar dari teman-teman saya. Biasanya, kalimat ini keluar kalau saya bercerita mengenai hal-hal yang ingin saya lakukan dan menurut saya benar, tapi kebanyakan orang tidak mau melakukannya. Contohnya, di tempat saya bekerja, terus terang masalah salary tidak menarik, tidak kompetitif. Sebagai programmer, saya sering kerja lembur karena deadline proyek yang singkat. Terkadang pekerjaan malah saya lanjutkan lagi di rumah. Tidak ada penghargaan untuk kerja lembur saya, berupa uang ataupun dalam bentuk lain. Jadi, lembur atau tidak take home pay saya sama saja. Meskipun begitu, saya tetap ingin proyek yang saya kerjakan selesai dengan baik dan tepat waktu. Karena hal ini, saya dibilang idealis oleh beberapa teman saya. Entah kenapa, orang idealis itu kesannya negatif.</p>
+
+<h2>Apa sih idealis dan idealisme itu?</h2>
+
+<p>Menurut saya, idealisme adalah suatu paham atau pemikiran seseorang, yang menurutnya paling benar dan paling baik. Orang yang mempunyai idealisme dan ia pegang teguh, biasa disebut idealis. Biasanya, orang akan komplain atau bertanya-tanya. &ldquo;Menurut dia itu baik dan benar, tapi menurut saya enggak tuh.. Gimana dong?&rdquo; Oke, itulah kebenaran.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/05/17/menjadi-idealis/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/01/25/memilih-distro-linux/">Memilih Distro Linux</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-25T23:50:10+07:00" pubdate data-updated="true">Jan 25<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Saya sudah cukup lama berkelana gonta-ganti distro linux, sejak akhir tahun 2006. Distro yang pernah saya pakai adalah <a href="http://www.ubuntu.com">Ubuntu</a>, <a href="http://www.opensuse.org">openSUSE</a>, <a href="http://fedoraproject.org">Fedora</a>, <a href="http://www.linuxmint.com">Mint</a>, <a href="http://www.slackware.com">Slackware</a> dan <a href="http://www.archlinux.org">Arch</a>. Pernah juga hanya sekedar coba-coba Backtrack(sekarang namanya <a href="http://www.kali.org">Kali Linux</a>), <a href="http://www.slax.org">Slax</a> dan <a href="http://puppylinux.org">Puppy</a>. Orang yang baru berkenalan dengan linux biasanya bernasib sama seperti saya waktu dulu. Bingung dengan banyaknya pilihan distro linux yang sudah seperti hutan belantara. Karena bingung, akhirnya bertanya ke sana kemari distro linux yang ini dengan yang itu bagus yang mana? Jawaban orang-orang yang ditanya pun bervariasi. Orang-orang biasanya menjawab dengan hal-hal yang bagus-bagus mengenai distro linux yang dia gunakan. Karena semuanya bagus, bertanya kepada orang-orang yang sudah menggunakan distro linux tidak menjawab kebingungan saya. Yang ada malah tambah bingung karena kok semuanya bagus. Akhirnya ya harus coba-coba sendiri. Lama kelamaan, saya tau bahwa distro linux itu memang ada faktor selera dan masing-masing distro linux mempunyai rancangan dan tujuan masing-masing. Jadi, tidak ada distro linux yang paling bagus. Semua tergantung selera dan kebutuhan. Maka dari itu, saya ingin membantu Anda yang baru berkenalan dengan linux, dengan membagikan pengalaman saya mengenai perjalanan saya belajar linux. Semoga membantu.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/01/25/memilih-distro-linux/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/01/17/tutorial-singkat-maven/">Tutorial Singkat Maven</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-17T11:58:10+07:00" pubdate data-updated="true">Jan 17<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Apa itu Maven?</h2>
+
+<p>Maven adalah suatu <em>tool</em> untuk menstandarkan dan <em>memanage</em> project, mempermudah proses <em>build</em> dalam suatu project, mendefinisikan secara jelas apa saja isi project dan mempermudah dalam membagi-bagikan (<em>share</em>) file .jar di semua project. Maven sering di-versuskan dengan ant, atau bahkan ada yang bilang sama saja. Menurut saya, maven mempunyai tujuan yang lebih luas daripada ant yang hanya fokus untuk <em>build tool</em> dan membuat task-task tertentu saja. Fitur-fitur ant ada pada maven bahkan maven bisa diintegrasikan dengan ant via maven plugin.</p>
+
+<h2>Kenapa harus pakai Maven?</h2>
+
+<p>Suatu project pasti mempunyai struktur direktori. Struktur direktori project ini biasa disebut <em>project template</em>. Struktur direktori setiap orang atau setiap tim berbeda. Setiap tim menentukan standarnya sendiri, lalu jika ada orang baru masuk dalam tim tersebut, orang baru itu mengikuti standar project template yang sudah ada. Yang biasa dilakukan, orang baru tersebut membuat project baru di IDE, lalu melihat catatan project template yang sudah ada itu bagaimana. Struktur direktori project baru tersebut berusaha dibuat sama dengan struktur direktori standar project dengan membuat folder-folder, menambahkan file-file dan sebagainya. Dengan maven, pada umumnya kita cukup sekali membuat archetype untuk 1 jenis project. Setelah itu ketika membuat project baru, kita tinggal mengenerate project template dengan menggunakan archetype yang sudah dibuat tadi. Semua hal mengenai project template langsung bisa terkonfigurasi secara otomatis sesuai standar. Kalau ada keperluan khusus, baru kita tambahkan sendiri.</p>
+
+<p>Selain permasalahan project template, hampir di setiap project kita menggunakan library. Jika kita menggunakan library dalam suatu project, berarti project kita dependen terhadap library tersebut. Maka library tersebut adalah dependency dari project kita. Nah, peran maven di sini adalah memanage dependency sehingga programmer dapat dengan mudah menambahkan library yang ingin digunakan. &ldquo;Ah, cuma nambah dependency gitu aja kok harus pakai maven? Repot banget sih..&rdquo;. Perlu diketahui, library tidak selamanya <em>&ldquo;stand-alone&rdquo;</em>. Jangan berasumsi bahwa jika kita ingin menambahkan library A dan B, yang kita tambahkan ke project ya hanya A dan B. Sering kali misalnya library A dependen terhadap library B, C, D, E, F dan G. Library H dependen terhadap library I, J dan K. Jadi, library yang ingin kita tambahkan sebetulnya hanya 2 (A dan H), tapi karena harus menambahkan juga dependensinya(B, C, D, E, F, G, I, J, K) pada akhirnya ada 11 library yang harus ditambahkan. Belum lagi kalau ternyata semua dependensi itu harus didownload satu per satu, di tempat yang berbeda-beda pula. Belum lagi kalau source code kita karena sesuatu hal harus dipindahkan ke mesin lain. Dengan asumsi bahwa environmentnya berbeda, kita harus setting ulang semua path dari library tersebut supaya dapat ditemukan oleh IDE. Hal ini membuat pusing kepala. Yang tadinya saya mau mulai membuat kode program dengan nyaman, harus repot mengurus hal-hal yang demikian. Maven membantu menyelesaikan permasalahan ini.</p>
+
+<p>Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. <em>Last but not least</em>, hal-hal inilah yang membuat maven berperan penting dalam setiap project.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/01/17/tutorial-singkat-maven/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/12/26/good-leader/">Good Leader</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-26T15:50:37+07:00" pubdate data-updated="true">Dec 26<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/_3ASoBrFGlc "></iframe></div>
+
+
+<hr />
+
+<p>Dalam suatu organisasi, pasti ada yang berperan menjadi pemimpin. Menjalani peran sebagai seorang pemimpin sekilas tampak mudah, maka banyak orang yang berlomba-lomba untuk menjadi seorang pemimpin. Punya anak buah, bisa menyuruh, memarahi, datang ke kantor sesuka hati, berkuasa seakan menjadi kenikmatan tersendiri. Pemimpin yang seperti ini saya sebut pemimpin palsu, karena jika perilakunya seperti itu, anak kecil pun juga bisa jadi pemimpin. Menjadi seorang pemimpin sebenarnya tidak semudah itu. Butuh proses yang panjang. Ibarat pahatan patung, dari sebongkah batu yang bentuknya jelek dipoles pelan-pelan, dibentuk, diukir menjadi suatu mahakarya yang indah.
+Maka dari itu, saya sebetulnya heran, sekarang banyak pelatihan untuk menjadi pemimpin dalam waktu kurang dari 2 bulan. Pelatihan kepemimpinan seperti ini tepat apabila sasarannya adalah hanya sebatas membuka wawasan tentang kepemimpinan. Jika pelatihan tersebut tujuannya untuk menghasilkan seorang pemimpin yang berkualitas, maka hal tersebut merupakan suatu kesalahan besar, karena tidak ada pemimpin berkualitas yang dibentuk dalam waktu sesingkat itu. Pemimpin yang berkualitas menurut saya, mempunyai kriteria sebagai berikut:</p>
+
+<ul>
+<li><p><strong>Berangkat dari anak buah</strong></p>
+
+<p>  Seorang pemimpin yang berkualitas harus berangkat dari bawah. Pemimpin dadakan biasanya memiliki attitude yang sama sekali tidak mencerminkan seorang pemimpin. Gila harta, gila kekuasaan. Kerja seenaknya dan sebetulnya tidak tau apa-apa. Juga tidak punya konsep, apalagi punya kemampuan untuk merealisasikannya. Attitudenya rata-rata seperti ini karena dia tidak pernah bisa melihat ke bawah. Ya karena memang tidak pernah merasakan bekerja keras dan bagaimana menjadi anak buah. Kalau ketemu pemimpin seperti ini, tiap hari makan ati. Di tempat saya bekerja, sampai-sampai sempat ada yang berkomentar: &ldquo;Saya kan cuma pelaksana, jadi pemimpin mah enak&rdquo;. O ya? Jika Anda juga berpikir hal yang sama, lanjutkan saja membaca artikel ini. Mungkin Anda akan berubah pikiran. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/12/26/good-leader/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/05/12/migrating-to-octopress/">Migrating to Octopress</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-12T01:35:00+07:00" pubdate data-updated="true">May 12<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Finally I have moved to Octopress from blogger and this is my first Octopress post. I think this is very cool since it uses markdown so I can write my post anywhere, using any text editor. Plain text means lightweight and fast. Next, I want to learn how to change the template and layout.</p>
+
+<p>Testing the markdown syntax on octopress:</p>
+
+<h2>Headers</h2>
+
+<h1>This is H1</h1>
+
+<h2>This is H2</h2>
+
+<h3>This is H3</h3>
+
+<h4>This is H4</h4>
+
+<h5>This is H5</h5>
+
+<h6>This is H6</h6>
+
+<h2>Lists</h2>
+
+<h3>Ordered List</h3>
+
+<ol>
+<li>Item number1</li>
+<li>Item number2</li>
+<li>Item number3</li>
+</ol>
+
+
+<h3>Unordered List</h3>
+
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3</li>
+</ul>
+
+
+<h3>List with paragraph</h3>
+
+<ol>
+<li>Item 1</li>
+</ol>
+
+
+<p>Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsumLorem ipsum lorem ipsum.</p>
+
+<ol>
+<li>Item 2</li>
+</ol>
+
+
+<p>Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+Lorem ipsum lorem ipsumLorem ipsum lorem ipsum.</p>
+
+<h2>Tables</h2>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Tables        </th>
+<th align="center"> Are           </th>
+<th align="right"> Cool  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> col 3 is      </td>
+<td align="center"> right-aligned </td>
+<td align="right"> $1600 |</td>
+</tr>
+<tr>
+<td></td>
+<td> col 2 is      </td>
+<td align="center"> centered      </td>
+<td align="right">   $12 |</td>
+</tr>
+<tr>
+<td></td>
+<td> zebra stripes </td>
+<td align="center"> are neat      </td>
+<td align="right">    $1 |</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>It seems octopress does not support tables rendering by default</p>
+
+<h2>Bold, Italics and Strikethrough</h2>
+
+<p><em>This is italics</em>
+<strong> This is bold </strong>
+<strong><em>This is bold and italics</em></strong>
+<del>This is strikethrough</del></p>
+
+<p>Is there no underlines?</p>
+
+<h2>Links</h2>
+
+<p><a href="https://www.google.com">Go to google.com</a></p>
+
+<p><a href="http://blog.budib.com">Go to home page of this site</a></p>
+
+<p><a href="http://yahoo.com">This is reference-style link</a></p>
+
+<p>Later link text</p>
+
+<h2>Code with syntax highlighting</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClass</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hellooooooo&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Blockquotes</h2>
+
+<blockquote><p>This is blockquotes</p></blockquote>
+
+<h2>Horizontal Rule</h2>
+
+<hr />
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2012/05/08/apache-roller-not-running-smoothly-on/">Apache Roller Not Running Smoothly on Glassfish</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-08T16:07:00+07:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Few days ago, I&#8217;ve tried installing Apache Roller 5.0 for my blog engine with MySQL and running it on glassfish 3.1.2 application server. At first glance, roller runs smoothly. I try to configure global roller configuration using server admin page and then create, edit, and delete blog post, changing themes, etc.<br />The problem comes when I want to create a blog post with an image from local media. To do that, I must upload the media file first, and then attach it on the editor. After successfully upload the media file, go back to the media file manager. My file that just uploaded not found, but it found if searched using roller search tool. It fixed if I restart glassfish domain and log in again.<br />There is one more problem after restarting glassfish domain. It&#8217;s when I delete an uploaded file, the media file viewer still shows the border of the image container but no image on it, just the file name at the bottom.<br />There&#8217;s no solution to this bug yet, but I have submit a report to JIRA@apache. While waiting for the bug fixed, I try deploy roller, run it with tomcat and voila, the bugs are gone! :D<br />My question are.. :<br /><ul><li>Is it because glassfish not using openjpa library for persistence layer?</li><li>Is there a cache in the URI resource that not refreshed after upload/delete image? If there is any of it, which part in the glassfish configuration that I should change?</li><li>Is the problem occur on the glassfish transaction service?</li></ul>Hope the apache roller developer get the bug fixed ASAP since I should use it on my project. :\ <br /><br /></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2012/02/08/moinmoin-wiki-engine/">Moinmoin Wiki Engine</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-08T22:15:00+07:00" pubdate data-updated="true">Feb 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+This is my first post at 2012. I want to get used to post articles at this blog again, beside my activities at the office. At this post, I want to share about a wiki engine that I currently interested in. It is named <a href="http://moinmo.in/" target="_blank">moinmoin</a>. It is not a new wiki engine and has already well known at world wild. This wiki engine is developed using <a href="http://python.org/" target="_blank">python</a> programming language. I love this wiki engine because this wiki engine is well documented, easy to setup, easy to use and it has many features, including but not limited to:<br /><ol><li>Easy wiki syntax.</li><li>Runs at any web server such as <a href="http://httpd.apache.org/" target="_blank">apache</a>, <a href="http://nginx.org/" target="_blank">nginx</a> and moinmoin stand alone web server(using python). But if you want to use apache or nginx, you need <a href="http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface" target="_blank">wsgi</a> or <a href="http://www.fastcgi.com/drupal/" target="_blank">fast-cgi </a>module for the respective webserver. Don&#8217;t use cgi since it&#8217;s slow.</li><li>Macros. &#8211; I love the macro that help create the table of contents :)</li><li>Auto numbering.</li><li>Easy leveling the depth of item/numbered list.</li><li>Private sub page.</li><li>It&#8217;s content saved in plain text format. It means, save harddisk space and light weight.</li><li>Many plugins/addons. </li></ol>Currently I&#8217;m beginning to use moinmoin for works on any non-source code documentation at the office collaborate with my partners. Since it runs on web browser, everyone can read it. Trust me, it&#8217;s fun. And it&#8217;s even more fun if you combine moinmoin with <a href="https://www.dropbox.com/" target="_blank">dropbox</a>! :D</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2011/11/07/my-next-distro-arch-linux/">My Next Distro: Arch Linux</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-07T23:46:00+07:00" pubdate data-updated="true">Nov 7<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Slackware is my favourite linux distro since approximately 4.5 years ago. It brings so many useful experience to me at the very beginning I learn linux in early 2008. I still remember how I confuse because there are no desktop environment at the startup, and then I realize that there is one &#8220;magic command&#8221; that change everything. The <b>startx</b>. LOL .. And then I learn how to get connected to the internet using wireless network, configuring sound card, installing video driver, configuring xorg server, mounting removable disks, compile application from source tarball and slackware package manager, inserting and removing kernel modules, and many more&#8230; At the end, Slackware makes me understand how linux look like and how it works. Thanks to Patrick Volkerding who create and mantain this great distro until now.<br />These days, I try to take a new challenge. I want to switch the distro that I used everyday. But I didn&#8217;t find any distro until I try Arch Linux. At first, I try Ubuntu 11.10 &#8220;Oneiric Ocelot&#8221; that has package manager that resolve dependency automatically based on the repository. I think it&#8217;s very useful since make the user more productive with no more searching the package dependency to just install one package. Slackware don&#8217;t have this feature and I think that&#8217;s Slackware cons. For example, I have to compile and install 42 dependency package by myself for one vlc package with complete feature. Pheww&#8230; Ubuntu is a great distro too, since I like the font in Ubuntu that very readable. easy installing package and almost all configuration done in GUI. But after all, I think it becomes not flexible and I cannot control all the system. The configurations are like totally recreated(ex: no /etc/inittab), so when I use Ubuntu, I just only learn Ubuntu. In addition, there is new desktop environment in Ubuntu called Unity, which is just graduate and I think not stable yet. The Unity cannot be configured easily except compiz-config-settings-manager is installed. Because of this, I want to try another distro that keep simple like Slackware :) I look for the distro, read the top ten disto review at distrowatch.com. After that, I think I found a simple distro called Arch Linux.<br />Arch linux has a small ISO installer package and I dowload for the i686 architecture and install on my laptop. It&#8217;s installation time is amazingly very short! Just 5-10 minutes and rebooting&#8230;&#8230;. So, the Arch boot in the text mode and yes&#8230;. there are no desktop environment at all. damn&#8230;.. And then I try to install KDE as the desktop environment with <br /><pre>pacman -S kde</pre>Okay.. I wait for a century to finish the download process since the internet connection is slow. Finally after KDE installed, I can start exploring Arch with more comfortable. The KDE here is version 4.7.3. Hmm&#8230; 1..2&#8230;3&#8230; It&#8217;s like another Slackware.. ;) I install the applicatons that I need and not forget to install codecs too for listening to my mp3 music file.. yeahh!! Hmmm.. looks like everything complete now. So, I can continue my journey with Arch&#8230;. installing developer tools that I need and start coding again! :D You should try it too!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Georgian Cuisine</div>
+<div class='content'>
+Thanks<br /><br />i like your blog ))</div>
+</div>
+<div class='comment'>
+<div class='author'>kavita</div>
+<div class='content'>
+Thanks for sharing the knowledge.For the basic knowledge visit below link.I got deeply and basic knowledge through it.<br /><br />http://letsbeginlinux.blogspot.com/</div>
+</div>
+<div class='comment'>
+<div class='author'>Budi Ariyanto</div>
+<div class='content'>
+Yeah you&#39;re right. I don&#39;t know it at first deal with Arch. But now my system is already at the complete stage. :D Thanks for the info.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+instead of installing the whole kdem maybe you should start with a minimal one and start your customization from there.<br /><br />pacman -S kdebase</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Budi Ariyanto</h1>
+  <p>Software engineer, currently happy with open source technologies.</p>
+  <ul>
+    <li><i class="fa fa-github-alt"></i>&nbsp;<a href="https://github.com/budiariyanto">github.com/budiariyanto</a></li>
+    <li><i class="fa fa-google-plus"></i>&nbsp;<a href="https://plus.google.com/+BudiAriyanto">+BudiAriyanto</a></li>
+    <li><i class="fa fa-twitter"></i>&nbsp;<a href="https://twitter.com/fxbudiariyanto">@fxbudiariyanto</a></li>
+    <li><i class="fa fa-facebook"></i>&nbsp;<a href="https://www.facebook.com/fx.budi.ariyanto">facebook.com/fx.budi.ariyanto</a></li>
+    <li><i class="fa fa-pinterest"></i>&nbsp;<a href="http://pinterest.com/fxbudiariyanto">pinterest.com/fxbudiariyanto</a></li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/19/maven-multi-project/">Maven Multi Module Project</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/19/maven-multi-module-project/">Maven Multi Module Project</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/17/menjadi-idealis/">Menjadi Idealis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/25/memilih-distro-linux/">Memilih Distro Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/17/tutorial-singkat-maven/">Tutorial Singkat Maven</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/budiariyanto">@budiariyanto</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'budiariyanto',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/+BudiAriyanto?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<section>
+    <h1>Latest Tweets</h1>
+    <a class="twitter-timeline"  href="https://twitter.com/fxbudiariyanto"  data-widget-id="416105439349075968" data-chrome="transparent">Tweets by @fxbudiariyanto</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Budi Ariyanto -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=494926367287079&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

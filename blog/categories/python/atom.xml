@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: python | My Personal Blog]]></title>
+  <link href="http://budiariyanto.github.io/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://budiariyanto.github.io/"/>
+  <updated>2014-05-22T09:43:14+07:00</updated>
+  <id>http://budiariyanto.github.io/</id>
+  <author>
+    <name><![CDATA[Budi Ariyanto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Moinmoin Wiki Engine]]></title>
+    <link href="http://budiariyanto.github.io/blog/2012/02/08/moinmoin-wiki-engine/"/>
+    <updated>2012-02-08T22:15:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2012/02/08/moinmoin-wiki-engine</id>
+    <content type="html"><![CDATA[<div class='post'>
+This is my first post at 2012. I want to get used to post articles at this blog again, beside my activities at the office. At this post, I want to share about a wiki engine that I currently interested in. It is named <a href="http://moinmo.in/" target="_blank">moinmoin</a>. It is not a new wiki engine and has already well known at world wild. This wiki engine is developed using <a href="http://python.org/" target="_blank">python</a> programming language. I love this wiki engine because this wiki engine is well documented, easy to setup, easy to use and it has many features, including but not limited to:<br /><ol><li>Easy wiki syntax.</li><li>Runs at any web server such as <a href="http://httpd.apache.org/" target="_blank">apache</a>, <a href="http://nginx.org/" target="_blank">nginx</a> and moinmoin stand alone web server(using python). But if you want to use apache or nginx, you need <a href="http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface" target="_blank">wsgi</a> or <a href="http://www.fastcgi.com/drupal/" target="_blank">fast-cgi </a>module for the respective webserver. Don't use cgi since it's slow.</li><li>Macros. -- I love the macro that help create the table of contents :)</li><li>Auto numbering.</li><li>Easy leveling the depth of item/numbered list.</li><li>Private sub page.</li><li>It's content saved in plain text format. It means, save harddisk space and light weight.</li><li>Many plugins/addons. </li></ol>Currently I'm beginning to use moinmoin for works on any non-source code documentation at the office collaborate with my partners. Since it runs on web browser, everyone can read it. Trust me, it's fun. And it's even more fun if you combine moinmoin with <a href="https://www.dropbox.com/" target="_blank">dropbox</a>! :D</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Python To Anticipate Change Of Java License]]></title>
+    <link href="http://budiariyanto.github.io/blog/2010/12/13/learning-python-to-anticipate-change-of/"/>
+    <updated>2010-12-13T09:53:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2010/12/13/learning-python-to-anticipate-change-of</id>
+    <content type="html"><![CDATA[<div class='post'>
+Java developers have to aware that Java open source license after Oracle acquisition over Sun maybe changed to commercial.  As an alternative open source programming language, I think Python is suitable for developing desktop or web based application with high scalability like Java. It has a big community,  rapidly developed and multi-platform too. It has clean style codes and simple syntax, make it easier to write and more readable.<br />The popular library for developing desktop apps in python is <a href="http://www.wxpython.org/">wxPython</a> that based on <a href="http://www.wxwidgets.org/">WxWidget</a>(written in C++). For building a web application, Python can be written from scratch as Common Gateway Interface(CGI) an run it under a webserver(i.e <a href="http://www.apache.org/">Apache</a> with <a href="http://www.modpython.org/">mod_python</a> or <a href="http://code.google.com/p/modwsgi/">mod_wsgi</a>). In order to build python web application easier, we can use popular frameworks like <a href="http://www.djangoproject.com/">Django</a> or <a href="http://turbogears.org/">Turbo Gears</a>.</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Writing Python Codes Easier With PyDev]]></title>
+    <link href="http://budiariyanto.github.io/blog/2010/12/12/writing-python-codes-easier-with-pydev/"/>
+    <updated>2010-12-12T18:56:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2010/12/12/writing-python-codes-easier-with-pydev</id>
+    <content type="html"><![CDATA[<div class='post'>
+After several days I'm looking for the best open source IDE for writing <a href="http://www.python.org/">Python</a> codes, I have found that <a href="http://www.eclipse.org/">Eclipse</a> or <a href="http://aptana.com/downloads/start">Aptana</a> with <a href="http://pydev.org/">PyDev</a> Extension is the best. In the beginning, PyDev has a commercial license, but since September 2009 PyDev open sourced. PyDev has a lot of features that help python developers write the codes easier(code auto completion, syntax highlighting, code folding, code snippets, auto imports, etc). In the next release, PyDev will support unit testing. <div>The runner up is <a href="http://www.geany.org/">Geany</a>. It's a lightweight general purpose editor. The syntax highlighting in Geany is great, but it's poor in auto code completion features. It only support few calltips. I recommend to use Eclipse or Aptana with PyDev. PyDev installation can be viewed on it's website.</div></div>
+
+]]></content>
+  </entry>
+  
+</feed>

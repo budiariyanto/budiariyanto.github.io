@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: oracle | My Personal Blog]]></title>
+  <link href="http://budiariyanto.github.io/blog/categories/oracle/atom.xml" rel="self"/>
+  <link href="http://budiariyanto.github.io/"/>
+  <updated>2014-05-22T09:43:14+07:00</updated>
+  <id>http://budiariyanto.github.io/</id>
+  <author>
+    <name><![CDATA[Budi Ariyanto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Menginstall Oracle 10g di Slackware]]></title>
+    <link href="http://budiariyanto.github.io/blog/2009/04/18/menginstall-oracle-10g-di-slackware/"/>
+    <updated>2009-04-18T14:46:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2009/04/18/menginstall-oracle-10g-di-slackware</id>
+    <content type="html"><![CDATA[<div class='post'>
+<strong>Create Oracle user and install and management groups (as root): </strong><br/>groupadd dba<br/>groupadd oinstall<br/>adduser oracle   #make the initial group oinstall, and additional groups dba,users<br/>    <br/><strong>Download (this may not work, in which case you will have to go to </strong>http://www.oracle.com to get the download): <br/>wget http://download.oracle.com/otn/linux/oracle10g/ship.db.cpio.gz<br/>    <br/><strong>unpack: </strong><br/>gunzip ship.db.cpio.gz<br/>cpio -idmv &lt; ship.db.cpio<br/>    <br/><strong>If your swapdisk is less than a 1GB, then; </strong><br/>dd if=/dev/zero of=/directory/with/much/free/space/tempswap bs=1k count=1000000<br/>chmod 600 tempswap<br/>mke2fs tempswap<br/>mkswap tempswap<br/>swapon tempswap<br/>    <br/><strong>Next, check required system memory, run this: </strong><br/>sysctl -a<br/>    <br/><strong>And check those values against these: </strong><br/>Needed                             Check with<br/>shmmax  = 2147483648      cat /proc/sys/kernel/shmmax<br/>shmmni  = 4096                  cat /proc/sys/kernel/shmmni<br/>shmall  = 2097152               cat /proc/sys/kernel/shmall<br/>shmmin  = 1                         ipcs -lm |grep "min seg size"<br/>semmsl  = 250                     cat /proc/sys/kernel/sem | awk '{print $1}'<br/>semmns  = 32000                cat /proc/sys/kernel/sem | awk '{print $2}'<br/>semopm  = 100                   cat /proc/sys/kernel/sem | awk '{print $3}'<br/>semmni  = 128                     cat /proc/sys/kernel/sem | awk '{print $4}'<br/>file-max = 65536                  cat /proc/sys/fs/file-max<br/>ip_local_port_range = 1024 65000   cat /proc/sys/net/ipv4/ip_local_port_range<br/>    <br/> <strong>Note: Don't change the value of any kernel parameter on a system where it is already higher than listed as Needed. </strong><br/> If they are found lacking, modify /etc/sysctl.conf: <br/># Kernel Parameters for Oracle 10.1.0<br/>kernel.shmall = 2097152<br/>kernel.shmmax = 2147483648<br/>kernel.shmmni = 4096<br/>kernel.sem = 250 32000 100 128<br/>fs.file-max = 65536<br/>net.ipv4.ip_local_port_range = 1024 65000<br/>    <br/><strong>Then, to make these values effective immediately (without a reboot), run: </strong><br/>sysctl -p<br/><a name='more'></a>    <br/><strong>Then, create (or modify) your ~/.profile file to contain these settings: </strong><br/># user-specific settings<br/><br/>PATH=$PATH:$HOME/bin<br/><br/># Oracle Environment<br/><br/>ORACLE_BASE=/opt/oracle; export ORACLE_BASE<br/>ORACLE_HOME=/opt/oracle; export ORACLE_HOME<br/>ORACLE_SID=ROQDB; export ORACLE_SID<br/>ORACLE_TERM=xterm; export ORACLE_TERM<br/>export TNS_ADMIN=$ORACLE_HOME/config<br/>NLS_LANG=AMERICAN; export NLS_LANG<br/>LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib:/usr/openwin/lib<br/>LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/td/lib:/usr/ucblib:/usr/local/lib<br/>export LD_LIBRARY_PATH fi<br/>if [ -z $CLASSPATH ]<br/>then<br/>CLASSPATH=$ORACLE_HOME/JRE:$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib<br/>CLASSPATH=$CLASSPATH:$ORACLE_HOME/network/jlib<br/>export CLASSPATH<br/>else<br/>CLASSPATH=$CLASSPATH:$ORACLE_HOME/JRE:$ORACLE_HOME/jlib<br/>CLASSPATH=$CLASSPATH:$ORACLE_HOME/rdbms/jlib:$ORACLE_HOME/network/jlib<br/>export CLASSPATH<br/>fi<br/>ORAENV_ASK=NO<br/><br/>#set shell search paths<br/>PATH=$PATH:$ORACLE_HOME/bin<br/>    <br/><strong>Now, on to the install (as root): </strong><br/>mkdir /opt/oracle<br/>chown oracle /opt/oracle<br/>chgrp oinstall /opt/oracle<br/>    <br/><strong>As user oracle (from an xterminal): </strong><br/>cd Disk1<br/>./runInstaller -ignoreSysPrereqs<br/>    <br/> <strong>Here were my selections... (boleh diubah sesuai keinginan)</strong><br/> Destination; Name: OraDB10g_home1, Path: /opt/oracle <br/> Installation Type: Enterprise Edition <br/> Chose "General Purpose" starter database <br/> Global database name: ROQDB.myhost <br/> SID: ROQDB <br/>    <br/><strong>Once done, here's how you test if the database starts up: </strong><br/>sqlplus /nolog<br/><br/>conn / as sysdba<br/><br/>startup<br/>    <br/><strong>The simplest way to configure Oracle's network connectivity is to use netca; here were my selections: </strong><br/>Listener Configuration: <br/>Add/Reconfigure <br/>LISTENER <br/>TCP <br/>Use Standard Port of 1521<br/><br/>Naming Methods Configuration:<br/>Local Naming<br/><br/>Local Net Service Name Configuration:<br/>Add/Reconfigure<br/>ROQDB<br/>Service Name: ROQDB<br/>TCP<br/>Host Name: myhost<br/>Use Standard Port of 1521<br/>Then test it.<br/>    <br/>And here are the files that were generated... <br/> (/opt/oracle/config/ldap.ora): <br/># ldap.ora Network Configuration File: /opt/oracle/config/ldap.ora<br/># Generated by Oracle configuration tools.<br/><br/>DIRECTORY_SERVERS= (192.168.2.173:389:636)<br/><br/>DIRECTORY_SERVER_TYPE = OID<br/>    <br/> (/opt/oracle/config/listener.ora): <br/># listener.ora Network Configuration File: /opt/oracle/config/listener.ora<br/># Generated by Oracle configuration tools.<br/><br/>SID_LIST_LISTENER =<br/>  (SID_LIST =<br/>    (SID_DESC =<br/>      (SID_NAME = PLSExtProc)<br/>      (ORACLE_HOME = /opt/oracle)<br/>      (PROGRAM = extproc)<br/>    )<br/>  )<br/><br/>LISTENER =<br/>  (DESCRIPTION_LIST =<br/>    (DESCRIPTION =<br/>      (ADDRESS_LIST =<br/>        (ADDRESS = (PROTOCOL = TCP)(HOST = myhost.mydomain.org)(PORT = 1521))<br/>      )<br/>    )<br/>  )<br/>    <br/> (/opt/oracle/config/sqlnet.ora): <br/># sqlnet.ora Network Configuration File: /opt/oracle/config/sqlnet.ora<br/># Generated by Oracle configuration tools.<br/><br/>NAMES.DIRECTORY_PATH= (TNSNAMES, EZCONNECT)<br/>    <br/> (/opt/oracle/config/tnsnames.ora): <br/># tnsnames.ora Network Configuration File: /opt/oracle/config/tnsnames.ora<br/># Generated by Oracle configuration tools.<br/><br/>ROQDB =<br/>  (DESCRIPTION =<br/>    (ADDRESS_LIST =<br/>      (ADDRESS = (PROTOCOL = TCP)(HOST = myhost)(PORT = 1521))<br/>    )<br/>    (CONNECT_DATA =<br/>      (SERVICE_NAME = ROQDB)<br/>    )<br/>  )<br/><br/>EXTPROC_CONNECTION_DATA =<br/>  (DESCRIPTION =<br/>    (ADDRESS_LIST =<br/>      (ADDRESS = (PROTOCOL = TCP)(HOST = myhost)(PORT = 1521))<br/>    )<br/>    (CONNECT_DATA =<br/>      (SERVICE_NAME = ROQDB)<br/>    )<br/>  )<br/>    <br/> If you have trouble getting tnsping to work, try the following: <br/> Back up all the .ora files in /opt/oracle/config, then copy these files into this directory: <br/>cp /opt/oracle/network/admin/sqlnet.ora /opt/oracle/config/<br/>cp /opt/oracle/network/admin/listener.ora /opt/oracle/config/<br/>cp /opt/oracle/network/admin/tnsnames.ora /opt/oracle/config/<br/>    <br/> Now it's time to set things up so Oracle automatically starts up when Linux starts: <br/>cat &gt; /etc/rc.d/rc.dbora<br/>#!/bin/sh<br/>#<br/># dbora   This scripts starts and shuts down the<br/># oracle database<br/>#<br/># chkconfig: 345 99 10<br/># description: This script calls the dbstart script<br/># to start Oracle<br/>#              and dbshut to stop it<br/># processname: oracle*<br/># config: /etc/oratab<br/>#<br/># Set ORACLE_HOME to be equivalent to the $ORACLE_HOME<br/># from which you wish to execute dbstart and dbshut;<br/># Set ORA_OWNER to the user id of the owner of the<br/># Oracle database in ORACLE_HOME.<br/><br/>export ORACLE_BASE=/opt/oracle<br/>export ORACLE_HOME=/opt/oracle<br/>export ORACLE_SID=ROQDB<br/><br/>ORACLE_HOME=/opt/oracle<br/>ORA_OWNER=oracle<br/><br/>if [ ! -f $ORACLE_HOME/bin/dbstart ]<br/>then<br/>  echo "Oracle startup: cannot start"<br/>  exit<br/>fi<br/><br/>case "$1" in<br/>'start')<br/>  su $ORA_OWNER -c $ORACLE_HOME/bin/dbstart &amp;<br/>  su $ORA_OWNER -c "$ORACLE_HOME/bin/lsnrctl start" &amp;<br/>;;<br/>'stop')<br/>  su $ORA_OWNER -c "$ORACLE_HOME/bin/lsnrctl stop " &amp;<br/>  su $ORA_OWNER -c $ORACLE_HOME/bin/dbshut &amp;<br/>;;<br/>'restart')<br/>  su $ORA_OWNER -c "$ORACLE_HOME/bin/lsnrctl stop " &amp;<br/>  su $ORA_OWNER -c $ORACLE_HOME/bin/dbshut &amp;<br/>  sleep 15<br/>  su $ORA_OWNER -c $ORACLE_HOME/bin/dbstart &amp;<br/>  su $ORA_OWNER -c "$ORACLE_HOME/bin/lsnrctl start " &amp;<br/>;;<br/><br/>esac<br/>    <br/><strong>Then, make it executable: </strong><br/>chmod 755 /etc/rc.d/rc.dbora<br/>    <br/> Then add this code to the /etc/rc.d/rc.M file: <br/># Start Oracle - roq<br/>if [ -x /etc/rc.d/rc.dbora ]; then<br/>  . /etc/rc.d/rc.dbora start<br/>fi<br/>    <br/> Then add this code to /etc/rc.d/rc.K (above the "# Kill all processes" line) and to /etc/rc.d/rc.0: <br/># Shut down Oracle - roq<br/>if [ -x /etc/rc.d/rc.dbora ]; then<br/>  . /etc/rc.d/rc.dbora stop<br/>fi<br/>    <br/><strong>Then edit the /etc/oratab file to insert your database for the autostart, the format of the line you need is:</strong> SID:ORACLE_HOME:AUTO_START: <br/>ROQDB:/opt/oracle:Y<br/>    <br/>NOTE if you still have difficulty starting, add the oracle group to the root user: usermod -g oracle root <br/>To allow other applications to connect to Oracle, it may be necessary to add the following to /etc/profile: <br/>export ORACLE_BASE=/opt/oracle<br/>export ORACLE_HOME=/opt/oracle<br/>export ORACLE_SID=ROQDB<br/>    <br/>If you want to access the <strong>Oracle Enterprise Manager (OEM)</strong>, then you need to have started the service: /opt/oracle/bin/emctl start dbconsole <br/>Then you can browse to it using: http://localhost:5500/em <br/>If you want to use the web version of SQL*Plus then you need to have started it: /opt/oracle/bin/isqlplusctl start <br/> If you need to check your log-files, you can find them here: /opt/oracle/admin/ROQDB <br/><br/>CATATAN TAMBAHAN:<br/>Jika pada proses instalasi terjadi sedikit error, tinggal diignore saja. Waktu kemarin saya meginstall Oracle di komputer saya juga menemui beberapa error tapi Oracle tetap bisa berjalan dengan baik. Tidak ada masalah.<br/><br/>sumber: <a href="http://www.roqet.org/oracle_on_slackware.html">http://www.roqet.org/oracle_on_slackware.html</a> dengan sedikit diedit dan ditambah :)</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>xisxon</div>
+<div class='content'>
+Thanks. So many tutorials about installing Oracle under Linux out there but all are stick in the mud with just only some OS (licensed) over and over again, i think this one is C&amp;P, but frankly it just might work...</div>
+</div>
+<div class='comment'>
+<div class='author'>Budi Ariyanto</div>
+<div class='content'>
+harusnya bisa. Ndak ada masalah..</div>
+</div>
+<div class='comment'>
+<div class='author'>prasetyo</div>
+<div class='content'>
+Ada versi bahasa indonesia nya gk mas nya? Hehehe.. Kemarin aq nyuba install n&#39; berhasil nyampe bisa SQLPLUS tapi gak bisa masuk administration yg Versi Web nya (http://localhost:5500/em).. apa port nya berubah ya?</div>
+</div>
+<div class='comment'>
+<div class='author'>bcpfmy</div>
+<div class='content'>
+jsSykI  <a href="http://zddekjydtjpd.com/" rel="nofollow" rel="nofollow">zddekjydtjpd</a>, [url=http://dwgmazcopyuq.com/]dwgmazcopyuq[/url], [link=http://kiehlzohbkpa.com/]kiehlzohbkpa[/link], http://qclizzbhzxwz.com/</div>
+</div>
+<div class='comment'>
+<div class='author'>lobfrdltm</div>
+<div class='content'>
+CSTiWz  <a href="http://knyuiwmgsfzl.com/" rel="nofollow" rel="nofollow">knyuiwmgsfzl</a>, [url=http://tbyckeutenca.com/]tbyckeutenca[/url], [link=http://eiehfqjsszns.com/]eiehfqjsszns[/link], http://qbiibqparqow.com/</div>
+</div>
+<div class='comment'>
+<div class='author'>iamyjihik</div>
+<div class='content'>
+eQG3Xv  <a href="http://zxmqzqcgfquq.com/" rel="nofollow" rel="nofollow">zxmqzqcgfquq</a>, [url=http://kogvqfrycdgf.com/]kogvqfrycdgf[/url], [link=http://vbwvscheiftt.com/]vbwvscheiftt[/link], http://zdcvnnaxyykk.com/</div>
+</div>
+<div class='comment'>
+<div class='author'>dhhwlmzku</div>
+<div class='content'>
+jIyFoj  <a href="http://rvqxbaqjvpje.com/" rel="nofollow" rel="nofollow">rvqxbaqjvpje</a>, [url=http://pangphittikd.com/]pangphittikd[/url], [link=http://jhqcienyshop.com/]jhqcienyshop[/link], http://gyumbwdfdunz.com/</div>
+</div>
+<div class='comment'>
+<div class='author'>mrred</div>
+<div class='content'>
+Love this blog I&#39;ll be back when I have more time.</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

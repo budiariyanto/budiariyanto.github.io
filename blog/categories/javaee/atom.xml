@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: javaee | My Personal Blog]]></title>
+  <link href="http://budiariyanto.github.io/blog/categories/javaee/atom.xml" rel="self"/>
+  <link href="http://budiariyanto.github.io/"/>
+  <updated>2014-05-22T09:43:14+07:00</updated>
+  <id>http://budiariyanto.github.io/</id>
+  <author>
+    <name><![CDATA[Budi Ariyanto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Apache Roller Not Running Smoothly On Glassfish]]></title>
+    <link href="http://budiariyanto.github.io/blog/2012/05/08/apache-roller-not-running-smoothly-on/"/>
+    <updated>2012-05-08T16:07:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2012/05/08/apache-roller-not-running-smoothly-on</id>
+    <content type="html"><![CDATA[<div class='post'>
+Few days ago, I've tried installing Apache Roller 5.0 for my blog engine with MySQL and running it on glassfish 3.1.2 application server. At first glance, roller runs smoothly. I try to configure global roller configuration using server admin page and then create, edit, and delete blog post, changing themes, etc.<br />The problem comes when I want to create a blog post with an image from local media. To do that, I must upload the media file first, and then attach it on the editor. After successfully upload the media file, go back to the media file manager. My file that just uploaded not found, but it found if searched using roller search tool. It fixed if I restart glassfish domain and log in again.<br />There is one more problem after restarting glassfish domain. It's when I delete an uploaded file, the media file viewer still shows the border of the image container but no image on it, just the file name at the bottom.<br />There's no solution to this bug yet, but I have submit a report to JIRA@apache. While waiting for the bug fixed, I try deploy roller, run it with tomcat and voila, the bugs are gone! :D<br />My question are.. :<br /><ul><li>Is it because glassfish not using openjpa library for persistence layer?</li><li>Is there a cache in the URI resource that not refreshed after upload/delete image? If there is any of it, which part in the glassfish configuration that I should change?</li><li>Is the problem occur on the glassfish transaction service?</li></ul>Hope the apache roller developer get the bug fixed ASAP since I should use it on my project. :\ <br /><br /></div>
+
+]]></content>
+  </entry>
+  
+</feed>
