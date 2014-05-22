@@ -4,7 +4,7 @@
   <title><![CDATA[My Personal Blog]]></title>
   <link href="http://budiariyanto.github.io/atom.xml" rel="self"/>
   <link href="http://budiariyanto.github.io/"/>
-  <updated>2014-05-22T09:43:14+07:00</updated>
+  <updated>2014-05-22T10:11:58+07:00</updated>
   <id>http://budiariyanto.github.io/</id>
   <author>
     <name><![CDATA[Budi Ariyanto]]></name>
@@ -12,278 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Maven Multi Module Project]]></title>
-    <link href="http://budiariyanto.github.io/blog/2014/05/19/maven-multi-project/"/>
-    <updated>2014-05-19T13:02:45+07:00</updated>
-    <id>http://budiariyanto.github.io/blog/2014/05/19/maven-multi-project</id>
-    <content type="html"><![CDATA[<p>Dalam membuat satu project besar, sebaiknya kita bagi menjadi beberapa project kecil. Project kecil ini tujuannya untuk membagi project supaya strukturnya projectnya lebih mudah dipahami dan juga lebih modular. Maven mempunyai fitur untuk membantu merealisasikan hal ini, yaitu project inheritance dan project aggregation. Mari kita bahas satu per satu.</p>
-
-<h2>Briefing</h2>
-
-<p>Untuk membantu memahami dengan mudah, kita akan membuat sebuah project sederhana bernama &ldquo;Manusia&rdquo; dimana project ini punya modul yang bernama &ldquo;Kepala&rdquo;, &ldquo;Badan&rdquo;, &ldquo;Tangan&rdquo; dan &ldquo;Kaki&rdquo;. Modul-modul ini meng-inherit/mewarisi apa yang menjadi kepunyaan project &ldquo;Manusia&rdquo; dan sekaligus menjadi agregasinya, karena bisa dibayangkan bahwa manusia mempunyai kepala, badan, tangan dan kaki.</p>
-
-<h2>Parent POM</h2>
-
-<p>Buat parent POM di direktori terserah Anda. Pada tutorial ini akan saya buat pada direktori <code>/home/budi/project/manusia</code>. Parent POM adalah POM milik project &ldquo;Manusia&rdquo;. Definisinya sebagai berikut:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-</span><span class='line'>  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.projects<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>manusia<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nt">&lt;name&gt;</span>manusia<span class="nt">&lt;/name&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;url&gt;</span>http://manusia.projects.org<span class="nt">&lt;/url&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nt">&lt;properties&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/properties&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nt">&lt;dependencies&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;version&gt;</span>1.1.2<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;version&gt;</span>1.7.7<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/dependencies&gt;</span>
-</span><span class='line'><span class="nt">&lt;/project&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Parent POM sebetulnya adalah POM biasa. Yang perlu diperhatikan adalah <code>packaging</code>nya adalah <strong>pom</strong>.</p>
-
-<h2>Project Inheritance</h2>
-
-<p>Setelah tadi sudah membuat parent POM maka sekarang kita akan membuat POM dari masing-masing modul yang diinherit dari parent POM. Kita akan membuat POM-nya pada direktori:
-&ndash; <code>/home/budi/project/manusia/manusia-kepala</code> untuk modul manusia-kepala
-&ndash; <code>/home/budi/project/manusia/manusia-badan</code> untuk modul manusia-badan
-&ndash; <code>/home/budi/project/manusia/manusia-tangan</code> untuk modul manusia-tangan
-&ndash; <code>/home/budi/project/manusia/manusia-kaki</code> untuk modul manusia-kaki</p>
-
-<p>Berikut ini contoh POMnya:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-</span><span class='line'>  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c">&lt;!-- Penting! Inherit dari parent POM --&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;parent&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>org.project<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>manusia<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/parent&gt;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c">&lt;!-- groupId dan version tidak didefinisikan lagi --&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>manusia-kepala<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nt">&lt;name&gt;</span>manusia-kepala<span class="nt">&lt;/name&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;url&gt;</span>http://kepala.manusia.projects.org<span class="nt">&lt;/url&gt;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c">&lt;!-- Walaupun dependecy di sini hanya ada 2, yaitu spring-core dan postgresql driver,</span>
-</span><span class='line'><span class="c">         sebetulnya juga ada slf4j, logback-classic dan junit yang diinherit dari parent POM --&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;dependencies&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;artifactId&gt;</span>spring-core<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;version&gt;</span>4.0.4.RELEASE<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;version&gt;</span>9.3-1100-jdbc41<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/dependencies&gt;</span>
-</span><span class='line'><span class="nt">&lt;/project&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Untuk POM manusia-badan, manusia-tangan dan manusia-kaki sama saja. tinggal sesuaikan saja artifactId, packaging, name, url dan daftar dependency-nya.</p>
-
-<h2>Project Aggregation</h2>
-
-<p>Project aggregation bertujuan supaya kita dapat mengagregasi module project ke parent project dengan menambahkan tag <code>modules</code> pada parent POM. Jadi, sekarang parent POM nya menjadi seperti ini:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-</span><span class='line'>  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.projects<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>manusia<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nt">&lt;name&gt;</span>manusia<span class="nt">&lt;/name&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;url&gt;</span>http://manusia.projects.org<span class="nt">&lt;/url&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c">&lt;!-- Agregasi project yang berkaitan.</span>
-</span><span class='line'><span class="c">       Definisinya menggunakan artifact id dari masing-masing modul. --&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;modules&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-kepala<span class="nt">&lt;/module&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-badan<span class="nt">&lt;/module&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-tangan<span class="nt">&lt;/module&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;module&gt;</span>manusia-kaki<span class="nt">&lt;/module&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/modules&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nt">&lt;properties&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/properties&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nt">&lt;dependencies&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;version&gt;</span>1.1.2<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;version&gt;</span>1.7.7<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/dependencies&gt;</span>
-</span><span class='line'><span class="nt">&lt;/project&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Coba</h2>
-
-<p>Untuk melihat hasilnya seperti apa, masuk ke direktori <code>/home/budi/project/manusia</code> (direktori parent project), lalu jalankan perintah <code>mvn clean package</code></p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Maven Multi Module Project]]></title>
@@ -1448,6 +1176,16 @@ MoC is music player that running on console. It has GUI created with ncurses lib
     <id>http://budiariyanto.github.io/blog/2010/12/31/happy-new-year-2011a</id>
     <content type="html"><![CDATA[<div class='post'>
 <div>This new year is special for people who have interest in open source technology, especially developers. Early of this year, many products that may be released. KDE 4.6, Slackware 13.2, Netbeans IDE, JDK 7, Python 3.2, Aptana Studio 3 and many more. <img class="emoticon" src="http://statics.plurk.com/e49c8ae965452550c98fc7f99741ae0d.gif" width="42" alt="Yahoo" title="Yahoo" /></div><div><br /></div><div>To all my blog readers, I have to say : Happy new year!</div><div><br /></div><img class="emoticon" src="http://statics.plurk.com/078598d5e5639c8650ef665d95a4267a.gif" width="32" alt="fireworks" title="fireworks" /><img class="emoticon" src="http://www.kaskus.us/images/smilies/selamat.gif" alt=":selamat:" title=":selamat:" /></div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Merry Christmas]]></title>
+    <link href="http://budiariyanto.github.io/blog/2010/12/25/merry-christmas/"/>
+    <updated>2010-12-25T06:00:00+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2010/12/25/merry-christmas</id>
+    <content type="html"><![CDATA[<div class='post'>
+<div>Lord Jesus Christ has born today. Brings happiness to all of us. Let&#8217;s spread the happiness to our family, friends or other people around us. May the blessings from God always be with you.</div>To all of my blog readers : Merry Christmas!<img class="emoticon" src="http://statics.plurk.com/f5dbd5fdf5f5df69cfb024d6be76a76b.gif" width="32" alt="xmas3" title="xmas3" /><img class="emoticon" src="http://statics.plurk.com/e49c8ae965452550c98fc7f99741ae0d.gif" width="42" alt="Yahoo" title="Yahoo" /></div>
 ]]></content>
   </entry>
   

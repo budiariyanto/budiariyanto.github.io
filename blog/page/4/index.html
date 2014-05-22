@@ -9,7 +9,7 @@
   <meta name="author" content="Budi Ariyanto">
 
   
-  <meta name="description" content="After 10 years serve the Executive Committee(EC), Apache Software Foundation(ASF) resign from it following two other EC member, Doug Lea and Tim &hellip;">
+  <meta name="description" content="Indonesia wins against Thailand this evening, so Indonesia go to semifinal and Thailand must go home. The match is very interesting. On first half, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,45 +75,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2010/12/10/asf-resign-form-jcp-executive-committee/">ASF Resign Form the JCP Executive Committee</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-10T07:02:00+07:00" pubdate data-updated="true">Dec 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-After 10 years serve the Executive Committee(EC), <a href="https://blogs.apache.org/foundation/entry/the_asf_resigns_from_the">Apache Software Foundation(ASF) resign from it</a> following two other EC member, <a href="http://gee.cs.oswego.edu/dl/html/jcp22oct10.html">Doug Lea</a> and <a href="http://tembrel.blogspot.com/2010/12/resigned-from-ec.html">Tim Peierls</a>. Here&#8217;s a quote from the ASF blog as explanation of ASF:<br /><blockquote>The recent Java SE 7 vote was the last chance for the JCP EC to demonstrate that the EC has any intent to defend the JCP as an open specification process, and demonstrate that the letter and spirit of the law matter.   To sum up the issues at stake in the vote, we believe that while continuing to fail to uphold their responsibilities under the JSPA, Oracle provided the EC with a Java SE 7 specification request and license that are self-contradictory, severely restrict distribution of independent implementations of the spec, and most importantly, prohibit the distribution of independent open source implementations of the spec.  Oracle has refused to answer any reasonable and responsible questions from the EC regarding these problems.</blockquote>At this situation, I think the next of JDK is not open source anymore. But in the positive side, Java will be better developed under Oracle.</div>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -535,6 +496,58 @@ Today I just installing the <a href="http://www.google.com/chrome/intl/id/landin
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2010/12/02/install-backtrack-4-r2-to-your-usb/">Install Backtrack 4 R2 to Your USB Thumb Drive</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-02T05:50:00+07:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+If you want to use Backtrack 4 R2 for your operating system in a USB thumbdrive, there&#8217;s a simple way to install it. This is the steps to make it:<br /><br /><b>PREPARATION </b><br /><ol><li>Download Backtrack 4 R2 ISO <a href="http://www.backtrack-linux.org/downloads/">here</a>.</li><li>Burn the ISO to a CD or DVD.</li><li>Format your USB thumbdrive with FAT32 file system. You can do it with fdisk, cfdisk or format it with default Windows formatting tools. </li></ol><b>MAKE THE USB THUMB DRIVE BOOTABLE</b><br /><ol><li>Boot your system with Backtrack DVD.</li><li>Open the terminal / console.</li><li>Create directory for mount point and mount the thumb drive to the mount point.<br /><br /><pre>mkdir /mnt/sdb1<br />mount /dev/sdb1 /mnt/sdb1<br /></pre><br />Your thumb drive node is possibly different with the example above. So, please change it according to your device node.&nbsp; </li><li>Change directory to the tumb drive mount point and copy Backtrack files to your thumbdrive with this command :<br /><br /><pre>cd /mnt/sdb1<br />rsync -r /media/cdrom0/* .</pre><br /></li><li>Install grub.<br /><br /><pre>grub-install --no-floppy --root-directory=/mnt/sdb1 /dev/sdb</pre><br />Notes : Please change the device nodes in the example(sdb1, sdb) according yours.</li><li>Reboot. </li></ol>After reboot, you can see several choices at grub boot menu. If you want the persistence change support, you can choose Start Persistent Live CD from the menu.<br /><br />Enjoy the backtrack 4 R2 :)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+good instructions but the point would of installing it to a USB would be so that you don&#39;t have to burn it to CD.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+thanks 4 the post mate. <br />Trying it right now&#8230;<br />rsync -vr /media/cdrom0/* .<br />slip in the -v or you will be staring at a screen where nothing happens for quite a while.. :)<br /><br />Greets, <br />mmlinx</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -563,10 +576,6 @@ Today I just installing the <a href="http://www.google.com/chrome/intl/id/landin
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/05/19/maven-multi-project/">Maven Multi Module Project</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2014/05/19/maven-multi-module-project/">Maven Multi Module Project</a>
       </li>
     
@@ -580,6 +589,10 @@ Today I just installing the <a href="http://www.google.com/chrome/intl/id/landin
     
       <li class="post">
         <a href="/blog/2014/01/17/tutorial-singkat-maven/">Tutorial Singkat Maven</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/26/good-leader/">Good Leader</a>
       </li>
     
   </ul>
