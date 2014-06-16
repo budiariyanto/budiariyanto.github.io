@@ -4,7 +4,7 @@
   <title><![CDATA[My Personal Blog]]></title>
   <link href="http://budiariyanto.github.io/atom.xml" rel="self"/>
   <link href="http://budiariyanto.github.io/"/>
-  <updated>2014-05-24T22:46:32+07:00</updated>
+  <updated>2014-06-16T18:25:14+07:00</updated>
   <id>http://budiariyanto.github.io/</id>
   <author>
     <name><![CDATA[Budi Ariyanto]]></name>
@@ -12,6 +12,262 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Membuat Project Java Dengan Gradle]]></title>
+    <link href="http://budiariyanto.github.io/blog/2014/06/16/membuat-project-java-dengan-gradle/"/>
+    <updated>2014-06-16T13:56:50+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2014/06/16/membuat-project-java-dengan-gradle</id>
+    <content type="html"><![CDATA[<p>Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.</p>
+
+<h2>Kenapa Kita Butuh Build Tools</h2>
+
+<p>Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses peng<strong>compile</strong>an biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.</p>
+
+<p>Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu <a href="http://maven.apache.org">Maven</a> dan <a href="http://www.gradle.org">Gradle</a>. Maven sebelumnya sudah pernah saya bahas secara singkat di <a href="blog/2014/01/17/tutorial-singkat-maven/">sini</a> dan di <a href="blog/2014/05/19/maven-multi-module-project/">sini</a>. Sekarang saya akan membahas Gradle.</p>
+
+<h2>Gradle</h2>
+
+<p>Gradle adalah build tools modern yang sedang booming akhir-akhir ini, terutama di kalangan penggemar bahasa pemrograman Java. Gradle ini mirip seperti build tools lain, contohnya make atau rake. Konfigurasi build automation pada gradle menggunakan bahasa pemrograman Groovy. Pada artikel ini saya tidak membahas tentang bahasa pemrograman Groovy, tapi saya ambil yang penting-pentingnya saja supaya kita dapat membuat project Java menggunakan Gradle diintegrasikan dengan Maven. Wah kenapa Maven masih ikut-ikut?</p>
+
+<p>Jadi begini, kegunaan Gradle sedikit berbeda dengan Maven. Gradle adalah build tools yang tidak spesifik terhadap satu bahasa pemrograman tertentu, sedangkan Maven spesifik untuk membantu membuat project yang kita buat menggunakan Java. Kalau kita perhatikan di ebook-ebook Gradle yang ada, pasti tutorial yang ada di dalam buku tersebut malah membahas bagaimana membuat project dan task Gradle secara umum menggunakan bahasa pemrograman Groovy, bukan langsung membahas bagaimana membuat project Java dengan menggunakan Gradle. Nah nanti kita akan membahas bagaimana membuat task dan mengatur project yang kita buat menggunakan Gradle, tapi masih menggunakan maven untuk memanage dependency project yang ada.</p>
+
+<p>Jadi, Gradle bisa digunakan untuk project apa saja karena kita bisa membuat task sendiri di dalamnya dimana task tersebut kita sendiri yang membuatnya mau jadi bagaimana. Itulah sekilas tentang Gradle.</p>
+
+<h2>Menginstall Gradle</h2>
+
+<p>Berikut ini langkah-langkah setup gradle di komputer kita:</p>
+
+<ol>
+<li>Download gradle di websitenya lalu ekstrak di direktori mana saja.</li>
+<li>Buat environment variable bernama <code>GRADLE_HOME</code> dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi.</li>
+<li>Logout dari sistem, login lagi. Selesai. :)</li>
+</ol>
+
+
+<!--more-->
+
+
+<h2>Java Project Layout</h2>
+
+<p>Project layout sebetulnya terserah kita mau bagaimana. Tapi java punya konvensi terhadap project layout ini. Project layout yang saya gunakan biasanya ada 3 yaitu untuk project java, java web dan java enterprise. Untuk mendukung contoh penggunaan Gradle pada pembahasan artikel ini, saya akan memilih menggunakan project layout java. Layoutnya seperti ini:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>+-projectRootDir
+</span><span class='line'>  +-src
+</span><span class='line'>    +-main
+</span><span class='line'>    | +-java
+</span><span class='line'>    | +-resources
+</span><span class='line'>    +-test
+</span><span class='line'>      +-java
+</span><span class='line'>      +-resources
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Layout di atas adalah layout untuk project tunggal. Nanti kita akan buat menjadi layout multi project menggunakan Gradle. Multi project pengertiannya adalah ada satu atau banyak project di dalam satu project. Kenapa harus multi project? Karena menurut saya project akan lebih jelas peranannya karena lebih modular dan lebih gampang memaintainnya.</p>
+
+<h2>Gradle Project dan Task</h2>
+
+<p>Untuk membuat project Gradle, cukup buat direktori biasa. Misalkan direktorinya kita beri nama <code>coba_gradle</code>. Direktori ini nantinya akan berlaku sebagai root project. Untuk membuatnya menjadi root project Gradle, di dalam direktori <code>coba_gradle</code> kita <strong>harus</strong> membuat file bernama <code>build.gradle</code>. Sudah, cukup itu saja. :)</p>
+
+<p>Gradle task adalah task yang kita coding sendiri menggunakan bahasa pemrograman Groovy. Karena kita akan membuat project java kita akan menggunakan <strong>plugin</strong> java pada Gradle. Apa peran atau fungsi plugin? Plugin pada Gradle adalah untuk meringankan kita dalam membuat task. Jika kita menggunakan plugin maka kita tidak perlu membuat task lagi.</p>
+
+<p>Selanjutnya kita akan bahas isi dari file <code>build.gradle</code> ini yang merupakan konfigurasi dari root project yang kita buat. Saya beri contoh isi filenya:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="c1">// Dengan apply java plugin, kita dibuatkan task-task untuk membuild program java kita</span>
+</span><span class='line'><span class="c1">// Untuk mengeceknya, kita bisa jalankan perintah: gradle tasks</span>
+</span><span class='line'><span class="c1">// nanti akan tampil task-task apa saja yang available. Bandingkan daftar tasknya ketika kita belum apply plugin java</span>
+</span><span class='line'><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;java&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Ini adalah project properties. Saya menggunakannya untuk listing masing-masing versi dari dependency yang digunakan</span>
+</span><span class='line'><span class="c1">// Project properties ini digunakan ketika mendeklarasikan dependency</span>
+</span><span class='line'><span class="n">project</span><span class="o">.</span><span class="na">ext</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">JUNIT_VERSION</span> <span class="o">=</span> <span class="s1">&#39;4.11&#39;</span>
+</span><span class='line'>    <span class="n">SPRING_CORE_VERSION</span> <span class="o">=</span> <span class="s1">&#39;4.0.5.RELEASE&#39;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Konfigurasi untuk semua project</span>
+</span><span class='line'><span class="n">allprojects</span> <span class="o">{</span>
+</span><span class='line'>    <span class="c1">// Konfigurasi repository maven</span>
+</span><span class='line'>    <span class="c1">// Kita menggunakan 2 repository. Local dan maven central</span>
+</span><span class='line'>    <span class="n">repositories</span> <span class="o">{</span>
+</span><span class='line'>        <span class="c1">// Konfigurasi repository lokal maven. Kita arahkan ke komputer lokal di direktori</span>
+</span><span class='line'>        <span class="c1">// /home/budi/.m2/repository</span>
+</span><span class='line'>        <span class="c1">// Bisa juga diarahkan ke local repository server seperti nexus atau artifactory</span>
+</span><span class='line'>        <span class="n">maven</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">url</span> <span class="s2">&quot;file://home/budi/.m2/repository&quot;</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// Special Gradle notation yang berguna untuk memberitahu Gradle bahwa kita menggunakan repository maven central</span>
+</span><span class='line'>        <span class="n">mavenCentral</span><span class="o">()</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Konfigurasi untuk tiap subproject</span>
+</span><span class='line'><span class="c1">// Nantinya ketika kita membuat subproject, konfigurasi ini akan diwariskan ke subproject tersebut</span>
+</span><span class='line'><span class="n">subprojects</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;java&#39;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Supaya kita tidak usah repot membuat maven task.</span>
+</span><span class='line'>    <span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;maven&#39;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Konfigurasi maven plugin supaya mengupload artifact ke path yang kita inginkan</span>
+</span><span class='line'>    <span class="n">uploadArchives</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">repositories</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">mavenDeployer</span> <span class="o">{</span>
+</span><span class='line'>                <span class="c1">// Path kita set ke direktori komputer lokal /home/budi/.m2/repository</span>
+</span><span class='line'>                <span class="n">repository</span><span class="o">(</span><span class="nl">url:</span> <span class="s2">&quot;file://home/budi/.m2/repository/&quot;</span><span class="o">)</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Deklarasi dependency untuk setiap subproject</span>
+</span><span class='line'>    <span class="n">dependencies</span> <span class="o">{</span>
+</span><span class='line'>        <span class="c1">// Syntaxnya adalah &lt;scope&gt; &quot;&lt;groupId&gt;:&lt;artifactId&gt;:&lt;version&gt;&quot;</span>
+</span><span class='line'>        <span class="c1">// Scope ada 4, yaitu compile, runtime, testCompile, testRuntime</span>
+</span><span class='line'>        <span class="c1">// compile: dependency diperlukan saat compile ataupun development</span>
+</span><span class='line'>        <span class="c1">// runtime: dependency diperlukan saat runtime</span>
+</span><span class='line'>        <span class="c1">// testCompile: dependency diperlukan saat ngetes-ngetes program</span>
+</span><span class='line'>        <span class="c1">// testRuntime: dependency diperlukan saat program yang untuk ngetes-ngetes berjalan</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// Sebagai contoh, kita menggunakan 2 library. JUnit dan spring-context</span>
+</span><span class='line'>        <span class="c1">// Bisa kita lihat pada deklarasi version menggunakan variable dari project properties</span>
+</span><span class='line'>        <span class="n">testCompile</span> <span class="s2">&quot;junit:junit:${project.JUNIT_VERSION}&quot;</span>
+</span><span class='line'>        <span class="n">compile</span> <span class="s2">&quot;org.springframework:spring-context:${project.SPRING_CORE_VERSION}&quot;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Membuat Subproject</h2>
+
+<p>Root project sudah dibuat. Saatnya kita membuat subproject. Untuk membuatnya sangat gampang. Cukup membuat direktori baru di dalam direktori root project. Misalkan kita buat namanya <code>coba_gradle_subproject</code>. Di dalam direktori ini, kita buat layout project java yang sudah dibahas sebelumnya. Jangan lupa kita juga wajib membuat file <code>build.gradle</code> di dalam direktori <code>coba_gradle_subproject</code> ini. Sebagai contoh, isinya hanya seperti ini:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0.SNAPSHOT&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Walaupun isinya hanya seperti itu, namun karena root project sudah mendefinisikan konfigurasi pada block <code>subprojects</code>, maka otomatis subproject ini mewarisi apa yang sudah dideklarasikan di sana, dari plugin dan dependencynya. Variabel version ini perlu kita deklarasikan supaya nanti ketika subproject ini kita compile menjadi bentuk jar misalnya, filenamenya akan ditambahkan version dari project ini. Jadi misalkan versionnya kita set <code>1.0.0.SNAPSHOT</code>, maka file yang tercipta nantinya akan bernama <code>coba_gradle_subproject-1.0.0.SNAPSHOT.jar</code>.</p>
+
+<p>Pada file ini, kita juga bisa mendeklarasikan lagi konfigurasi yang sama dengan yang sudah ada di root project atau yang lain. Nantinya Gradle pertama kali akan membaca <code>build.gradle</code> dari direktori subproject, lalu membaca lagi <code>build.gradle</code> dari direktori root project dan mengakumulasikannya.</p>
+
+<p>Nah, subproject sudah dibuat. Bagaimana caranya supaya root project mengenali subproject ini? Mari kita kembali lagi ke direktori <code>coba_gradle</code>. Dalam direktori tersebut, buatlah file bernama <code>settings.gradle</code> dan deklarasikan subprojectnya di dalam file tersebut seperti berikut:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="n">include</span> <span class="s1">&#39;coba_gradle_subproject&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// tambahkan subproject lain jika ada</span>
+</span><span class='line'><span class="c1">// include &#39;subproject2&#39;</span>
+</span><span class='line'><span class="c1">// include &#39;subproject3&#39;</span>
+</span><span class='line'><span class="c1">// dst...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Gambaran akhir dari struktur direktorinya adalah sebagai berikut:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="o">+-</span><span class="n">coba_gradle</span>
+</span><span class='line'>  <span class="o">+-</span><span class="n">coba_gradle_subproject</span>
+</span><span class='line'>  <span class="o">|</span>  <span class="o">+-</span><span class="n">src</span>
+</span><span class='line'>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">+-</span><span class="n">main</span>
+</span><span class='line'>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span> <span class="o">+-</span><span class="n">java</span>
+</span><span class='line'>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span> <span class="o">+-</span><span class="n">resources</span>
+</span><span class='line'>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">+-</span><span class="n">test</span>
+</span><span class='line'>  <span class="o">|</span>  <span class="o">|</span>    <span class="o">+-</span><span class="n">java</span>
+</span><span class='line'>  <span class="o">|</span>  <span class="o">+-</span><span class="n">build</span><span class="o">.</span><span class="na">gradle</span>
+</span><span class='line'>  <span class="o">+-</span><span class="n">build</span><span class="o">.</span><span class="na">gradle</span>
+</span><span class='line'>  <span class="o">+-</span><span class="n">settings</span><span class="o">.</span><span class="na">gradle</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Setup project sudah selesai :). Kekurangan dari Gradle ini adalah belum mempunyai archetype generator seperti maven. Jadi setiap kali kita membuat subproject, kita membuat layout direktori secara manual. Ke depannya Gradle diharapkan mempunyai fitur seperti maven archetype.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Maven Multi Module Project]]></title>
@@ -1176,16 +1432,6 @@ MoC is music player that running on console. It has GUI created with ncurses lib
     <id>http://budiariyanto.github.io/blog/2010/12/31/happy-new-year-2011a</id>
     <content type="html"><![CDATA[<div class='post'>
 <div>This new year is special for people who have interest in open source technology, especially developers. Early of this year, many products that may be released. KDE 4.6, Slackware 13.2, Netbeans IDE, JDK 7, Python 3.2, Aptana Studio 3 and many more. <img class="emoticon" src="http://statics.plurk.com/e49c8ae965452550c98fc7f99741ae0d.gif" width="42" alt="Yahoo" title="Yahoo" /></div><div><br /></div><div>To all my blog readers, I have to say : Happy new year!</div><div><br /></div><img class="emoticon" src="http://statics.plurk.com/078598d5e5639c8650ef665d95a4267a.gif" width="32" alt="fireworks" title="fireworks" /><img class="emoticon" src="http://www.kaskus.us/images/smilies/selamat.gif" alt=":selamat:" title=":selamat:" /></div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Merry Christmas]]></title>
-    <link href="http://budiariyanto.github.io/blog/2010/12/25/merry-christmas/"/>
-    <updated>2010-12-25T06:00:00+07:00</updated>
-    <id>http://budiariyanto.github.io/blog/2010/12/25/merry-christmas</id>
-    <content type="html"><![CDATA[<div class='post'>
-<div>Lord Jesus Christ has born today. Brings happiness to all of us. Let&#8217;s spread the happiness to our family, friends or other people around us. May the blessings from God always be with you.</div>To all of my blog readers : Merry Christmas!<img class="emoticon" src="http://statics.plurk.com/f5dbd5fdf5f5df69cfb024d6be76a76b.gif" width="32" alt="xmas3" title="xmas3" /><img class="emoticon" src="http://statics.plurk.com/e49c8ae965452550c98fc7f99741ae0d.gif" width="42" alt="Yahoo" title="Yahoo" /></div>
 ]]></content>
   </entry>
   

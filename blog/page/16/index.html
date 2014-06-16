@@ -9,7 +9,7 @@
   <meta name="author" content="Budi Ariyanto">
 
   
-  <meta name="description" content="Pada Windows XP, terdapat aplikasi bawaan untuk shutdown Windows itu sendiri yaitu shutdown.exe yang terletak di C:\WINDOWS\system32. Sebetulnya &hellip;">
+  <meta name="description" content="Setiap database penting untuk di-backup agar tidak terjadi bencana ketika sewaktu-waktu database yang Anda punya rusak, karena mati listrik mungkin &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +82,45 @@
   <header>
     
       <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2008/06/11/backupdumping-dan-restore-database/">BACKUP(DUMPING) DAN RESTORE DATABASE MySQL</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-11T23:56:00+07:00" pubdate data-updated="true">Jun 11<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Setiap database penting untuk di-backup agar tidak terjadi bencana ketika sewaktu-waktu database yang Anda punya rusak, karena mati listrik mungkin&#8230; Atau mungkin suatu saat Anda ingin memindahkan database Anda ke komputer lain.. Who knows&#8230;? Ini saya ada tutorial untuk dumping dan restore database MySQL.<br /><br /><b>DUMPING:</b><br /><br />Pertama, Anda harus tahu dulu username dan password yang dapat mengakses database yang akan di-backup(sebaiknya user yang mempunyai hak akses penuh terhadap database). Misalnya usernamenya budi, passwordnya budiganteng dan nama databasenya db_budi. Setelah itu ketikkan pada command prompt :<br /><br />[sourcecode language=&#8217;sql&#8217;]mysqldump -u budi -p budiganteng db_budi &gt; C:\backup\db_budi_backup.sql[/sourcecode]<br /><br />Hasil file backup berupa file berekstensi .sql, dan dalam kasus ini nantinya file yang tercipta adalah db_budi_backup.sql yang terletak di C:\backup.<br /><br /><b>RESTORE:</b><br /><br />Pertama, Anda buat dulu database di komputer lainnya(sebut saja komputer B) dengan nama database yang sama dengan database di komputer sebelumnya, dalam kasus ini, nama databasenya adalah db_budi dengan mengetikkan perintah create database db_budi. Di samping itu, di komputer B harus ada username budi dengan password budiganteng dengan level hak akses yang sama terhadap database di komputer sebelumnya, dalam kasus ini anggap saja admin. Jika belum ada, ketikkan perintah ini :<br /><br />[sourcecode language=&#8217;sql&#8217;]grant all on db_budi.* to &#8216;budi&#8217;@&#8217;localhost&#8217; identified by &#8216;budiganteng&#8217;[/sourcecode]<br /><br />Setelah user dibuat, pada command prompt  ketikkan perintah :<br /><br />[sourcecode language=&#8217;sql&#8217;]mysql -u budi -p budiganteng db_budi &lt; C:\backup\db_budi_backup.sql[/sourcecode]<br /><br />Setelah perintah ini dijalankan, maka Anda sudah me-restore database MySQL yang diinginkan.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
         <h1 class="entry-title"><a href="/blog/2008/06/11/membuat-shutdown-timer-dengan/">MEMBUAT SHUTDOWN TIMER DENGAN MEMANFAATKAN PROGRAM SHUTDOWN.EXE WINDOWS</a></h1>
       
     
@@ -141,6 +180,10 @@ Pada Windows XP, terdapat aplikasi bawaan untuk shutdown Windows itu sendiri yai
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/06/16/membuat-project-java-dengan-gradle/">Membuat Project Java Dengan Gradle</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/19/maven-multi-module-project/">Maven Multi Module Project</a>
       </li>
     
@@ -154,10 +197,6 @@ Pada Windows XP, terdapat aplikasi bawaan untuk shutdown Windows itu sendiri yai
     
       <li class="post">
         <a href="/blog/2014/01/17/tutorial-singkat-maven/">Tutorial Singkat Maven</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/12/26/good-leader/">Good Leader</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Budi Ariyanto">
 
   
-  <meta name="description" content="Lately, there&#8217;s some cats in my boarding house. I don&#8217;t know where they come from. I have tried to shoo them, but they always come back &hellip;">
+  <meta name="description" content="If you want to use Backtrack 4 R2 for your operating system in a USB thumbdrive, there&#8217;s a simple way to install it. This is the steps to make &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2010/12/02/install-backtrack-4-r2-to-your-usb/">Install Backtrack 4 R2 to Your USB Thumb Drive</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-02T05:50:00+07:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+If you want to use Backtrack 4 R2 for your operating system in a USB thumbdrive, there&#8217;s a simple way to install it. This is the steps to make it:<br /><br /><b>PREPARATION </b><br /><ol><li>Download Backtrack 4 R2 ISO <a href="http://www.backtrack-linux.org/downloads/">here</a>.</li><li>Burn the ISO to a CD or DVD.</li><li>Format your USB thumbdrive with FAT32 file system. You can do it with fdisk, cfdisk or format it with default Windows formatting tools. </li></ol><b>MAKE THE USB THUMB DRIVE BOOTABLE</b><br /><ol><li>Boot your system with Backtrack DVD.</li><li>Open the terminal / console.</li><li>Create directory for mount point and mount the thumb drive to the mount point.<br /><br /><pre>mkdir /mnt/sdb1<br />mount /dev/sdb1 /mnt/sdb1<br /></pre><br />Your thumb drive node is possibly different with the example above. So, please change it according to your device node.&nbsp; </li><li>Change directory to the tumb drive mount point and copy Backtrack files to your thumbdrive with this command :<br /><br /><pre>cd /mnt/sdb1<br />rsync -r /media/cdrom0/* .</pre><br /></li><li>Install grub.<br /><br /><pre>grub-install --no-floppy --root-directory=/mnt/sdb1 /dev/sdb</pre><br />Notes : Please change the device nodes in the example(sdb1, sdb) according yours.</li><li>Reboot. </li></ol>After reboot, you can see several choices at grub boot menu. If you want the persistence change support, you can choose Start Persistent Live CD from the menu.<br /><br />Enjoy the backtrack 4 R2 :)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+good instructions but the point would of installing it to a USB would be so that you don&#39;t have to burn it to CD.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+thanks 4 the post mate. <br />Trying it right now&#8230;<br />rsync -vr /media/cdrom0/* .<br />slip in the -v or you will be staring at a screen where nothing happens for quite a while.. :)<br /><br />Greets, <br />mmlinx</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -483,45 +535,6 @@ With linux commands, we can output the command result to the screen. Sometimes w
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2010/11/20/netbeans-70-beta-now-available-to/">Netbeans 7.0 Beta Now Available to Download</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-20T06:58:00+07:00" pubdate data-updated="true">Nov 20<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-This morning I go to the <a href="http://netbeans.org/">netbeans official site</a>, and I found a news that Netbeans 7.0 beta available for download. It seems netbeans 7.0 supports the HTML5 source editing, provide integration to the oracle database and new gridbag layout for improved Swing GUI development. It&#8217;s a great improvement from previous netbeans release. I hope netbeans can support for CSS3 script editing too in the future. :)</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -550,6 +563,10 @@ This morning I go to the <a href="http://netbeans.org/">netbeans official site</
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/06/16/membuat-project-java-dengan-gradle/">Membuat Project Java Dengan Gradle</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/19/maven-multi-module-project/">Maven Multi Module Project</a>
       </li>
     
@@ -563,10 +580,6 @@ This morning I go to the <a href="http://netbeans.org/">netbeans official site</
     
       <li class="post">
         <a href="/blog/2014/01/17/tutorial-singkat-maven/">Tutorial Singkat Maven</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/12/26/good-leader/">Good Leader</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Budi Ariyanto">
 
   
-  <meta name="description" content="Dalam membuat satu project besar, sebaiknya kita bagi menjadi beberapa project kecil. Project kecil ini tujuannya untuk membagi project supaya &hellip;">
+  <meta name="description" content="Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,74 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/06/16/membuat-project-java-dengan-gradle/">Membuat Project Java Dengan Gradle</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-16T13:56:50+07:00" pubdate data-updated="true">Jun 16<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.</p>
+
+<h2>Kenapa Kita Butuh Build Tools</h2>
+
+<p>Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses peng<strong>compile</strong>an biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.</p>
+
+<p>Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu <a href="http://maven.apache.org">Maven</a> dan <a href="http://www.gradle.org">Gradle</a>. Maven sebelumnya sudah pernah saya bahas secara singkat di <a href="blog/2014/01/17/tutorial-singkat-maven/">sini</a> dan di <a href="blog/2014/05/19/maven-multi-module-project/">sini</a>. Sekarang saya akan membahas Gradle.</p>
+
+<h2>Gradle</h2>
+
+<p>Gradle adalah build tools modern yang sedang booming akhir-akhir ini, terutama di kalangan penggemar bahasa pemrograman Java. Gradle ini mirip seperti build tools lain, contohnya make atau rake. Konfigurasi build automation pada gradle menggunakan bahasa pemrograman Groovy. Pada artikel ini saya tidak membahas tentang bahasa pemrograman Groovy, tapi saya ambil yang penting-pentingnya saja supaya kita dapat membuat project Java menggunakan Gradle diintegrasikan dengan Maven. Wah kenapa Maven masih ikut-ikut?</p>
+
+<p>Jadi begini, kegunaan Gradle sedikit berbeda dengan Maven. Gradle adalah build tools yang tidak spesifik terhadap satu bahasa pemrograman tertentu, sedangkan Maven spesifik untuk membantu membuat project yang kita buat menggunakan Java. Kalau kita perhatikan di ebook-ebook Gradle yang ada, pasti tutorial yang ada di dalam buku tersebut malah membahas bagaimana membuat project dan task Gradle secara umum menggunakan bahasa pemrograman Groovy, bukan langsung membahas bagaimana membuat project Java dengan menggunakan Gradle. Nah nanti kita akan membahas bagaimana membuat task dan mengatur project yang kita buat menggunakan Gradle, tapi masih menggunakan maven untuk memanage dependency project yang ada.</p>
+
+<p>Jadi, Gradle bisa digunakan untuk project apa saja karena kita bisa membuat task sendiri di dalamnya dimana task tersebut kita sendiri yang membuatnya mau jadi bagaimana. Itulah sekilas tentang Gradle.</p>
+
+<h2>Menginstall Gradle</h2>
+
+<p>Berikut ini langkah-langkah setup gradle di komputer kita:</p>
+
+<ol>
+<li>Download gradle di websitenya lalu ekstrak di direktori mana saja.</li>
+<li>Buat environment variable bernama <code>GRADLE_HOME</code> dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi.</li>
+<li>Logout dari sistem, login lagi. Selesai. :)</li>
+</ol>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/06/16/membuat-project-java-dengan-gradle/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -886,58 +954,6 @@ instead of installing the whole kdem maybe you should start with a minimal one a
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2011/08/31/free-online-icon-converter/">Free Online Icon Converter</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-08-31T16:01:00+07:00" pubdate data-updated="true">Aug 31<span>st</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-I have found a free online service that can convert an image to icon (.ico). It supports JPEG, GIF, PNG and BMP image format. Before converting image to icon, we can configure the size and color depth. You can try it at <a href="http://www.icoconverter.com/">this site</a>.</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>John Lee</div>
-<div class='content'>
-I am not new to blogging and truly value your blog. There is much innovative subject that peaks my interest. I am going to bookmark your web site and keep checking you out.<br /><a href="http://www.diskdoctors.net/email-recovery/software.html" rel="nofollow">recover deleted emails from outlook</a><br /></div>
-</div>
-<div class='comment'>
-<div class='author'>andreassatyo</div>
-<div class='content'>
-long time to see masbro,. :)</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -964,6 +980,10 @@ long time to see masbro,. :)</div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/06/16/membuat-project-java-dengan-gradle/">Membuat Project Java Dengan Gradle</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/19/maven-multi-module-project/">Maven Multi Module Project</a>
       </li>
     
@@ -977,10 +997,6 @@ long time to see masbro,. :)</div>
     
       <li class="post">
         <a href="/blog/2014/01/17/tutorial-singkat-maven/">Tutorial Singkat Maven</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/12/26/good-leader/">Good Leader</a>
       </li>
     
   </ul>

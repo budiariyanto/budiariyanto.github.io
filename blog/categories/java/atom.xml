@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Java | My Personal Blog]]></title>
+  <title><![CDATA[Category: java, | My Personal Blog]]></title>
   <link href="http://budiariyanto.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://budiariyanto.github.io/"/>
-  <updated>2014-05-24T22:46:32+07:00</updated>
+  <updated>2014-06-16T18:25:14+07:00</updated>
   <id>http://budiariyanto.github.io/</id>
   <author>
     <name><![CDATA[Budi Ariyanto]]></name>
@@ -14,74 +14,183 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Learning Python To Anticipate Change Of Java License]]></title>
-    <link href="http://budiariyanto.github.io/blog/2010/12/13/learning-python-to-anticipate-change-of/"/>
-    <updated>2010-12-13T09:53:00+07:00</updated>
-    <id>http://budiariyanto.github.io/blog/2010/12/13/learning-python-to-anticipate-change-of</id>
-    <content type="html"><![CDATA[<div class='post'>
-Java developers have to aware that Java open source license after Oracle acquisition over Sun maybe changed to commercial.  As an alternative open source programming language, I think Python is suitable for developing desktop or web based application with high scalability like Java. It has a big community,  rapidly developed and multi-platform too. It has clean style codes and simple syntax, make it easier to write and more readable.<br />The popular library for developing desktop apps in python is <a href="http://www.wxpython.org/">wxPython</a> that based on <a href="http://www.wxwidgets.org/">WxWidget</a>(written in C++). For building a web application, Python can be written from scratch as Common Gateway Interface(CGI) an run it under a webserver(i.e <a href="http://www.apache.org/">Apache</a> with <a href="http://www.modpython.org/">mod_python</a> or <a href="http://code.google.com/p/modwsgi/">mod_wsgi</a>). In order to build python web application easier, we can use popular frameworks like <a href="http://www.djangoproject.com/">Django</a> or <a href="http://turbogears.org/">Turbo Gears</a>.</div>
+    <title type="html"><![CDATA[Membuat Project Java Dengan Gradle]]></title>
+    <link href="http://budiariyanto.github.io/blog/2014/06/16/membuat-project-java-dengan-gradle/"/>
+    <updated>2014-06-16T13:56:50+07:00</updated>
+    <id>http://budiariyanto.github.io/blog/2014/06/16/membuat-project-java-dengan-gradle</id>
+    <content type="html"><![CDATA[<p>Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ASF Resign Form The JCP Executive Committee]]></title>
-    <link href="http://budiariyanto.github.io/blog/2010/12/10/asf-resign-form-jcp-executive-committee/"/>
-    <updated>2010-12-10T07:02:00+07:00</updated>
-    <id>http://budiariyanto.github.io/blog/2010/12/10/asf-resign-form-jcp-executive-committee</id>
-    <content type="html"><![CDATA[<div class='post'>
-After 10 years serve the Executive Committee(EC), <a href="https://blogs.apache.org/foundation/entry/the_asf_resigns_from_the">Apache Software Foundation(ASF) resign from it</a> following two other EC member, <a href="http://gee.cs.oswego.edu/dl/html/jcp22oct10.html">Doug Lea</a> and <a href="http://tembrel.blogspot.com/2010/12/resigned-from-ec.html">Tim Peierls</a>. Here's a quote from the ASF blog as explanation of ASF:<br /><blockquote>The recent Java SE 7 vote was the last chance for the JCP EC to demonstrate that the EC has any intent to defend the JCP as an open specification process, and demonstrate that the letter and spirit of the law matter.   To sum up the issues at stake in the vote, we believe that while continuing to fail to uphold their responsibilities under the JSPA, Oracle provided the EC with a Java SE 7 specification request and license that are self-contradictory, severely restrict distribution of independent implementations of the spec, and most importantly, prohibit the distribution of independent open source implementations of the spec.  Oracle has refused to answer any reasonable and responsible questions from the EC regarding these problems.</blockquote>At this situation, I think the next of JDK is not open source anymore. But in the positive side, Java will be better developed under Oracle.</div>
+<h2>Kenapa Kita Butuh Build Tools</h2>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Exercises for Java Programming Language]]></title>
-    <link href="http://budiariyanto.github.io/blog/2010/04/05/exercises-for-java-programming-language/"/>
-    <updated>2010-04-05T17:34:00+07:00</updated>
-    <id>http://budiariyanto.github.io/blog/2010/04/05/exercises-for-java-programming-language</id>
-    <content type="html"><![CDATA[<div class='post'>
-Hi all, today I have found some sites that useful to exercise java programming language. Here they are :<br /><a href="ftp://sunsite.unc.edu/pub/languages/java/javafaq/">ftp://sunsite.unc.edu/pub/languages/java/javafaq/</a><br /><a href="http://www.cafeaulait.org/books/jdr/exercises/">http://www.cafeaulait.org/books/jdr/exercises/</a><br /><a href="http://codingbat.com/">http://codingbat.com/</a><br /><a href="http://www.faqs.org/docs/javap/index.html">http://www.faqs.org/docs/javap/index.html</a><br /><a href="http://stellar.mit.edu/S/course/6/sp08/6.005/index.html">http://stellar.mit.edu/S/course/6/sp08/6.005/index.html</a><br /><a href="https://www.home.hs-karlsruhe.de/%7Epach0003/informatik_1/aufgaben/en/java.html">https://www.home.hs-karlsruhe.de/~pach0003/informatik_1/aufgaben/en/java.html</a><br /><a href="http://www.javapractices.com/home/HomeAction.do">http://www.javapractices.com/home/HomeAction.do</a> <br /><br />I hope this will help you to learn this powerful programming language :D</div>
+<p>Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses peng<strong>compile</strong>an biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.</p>
 
+<p>Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu <a href="http://maven.apache.org">Maven</a> dan <a href="http://www.gradle.org">Gradle</a>. Maven sebelumnya sudah pernah saya bahas secara singkat di <a href="blog/2014/01/17/tutorial-singkat-maven/">sini</a> dan di <a href="blog/2014/05/19/maven-multi-module-project/">sini</a>. Sekarang saya akan membahas Gradle.</p>
 
-<h2>Comments</h2>
+<h2>Gradle</h2>
+
+<p>Gradle adalah build tools modern yang sedang booming akhir-akhir ini, terutama di kalangan penggemar bahasa pemrograman Java. Gradle ini mirip seperti build tools lain, contohnya make atau rake. Konfigurasi build automation pada gradle menggunakan bahasa pemrograman Groovy. Pada artikel ini saya tidak membahas tentang bahasa pemrograman Groovy, tapi saya ambil yang penting-pentingnya saja supaya kita dapat membuat project Java menggunakan Gradle diintegrasikan dengan Maven. Wah kenapa Maven masih ikut-ikut?</p>
+
+<p>Jadi begini, kegunaan Gradle sedikit berbeda dengan Maven. Gradle adalah build tools yang tidak spesifik terhadap satu bahasa pemrograman tertentu, sedangkan Maven spesifik untuk membantu membuat project yang kita buat menggunakan Java. Kalau kita perhatikan di ebook-ebook Gradle yang ada, pasti tutorial yang ada di dalam buku tersebut malah membahas bagaimana membuat project dan task Gradle secara umum menggunakan bahasa pemrograman Groovy, bukan langsung membahas bagaimana membuat project Java dengan menggunakan Gradle. Nah nanti kita akan membahas bagaimana membuat task dan mengatur project yang kita buat menggunakan Gradle, tapi masih menggunakan maven untuk memanage dependency project yang ada.</p>
+
+<p>Jadi, Gradle bisa digunakan untuk project apa saja karena kita bisa membuat task sendiri di dalamnya dimana task tersebut kita sendiri yang membuatnya mau jadi bagaimana. Itulah sekilas tentang Gradle.</p>
+
+<h2>Menginstall Gradle</h2>
+
+<p>Berikut ini langkah-langkah setup gradle di komputer kita:</p>
+
+<ol>
+<li>Download gradle di websitenya lalu ekstrak di direktori mana saja.</li>
+<li>Buat environment variable bernama <code>GRADLE_HOME</code> dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi.</li>
+<li>Logout dari sistem, login lagi. Selesai. :)</li>
+</ol>
 
 
-<div class='comments'>
-<div class='comment'>
-<div class='author'>bernaz</div>
-<div class='content'>
-and also bernazlionk.wordpress.com (indonesian version) hohoho</div>
-</div>
-<div class='comment'>
-<div class='author'>crystalei</div>
-<div class='content'>
-Thanks for the information. Will it also help with <a href="http://improvingenterprises.com/java-training-schedule" rel="nofollow">java training</a>?</div>
-</div>
-</div>
+<!--more-->
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GlassFish v3 Prelude Released]]></title>
-    <link href="http://budiariyanto.github.io/blog/2008/11/08/glassfish-v3-prelude-released/"/>
-    <updated>2008-11-08T14:23:00+07:00</updated>
-    <id>http://budiariyanto.github.io/blog/2008/11/08/glassfish-v3-prelude-released</id>
-    <content type="html"><![CDATA[<div class='post'>
-Sun Microsystems and the Project GlassFish community have announced the release of GlassFish v3 Prelude, a modular, lightweight Web 2.0 development and deployment platform. The announcement underscores the momentum of the GlassFish v2 application server, which notched eight million downloads and over 200,000 product registrations in the previous twelve months.<br /><br />This article summarizes the features in the GlassFish v3 Prelude application server and provides links to more information and downloads.<br />Contents<br /><br />-   New Features<br />-   Modular Architecture Based on OSGi<br />-   Rapid Redeployment Feature<br />-   Native Rails Deployment Support<br />-   Benefits and Additional Features<br />-   Conclusion<br />-   References<br /><br />New Features<br /><br />The features of GlassFish v3 Prelude that should prove most important to developers are:<br /><br />* Modular architecture based on OSGi<br />* Rapid redeployment — maintains session state on Java Web application redeploy<br />* Native Rails deployment support<br /><br />GlassFish v3 Prelude is available for immediate download. Support is available with Sun GlassFish Enterprise Server v3 Prelude.<br />Modular Architecture Based on OSGi<br /><br />GlassFish v3 Prelude re-hosts existing Java Web 2.0 technologies on a microkernel OSGi-based architecture. The microkernel architecture makes GlassFish v3 Prelude a lightweight deployment platform that starts quickly and uses resources sparingly because it only starts those services required to support deployed applications.<br /><br />Moreover, you can add features to the platform dynamically without having to restart. The additional ability to host dynamic languages makes GlassFish v3 Prelude ideal for hosted virtual environments.<br /><a name='more'></a><br />With this release, developers can extend the functionality of GlassFish, and expose that functionality through the administration console.<br />Rapid Redeployment Feature<br /><br />You can be more productive with GlassFish v3 Prelude when you use its new rapid deployment feature. You can redeploy applications to GlassFish without losing session state, and you can deploy either through the command-line interface or through the popular IDEs Netbeans 6.5 or Eclipse.<br /><br />When you combine the GlassFish plug-in with one of these IDEs and you use their ability to compile and deploy on save, your iterative development cycle is reduced to edit-save-refresh browser. This feature gives Java programmers access to one of they key advantages of dynamic languages: rapid iterative development.<br />Native Rails Deployment Support<br /><br />When you develop and deploy your Ruby on Rails applications using JRuby, you gain the benefits of both the highly performant JRuby implementation and the ability to deploy on the GlassFish v3 Prelude platform.<br /><br />With GlassFish v3 Prelude, you no longer need to deploy your Ruby application as a war file. Instead, GlassFish v3 Prelude can directly invoke the JRuby interpreter and deploy your Rails application without modification. Now, you can use the same high-performance runtime for both development and deployment. Of course, GlassFish v3 Prelude also lets you deploy your JRuby application as a war file.<br /><br />In addition to multiple runtime deployment options, GlassFish v3 Prelude offers dynamic resizing of the JRuby runtime pool. With this JRuby enhancement, GlassFish performs well under high load while consuming minimal resources under low load.<br /><br />GlassFish v3 Prelude enables you to run your JRuby and Java applications side-by-side, simultaneously. Both the Java and dynamic language environments benefit from the same reliable and performant deployment platform features.<br />Benefits and Additional Features<br /><br />The following list summarizes the benefits and additional features in GlassFish v3 Prelude.<br /><ul><li>Administration Console – GlassFish v3 Prelude includes an easy-to-use Admin Console for configuration and management.</li><li>NetBeans IDE Bundle – A NetBeans 6.5/GlassFish v3 Prelude bundle will soon be released. You can start now with NetBeans 6.5 Release Candidate 2 or nightly builds.</li><li>Groovy on Grails – GlassFish v3 Install Groovy and Grails from the GlassFish Update Center, and experience the immediate productivity of a Java-centric scripting language. .</li><li>Extensible – Extend the functionality of GlassFish with your own features, and expose those features in the administration console.</li><li>Embeddable – Embed GlassFish v3 Prelude in your solution. Distributed cache supplier ehCache Server and the Nuxeo WebEngine framework already benefit from embedding GlassFish v3.</li><li>Modular Architecture – Use the new modular architecture with your existing Java web applications and experience faster start-up and reduced resource use. GlassFish v3 Prelude only starts those services that deployed applications need.</li><li>GlassFish Update Center 2.0 – Update installed features and install new features such as jMaki and Metro Web Services stack with a single click. Installing new features does not require an application server restart.</li><li>Java EE 6 technology previews – Get an early look at Java EE 6 technologies such as JavaServer Faces 2.0 and Enterprise JavaBeans 3.1 Lite by downloading them from the GlassFish Update Center. For building RESTful applications, JAX-RS 1.0 is a stable release and fully supported.</li><li>Production Support – Sign up now for production support GlassFish Enterprise Server v3 Prelude, with seamless transition of support to the Java EE 6 certified GlassFish Enterprise Server v3 when available.</li><li>Available on Popular Platforms – GlassFish v3 Prelude is available on Solaris 10, OpenSolaris, Red Hat 5, Windows XP Professional and Vista Business Edition, Ubuntu 8.0.4, and MacOS X.</li><li>Production-Ready – GlassFish v3 Prelude is a stable, production-ready web platform.</li><li>Built to Scale – GlassFish fully supports cometD in support of rich Internet applications, and supports Apache mod_jk for horizontally scaling your deployment.</li><li>Reduced Startup Time – GlassFish v3 Prelude provides faster startup and deployment times, with fewer resource demands.</li><li>Rapid Redeployment and Auto-Deploy on Save – By combining rapid reload with popular IDE auto-compile-and-deploy-on-save features, your iterative development cycle is reduced to edit-save-refresh browser.</li><li>IDE Plug-Ins – GlassFish v3 plug-ins for the NetBeans and Eclipse IDEs are available. Develop, deploy, and run your Java applications on GlassFish v3 Prelude using your favorite IDE.</li><li>Enhanced JPA Support – GlassFish v3 Prelude supports Java Persistent Architecture, JDBC connection pooling features such as lazy connection enlistment, lazy connection association, and more.</li><li>Web Tier Technologies – GlassFish v3 Prelude incorporates these web tier technologies: Java Servlet 2.5, JavaServer Pages 2.1, JavaServer Faces 1.2, Java API for XML Web Services 1.2, and Java Architecture for XML Binding 2.1.</li><li>Support for Web Services – GlassFish v3 Prelude supports RESTful services using JAX-RS 1.0 and provides secure, performant and transactional web services interoperability with .NET Web Services 3.5.</li><li>Enhanced Monitoring – GlassFish v3 Prelude lets you monitor with minimal overhead thanks to a new lightweight monitoring framework that enables fine-grained control over what is monitored.</li></ul><br />from: <a href="http://java.sun.com/">java.sun.com</a></div>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[JAVA VS BAHASA PEMROGRAMAN LAINNYA]]></title>
-    <link href="http://budiariyanto.github.io/blog/2008/06/12/java-vs-bahasa-pemrograman-lainnya/"/>
-    <updated>2008-06-12T00:36:00+07:00</updated>
-    <id>http://budiariyanto.github.io/blog/2008/06/12/java-vs-bahasa-pemrograman-lainnya</id>
-    <content type="html"><![CDATA[<div class='post'>
-Java itu sulit, salah ketik sedikit error, rumit, dll.... Itu yang sering saya dengar dari orang-orang di sekitar saya. Ya, memang. Pada awalnya, Java memang terasa begitu sulit, karena Java merupakan bahasa pemrograman yang strongly-type(strict) dan mungkin Anda belum terbiasa saja. Tapi sadarkah Anda, bahwa dengan bahasanya yang strongly-type itu, malah membuat Java menjadi sangat konsisten dalam segala aspek. Dengan begitu, programming malah terasa nyaman.<br/>Jika Anda sudah terbiasa dengan Java, berarti Anda telah menginvestasikan Java dalam hidup Anda. Menurut pandangan saya, hal itu sangat tepat karena banyak perusahaan mengembangkan Java, seperti IBM, Sun Microsystems, Oracle, dan Microsoft. Jika salah satu perusahaan mati, masih banyak perusahaan yang tetap mau mensuport Java. Yang kedua Java itu gratis. Semua bisa belajar Java. Yang ketiga banyak proyek2 yang menggunakan teknologi Java, dan Anda bisa memakainya dengan gratis juga, seperti Struts, Hibernate, Apache Tomcat, Tiles, Spring, Alfresco, dll.<br/>Selain itu <a name='more'></a>Java adalah bahasa pemrograman multi-platform, yang artinya dapat berjalan di atas berbagai macam sistem operasi(Windows, Linux,MacOS, dll), dengan semboyannya WORA(Write Once Run Anywhere). Kenapa bisa demikian? Karena hasil dari source code Java, setelah dikompilasi akan menjadi byte-code(.class), bukan berupa binary atau file executable, yang berekstensi .exe. Nantinya file .class tersebut akan dijalankan oleh Java Virtual Machine(JVM) yang ada di komputer Anda. Tentunya JVM ini harus Anda download terlebih dahulu di <a href="http://java.sun.com">http://java.sun.com</a>, dengan mendownload paket JRE atau JDK(gratis).<br/>Satu lagi, Java sudah biasa menangani masalah-masalah aplikasi enterprise, dengan Java EE nya. Jadi, misalnya untuk 1 juta transaksi yang terjadi dalam satu detik, buatlah aplikasinya dengan Java. Semua akan menjadi mudah dan secure(aman). Tetapi akan saya ungkapkan di sini bahwa Java itu sangat lambat. Hal ini disebabkan oleh karena aplikasi Java hasil kompilasinya berupa byte-code. Jadi, ketika Anda menjalankan aplikasi Java, Java tidak langsung begitu saja menjalankannya, tetapi byte-code tersebut diterjemahkan dulu oleh JVM baru dijalankan. Tapi tidak masalah, karena dengan mengorbankan kecepatan, Java punya kelebihan yang jauh lebih bermanfaat, yaitu multi-platform. Jadi tunggu apa lagi untuk mulai belajar Java... Mulailah dari sekarang, dan jadilah segeralah Anda programmer Java!!</div>
+<h2>Java Project Layout</h2>
 
+<p>Project layout sebetulnya terserah kita mau bagaimana. Tapi java punya konvensi terhadap project layout ini. Project layout yang saya gunakan biasanya ada 3 yaitu untuk project java, java web dan java enterprise. Untuk mendukung contoh penggunaan Gradle pada pembahasan artikel ini, saya akan memilih menggunakan project layout java. Layoutnya seperti ini:
+```</p>
+
+<pre><code>+-projectRootDir
+  +-src
+    +-main
+    | +-java
+    | +-resources
+    +-test
+      +-java
+      +-resources
+</code></pre>
+
+<p>```</p>
+
+<p>Layout di atas adalah layout untuk project tunggal. Nanti kita akan buat menjadi layout multi project menggunakan Gradle. Multi project pengertiannya adalah ada satu atau banyak project di dalam satu project. Kenapa harus multi project? Karena menurut saya project akan lebih jelas peranannya karena lebih modular dan lebih gampang memaintainnya.</p>
+
+<h2>Gradle Project dan Task</h2>
+
+<p>Untuk membuat project Gradle, cukup buat direktori biasa. Misalkan direktorinya kita beri nama <code>coba_gradle</code>. Direktori ini nantinya akan berlaku sebagai root project. Untuk membuatnya menjadi root project Gradle, di dalam direktori <code>coba_gradle</code> kita <strong>harus</strong> membuat file bernama <code>build.gradle</code>. Sudah, cukup itu saja. :)</p>
+
+<p>Gradle task adalah task yang kita coding sendiri menggunakan bahasa pemrograman Groovy. Karena kita akan membuat project java kita akan menggunakan <strong>plugin</strong> java pada Gradle. Apa peran atau fungsi plugin? Plugin pada Gradle adalah untuk meringankan kita dalam membuat task. Jika kita menggunakan plugin maka kita tidak perlu membuat task lagi.</p>
+
+<p>Selanjutnya kita akan bahas isi dari file <code>build.gradle</code> ini yang merupakan konfigurasi dari root project yang kita buat. Saya beri contoh isi filenya:</p>
+
+<p>```groovy
+// Dengan apply java plugin, kita dibuatkan task-task untuk membuild program java kita
+// Untuk mengeceknya, kita bisa jalankan perintah: gradle tasks
+// nanti akan tampil task-task apa saja yang available. Bandingkan daftar tasknya ketika kita belum apply plugin java
+apply plugin: &lsquo;java&rsquo;</p>
+
+<p>// Ini adalah project properties. Saya menggunakannya untuk listing masing-masing versi dari dependency yang digunakan
+// Project properties ini digunakan ketika mendeklarasikan dependency
+project.ext {</p>
+
+<pre><code>JUNIT_VERSION = '4.11'
+SPRING_CORE_VERSION = '4.0.5.RELEASE'
+</code></pre>
+
+<p>}</p>
+
+<p>// Konfigurasi untuk semua project
+allprojects {</p>
+
+<pre><code>// Konfigurasi repository maven
+// Kita menggunakan 2 repository. Local dan maven central
+repositories {
+    // Konfigurasi repository lokal maven. Kita arahkan ke komputer lokal di direktori
+    // /home/budi/.m2/repository
+    // Bisa juga diarahkan ke local repository server seperti nexus atau artifactory
+    maven {
+        url "file://home/budi/.m2/repository"
+    }
+
+    // Special Gradle notation yang berguna untuk memberitahu Gradle bahwa kita menggunakan repository maven central
+    mavenCentral() 
+}    
+</code></pre>
+
+<p>}</p>
+
+<p>// Konfigurasi untuk tiap subproject
+// Nantinya ketika kita membuat subproject, konfigurasi ini akan diwariskan ke subproject tersebut
+subprojects {</p>
+
+<pre><code>apply plugin: 'java'
+
+// Supaya kita tidak usah repot membuat maven task.
+apply plugin: 'maven'
+
+// Konfigurasi maven plugin supaya mengupload artifact ke path yang kita inginkan
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            // Path kita set ke direktori komputer lokal /home/budi/.m2/repository
+            repository(url: "file://home/budi/.m2/repository/")
+        }
+    }
+}
+
+// Deklarasi dependency untuk setiap subproject
+dependencies {
+    // Syntaxnya adalah &lt;scope&gt; "&lt;groupId&gt;:&lt;artifactId&gt;:&lt;version&gt;"
+    // Scope ada 4, yaitu compile, runtime, testCompile, testRuntime
+    // compile: dependency diperlukan saat compile ataupun development
+    // runtime: dependency diperlukan saat runtime
+    // testCompile: dependency diperlukan saat ngetes-ngetes program
+    // testRuntime: dependency diperlukan saat program yang untuk ngetes-ngetes berjalan
+
+    // Sebagai contoh, kita menggunakan 2 library. JUnit dan spring-context
+    // Bisa kita lihat pada deklarasi version menggunakan variable dari project properties
+    testCompile "junit:junit:${project.JUNIT_VERSION}"
+    compile "org.springframework:spring-context:${project.SPRING_CORE_VERSION}"
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+
+<h2>Membuat Subproject</h2>
+
+<p>Root project sudah dibuat. Saatnya kita membuat subproject. Untuk membuatnya sangat gampang. Cukup membuat direktori baru di dalam direktori root project. Misalkan kita buat namanya <code>coba_gradle_subproject</code>. Di dalam direktori ini, kita buat layout project java yang sudah dibahas sebelumnya. Jangan lupa kita juga wajib membuat file <code>build.gradle</code> di dalam direktori <code>coba_gradle_subproject</code> ini. Sebagai contoh, isinya hanya seperti ini:</p>
+
+<p>```groovy
+version = &lsquo;1.0.0.SNAPSHOT&rsquo;</p>
+
+<p>```</p>
+
+<p>Walaupun isinya hanya seperti itu, namun karena root project sudah mendefinisikan konfigurasi pada block <code>subprojects</code>, maka otomatis subproject ini mewarisi apa yang sudah dideklarasikan di sana, dari plugin dan dependencynya. Variabel version ini perlu kita deklarasikan supaya nanti ketika subproject ini kita compile menjadi bentuk jar misalnya, filenamenya akan ditambahkan version dari project ini. Jadi misalkan versionnya kita set <code>1.0.0.SNAPSHOT</code>, maka file yang tercipta nantinya akan bernama <code>coba_gradle_subproject-1.0.0.SNAPSHOT.jar</code>.</p>
+
+<p>Pada file ini, kita juga bisa mendeklarasikan lagi konfigurasi yang sama dengan yang sudah ada di root project atau yang lain. Nantinya Gradle pertama kali akan membaca <code>build.gradle</code> dari direktori subproject, lalu membaca lagi <code>build.gradle</code> dari direktori root project dan mengakumulasikannya.</p>
+
+<p>Nah, subproject sudah dibuat. Bagaimana caranya supaya root project mengenali subproject ini? Mari kita kembali lagi ke direktori <code>coba_gradle</code>. Dalam direktori tersebut, buatlah file bernama <code>settings.gradle</code> dan deklarasikan subprojectnya di dalam file tersebut seperti berikut:</p>
+
+<p>```groovy
+include &lsquo;coba_gradle_subproject&rsquo;</p>
+
+<p>// tambahkan subproject lain jika ada
+// include &lsquo;subproject2&rsquo;
+// include &lsquo;subproject3&rsquo;
+// dst&hellip;
+```</p>
+
+<p>Gambaran akhir dari struktur direktorinya adalah sebagai berikut:</p>
+
+<p><code>
++-coba_gradle
+  +-coba_gradle_subproject
+  |  +-src
+  |  |  +-main
+  |  |  | +-java
+  |  |  | +-resources
+  |  |  +-test
+  |  |    +-java
+  |  +-build.gradle
+  +-build.gradle
+  +-settings.gradle
+</code></p>
+
+<p>Setup project sudah selesai :). Kekurangan dari Gradle ini adalah belum mempunyai archetype generator seperti maven. Jadi setiap kali kita membuat subproject, kita membuat layout direktori secara manual. Ke depannya Gradle diharapkan mempunyai fitur seperti maven archetype.</p>
 ]]></content>
   </entry>
   
