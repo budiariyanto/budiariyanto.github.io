@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on Budi Ariyanto</title>
+    <link>http://blog.thewhitepal.com/tags/tutorial/</link>
+    <description>Recent content in Tutorial on Budi Ariyanto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Budi Ariyanto</copyright>
+    <lastBuildDate>Mon, 16 Jun 2014 03:29:56 +0700</lastBuildDate>
+    <atom:link href="http://blog.thewhitepal.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Membuat Project Java Dengan Gradle</title>
+      <link>http://blog.thewhitepal.com/2014/06/16/membuat-project-java-dengan-gradle/</link>
+      <pubDate>Mon, 16 Jun 2014 03:29:56 +0700</pubDate>
+      
+      <guid>http://blog.thewhitepal.com/2014/06/16/membuat-project-java-dengan-gradle/</guid>
+      <description>
+
+&lt;p&gt;Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.&lt;/p&gt;
+
+&lt;h2 id=&#34;kenapa-kita-butuh-build-tools:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Kenapa Kita Butuh Build Tools&lt;/h2&gt;
+
+&lt;p&gt;Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses peng&lt;strong&gt;compile&lt;/strong&gt;an biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.&lt;/p&gt;
+
+&lt;p&gt;Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu &lt;a href=&#34;http://maven.apache.org&#34;&gt;Maven&lt;/a&gt; dan &lt;a href=&#34;http://www.gradle.org&#34;&gt;Gradle&lt;/a&gt;. Maven sebelumnya sudah pernah saya bahas secara singkat di &lt;a href=&#34;blog/2014/01/17/tutorial-singkat-maven/&#34;&gt;sini&lt;/a&gt; dan di &lt;a href=&#34;blog/2014/05/19/maven-multi-module-project/&#34;&gt;sini&lt;/a&gt;. Sekarang saya akan membahas Gradle.&lt;/p&gt;
+
+&lt;h2 id=&#34;gradle:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Gradle&lt;/h2&gt;
+
+&lt;p&gt;Gradle adalah build tools modern yang sedang booming akhir-akhir ini, terutama di kalangan penggemar bahasa pemrograman Java. Gradle ini mirip seperti build tools lain, contohnya make atau rake. Konfigurasi build automation pada gradle menggunakan bahasa pemrograman Groovy. Pada artikel ini saya tidak membahas tentang bahasa pemrograman Groovy, tapi saya ambil yang penting-pentingnya saja supaya kita dapat membuat project Java menggunakan Gradle diintegrasikan dengan Maven. Wah kenapa Maven masih ikut-ikut?&lt;/p&gt;
+
+&lt;p&gt;Jadi begini, kegunaan Gradle sedikit berbeda dengan Maven. Gradle adalah build tools yang tidak spesifik terhadap satu bahasa pemrograman tertentu, sedangkan Maven spesifik untuk membantu membuat project yang kita buat menggunakan Java. Kalau kita perhatikan di ebook-ebook Gradle yang ada, pasti tutorial yang ada di dalam buku tersebut malah membahas bagaimana membuat project dan task Gradle secara umum menggunakan bahasa pemrograman Groovy, bukan langsung membahas bagaimana membuat project Java dengan menggunakan Gradle. Nah nanti kita akan membahas bagaimana membuat task dan mengatur project yang kita buat menggunakan Gradle, tapi masih menggunakan maven untuk memanage dependency project yang ada.&lt;/p&gt;
+
+&lt;p&gt;Jadi, Gradle bisa digunakan untuk project apa saja karena kita bisa membuat task sendiri di dalamnya dimana task tersebut kita sendiri yang membuatnya mau jadi bagaimana. Itulah sekilas tentang Gradle.&lt;/p&gt;
+
+&lt;h2 id=&#34;menginstall-gradle:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Menginstall Gradle&lt;/h2&gt;
+
+&lt;p&gt;Berikut ini langkah-langkah setup gradle di komputer kita:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Download gradle di websitenya lalu ekstrak di direktori mana saja.&lt;/li&gt;
+&lt;li&gt;Buat environment variable bernama &lt;code&gt;GRADLE_HOME&lt;/code&gt; dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi.&lt;/li&gt;
+&lt;li&gt;Logout dari sistem, login lagi. Selesai. :)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;java-project-layout:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Java Project Layout&lt;/h2&gt;
+
+&lt;p&gt;Project layout sebetulnya terserah kita mau bagaimana. Tapi java punya konvensi terhadap project layout ini. Project layout yang saya gunakan biasanya ada 3 yaitu untuk project java, java web dan java enterprise. Untuk mendukung contoh penggunaan Gradle pada pembahasan artikel ini, saya akan memilih menggunakan project layout java. Layoutnya seperti ini:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; +-projectRootDir
+  +-src
+   +-main
+   | +-java
+   | +-resources
+   +-test
+    +-java
+    +-resources
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Layout di atas adalah layout untuk project tunggal. Nanti kita akan buat menjadi layout multi project menggunakan Gradle. Multi project pengertiannya adalah ada satu atau banyak project di dalam satu project. Kenapa harus multi project? Karena menurut saya project akan lebih jelas peranannya karena lebih modular dan lebih gampang memaintainnya.&lt;/p&gt;
+
+&lt;h2 id=&#34;gradle-project-dan-task:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Gradle Project dan Task&lt;/h2&gt;
+
+&lt;p&gt;Untuk membuat project Gradle, cukup buat direktori biasa. Misalkan direktorinya kita beri nama &lt;code&gt;coba_gradle&lt;/code&gt;. Direktori ini nantinya akan berlaku sebagai root project. Untuk membuatnya menjadi root project Gradle, di dalam direktori &lt;code&gt;coba_gradle&lt;/code&gt; kita &lt;strong&gt;harus&lt;/strong&gt; membuat file bernama &lt;code&gt;build.gradle&lt;/code&gt;. Sudah, cukup itu saja. :)&lt;/p&gt;
+
+&lt;p&gt;Gradle task adalah task yang kita coding sendiri menggunakan bahasa pemrograman Groovy. Karena kita akan membuat project java kita akan menggunakan &lt;strong&gt;plugin&lt;/strong&gt; java pada Gradle. Apa peran atau fungsi plugin? Plugin pada Gradle adalah untuk meringankan kita dalam membuat task. Jika kita menggunakan plugin maka kita tidak perlu membuat task lagi.&lt;/p&gt;
+
+&lt;p&gt;Selanjutnya kita akan bahas isi dari file &lt;code&gt;build.gradle&lt;/code&gt; ini yang merupakan konfigurasi dari root project yang kita buat. Saya beri contoh isi filenya:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-groovy&#34;&gt;// Dengan apply java plugin, kita dibuatkan task-task untuk membuild program java kita
+// Untuk mengeceknya, kita bisa jalankan perintah: gradle tasks
+// nanti akan tampil task-task apa saja yang available. Bandingkan daftar tasknya ketika kita belum apply plugin java
+apply plugin: &#39;java&#39;
+
+// Ini adalah project properties. Saya menggunakannya untuk listing masing-masing versi dari dependency yang digunakan
+// Project properties ini digunakan ketika mendeklarasikan dependency
+project.ext {
+    JUNIT_VERSION = &#39;4.11&#39;
+    SPRING_CORE_VERSION = &#39;4.0.5.RELEASE&#39;
+}
+
+// Konfigurasi untuk semua project
+allprojects {
+    // Konfigurasi repository maven
+    // Kita menggunakan 2 repository. Local dan maven central
+    repositories {
+        // Konfigurasi repository lokal maven. Kita arahkan ke komputer lokal di direktori
+        // /home/budi/.m2/repository
+        // Bisa juga diarahkan ke local repository server seperti nexus atau artifactory
+        maven {
+            url &amp;quot;file://home/budi/.m2/repository&amp;quot;
+        }
+
+        // Special Gradle notation yang berguna untuk memberitahu Gradle bahwa kita menggunakan repository maven central
+        mavenCentral() 
+    }    
+}
+
+// Konfigurasi untuk tiap subproject
+// Nantinya ketika kita membuat subproject, konfigurasi ini akan diwariskan ke subproject tersebut
+subprojects {
+    apply plugin: &#39;java&#39;
+
+    // Supaya kita tidak usah repot membuat maven task.
+    apply plugin: &#39;maven&#39;
+                
+    // Konfigurasi maven plugin supaya mengupload artifact ke path yang kita inginkan
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                // Path kita set ke direktori komputer lokal /home/budi/.m2/repository
+                repository(url: &amp;quot;file://home/budi/.m2/repository/&amp;quot;)
+            }
+        }
+    }
+    
+    // Deklarasi dependency untuk setiap subproject
+    dependencies {
+        // Syntaxnya adalah &amp;lt;scope&amp;gt; &amp;quot;&amp;lt;groupId&amp;gt;:&amp;lt;artifactId&amp;gt;:&amp;lt;version&amp;gt;&amp;quot;
+        // Scope ada 4, yaitu compile, runtime, testCompile, testRuntime
+        // compile: dependency diperlukan saat compile ataupun development
+        // runtime: dependency diperlukan saat runtime
+        // testCompile: dependency diperlukan saat ngetes-ngetes program
+        // testRuntime: dependency diperlukan saat program yang untuk ngetes-ngetes berjalan
+        
+        // Sebagai contoh, kita menggunakan 2 library. JUnit dan spring-context
+        // Bisa kita lihat pada deklarasi version menggunakan variable dari project properties
+        testCompile &amp;quot;junit:junit:${project.JUNIT_VERSION}&amp;quot;
+        compile &amp;quot;org.springframework:spring-context:${project.SPRING_CORE_VERSION}&amp;quot;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;membuat-subproject:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Membuat Subproject&lt;/h2&gt;
+
+&lt;p&gt;Root project sudah dibuat. Saatnya kita membuat subproject. Untuk membuatnya sangat gampang. Cukup membuat direktori baru di dalam direktori root project. Misalkan kita buat namanya &lt;code&gt;coba_gradle_subproject&lt;/code&gt;. Di dalam direktori ini, kita buat layout project java yang sudah dibahas sebelumnya. Jangan lupa kita juga wajib membuat file &lt;code&gt;build.gradle&lt;/code&gt; di dalam direktori &lt;code&gt;coba_gradle_subproject&lt;/code&gt; ini. Sebagai contoh, isinya hanya seperti ini:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-groovy&#34;&gt;version = &#39;1.0.0.SNAPSHOT&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Walaupun isinya hanya seperti itu, namun karena root project sudah mendefinisikan konfigurasi pada block &lt;code&gt;subprojects&lt;/code&gt;, maka otomatis subproject ini mewarisi apa yang sudah dideklarasikan di sana, dari plugin dan dependencynya. Variabel version ini perlu kita deklarasikan supaya nanti ketika subproject ini kita compile menjadi bentuk jar misalnya, filenamenya akan ditambahkan version dari project ini. Jadi misalkan versionnya kita set &lt;code&gt;1.0.0.SNAPSHOT&lt;/code&gt;, maka file yang tercipta nantinya akan bernama &lt;code&gt;coba_gradle_subproject-1.0.0.SNAPSHOT.jar&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pada file ini, kita juga bisa mendeklarasikan lagi konfigurasi yang sama dengan yang sudah ada di root project atau yang lain. Nantinya Gradle pertama kali akan membaca &lt;code&gt;build.gradle&lt;/code&gt; dari direktori subproject, lalu membaca lagi &lt;code&gt;build.gradle&lt;/code&gt; dari direktori root project dan mengakumulasikannya.&lt;/p&gt;
+
+&lt;p&gt;Nah, subproject sudah dibuat. Bagaimana caranya supaya root project mengenali subproject ini? Mari kita kembali lagi ke direktori &lt;code&gt;coba_gradle&lt;/code&gt;. Dalam direktori tersebut, buatlah file bernama &lt;code&gt;settings.gradle&lt;/code&gt; dan deklarasikan subprojectnya di dalam file tersebut seperti berikut:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-groovy&#34;&gt;include &#39;coba_gradle_subproject&#39;
+
+// tambahkan subproject lain jika ada
+// include &#39;subproject2&#39;
+// include &#39;subproject3&#39;
+// dst...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Gambaran akhir dari struktur direktorinya adalah sebagai berikut:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; +-coba_gradle
+   +-coba_gradle_subproject
+   |  +-src
+   |  |  +-main
+   |  |  | +-java
+   |  |  | +-resources
+   |  |  +-test
+   |  |    +-java
+   |  +-build.gradle
+   +-build.gradle
+   +-settings.gradle
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Setup project sudah selesai :). Kekurangan dari Gradle ini adalah belum mempunyai archetype generator seperti maven. Jadi setiap kali kita membuat subproject, kita membuat layout direktori secara manual. Ke depannya Gradle diharapkan mempunyai fitur seperti maven archetype.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tutorial Singkat Maven</title>
+      <link>http://blog.thewhitepal.com/2014/01/17/tutorial-singkat-maven/</link>
+      <pubDate>Fri, 17 Jan 2014 17:26:33 +0700</pubDate>
+      
+      <guid>http://blog.thewhitepal.com/2014/01/17/tutorial-singkat-maven/</guid>
+      <description>
+
+&lt;h2 id=&#34;apa-itu-maven:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Apa itu Maven?&lt;/h2&gt;
+
+&lt;p&gt;Maven adalah suatu &lt;em&gt;tool&lt;/em&gt; untuk menstandarkan dan &lt;em&gt;memanage&lt;/em&gt; project, mempermudah proses &lt;em&gt;build&lt;/em&gt; dalam suatu project, mendefinisikan secara jelas apa saja isi project dan mempermudah dalam membagi-bagikan (&lt;em&gt;share&lt;/em&gt;) file .jar di semua project. Maven sering di-versuskan dengan ant, atau bahkan ada yang bilang sama saja. Menurut saya, maven mempunyai tujuan yang lebih luas daripada ant yang hanya fokus untuk &lt;em&gt;build tool&lt;/em&gt; dan membuat task-task tertentu saja. Fitur-fitur ant ada pada maven bahkan maven bisa diintegrasikan dengan ant via maven plugin.&lt;/p&gt;
+
+&lt;h2 id=&#34;kenapa-harus-pakai-maven:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Kenapa harus pakai Maven?&lt;/h2&gt;
+
+&lt;p&gt;Suatu project pasti mempunyai struktur direktori. Struktur direktori project ini biasa disebut &lt;em&gt;project template&lt;/em&gt;. Struktur direktori setiap orang atau setiap tim berbeda. Setiap tim menentukan standarnya sendiri, lalu jika ada orang baru masuk dalam tim tersebut, orang baru itu mengikuti standar project template yang sudah ada. Yang biasa dilakukan, orang baru tersebut membuat project baru di IDE, lalu melihat catatan project template yang sudah ada itu bagaimana. Struktur direktori project baru tersebut berusaha dibuat sama dengan struktur direktori standar project dengan membuat folder-folder, menambahkan file-file dan sebagainya. Dengan maven, pada umumnya kita cukup sekali membuat archetype untuk 1 jenis project. Setelah itu ketika membuat project baru, kita tinggal mengenerate project template dengan menggunakan archetype yang sudah dibuat tadi. Semua hal mengenai project template langsung bisa terkonfigurasi secara otomatis sesuai standar. Kalau ada keperluan khusus, baru kita tambahkan sendiri.&lt;/p&gt;
+
+&lt;p&gt;Selain permasalahan project template, hampir di setiap project kita menggunakan library. Jika kita menggunakan library dalam suatu project, berarti project kita dependen terhadap library tersebut. Maka library tersebut adalah dependency dari project kita. Nah, peran maven di sini adalah memanage dependency sehingga programmer dapat dengan mudah menambahkan library yang ingin digunakan. &amp;ldquo;Ah, cuma nambah dependency gitu aja kok harus pakai maven? Repot banget sih..&amp;rdquo;. Perlu diketahui, library tidak selamanya &lt;em&gt;&amp;ldquo;stand-alone&amp;rdquo;&lt;/em&gt;. Jangan berasumsi bahwa jika kita ingin menambahkan library A dan B, yang kita tambahkan ke project ya hanya A dan B. Sering kali misalnya library A dependen terhadap library B, C, D, E, F dan G. Library H dependen terhadap library I, J dan K. Jadi, library yang ingin kita tambahkan sebetulnya hanya 2 (A dan H), tapi karena harus menambahkan juga dependensinya(B, C, D, E, F, G, I, J, K) pada akhirnya ada 11 library yang harus ditambahkan. Belum lagi kalau ternyata semua dependensi itu harus didownload satu per satu, di tempat yang berbeda-beda pula. Belum lagi kalau source code kita karena sesuatu hal harus dipindahkan ke mesin lain. Dengan asumsi bahwa environmentnya berbeda, kita harus setting ulang semua path dari library tersebut supaya dapat ditemukan oleh IDE. Hal ini membuat pusing kepala. Yang tadinya saya mau mulai membuat kode program dengan nyaman, harus repot mengurus hal-hal yang demikian. Maven membantu menyelesaikan permasalahan ini.&lt;/p&gt;
+
+&lt;p&gt;Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. &lt;em&gt;Last but not least&lt;/em&gt;, hal-hal inilah yang membuat maven berperan penting dalam setiap project.&lt;/p&gt;
+
+&lt;h2 id=&#34;installasi-dan-konfigurasi-maven:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Installasi dan Konfigurasi Maven&lt;/h2&gt;
+
+&lt;p&gt;Maven bisa didownload di &lt;a href=&#34;http://maven.apache.org&#34;&gt;maven website&lt;/a&gt;. Saya merekomendasikan menggunakan Maven 3. Setelah didownload, cara menginstallnya cukup diekstrak saja. Setelah diekstrak, Anda harus setting environment variable supaya Anda dapat menjalankan maven dengan mudah.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;M2_HOME = /path/to/your/maven/installation/directory
+PATH = $PATH:$M2_HOME
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sebagai catatan, setting untuk environment variable berbeda-beda caranya. Sesuaikan dengan OS yang Anda gunakan.&lt;/p&gt;
+
+&lt;p&gt;Kalau Anda menggunakan linux, coba cek dulu di package repository distro yang Anda pakai ada maven atau tidak. Kalau ada, barang kali Anda bisa mencoba menginstall maven menggunakan repository dari distro tersebut supaya lebih mudah. Kalau saya pribadi lebih suka download dari website maven, install dan konfigurasi sendiri.&lt;/p&gt;
+
+&lt;h2 id=&#34;pom-project-object-model:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;POM (Project Object Model)&lt;/h2&gt;
+
+&lt;p&gt;POM pasti ada dalam setiap project maven. Letaknya di root directory project dan bernama &lt;code&gt;pom.xml&lt;/code&gt;. POM berisi deskripsi dan konfigurasi project. Contohnya di dalam POM ada &lt;code&gt;groupId&lt;/code&gt;, &lt;code&gt;artifactId&lt;/code&gt;, &lt;code&gt;version&lt;/code&gt;, nama project, website project, siapa developernya, deklarasi project dependensi, deklarasi maven plugin dan konfigurasi pluginnya dan lain sebagainya. Bentuk umum POM seperti ini:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot;
+  xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
+  xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+
+  &amp;lt;!-- The Basics --&amp;gt;
+  &amp;lt;groupId&amp;gt;...&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;...&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;...&amp;lt;/version&amp;gt;
+  &amp;lt;packaging&amp;gt;...&amp;lt;/packaging&amp;gt;
+  &amp;lt;dependencies&amp;gt;...&amp;lt;/dependencies&amp;gt;
+  &amp;lt;parent&amp;gt;...&amp;lt;/parent&amp;gt;
+  &amp;lt;dependencyManagement&amp;gt;...&amp;lt;/dependencyManagement&amp;gt;
+  &amp;lt;modules&amp;gt;...&amp;lt;/modules&amp;gt;
+  &amp;lt;properties&amp;gt;...&amp;lt;/properties&amp;gt;
+
+  &amp;lt;!-- Build Settings --&amp;gt;
+  &amp;lt;build&amp;gt;...&amp;lt;/build&amp;gt;
+  &amp;lt;reporting&amp;gt;...&amp;lt;/reporting&amp;gt;
+
+  &amp;lt;!-- More Project Information --&amp;gt;
+  &amp;lt;name&amp;gt;...&amp;lt;/name&amp;gt;
+  &amp;lt;description&amp;gt;...&amp;lt;/description&amp;gt;
+  &amp;lt;url&amp;gt;...&amp;lt;/url&amp;gt;
+  &amp;lt;inceptionYear&amp;gt;...&amp;lt;/inceptionYear&amp;gt;
+  &amp;lt;licenses&amp;gt;...&amp;lt;/licenses&amp;gt;
+  &amp;lt;organization&amp;gt;...&amp;lt;/organization&amp;gt;
+  &amp;lt;developers&amp;gt;...&amp;lt;/developers&amp;gt;
+  &amp;lt;contributors&amp;gt;...&amp;lt;/contributors&amp;gt;
+
+  &amp;lt;!-- Environment Settings --&amp;gt;
+  &amp;lt;issueManagement&amp;gt;...&amp;lt;/issueManagement&amp;gt;
+  &amp;lt;ciManagement&amp;gt;...&amp;lt;/ciManagement&amp;gt;
+  &amp;lt;mailingLists&amp;gt;...&amp;lt;/mailingLists&amp;gt;
+  &amp;lt;scm&amp;gt;...&amp;lt;/scm&amp;gt;
+  &amp;lt;prerequisites&amp;gt;...&amp;lt;/prerequisites&amp;gt;
+  &amp;lt;repositories&amp;gt;...&amp;lt;/repositories&amp;gt;
+  &amp;lt;pluginRepositories&amp;gt;...&amp;lt;/pluginRepositories&amp;gt;
+  &amp;lt;distributionManagement&amp;gt;...&amp;lt;/distributionManagement&amp;gt;
+  &amp;lt;profiles&amp;gt;...&amp;lt;/profiles&amp;gt;
+&amp;lt;/project&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kita bisa lihat ada 4 bagian dalam 1 POM. Basic, build settings, project information dan environment settings. Yang paling sering dituliskan dalam POM adalah bagian basic dan build settings. Anda bisa membaca referensi tentang &lt;code&gt;pom.xml&lt;/code&gt; secara lengkap di &lt;a href=&#34;http://maven.apache.org/pom.html&#34;&gt;sini&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;archetypes:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Archetypes&lt;/h2&gt;
+
+&lt;p&gt;Archetype bisa diartikan sebagai deskripsi dari project template. Archetype maven sebetulnya sudah ada dan siap digunakan. Untuk mengecek sekaligus menggunakannya, Anda bisa menjalankan perintah&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ mvn archetype:generate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tapi, karena archetype yang tersedia sangat general, maka kadang kala kita perlu membuat archetype sendiri yang sesuai dengan kebutuhan kita.&lt;/p&gt;
+
+&lt;h2 id=&#34;membuat-sendiri-archetype:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Membuat Sendiri Archetype&lt;/h2&gt;
+
+&lt;p&gt;Membuat archetype bisa dengan 2 cara. Kita buat project template sendiri dengan membuat folder-folder sendiri, disusun sendiri, menambah resource yang diperlukan lalu membuat &lt;code&gt;pom.xml&lt;/code&gt;nya. Cara kedua dengan menggenerate general archetype terlebih dahulu menggunakan maven. Karena cara kedua menurut saya lebih bagus, mari kita bahas.&lt;/p&gt;
+
+&lt;p&gt;Buka terminal, buat folder baru, misalkan namanya &lt;code&gt;archetypeku&lt;/code&gt; lalu masuklah ke folder tersebut. Untuk menggenerate general archetype, kita dapat menjalankan perintah berikut&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ mvn archetype:generate
+   -DgroupId=[group id project kita]
+   -DartifactId=[artifact id project kita]
+   -DarchetypeArtifactId=maven-archetype-archetype
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Setelah digenerate, akan terbentuk struktur direktori sebagai berikut&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;archetypeku
+|-- pom.xml
+`-- src
+    `-- main
+        `-- resources
+            |-- META-INF
+            |   `-- maven
+            |       `--archetype.xml
+            `-- archetype-resources
+                |-- pom.xml
+                `-- src
+                    |-- main
+                    |   `-- java
+                    |       `-- App.java
+                    `-- test
+                        `-- java
+                            `-- AppTest.java
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;File-file hasil generate ini punya kesalahan. Kesalahannya ada pada file &lt;code&gt;pom.xml&lt;/code&gt; yang ada di dalam folder &lt;code&gt;archetype-resources&lt;/code&gt;. Buka &lt;code&gt;pom.xml&lt;/code&gt; menggunakan text editor apa saja, lalu ganti bagian groupId, artifactId dan version sehingga tampak seperti berikut&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;groupId&amp;gt;${groupId}&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;${artifactId}&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;${version}&amp;lt;/version&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Setelah kesalahan dibetulkan, kita bisa dengan tenang menambahkan apa saja yang diperlukan ke dalam &lt;code&gt;pom.xml&lt;/code&gt; tadi, misalnya deklarasi dependensi yang diperlukan dan informasi-informasi lain tentang project. Kita juga bisa menambahkan folder-folder yang diperlukan, tapi jangan lupa untuk mendaftarkan folder-folder tambahan tadi ke dalam archetype descriptor(&lt;code&gt;archetype.xml&lt;/code&gt;). Contoh archetype.xml adalah sebagai berikut&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;archetype&amp;gt;
+&amp;lt;archetype&amp;gt;
+  &amp;lt;id&amp;gt;archetypeku&amp;lt;/id&amp;gt;
+  &amp;lt;sources&amp;gt;
+    &amp;lt;source&amp;gt;src/main/java/App.java&amp;lt;/source&amp;gt;
+  &amp;lt;/sources&amp;gt;
+  &amp;lt;resources&amp;gt;
+		&amp;lt;resource&amp;gt;src/main/resources&amp;lt;/resource&amp;gt;
+  &amp;lt;/resrouces&amp;gt;
+  &amp;lt;testSources&amp;gt;
+    &amp;lt;source&amp;gt;src/test/java/AppTest.java&amp;lt;/source&amp;gt;
+  &amp;lt;/testSources&amp;gt;
+  &amp;lt;siteResources&amp;gt;
+    &amp;lt;siteResource&amp;gt;src/site&amp;lt;/siteResource&amp;gt;
+  &amp;lt;/siteResources&amp;gt;
+&amp;lt;/archetype&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tag &lt;code&gt;id&lt;/code&gt; nilainya harus sama dengan tag &lt;code&gt;id&lt;/code&gt; pada archetype &lt;code&gt;pom.xml&lt;/code&gt; yang terletak pada root directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;sources&amp;gt;, &amp;lt;resources&amp;gt;, &amp;lt;testSources&amp;gt;, &amp;lt;testResources&amp;gt;&lt;/code&gt; dan &lt;code&gt;&amp;lt;siteResources&amp;gt;&lt;/code&gt; tag mencerminkan pengelompokan pada project. Misalkan seperti yang tampak pada contoh archetype descriptor di atas&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;sources&amp;gt; = src/main/java
+    &amp;lt;resources&amp;gt; = src/main/resources
+    &amp;lt;testSources&amp;gt; = src/test/java
+    &amp;lt;testResources&amp;gt; = src/test/resources
+    &amp;lt;siteResources&amp;gt; = src/site
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Berarti, di dalam folder &lt;code&gt;archetype-resources&lt;/code&gt; harus ada folder-folder:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;src/main/java
+src/main/resources
+src/test/java
+src/test/resources
+src/site
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Di dalam folder &lt;code&gt;src/main/java&lt;/code&gt; harus ada file &lt;code&gt;App.java&lt;/code&gt; dan di dalam folder &lt;code&gt;src/test/java&lt;/code&gt; harus ada file &lt;code&gt;AppTest.java&lt;/code&gt;. Ini berarti bisa dikatakan apa yang sudah dideklarasikan di dalam archetype deskriptor harus dibuat secara nyata di dalam folder archetype-resources. Setelah semua ini selesai, berarti archetype Anda sudah siap dideploy.&lt;/p&gt;
+
+&lt;h2 id=&#34;mendeploy-archetype:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Mendeploy Archetype&lt;/h2&gt;
+
+&lt;p&gt;Untuk mendeploy archetype di mesin lokal kita, masuk ke root directory archetype project dan jalankan perintah&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ mvn install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jika hasilnya sukses, berarti archetype sudah bisa digunakan, tapi ya hanya di mesin lokal kita. Nah, bagaimana caranya supaya teman-teman 1 tim kita bisa menggunakannya? Kita bisa mendeploynya ke repository maven internal kita misalnya. Saya sendiri menggunakan nexus. Saya akan membahas bagaimana mendeploy archetype bikinan sendiri ke repository nexus, tapi saya akan berasumsi Anda sudah menginstall nexus sendiri. Kalau Anda belum tau tentang nexus dan ingin menginstallnya, Anda bisa baca dokumentasi dari &lt;a href=&#34;http://www.sonatype.org/nexus/&#34;&gt;website resminya&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;mendeploy-archetype-buatan-sendiri-ke-repository-nexus:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Mendeploy Archetype Buatan Sendiri ke Repository Nexus&lt;/h2&gt;
+
+&lt;p&gt;Sebelum mendeploy ke nexus, jangan lupa konfigurasi untuk authorization ke server repository nexus. Coba lihat di &lt;code&gt;~/.m2/settings.xml&lt;/code&gt;. Kalau belum ada setting untuk authorization, tambahkan konfigurasi ini&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;settings&amp;gt;
+&amp;lt;servers&amp;gt;
+        &amp;lt;server&amp;gt;
+                &amp;lt;id&amp;gt;snapshots&amp;lt;/id&amp;gt;
+                &amp;lt;username&amp;gt;usernameAnda&amp;lt;/username&amp;gt;
+                &amp;lt;password&amp;gt;passwordAnda&amp;lt;/password&amp;gt;
+        &amp;lt;/server&amp;gt;
+			&amp;lt;server&amp;gt;
+                &amp;lt;id&amp;gt;releases&amp;lt;/id&amp;gt;
+                &amp;lt;username&amp;gt;usernameAnda&amp;lt;/username&amp;gt;
+                &amp;lt;password&amp;gt;passwordAnda&amp;lt;/password&amp;gt;
+        &amp;lt;/server&amp;gt;
+&amp;lt;/servers&amp;gt;
+&amp;lt;/settings&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kalau sudah, masuk ke root directory project archetype yang Anda buat, lalu jalankan perintah&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ mvn deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kalau sukses, berarti archetype Anda sudah ada di server nexus, archetype catalog juga sudah diupdate dan teman-teman 1 tim Anda sudah bisa menikmati archetype yang Anda buat. Bagaimana caranya?&lt;/p&gt;
+
+&lt;h2 id=&#34;menggenerate-project-menggunakan-archetype-buatan-sendiri:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Menggenerate Project Menggunakan Archetype Buatan Sendiri&lt;/h2&gt;
+
+&lt;p&gt;Jalankan perintah&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ mvn archetype:generate -DarchetypeCatalog=http://&amp;lt;host&amp;gt;:&amp;lt;port&amp;gt;/&amp;lt;path/to/repositories&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
