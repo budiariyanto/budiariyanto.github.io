@@ -24,7 +24,7 @@
 
 &lt;p&gt;Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses peng&lt;strong&gt;compile&lt;/strong&gt;an biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.&lt;/p&gt;
 
-&lt;p&gt;Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu &lt;a href=&#34;http://maven.apache.org&#34;&gt;Maven&lt;/a&gt; dan &lt;a href=&#34;http://www.gradle.org&#34;&gt;Gradle&lt;/a&gt;. Maven sebelumnya sudah pernah saya bahas secara singkat di &lt;a href=&#34;blog/2014/01/17/tutorial-singkat-maven/&#34;&gt;sini&lt;/a&gt; dan di &lt;a href=&#34;blog/2014/05/19/maven-multi-module-project/&#34;&gt;sini&lt;/a&gt;. Sekarang saya akan membahas Gradle.&lt;/p&gt;
+&lt;p&gt;Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu &lt;a href=&#34;http://maven.apache.org&#34;&gt;Maven&lt;/a&gt; dan &lt;a href=&#34;http://www.gradle.org&#34;&gt;Gradle&lt;/a&gt;. Maven sebelumnya sudah pernah saya bahas secara singkat di &lt;a href=&#34;http://blog.thewhitepal.com/2014/01/17/tutorial-singkat-maven/&#34;&gt;sini&lt;/a&gt; dan di &lt;a href=&#34;http://blog.thewhitepal.com/2014/05/19/maven-multi-module-project/&#34;&gt;sini&lt;/a&gt;. Sekarang saya akan membahas Gradle.&lt;/p&gt;
 
 &lt;h2 id=&#34;gradle:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Gradle&lt;/h2&gt;
 
@@ -170,6 +170,169 @@ subprojects {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Setup project sudah selesai :). Kekurangan dari Gradle ini adalah belum mempunyai archetype generator seperti maven. Jadi setiap kali kita membuat subproject, kita membuat layout direktori secara manual. Ke depannya Gradle diharapkan mempunyai fitur seperti maven archetype.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Maven Multi Module Project</title>
+      <link>http://blog.thewhitepal.com/2014/05/19/maven-multi-module-project/</link>
+      <pubDate>Mon, 19 May 2014 17:19:49 +0700</pubDate>
+      
+      <guid>http://blog.thewhitepal.com/2014/05/19/maven-multi-module-project/</guid>
+      <description>
+
+&lt;p&gt;Dalam membuat satu project besar, sebaiknya kita bagi menjadi beberapa project kecil. Project kecil ini tujuannya untuk membagi project supaya strukturnya projectnya lebih mudah dipahami dan juga lebih modular. Maven mempunyai fitur untuk membantu merealisasikan hal ini, yaitu project inheritance dan project aggregation. Mari kita bahas satu per satu.&lt;/p&gt;
+
+&lt;h2 id=&#34;briefing:fcea64b70185796fe52c53172d90a8c1&#34;&gt;Briefing&lt;/h2&gt;
+
+&lt;p&gt;Untuk membantu memahami dengan mudah, kita akan membuat sebuah project sederhana bernama &amp;ldquo;Manusia&amp;rdquo; dimana project ini punya modul yang bernama &amp;ldquo;Kepala&amp;rdquo;, &amp;ldquo;Badan&amp;rdquo;, &amp;ldquo;Tangan&amp;rdquo; dan &amp;ldquo;Kaki&amp;rdquo;. Modul-modul ini meng-inherit/mewarisi apa yang menjadi kepunyaan project &amp;ldquo;Manusia&amp;rdquo; dan sekaligus menjadi agregasinya, karena bisa dibayangkan bahwa manusia mempunyai kepala, badan, tangan dan kaki.&lt;/p&gt;
+
+&lt;h2 id=&#34;parent-pom:fcea64b70185796fe52c53172d90a8c1&#34;&gt;Parent POM&lt;/h2&gt;
+
+&lt;p&gt;Buat parent POM di direktori terserah Anda. Pada tutorial ini akan saya buat pada direktori &lt;code&gt;/home/budi/project/manusia&lt;/code&gt;. Parent POM adalah POM milik project &amp;ldquo;Manusia&amp;rdquo;. Definisinya sebagai berikut:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
+  xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+
+  &amp;lt;groupId&amp;gt;org.projects&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;manusia&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt;
+  &amp;lt;packaging&amp;gt;pom&amp;lt;/packaging&amp;gt;
+
+  &amp;lt;name&amp;gt;manusia&amp;lt;/name&amp;gt;
+  &amp;lt;url&amp;gt;http://manusia.projects.org&amp;lt;/url&amp;gt;
+
+  &amp;lt;properties&amp;gt;
+    &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
+  &amp;lt;/properties&amp;gt;
+
+  &amp;lt;dependencies&amp;gt;
+	&amp;lt;dependency&amp;gt; 
+	  &amp;lt;groupId&amp;gt;ch.qos.logback&amp;lt;/groupId&amp;gt;
+	  &amp;lt;artifactId&amp;gt;logback-classic&amp;lt;/artifactId&amp;gt;
+	  &amp;lt;version&amp;gt;1.1.2&amp;lt;/version&amp;gt;
+	&amp;lt;/dependency&amp;gt;
+  	&amp;lt;dependency&amp;gt;
+		&amp;lt;groupId&amp;gt;org.slf4j&amp;lt;/groupId&amp;gt;
+		&amp;lt;artifactId&amp;gt;slf4j-api&amp;lt;/artifactId&amp;gt;
+		&amp;lt;version&amp;gt;1.7.7&amp;lt;/version&amp;gt;
+	&amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;3.8.1&amp;lt;/version&amp;gt;
+      &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Parent POM sebetulnya adalah POM biasa. Yang perlu diperhatikan adalah &lt;code&gt;packaging&lt;/code&gt;nya adalah &lt;strong&gt;pom&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;project-inheritance:fcea64b70185796fe52c53172d90a8c1&#34;&gt;Project Inheritance&lt;/h2&gt;
+
+&lt;p&gt;Setelah tadi sudah membuat parent POM maka sekarang kita akan membuat POM dari masing-masing modul yang diinherit dari parent POM. Kita akan membuat POM-nya pada direktori:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/home/budi/project/manusia/manusia-kepala&lt;/code&gt; untuk modul manusia-kepala&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/home/budi/project/manusia/manusia-badan&lt;/code&gt; untuk modul manusia-badan&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/home/budi/project/manusia/manusia-tangan&lt;/code&gt; untuk modul manusia-tangan&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/home/budi/project/manusia/manusia-kaki&lt;/code&gt; untuk modul manusia-kaki&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Berikut ini contoh POMnya:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
+	xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt;
+	&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+
+    &amp;lt;!-- Penting! Inherit dari parent POM --&amp;gt;
+	&amp;lt;parent&amp;gt;
+		&amp;lt;groupId&amp;gt;org.project&amp;lt;/groupId&amp;gt;
+		&amp;lt;artifactId&amp;gt;manusia&amp;lt;/artifactId&amp;gt;
+		&amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt;
+	&amp;lt;/parent&amp;gt;
+
+    &amp;lt;!-- groupId dan version tidak didefinisikan lagi --&amp;gt;
+	&amp;lt;artifactId&amp;gt;manusia-kepala&amp;lt;/artifactId&amp;gt;
+	&amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;
+
+	&amp;lt;name&amp;gt;manusia-kepala&amp;lt;/name&amp;gt;
+	&amp;lt;url&amp;gt;http://kepala.manusia.projects.org&amp;lt;/url&amp;gt;
+
+    &amp;lt;!-- Walaupun dependecy di sini hanya ada 2, yaitu spring-core dan postgresql driver,
+         sebetulnya juga ada slf4j, logback-classic dan junit yang diinherit dari parent POM --&amp;gt;
+	&amp;lt;dependencies&amp;gt;
+		&amp;lt;dependency&amp;gt;
+			&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;
+			&amp;lt;artifactId&amp;gt;spring-core&amp;lt;/artifactId&amp;gt;
+			&amp;lt;version&amp;gt;4.0.4.RELEASE&amp;lt;/version&amp;gt;
+		&amp;lt;/dependency&amp;gt;
+		&amp;lt;dependency&amp;gt;
+			&amp;lt;groupId&amp;gt;org.postgresql&amp;lt;/groupId&amp;gt;
+			&amp;lt;artifactId&amp;gt;postgresql&amp;lt;/artifactId&amp;gt;
+			&amp;lt;version&amp;gt;9.3-1100-jdbc41&amp;lt;/version&amp;gt;
+		&amp;lt;/dependency&amp;gt;
+	&amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Untuk POM manusia-badan, manusia-tangan dan manusia-kaki sama saja. tinggal sesuaikan saja artifactId, packaging, name, url dan daftar dependency-nya.&lt;/p&gt;
+
+&lt;h2 id=&#34;project-aggregation:fcea64b70185796fe52c53172d90a8c1&#34;&gt;Project Aggregation&lt;/h2&gt;
+
+&lt;p&gt;Project aggregation bertujuan supaya kita dapat mengagregasi module project ke parent project dengan menambahkan tag &lt;code&gt;modules&lt;/code&gt; pada parent POM. Jadi, sekarang parent POM nya menjadi seperti ini:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
+  xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+
+  &amp;lt;groupId&amp;gt;org.projects&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;manusia&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt;
+  &amp;lt;packaging&amp;gt;pom&amp;lt;/packaging&amp;gt;
+
+  &amp;lt;name&amp;gt;manusia&amp;lt;/name&amp;gt;
+  &amp;lt;url&amp;gt;http://manusia.projects.org&amp;lt;/url&amp;gt;
+  
+  &amp;lt;!-- Agregasi project yang berkaitan.
+       Definisinya menggunakan artifact id dari masing-masing modul. --&amp;gt;
+  &amp;lt;modules&amp;gt;
+  	&amp;lt;module&amp;gt;manusia-kepala&amp;lt;/module&amp;gt;
+  	&amp;lt;module&amp;gt;manusia-badan&amp;lt;/module&amp;gt;
+  	&amp;lt;module&amp;gt;manusia-tangan&amp;lt;/module&amp;gt;
+  	&amp;lt;module&amp;gt;manusia-kaki&amp;lt;/module&amp;gt;
+  &amp;lt;/modules&amp;gt;
+
+  &amp;lt;properties&amp;gt;
+    &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
+  &amp;lt;/properties&amp;gt;
+
+  &amp;lt;dependencies&amp;gt;
+	&amp;lt;dependency&amp;gt; 
+	  &amp;lt;groupId&amp;gt;ch.qos.logback&amp;lt;/groupId&amp;gt;
+	  &amp;lt;artifactId&amp;gt;logback-classic&amp;lt;/artifactId&amp;gt;
+	  &amp;lt;version&amp;gt;1.1.2&amp;lt;/version&amp;gt;
+	&amp;lt;/dependency&amp;gt;
+  	&amp;lt;dependency&amp;gt;
+		&amp;lt;groupId&amp;gt;org.slf4j&amp;lt;/groupId&amp;gt;
+		&amp;lt;artifactId&amp;gt;slf4j-api&amp;lt;/artifactId&amp;gt;
+		&amp;lt;version&amp;gt;1.7.7&amp;lt;/version&amp;gt;
+	&amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;3.8.1&amp;lt;/version&amp;gt;
+      &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;coba:fcea64b70185796fe52c53172d90a8c1&#34;&gt;Coba&lt;/h2&gt;
+
+&lt;p&gt;Untuk melihat hasilnya seperti apa, masuk ke direktori &lt;code&gt;/home/budi/project/manusia&lt;/code&gt; (direktori parent project), lalu jalankan perintah &lt;code&gt;mvn clean package&lt;/code&gt;&lt;/p&gt;
 </description>
     </item>
     

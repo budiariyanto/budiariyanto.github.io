@@ -51,7 +51,7 @@ ga('send', 'pageview');
                         
                         
                         
-                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/fx.budi.ariyanto/">
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/budiariyanto/">
                                 <i class="fa fa-linkedin"></i>
                             </a>
                         
@@ -106,6 +106,23 @@ ga('send', 'pageview');
 
         <div class="post-content clearfix" itemprop="articleBody">
     
+    
+    
+    	<div id="TableOfContentsLabel">Table of Contents</div>
+    	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#kenapa-kita-butuh-build-tools:c0af471f44c98025082f75e4accb7c0a">Kenapa Kita Butuh Build Tools</a></li>
+<li><a href="#gradle:c0af471f44c98025082f75e4accb7c0a">Gradle</a></li>
+<li><a href="#menginstall-gradle:c0af471f44c98025082f75e4accb7c0a">Menginstall Gradle</a></li>
+<li><a href="#java-project-layout:c0af471f44c98025082f75e4accb7c0a">Java Project Layout</a></li>
+<li><a href="#gradle-project-dan-task:c0af471f44c98025082f75e4accb7c0a">Gradle Project dan Task</a></li>
+<li><a href="#membuat-subproject:c0af471f44c98025082f75e4accb7c0a">Membuat Subproject</a></li>
+</ul></li>
+</ul>
+</nav>
+    
 
     
 
@@ -115,7 +132,7 @@ ga('send', 'pageview');
 
 <p>Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses peng<strong>compile</strong>an biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.</p>
 
-<p>Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu <a href="http://maven.apache.org">Maven</a> dan <a href="http://www.gradle.org">Gradle</a>. Maven sebelumnya sudah pernah saya bahas secara singkat di <a href="blog/2014/01/17/tutorial-singkat-maven/">sini</a> dan di <a href="blog/2014/05/19/maven-multi-module-project/">sini</a>. Sekarang saya akan membahas Gradle.</p>
+<p>Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu <a href="http://maven.apache.org">Maven</a> dan <a href="http://www.gradle.org">Gradle</a>. Maven sebelumnya sudah pernah saya bahas secara singkat di <a href="/2014/01/17/tutorial-singkat-maven/">sini</a> dan di <a href="/2014/05/19/maven-multi-module-project/">sini</a>. Sekarang saya akan membahas Gradle.</p>
 
 <h2 id="gradle:c0af471f44c98025082f75e4accb7c0a">Gradle</h2>
 
@@ -264,6 +281,7 @@ subprojects {
 
 </div>
 
+
         <footer class="post-footer clearfix">
     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -306,7 +324,7 @@ subprojects {
     <div class="comments">
         <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'thewhitepal';
+    var disqus_shortname = 'blogthewhitepalcom';
     var disqus_identifier = 'http:\/\/blog.thewhitepal.com\/2014\/06\/16\/membuat-project-java-dengan-gradle\/';
     var disqus_title = 'Membuat Project Java Dengan Gradle';
     var disqus_url = 'http:\/\/blog.thewhitepal.com\/2014\/06\/16\/membuat-project-java-dengan-gradle\/';
@@ -346,6 +364,9 @@ subprojects {
                     <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
 		    <span>/ Enhanced by <a href="https://github.com/budiariyanto">Budi Ariyanto</a></span>
                 </p>
+		<p class="footer-copyright">
+		    <span>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></span>
+		</p>
             </div>
         </footer>
 
