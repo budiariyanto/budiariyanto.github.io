@@ -2,39 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.thewhitepal.com/</loc>
-    <lastmod>2014-06-16T03:29:56+07:00</lastmod>
-    <priority>0</priority>
+    <loc>https://budiariyanto.github.io/</loc>
+    <lastmod>2016-10-01T21:11:36+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.thewhitepal.com/2014/06/16/membuat-project-java-dengan-gradle/</loc>
+    <loc>https://budiariyanto.github.io/2016/10/01/instalasi-golang/</loc>
+    <lastmod>2016-10-01T21:11:36+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://budiariyanto.github.io/2014/06/16/membuat-project-java-dengan-gradle/</loc>
     <lastmod>2014-06-16T03:29:56+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.thewhitepal.com/2014/05/19/menjadi-idealis/</loc>
+    <loc>https://budiariyanto.github.io/2014/05/19/menjadi-idealis/</loc>
     <lastmod>2014-05-19T17:56:45+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.thewhitepal.com/2014/05/19/maven-multi-module-project/</loc>
+    <loc>https://budiariyanto.github.io/2014/05/19/maven-multi-module-project/</loc>
     <lastmod>2014-05-19T17:19:49+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.thewhitepal.com/2014/01/25/memilih-distro-linux/</loc>
+    <loc>https://budiariyanto.github.io/2014/01/25/memilih-distro-linux/</loc>
     <lastmod>2014-01-25T17:50:04+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.thewhitepal.com/2014/01/17/tutorial-singkat-maven/</loc>
+    <loc>https://budiariyanto.github.io/2014/01/17/tutorial-singkat-maven/</loc>
     <lastmod>2014-01-17T17:26:33+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.thewhitepal.com/2013/12/26/good-leader/</loc>
+    <loc>https://budiariyanto.github.io/2013/12/26/good-leader/</loc>
     <lastmod>2013-12-26T17:19:49+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://budiariyanto.github.io/quote/README/</loc>
   </url>
   
 </urlset>

@@ -2,31 +2,98 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Budi Ariyanto</title>
-    <link>http://blog.thewhitepal.com/</link>
+    <link>https://budiariyanto.github.io/</link>
     <description>Recent content on Budi Ariyanto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Budi Ariyanto</copyright>
-    <lastBuildDate>Mon, 16 Jun 2014 03:29:56 +0700</lastBuildDate>
-    <atom:link href="http://blog.thewhitepal.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Oct 2016 21:11:36 +0700</lastBuildDate>
+    <atom:link href="https://budiariyanto.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Instalasi Golang</title>
+      <link>https://budiariyanto.github.io/2016/10/01/instalasi-golang/</link>
+      <pubDate>Sat, 01 Oct 2016 21:11:36 +0700</pubDate>
+      
+      <guid>https://budiariyanto.github.io/2016/10/01/instalasi-golang/</guid>
+      <description>
+
+&lt;p&gt;:bowtie: Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.&lt;/p&gt;
+
+&lt;h2 id=&#34;download-golang&#34;&gt;Download Golang&lt;/h2&gt;
+
+&lt;p&gt;Kita bisa mendownload golang di &lt;a href=&#34;https://golang.org/dl/&#34;&gt;sini&lt;/a&gt;. Downloadlah yg cocok dengan OS kita.&lt;/p&gt;
+
+&lt;h2 id=&#34;setup-environment-variable&#34;&gt;Setup Environment Variable&lt;/h2&gt;
+
+&lt;p&gt;Setelah kita download, extractlah di sembarang folder. Sebelum bisa ngoding menggunakan tools di golang, kita harus setup 2 hal, yaitu environment variabel &lt;code&gt;GOROOT&lt;/code&gt; dan &lt;code&gt;GOPATH&lt;/code&gt;. &lt;code&gt;GOROOT&lt;/code&gt; kita set menuju path dimana golang diextract. &lt;code&gt;GOPATH&lt;/code&gt; kita set terserah di folder mana, yang penting tidak menjadi satu di dalam &lt;code&gt;GOROOT&lt;/code&gt; supaya kalau kita upgrade golang nya akan mudah, tinggal hapus dan extract ulang. Tidak usah menyelamatkan folder &lt;code&gt;GOPATH&lt;/code&gt;. Setelah selesai setup environment variable, logout dan login ulang atau restart komputer kita.&lt;/p&gt;
+
+&lt;h2 id=&#34;check-instalasi-golang&#34;&gt;Check Instalasi Golang&lt;/h2&gt;
+
+&lt;p&gt;Untuk mengecek apakah instalasi golang kita sudah benar atau belum, ketik &lt;code&gt;go&lt;/code&gt; di terminal. Seharusnya akan muncul output seperti ini:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    Go is a tool for managing Go source code.
+
+    Usage:
+
+        go command [arguments]
+
+    The commands are:
+
+        build       compile packages and dependencies
+        clean       remove object files
+        doc         show documentation for package or symbol
+        env         print Go environment information
+        fix         run go tool fix on packages
+        fmt         run gofmt on package sources
+        generate    generate Go files by processing source
+        get         download and install packages and dependencies
+        install     compile and install packages and dependencies
+        list        list packages
+        run         compile and run Go program
+        test        test packages
+        tool        run specified go tool
+        version     print Go version
+        vet         run go tool vet on packages
+
+    Use &amp;quot;go help [command]&amp;quot; for more information about a command.
+
+    Additional help topics:
+
+        c           calling between Go and C
+        buildmode   description of build modes
+        filetype    file types
+        gopath      GOPATH environment variable
+        environment environment variables
+        importpath  import path syntax
+        packages    description of package lists
+        testflag    description of testing flags
+        testfunc    description of testing functions
+
+    Use &amp;quot;go help [topic]&amp;quot; for more information about that topic.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jika instalasi sudah benar, maka kita sudah siap ngoding.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Membuat Project Java Dengan Gradle</title>
-      <link>http://blog.thewhitepal.com/2014/06/16/membuat-project-java-dengan-gradle/</link>
+      <link>https://budiariyanto.github.io/2014/06/16/membuat-project-java-dengan-gradle/</link>
       <pubDate>Mon, 16 Jun 2014 03:29:56 +0700</pubDate>
       
-      <guid>http://blog.thewhitepal.com/2014/06/16/membuat-project-java-dengan-gradle/</guid>
+      <guid>https://budiariyanto.github.io/2014/06/16/membuat-project-java-dengan-gradle/</guid>
       <description>
 
 &lt;p&gt;Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.&lt;/p&gt;
 
-&lt;h2 id=&#34;kenapa-kita-butuh-build-tools:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Kenapa Kita Butuh Build Tools&lt;/h2&gt;
+&lt;h2 id=&#34;kenapa-kita-butuh-build-tools&#34;&gt;Kenapa Kita Butuh Build Tools&lt;/h2&gt;
 
 &lt;p&gt;Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses peng&lt;strong&gt;compile&lt;/strong&gt;an biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.&lt;/p&gt;
 
-&lt;p&gt;Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu &lt;a href=&#34;http://maven.apache.org&#34;&gt;Maven&lt;/a&gt; dan &lt;a href=&#34;http://www.gradle.org&#34;&gt;Gradle&lt;/a&gt;. Maven sebelumnya sudah pernah saya bahas secara singkat di &lt;a href=&#34;http://blog.thewhitepal.com/2014/01/17/tutorial-singkat-maven/&#34;&gt;sini&lt;/a&gt; dan di &lt;a href=&#34;http://blog.thewhitepal.com/2014/05/19/maven-multi-module-project/&#34;&gt;sini&lt;/a&gt;. Sekarang saya akan membahas Gradle.&lt;/p&gt;
+&lt;p&gt;Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu &lt;a href=&#34;http://maven.apache.org&#34;&gt;Maven&lt;/a&gt; dan &lt;a href=&#34;http://www.gradle.org&#34;&gt;Gradle&lt;/a&gt;. Maven sebelumnya sudah pernah saya bahas secara singkat di &lt;a href=&#34;https://budiariyanto.github.io/2014/01/17/tutorial-singkat-maven/&#34;&gt;sini&lt;/a&gt; dan di &lt;a href=&#34;https://budiariyanto.github.io/2014/05/19/maven-multi-module-project/&#34;&gt;sini&lt;/a&gt;. Sekarang saya akan membahas Gradle.&lt;/p&gt;
 
-&lt;h2 id=&#34;gradle:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Gradle&lt;/h2&gt;
+&lt;h2 id=&#34;gradle&#34;&gt;Gradle&lt;/h2&gt;
 
 &lt;p&gt;Gradle adalah build tools modern yang sedang booming akhir-akhir ini, terutama di kalangan penggemar bahasa pemrograman Java. Gradle ini mirip seperti build tools lain, contohnya make atau rake. Konfigurasi build automation pada gradle menggunakan bahasa pemrograman Groovy. Pada artikel ini saya tidak membahas tentang bahasa pemrograman Groovy, tapi saya ambil yang penting-pentingnya saja supaya kita dapat membuat project Java menggunakan Gradle diintegrasikan dengan Maven. Wah kenapa Maven masih ikut-ikut?&lt;/p&gt;
 
@@ -34,7 +101,7 @@
 
 &lt;p&gt;Jadi, Gradle bisa digunakan untuk project apa saja karena kita bisa membuat task sendiri di dalamnya dimana task tersebut kita sendiri yang membuatnya mau jadi bagaimana. Itulah sekilas tentang Gradle.&lt;/p&gt;
 
-&lt;h2 id=&#34;menginstall-gradle:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Menginstall Gradle&lt;/h2&gt;
+&lt;h2 id=&#34;menginstall-gradle&#34;&gt;Menginstall Gradle&lt;/h2&gt;
 
 &lt;p&gt;Berikut ini langkah-langkah setup gradle di komputer kita:&lt;/p&gt;
 
@@ -44,7 +111,7 @@
 &lt;li&gt;Logout dari sistem, login lagi. Selesai. :)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;java-project-layout:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Java Project Layout&lt;/h2&gt;
+&lt;h2 id=&#34;java-project-layout&#34;&gt;Java Project Layout&lt;/h2&gt;
 
 &lt;p&gt;Project layout sebetulnya terserah kita mau bagaimana. Tapi java punya konvensi terhadap project layout ini. Project layout yang saya gunakan biasanya ada 3 yaitu untuk project java, java web dan java enterprise. Untuk mendukung contoh penggunaan Gradle pada pembahasan artikel ini, saya akan memilih menggunakan project layout java. Layoutnya seperti ini:&lt;/p&gt;
 
@@ -60,7 +127,7 @@
 
 &lt;p&gt;Layout di atas adalah layout untuk project tunggal. Nanti kita akan buat menjadi layout multi project menggunakan Gradle. Multi project pengertiannya adalah ada satu atau banyak project di dalam satu project. Kenapa harus multi project? Karena menurut saya project akan lebih jelas peranannya karena lebih modular dan lebih gampang memaintainnya.&lt;/p&gt;
 
-&lt;h2 id=&#34;gradle-project-dan-task:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Gradle Project dan Task&lt;/h2&gt;
+&lt;h2 id=&#34;gradle-project-dan-task&#34;&gt;Gradle Project dan Task&lt;/h2&gt;
 
 &lt;p&gt;Untuk membuat project Gradle, cukup buat direktori biasa. Misalkan direktorinya kita beri nama &lt;code&gt;coba_gradle&lt;/code&gt;. Direktori ini nantinya akan berlaku sebagai root project. Untuk membuatnya menjadi root project Gradle, di dalam direktori &lt;code&gt;coba_gradle&lt;/code&gt; kita &lt;strong&gt;harus&lt;/strong&gt; membuat file bernama &lt;code&gt;build.gradle&lt;/code&gt;. Sudah, cukup itu saja. :)&lt;/p&gt;
 
@@ -133,7 +200,7 @@ subprojects {
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;membuat-subproject:c0af471f44c98025082f75e4accb7c0a&#34;&gt;Membuat Subproject&lt;/h2&gt;
+&lt;h2 id=&#34;membuat-subproject&#34;&gt;Membuat Subproject&lt;/h2&gt;
 
 &lt;p&gt;Root project sudah dibuat. Saatnya kita membuat subproject. Untuk membuatnya sangat gampang. Cukup membuat direktori baru di dalam direktori root project. Misalkan kita buat namanya &lt;code&gt;coba_gradle_subproject&lt;/code&gt;. Di dalam direktori ini, kita buat layout project java yang sudah dibahas sebelumnya. Jangan lupa kita juga wajib membuat file &lt;code&gt;build.gradle&lt;/code&gt; di dalam direktori &lt;code&gt;coba_gradle_subproject&lt;/code&gt; ini. Sebagai contoh, isinya hanya seperti ini:&lt;/p&gt;
 
@@ -175,27 +242,27 @@ subprojects {
     
     <item>
       <title>Menjadi Idealis</title>
-      <link>http://blog.thewhitepal.com/2014/05/19/menjadi-idealis/</link>
+      <link>https://budiariyanto.github.io/2014/05/19/menjadi-idealis/</link>
       <pubDate>Mon, 19 May 2014 17:56:45 +0700</pubDate>
       
-      <guid>http://blog.thewhitepal.com/2014/05/19/menjadi-idealis/</guid>
+      <guid>https://budiariyanto.github.io/2014/05/19/menjadi-idealis/</guid>
       <description>
 
 &lt;p&gt;&amp;ldquo;Udah laaahh.. nggak usah idealis gituu&amp;hellip;&amp;rdquo;. Kalimat ini sering saya dengar dari teman-teman saya. Biasanya, kalimat ini keluar kalau saya bercerita mengenai hal-hal yang ingin saya lakukan dan menurut saya benar, tapi kebanyakan orang tidak mau melakukannya. Contohnya, di tempat saya bekerja, terus terang masalah salary tidak menarik, tidak kompetitif. Sebagai programmer, saya sering kerja lembur karena deadline proyek yang singkat. Terkadang pekerjaan malah saya lanjutkan lagi di rumah. Tidak ada penghargaan untuk kerja lembur saya, berupa uang ataupun dalam bentuk lain. Jadi, lembur atau tidak take home pay saya sama saja. Meskipun begitu, saya tetap ingin proyek yang saya kerjakan selesai dengan baik dan tepat waktu. Karena hal ini, saya dibilang idealis oleh beberapa teman saya. Entah kenapa, orang idealis itu kesannya negatif.&lt;/p&gt;
 
-&lt;h2 id=&#34;apa-sih-idealis-dan-idealisme-itu:db856bc07ebeba2a2b22ac635acb1f84&#34;&gt;Apa sih idealis dan idealisme itu?&lt;/h2&gt;
+&lt;h2 id=&#34;apa-sih-idealis-dan-idealisme-itu&#34;&gt;Apa sih idealis dan idealisme itu?&lt;/h2&gt;
 
 &lt;p&gt;Menurut saya, idealisme adalah suatu paham atau pemikiran seseorang, yang menurutnya paling benar dan paling baik. Orang yang mempunyai idealisme dan ia pegang teguh, biasa disebut idealis. Biasanya, orang akan komplain atau bertanya-tanya. &amp;ldquo;Menurut dia itu baik dan benar, tapi menurut saya enggak tuh.. Gimana dong?&amp;rdquo; Oke, itulah kebenaran.&lt;/p&gt;
 
-&lt;h2 id=&#34;bagaimana-memahami-kebenaran:db856bc07ebeba2a2b22ac635acb1f84&#34;&gt;Bagaimana memahami kebenaran?&lt;/h2&gt;
+&lt;h2 id=&#34;bagaimana-memahami-kebenaran&#34;&gt;Bagaimana memahami kebenaran?&lt;/h2&gt;
 
 &lt;p&gt;Menurut saya, kebenaran ada 2 jenis. Kebenaran universal dan kebenaran menurut rasio manusia. Kebenaran universal adalah Tuhan. Semua orang yang ber-Tuhan setuju bahwa Tuhan sumber kebenaran dan memang benar-benar benar. Kebenaran menurut rasio manusia sangat beragam. Dilihat dulu situasi dan kondisinya. Di sini benar, di sana bisa jadi salah atau sebaliknya. Maka dari itu, manusia selalu mencari kebenaran. Dalam ilmu pengetahuan, ilmu pencarian kebenaran ini dikenal dengan filsafat.&lt;/p&gt;
 
-&lt;h2 id=&#34;apakah-kita-perlu-mempunyai-idealisme:db856bc07ebeba2a2b22ac635acb1f84&#34;&gt;Apakah kita perlu mempunyai idealisme?&lt;/h2&gt;
+&lt;h2 id=&#34;apakah-kita-perlu-mempunyai-idealisme&#34;&gt;Apakah kita perlu mempunyai idealisme?&lt;/h2&gt;
 
 &lt;p&gt;Karena di dunia ini kebenaran menurut rasio manusia bermacam-macam, maka kita perlu mempunyai idealisme. Kita harus mempunyai patokan untuk diri sendiri, yang mana yang benar dan salah. Jika kita tidak punya idealisme, kita akan menjadi mudah terpengaruh oleh lingkungan di mana kita berada. Misalnya, jika orang-orang di lingkungan kita suka main judi, kita jadi ikut-ikutan main judi juga. Kita mengikuti apa yang benar menurut orang lain. Saya tidak bisa membayangkan apa yang akan terjadi dalam hidup saya, jika saya tidak punya idealisme.&lt;/p&gt;
 
-&lt;h2 id=&#34;apakah-kita-perlu-menjadi-idealis:db856bc07ebeba2a2b22ac635acb1f84&#34;&gt;Apakah kita perlu menjadi idealis?&lt;/h2&gt;
+&lt;h2 id=&#34;apakah-kita-perlu-menjadi-idealis&#34;&gt;Apakah kita perlu menjadi idealis?&lt;/h2&gt;
 
 &lt;p&gt;Kalau kita sudah mempunyai idealisme dan dapat mempertahankan idealisme kita, berarti otomatis kita idealis dan itu wajar kok. Walaupun mempertahankan idealisme itu kadang agak terlihat ekstrim, tapi tetap memperhatikan situasi dan kondisi, tetap ada unsur keluwesan, bukan membabi buta. Misal jika saya sakit, saya tentu istirahat. Tidak memaksakan diri bekerja supaya proyek selesai tepat waktu. Jadi, jadilah idealis karena itu bukan sesuatu yang buruk. Carilah kebenaran, ikuti kebenaran yang Anda temukan untuk menjalani kehidupan di masa sekarang demi masa depan Anda.&lt;/p&gt;
 </description>
@@ -203,19 +270,19 @@ subprojects {
     
     <item>
       <title>Maven Multi Module Project</title>
-      <link>http://blog.thewhitepal.com/2014/05/19/maven-multi-module-project/</link>
+      <link>https://budiariyanto.github.io/2014/05/19/maven-multi-module-project/</link>
       <pubDate>Mon, 19 May 2014 17:19:49 +0700</pubDate>
       
-      <guid>http://blog.thewhitepal.com/2014/05/19/maven-multi-module-project/</guid>
+      <guid>https://budiariyanto.github.io/2014/05/19/maven-multi-module-project/</guid>
       <description>
 
 &lt;p&gt;Dalam membuat satu project besar, sebaiknya kita bagi menjadi beberapa project kecil. Project kecil ini tujuannya untuk membagi project supaya strukturnya projectnya lebih mudah dipahami dan juga lebih modular. Maven mempunyai fitur untuk membantu merealisasikan hal ini, yaitu project inheritance dan project aggregation. Mari kita bahas satu per satu.&lt;/p&gt;
 
-&lt;h2 id=&#34;briefing:fcea64b70185796fe52c53172d90a8c1&#34;&gt;Briefing&lt;/h2&gt;
+&lt;h2 id=&#34;briefing&#34;&gt;Briefing&lt;/h2&gt;
 
 &lt;p&gt;Untuk membantu memahami dengan mudah, kita akan membuat sebuah project sederhana bernama &amp;ldquo;Manusia&amp;rdquo; dimana project ini punya modul yang bernama &amp;ldquo;Kepala&amp;rdquo;, &amp;ldquo;Badan&amp;rdquo;, &amp;ldquo;Tangan&amp;rdquo; dan &amp;ldquo;Kaki&amp;rdquo;. Modul-modul ini meng-inherit/mewarisi apa yang menjadi kepunyaan project &amp;ldquo;Manusia&amp;rdquo; dan sekaligus menjadi agregasinya, karena bisa dibayangkan bahwa manusia mempunyai kepala, badan, tangan dan kaki.&lt;/p&gt;
 
-&lt;h2 id=&#34;parent-pom:fcea64b70185796fe52c53172d90a8c1&#34;&gt;Parent POM&lt;/h2&gt;
+&lt;h2 id=&#34;parent-pom&#34;&gt;Parent POM&lt;/h2&gt;
 
 &lt;p&gt;Buat parent POM di direktori terserah Anda. Pada tutorial ini akan saya buat pada direktori &lt;code&gt;/home/budi/project/manusia&lt;/code&gt;. Parent POM adalah POM milik project &amp;ldquo;Manusia&amp;rdquo;. Definisinya sebagai berikut:&lt;/p&gt;
 
@@ -258,7 +325,7 @@ subprojects {
 
 &lt;p&gt;Parent POM sebetulnya adalah POM biasa. Yang perlu diperhatikan adalah &lt;code&gt;packaging&lt;/code&gt;nya adalah &lt;strong&gt;pom&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;project-inheritance:fcea64b70185796fe52c53172d90a8c1&#34;&gt;Project Inheritance&lt;/h2&gt;
+&lt;h2 id=&#34;project-inheritance&#34;&gt;Project Inheritance&lt;/h2&gt;
 
 &lt;p&gt;Setelah tadi sudah membuat parent POM maka sekarang kita akan membuat POM dari masing-masing modul yang diinherit dari parent POM. Kita akan membuat POM-nya pada direktori:&lt;/p&gt;
 
@@ -308,7 +375,7 @@ subprojects {
 
 &lt;p&gt;Untuk POM manusia-badan, manusia-tangan dan manusia-kaki sama saja. tinggal sesuaikan saja artifactId, packaging, name, url dan daftar dependency-nya.&lt;/p&gt;
 
-&lt;h2 id=&#34;project-aggregation:fcea64b70185796fe52c53172d90a8c1&#34;&gt;Project Aggregation&lt;/h2&gt;
+&lt;h2 id=&#34;project-aggregation&#34;&gt;Project Aggregation&lt;/h2&gt;
 
 &lt;p&gt;Project aggregation bertujuan supaya kita dapat mengagregasi module project ke parent project dengan menambahkan tag &lt;code&gt;modules&lt;/code&gt; pada parent POM. Jadi, sekarang parent POM nya menjadi seperti ini:&lt;/p&gt;
 
@@ -358,7 +425,7 @@ subprojects {
 &amp;lt;/project&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;coba:fcea64b70185796fe52c53172d90a8c1&#34;&gt;Coba&lt;/h2&gt;
+&lt;h2 id=&#34;coba&#34;&gt;Coba&lt;/h2&gt;
 
 &lt;p&gt;Untuk melihat hasilnya seperti apa, masuk ke direktori &lt;code&gt;/home/budi/project/manusia&lt;/code&gt; (direktori parent project), lalu jalankan perintah &lt;code&gt;mvn clean package&lt;/code&gt;&lt;/p&gt;
 </description>
@@ -366,15 +433,15 @@ subprojects {
     
     <item>
       <title>Memilih Distro Linux</title>
-      <link>http://blog.thewhitepal.com/2014/01/25/memilih-distro-linux/</link>
+      <link>https://budiariyanto.github.io/2014/01/25/memilih-distro-linux/</link>
       <pubDate>Sat, 25 Jan 2014 17:50:04 +0700</pubDate>
       
-      <guid>http://blog.thewhitepal.com/2014/01/25/memilih-distro-linux/</guid>
+      <guid>https://budiariyanto.github.io/2014/01/25/memilih-distro-linux/</guid>
       <description>
 
 &lt;p&gt;Saya sudah cukup lama berkelana gonta-ganti distro linux, sejak akhir tahun 2006. Distro yang pernah saya pakai adalah &lt;a href=&#34;http://www.ubuntu.com&#34;&gt;Ubuntu&lt;/a&gt;, &lt;a href=&#34;http://www.opensuse.org&#34;&gt;openSUSE&lt;/a&gt;, &lt;a href=&#34;http://fedoraproject.org&#34;&gt;Fedora&lt;/a&gt;, &lt;a href=&#34;http://www.linuxmint.com&#34;&gt;Mint&lt;/a&gt;, &lt;a href=&#34;http://www.slackware.com&#34;&gt;Slackware&lt;/a&gt; dan &lt;a href=&#34;http://www.archlinux.org&#34;&gt;Arch&lt;/a&gt;. Pernah juga hanya sekedar coba-coba Backtrack(sekarang namanya &lt;a href=&#34;http://www.kali.org&#34;&gt;Kali Linux&lt;/a&gt;), &lt;a href=&#34;http://www.slax.org&#34;&gt;Slax&lt;/a&gt; dan &lt;a href=&#34;http://puppylinux.org&#34;&gt;Puppy&lt;/a&gt;. Orang yang baru berkenalan dengan linux biasanya bernasib sama seperti saya waktu dulu. Bingung dengan banyaknya pilihan distro linux yang sudah seperti hutan belantara. Karena bingung, akhirnya bertanya ke sana kemari distro linux yang ini dengan yang itu bagus yang mana? Jawaban orang-orang yang ditanya pun bervariasi. Orang-orang biasanya menjawab dengan hal-hal yang bagus-bagus mengenai distro linux yang dia gunakan. Karena semuanya bagus, bertanya kepada orang-orang yang sudah menggunakan distro linux tidak menjawab kebingungan saya. Yang ada malah tambah bingung karena kok semuanya bagus. Akhirnya ya harus coba-coba sendiri. Lama kelamaan, saya tau bahwa distro linux itu memang ada faktor selera dan masing-masing distro linux mempunyai rancangan dan tujuan masing-masing. Jadi, tidak ada distro linux yang paling bagus. Semua tergantung selera dan kebutuhan. Maka dari itu, saya ingin membantu Anda yang baru berkenalan dengan linux, dengan membagikan pengalaman saya mengenai perjalanan saya belajar linux. Semoga membantu.&lt;/p&gt;
 
-&lt;h2 id=&#34;bagaimana-caranya-agar-betul-betul-mengerti-cara-kerja-linux:80f093c6c36db643d8aa504df92f80c8&#34;&gt;Bagaimana Caranya Agar Betul-Betul Mengerti Cara Kerja Linux?&lt;/h2&gt;
+&lt;h2 id=&#34;bagaimana-caranya-agar-betul-betul-mengerti-cara-kerja-linux&#34;&gt;Bagaimana Caranya Agar Betul-Betul Mengerti Cara Kerja Linux?&lt;/h2&gt;
 
 &lt;p&gt;Distro linux adalah distribusi linux. Perbedaan yang paling kelihatan antara distro satu dengan yang lain adalah apa yang Anda dapat ketika pertama kali selesai menginstall distro tersebut. Misalnya kalau kita menginstall Ubuntu, selesai menginstall akan ada GUI bernama Unity(jaman dulu menggunakan GNOME), ada aplikasi office, transmission(untuk download via torrent), firefox dan lain-lain. Kalau install Arch, tidak ada GUI. Harus install sendiri. Yang ada hanya aplikasi CLI yang sangat umum. Tapi apapun distronya, intinya itu adalah linux. Jadi seharusnya mau menggunakan distro apapun kita tetap mengerti cara kerjanya. Nah bagaimana caranya agar kita tidak hanya mengerti distro linux, tapi sampai mengerti cara kerja linux itu sendiri? Berikut ini tips dari saya:&lt;/p&gt;
 
@@ -392,7 +459,7 @@ subprojects {
 
 &lt;p&gt;Setelah nyaman dengan Slackware, barulah coba beralih ke distro lain. Saya rasa kira-kira paling lama 1 minggu Anda sudah bisa mengerti distro lain yang baru Anda pakai itu. Kok bisa? Karena sudah mengerti cara kerja &lt;em&gt;low-level&lt;/em&gt;-nya. Cara yang &lt;em&gt;low-level&lt;/em&gt; saja bisa kok, apalagi yang cuma &lt;em&gt;klak-klik klak-klik&lt;/em&gt; pakai mouse begitu. Distro yang lebih kompleks biasanya menawarkan kemudahan di sisi pengguna. Istilah populernya &lt;em&gt;user-friendly&lt;/em&gt;. Semakin &lt;em&gt;user-friendly&lt;/em&gt;, cara kerja sistem yang sebenarnya semakin tersembunyi. Maka dari itu kalau kita langsung menggunakan distro yang &lt;em&gt;user-friendly&lt;/em&gt;, kita biasanya akan &amp;ldquo;terjebak&amp;rdquo; dengan kemudahan yang ditawarkan, sehingga sudah malas belajar hal-hal yang bersifat &lt;em&gt;low-level&lt;/em&gt;. Kalau sudah begini ya kita hanya bisa menggunakan distro tersebut, tapi tidak bisa menggunakan linux yang sebenarnya.&lt;/p&gt;
 
-&lt;h2 id=&#34;distro-linux-yang-mana-yang-harus-saya-pilih:80f093c6c36db643d8aa504df92f80c8&#34;&gt;Distro Linux Yang Mana Yang Harus Saya Pilih?&lt;/h2&gt;
+&lt;h2 id=&#34;distro-linux-yang-mana-yang-harus-saya-pilih&#34;&gt;Distro Linux Yang Mana Yang Harus Saya Pilih?&lt;/h2&gt;
 
 &lt;p&gt;Setelah mengerti cara kerja linux, inilah saatnya memilih distro yang sesuai dengan kebutuhan dan selera kita. Berdasarkan pengalaman saya, ada 4 kelompok distro linux berdasarkan tujuannya atau &lt;em&gt;by designnya&lt;/em&gt;, yaitu:&lt;/p&gt;
 
@@ -410,7 +477,7 @@ Distro jenis ini sangat memprioritaskan kestabilan sistem daripada teknologi ter
 Misalnya kita ingin melakukan &lt;em&gt;security penetration test&lt;/em&gt;, kita bisa gunakan Kali Linux. Kalau butuh OS yang bisa diinstall dan dijalankan lewat flashdisk, kita bisa install puppy atau slax. Saya sendiri memilih slax karena based on Slackware yang notabene stabil.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;distro-paling-josss-menurut-saya:80f093c6c36db643d8aa504df92f80c8&#34;&gt;Distro Paling &amp;ldquo;Josss&amp;rdquo; Menurut Saya&lt;/h2&gt;
+&lt;h2 id=&#34;distro-paling-josss-menurut-saya&#34;&gt;Distro Paling &amp;ldquo;Josss&amp;rdquo; Menurut Saya&lt;/h2&gt;
 
 &lt;p&gt;Untuk desktop/laptop saya memilih Ubuntu. Alasannya:&lt;/p&gt;
 
@@ -436,17 +503,17 @@ Misalnya kita ingin melakukan &lt;em&gt;security penetration test&lt;/em&gt;, ki
     
     <item>
       <title>Tutorial Singkat Maven</title>
-      <link>http://blog.thewhitepal.com/2014/01/17/tutorial-singkat-maven/</link>
+      <link>https://budiariyanto.github.io/2014/01/17/tutorial-singkat-maven/</link>
       <pubDate>Fri, 17 Jan 2014 17:26:33 +0700</pubDate>
       
-      <guid>http://blog.thewhitepal.com/2014/01/17/tutorial-singkat-maven/</guid>
+      <guid>https://budiariyanto.github.io/2014/01/17/tutorial-singkat-maven/</guid>
       <description>
 
-&lt;h2 id=&#34;apa-itu-maven:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Apa itu Maven?&lt;/h2&gt;
+&lt;h2 id=&#34;apa-itu-maven&#34;&gt;Apa itu Maven?&lt;/h2&gt;
 
 &lt;p&gt;Maven adalah suatu &lt;em&gt;tool&lt;/em&gt; untuk menstandarkan dan &lt;em&gt;memanage&lt;/em&gt; project, mempermudah proses &lt;em&gt;build&lt;/em&gt; dalam suatu project, mendefinisikan secara jelas apa saja isi project dan mempermudah dalam membagi-bagikan (&lt;em&gt;share&lt;/em&gt;) file .jar di semua project. Maven sering di-versuskan dengan ant, atau bahkan ada yang bilang sama saja. Menurut saya, maven mempunyai tujuan yang lebih luas daripada ant yang hanya fokus untuk &lt;em&gt;build tool&lt;/em&gt; dan membuat task-task tertentu saja. Fitur-fitur ant ada pada maven bahkan maven bisa diintegrasikan dengan ant via maven plugin.&lt;/p&gt;
 
-&lt;h2 id=&#34;kenapa-harus-pakai-maven:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Kenapa harus pakai Maven?&lt;/h2&gt;
+&lt;h2 id=&#34;kenapa-harus-pakai-maven&#34;&gt;Kenapa harus pakai Maven?&lt;/h2&gt;
 
 &lt;p&gt;Suatu project pasti mempunyai struktur direktori. Struktur direktori project ini biasa disebut &lt;em&gt;project template&lt;/em&gt;. Struktur direktori setiap orang atau setiap tim berbeda. Setiap tim menentukan standarnya sendiri, lalu jika ada orang baru masuk dalam tim tersebut, orang baru itu mengikuti standar project template yang sudah ada. Yang biasa dilakukan, orang baru tersebut membuat project baru di IDE, lalu melihat catatan project template yang sudah ada itu bagaimana. Struktur direktori project baru tersebut berusaha dibuat sama dengan struktur direktori standar project dengan membuat folder-folder, menambahkan file-file dan sebagainya. Dengan maven, pada umumnya kita cukup sekali membuat archetype untuk 1 jenis project. Setelah itu ketika membuat project baru, kita tinggal mengenerate project template dengan menggunakan archetype yang sudah dibuat tadi. Semua hal mengenai project template langsung bisa terkonfigurasi secara otomatis sesuai standar. Kalau ada keperluan khusus, baru kita tambahkan sendiri.&lt;/p&gt;
 
@@ -454,7 +521,7 @@ Misalnya kita ingin melakukan &lt;em&gt;security penetration test&lt;/em&gt;, ki
 
 &lt;p&gt;Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. &lt;em&gt;Last but not least&lt;/em&gt;, hal-hal inilah yang membuat maven berperan penting dalam setiap project.&lt;/p&gt;
 
-&lt;h2 id=&#34;installasi-dan-konfigurasi-maven:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Installasi dan Konfigurasi Maven&lt;/h2&gt;
+&lt;h2 id=&#34;installasi-dan-konfigurasi-maven&#34;&gt;Installasi dan Konfigurasi Maven&lt;/h2&gt;
 
 &lt;p&gt;Maven bisa didownload di &lt;a href=&#34;http://maven.apache.org&#34;&gt;maven website&lt;/a&gt;. Saya merekomendasikan menggunakan Maven 3. Setelah didownload, cara menginstallnya cukup diekstrak saja. Setelah diekstrak, Anda harus setting environment variable supaya Anda dapat menjalankan maven dengan mudah.&lt;/p&gt;
 
@@ -466,7 +533,7 @@ PATH = $PATH:$M2_HOME
 
 &lt;p&gt;Kalau Anda menggunakan linux, coba cek dulu di package repository distro yang Anda pakai ada maven atau tidak. Kalau ada, barang kali Anda bisa mencoba menginstall maven menggunakan repository dari distro tersebut supaya lebih mudah. Kalau saya pribadi lebih suka download dari website maven, install dan konfigurasi sendiri.&lt;/p&gt;
 
-&lt;h2 id=&#34;pom-project-object-model:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;POM (Project Object Model)&lt;/h2&gt;
+&lt;h2 id=&#34;pom-project-object-model&#34;&gt;POM (Project Object Model)&lt;/h2&gt;
 
 &lt;p&gt;POM pasti ada dalam setiap project maven. Letaknya di root directory project dan bernama &lt;code&gt;pom.xml&lt;/code&gt;. POM berisi deskripsi dan konfigurasi project. Contohnya di dalam POM ada &lt;code&gt;groupId&lt;/code&gt;, &lt;code&gt;artifactId&lt;/code&gt;, &lt;code&gt;version&lt;/code&gt;, nama project, website project, siapa developernya, deklarasi project dependensi, deklarasi maven plugin dan konfigurasi pluginnya dan lain sebagainya. Bentuk umum POM seperti ini:&lt;/p&gt;
 
@@ -516,7 +583,7 @@ PATH = $PATH:$M2_HOME
 
 &lt;p&gt;Kita bisa lihat ada 4 bagian dalam 1 POM. Basic, build settings, project information dan environment settings. Yang paling sering dituliskan dalam POM adalah bagian basic dan build settings. Anda bisa membaca referensi tentang &lt;code&gt;pom.xml&lt;/code&gt; secara lengkap di &lt;a href=&#34;http://maven.apache.org/pom.html&#34;&gt;sini&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;archetypes:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Archetypes&lt;/h2&gt;
+&lt;h2 id=&#34;archetypes&#34;&gt;Archetypes&lt;/h2&gt;
 
 &lt;p&gt;Archetype bisa diartikan sebagai deskripsi dari project template. Archetype maven sebetulnya sudah ada dan siap digunakan. Untuk mengecek sekaligus menggunakannya, Anda bisa menjalankan perintah&lt;/p&gt;
 
@@ -525,7 +592,7 @@ PATH = $PATH:$M2_HOME
 
 &lt;p&gt;Tapi, karena archetype yang tersedia sangat general, maka kadang kala kita perlu membuat archetype sendiri yang sesuai dengan kebutuhan kita.&lt;/p&gt;
 
-&lt;h2 id=&#34;membuat-sendiri-archetype:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Membuat Sendiri Archetype&lt;/h2&gt;
+&lt;h2 id=&#34;membuat-sendiri-archetype&#34;&gt;Membuat Sendiri Archetype&lt;/h2&gt;
 
 &lt;p&gt;Membuat archetype bisa dengan 2 cara. Kita buat project template sendiri dengan membuat folder-folder sendiri, disusun sendiri, menambah resource yang diperlukan lalu membuat &lt;code&gt;pom.xml&lt;/code&gt;nya. Cara kedua dengan menggenerate general archetype terlebih dahulu menggunakan maven. Karena cara kedua menurut saya lebih bagus, mari kita bahas.&lt;/p&gt;
 
@@ -607,7 +674,7 @@ src/site
 
 &lt;p&gt;Di dalam folder &lt;code&gt;src/main/java&lt;/code&gt; harus ada file &lt;code&gt;App.java&lt;/code&gt; dan di dalam folder &lt;code&gt;src/test/java&lt;/code&gt; harus ada file &lt;code&gt;AppTest.java&lt;/code&gt;. Ini berarti bisa dikatakan apa yang sudah dideklarasikan di dalam archetype deskriptor harus dibuat secara nyata di dalam folder archetype-resources. Setelah semua ini selesai, berarti archetype Anda sudah siap dideploy.&lt;/p&gt;
 
-&lt;h2 id=&#34;mendeploy-archetype:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Mendeploy Archetype&lt;/h2&gt;
+&lt;h2 id=&#34;mendeploy-archetype&#34;&gt;Mendeploy Archetype&lt;/h2&gt;
 
 &lt;p&gt;Untuk mendeploy archetype di mesin lokal kita, masuk ke root directory archetype project dan jalankan perintah&lt;/p&gt;
 
@@ -616,7 +683,7 @@ src/site
 
 &lt;p&gt;Jika hasilnya sukses, berarti archetype sudah bisa digunakan, tapi ya hanya di mesin lokal kita. Nah, bagaimana caranya supaya teman-teman 1 tim kita bisa menggunakannya? Kita bisa mendeploynya ke repository maven internal kita misalnya. Saya sendiri menggunakan nexus. Saya akan membahas bagaimana mendeploy archetype bikinan sendiri ke repository nexus, tapi saya akan berasumsi Anda sudah menginstall nexus sendiri. Kalau Anda belum tau tentang nexus dan ingin menginstallnya, Anda bisa baca dokumentasi dari &lt;a href=&#34;http://www.sonatype.org/nexus/&#34;&gt;website resminya&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;mendeploy-archetype-buatan-sendiri-ke-repository-nexus:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Mendeploy Archetype Buatan Sendiri ke Repository Nexus&lt;/h2&gt;
+&lt;h2 id=&#34;mendeploy-archetype-buatan-sendiri-ke-repository-nexus&#34;&gt;Mendeploy Archetype Buatan Sendiri ke Repository Nexus&lt;/h2&gt;
 
 &lt;p&gt;Sebelum mendeploy ke nexus, jangan lupa konfigurasi untuk authorization ke server repository nexus. Coba lihat di &lt;code&gt;~/.m2/settings.xml&lt;/code&gt;. Kalau belum ada setting untuk authorization, tambahkan konfigurasi ini&lt;/p&gt;
 
@@ -643,7 +710,7 @@ src/site
 
 &lt;p&gt;Kalau sukses, berarti archetype Anda sudah ada di server nexus, archetype catalog juga sudah diupdate dan teman-teman 1 tim Anda sudah bisa menikmati archetype yang Anda buat. Bagaimana caranya?&lt;/p&gt;
 
-&lt;h2 id=&#34;menggenerate-project-menggunakan-archetype-buatan-sendiri:08345d41fa3ab5f8829b2194f0f0a22e&#34;&gt;Menggenerate Project Menggunakan Archetype Buatan Sendiri&lt;/h2&gt;
+&lt;h2 id=&#34;menggenerate-project-menggunakan-archetype-buatan-sendiri&#34;&gt;Menggenerate Project Menggunakan Archetype Buatan Sendiri&lt;/h2&gt;
 
 &lt;p&gt;Jalankan perintah&lt;/p&gt;
 
@@ -654,10 +721,10 @@ src/site
     
     <item>
       <title>Good Leader</title>
-      <link>http://blog.thewhitepal.com/2013/12/26/good-leader/</link>
+      <link>https://budiariyanto.github.io/2013/12/26/good-leader/</link>
       <pubDate>Thu, 26 Dec 2013 17:19:49 +0700</pubDate>
       
-      <guid>http://blog.thewhitepal.com/2013/12/26/good-leader/</guid>
+      <guid>https://budiariyanto.github.io/2013/12/26/good-leader/</guid>
       <description>
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
   &lt;iframe src=&#34;//www.youtube.com/embed/_3ASoBrFGlc&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
@@ -711,10 +778,20 @@ Jika perilaku kita buruk, pengikut atau anak buah kita akan menjadi berperilaku 
 
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Mempunyai idealisme&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Karena harus bisa mengarahkan dan mengambil keputusan, maka pemimpin harus mempunyai idealisme. Tidak boleh terombang-ambing oleh lingkungan, situasi dan kondisi. Anda bisa membaca lebih lengkap mengenai &lt;a href=&#34;http://blog.thewhitepal.com/2014/05/19/menjadi-idealis/&#34;&gt;idealis&lt;/a&gt; pada artikel saya ini.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;Karena harus bisa mengarahkan dan mengambil keputusan, maka pemimpin harus mempunyai idealisme. Tidak boleh terombang-ambing oleh lingkungan, situasi dan kondisi. Anda bisa membaca lebih lengkap mengenai &lt;a href=&#34;https://budiariyanto.github.io/2014/05/19/menjadi-idealis/&#34;&gt;idealis&lt;/a&gt; pada artikel saya ini.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Nah, itulah syarat-syarat yang harus dimiliki seorang pemimpin di luar pekerjaan teknis yang diembannya. Mungkin masih ada yang belum disebutkan. Maka dari itu, tidak heran jika mereka dibayar mahal, dan juga tidak usah iri. Oke, demikianlah apa yang saya pikirkan mengenai seorang pemimpin. Tetap sehat, tetap semangat dan tetap maknyus!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://budiariyanto.github.io/quote/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://budiariyanto.github.io/quote/README/</guid>
+      <description>&lt;p&gt;Quote load content from file&lt;/p&gt;
 </description>
     </item>
     

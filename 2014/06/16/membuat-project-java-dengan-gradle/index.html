@@ -7,14 +7,14 @@
         <meta name="description" content="About My Actvities">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.16" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="http://blog.thewhitepal.com/css/normalize.css">
-        <link rel="stylesheet" href="http://blog.thewhitepal.com/css/highlight.css">
-        <link rel="stylesheet" href="http://blog.thewhitepal.com/css/style.css">
+        <link rel="stylesheet" href="https://budiariyanto.github.io/css/normalize.css">
+        <link rel="stylesheet" href="https://budiariyanto.github.io/css/highlight.css">
+        <link rel="stylesheet" href="https://budiariyanto.github.io/css/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
-        <link rel="stylesheet" href="http://blog.thewhitepal.com/font-awesome-4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://budiariyanto.github.io/font-awesome-4.5.0/css/font-awesome.min.css">
     </head>
     <body>
         
@@ -35,14 +35,15 @@ ga('send', 'pageview');
                     <div class="site-title-wrapper">
                         
                             <h1 class="site-title">
-                                <a title="Budi Ariyanto" href="http://blog.thewhitepal.com/">Budi Ariyanto</a>
+                                <a title="Budi Ariyanto" href="https://budiariyanto.github.io/">Budi Ariyanto</a>
                             </h1>
                         
-                        <a class="button-square" href="http://blog.thewhitepal.com/index.xml"><i class="fa fa-rss"></i></a>
+                        <a class="button-square" href="https://budiariyanto.github.io/index.xml"><i class="fa fa-rss"></i></a>
                         
                             <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/fxbudiariyanto">
                                 <i class="fa fa-twitter"></i>
                             </a>
+                        
                         
                         
                             <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/budiariyanto">
@@ -66,6 +67,10 @@ ga('send', 'pageview');
                         
     <li class="site-nav-item">
         <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Quotes" href="/quote/">Quotes</a>
     </li>
 
 <li class="site-nav-item">
@@ -113,12 +118,12 @@ ga('send', 'pageview');
 <ul>
 <li>
 <ul>
-<li><a href="#kenapa-kita-butuh-build-tools:c0af471f44c98025082f75e4accb7c0a">Kenapa Kita Butuh Build Tools</a></li>
-<li><a href="#gradle:c0af471f44c98025082f75e4accb7c0a">Gradle</a></li>
-<li><a href="#menginstall-gradle:c0af471f44c98025082f75e4accb7c0a">Menginstall Gradle</a></li>
-<li><a href="#java-project-layout:c0af471f44c98025082f75e4accb7c0a">Java Project Layout</a></li>
-<li><a href="#gradle-project-dan-task:c0af471f44c98025082f75e4accb7c0a">Gradle Project dan Task</a></li>
-<li><a href="#membuat-subproject:c0af471f44c98025082f75e4accb7c0a">Membuat Subproject</a></li>
+<li><a href="#kenapa-kita-butuh-build-tools">Kenapa Kita Butuh Build Tools</a></li>
+<li><a href="#gradle">Gradle</a></li>
+<li><a href="#menginstall-gradle">Menginstall Gradle</a></li>
+<li><a href="#java-project-layout">Java Project Layout</a></li>
+<li><a href="#gradle-project-dan-task">Gradle Project dan Task</a></li>
+<li><a href="#membuat-subproject">Membuat Subproject</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -128,13 +133,13 @@ ga('send', 'pageview');
 
 <p>Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.</p>
 
-<h2 id="kenapa-kita-butuh-build-tools:c0af471f44c98025082f75e4accb7c0a">Kenapa Kita Butuh Build Tools</h2>
+<h2 id="kenapa-kita-butuh-build-tools">Kenapa Kita Butuh Build Tools</h2>
 
 <p>Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses peng<strong>compile</strong>an biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.</p>
 
 <p>Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu <a href="http://maven.apache.org">Maven</a> dan <a href="http://www.gradle.org">Gradle</a>. Maven sebelumnya sudah pernah saya bahas secara singkat di <a href="/2014/01/17/tutorial-singkat-maven/">sini</a> dan di <a href="/2014/05/19/maven-multi-module-project/">sini</a>. Sekarang saya akan membahas Gradle.</p>
 
-<h2 id="gradle:c0af471f44c98025082f75e4accb7c0a">Gradle</h2>
+<h2 id="gradle">Gradle</h2>
 
 <p>Gradle adalah build tools modern yang sedang booming akhir-akhir ini, terutama di kalangan penggemar bahasa pemrograman Java. Gradle ini mirip seperti build tools lain, contohnya make atau rake. Konfigurasi build automation pada gradle menggunakan bahasa pemrograman Groovy. Pada artikel ini saya tidak membahas tentang bahasa pemrograman Groovy, tapi saya ambil yang penting-pentingnya saja supaya kita dapat membuat project Java menggunakan Gradle diintegrasikan dengan Maven. Wah kenapa Maven masih ikut-ikut?</p>
 
@@ -142,7 +147,7 @@ ga('send', 'pageview');
 
 <p>Jadi, Gradle bisa digunakan untuk project apa saja karena kita bisa membuat task sendiri di dalamnya dimana task tersebut kita sendiri yang membuatnya mau jadi bagaimana. Itulah sekilas tentang Gradle.</p>
 
-<h2 id="menginstall-gradle:c0af471f44c98025082f75e4accb7c0a">Menginstall Gradle</h2>
+<h2 id="menginstall-gradle">Menginstall Gradle</h2>
 
 <p>Berikut ini langkah-langkah setup gradle di komputer kita:</p>
 
@@ -152,7 +157,7 @@ ga('send', 'pageview');
 <li>Logout dari sistem, login lagi. Selesai. :)</li>
 </ol>
 
-<h2 id="java-project-layout:c0af471f44c98025082f75e4accb7c0a">Java Project Layout</h2>
+<h2 id="java-project-layout">Java Project Layout</h2>
 
 <p>Project layout sebetulnya terserah kita mau bagaimana. Tapi java punya konvensi terhadap project layout ini. Project layout yang saya gunakan biasanya ada 3 yaitu untuk project java, java web dan java enterprise. Untuk mendukung contoh penggunaan Gradle pada pembahasan artikel ini, saya akan memilih menggunakan project layout java. Layoutnya seperti ini:</p>
 
@@ -168,7 +173,7 @@ ga('send', 'pageview');
 
 <p>Layout di atas adalah layout untuk project tunggal. Nanti kita akan buat menjadi layout multi project menggunakan Gradle. Multi project pengertiannya adalah ada satu atau banyak project di dalam satu project. Kenapa harus multi project? Karena menurut saya project akan lebih jelas peranannya karena lebih modular dan lebih gampang memaintainnya.</p>
 
-<h2 id="gradle-project-dan-task:c0af471f44c98025082f75e4accb7c0a">Gradle Project dan Task</h2>
+<h2 id="gradle-project-dan-task">Gradle Project dan Task</h2>
 
 <p>Untuk membuat project Gradle, cukup buat direktori biasa. Misalkan direktorinya kita beri nama <code>coba_gradle</code>. Direktori ini nantinya akan berlaku sebagai root project. Untuk membuatnya menjadi root project Gradle, di dalam direktori <code>coba_gradle</code> kita <strong>harus</strong> membuat file bernama <code>build.gradle</code>. Sudah, cukup itu saja. :)</p>
 
@@ -241,7 +246,7 @@ subprojects {
 
 </code></pre>
 
-<h2 id="membuat-subproject:c0af471f44c98025082f75e4accb7c0a">Membuat Subproject</h2>
+<h2 id="membuat-subproject">Membuat Subproject</h2>
 
 <p>Root project sudah dibuat. Saatnya kita membuat subproject. Untuk membuatnya sangat gampang. Cukup membuat direktori baru di dalam direktori root project. Misalkan kita buat namanya <code>coba_gradle_subproject</code>. Di dalam direktori ini, kita buat layout project java yang sudah dibahas sebelumnya. Jangan lupa kita juga wajib membuat file <code>build.gradle</code> di dalam direktori <code>coba_gradle_subproject</code> ini. Sebagai contoh, isinya hanya seperti ini:</p>
 
@@ -299,19 +304,19 @@ subprojects {
     
 
     <div class="share">
-        <a class="icon-twitter" href="http://twitter.com/share?text=Membuat%20Project%20Java%20Dengan%20Gradle&url=http%3a%2f%2fblog.thewhitepal.com%2f2014%2f06%2f16%2fmembuat-project-java-dengan-gradle%2f"
+        <a class="icon-twitter" href="http://twitter.com/share?text=Membuat%20Project%20Java%20Dengan%20Gradle&url=https%3a%2f%2fbudiariyanto.github.io%2f2014%2f06%2f16%2fmembuat-project-java-dengan-gradle%2f"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
             <i class="fa fa-twitter"></i>
             <span class="hidden">Twitter</span>
         </a>
 
-        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.thewhitepal.com%2f2014%2f06%2f16%2fmembuat-project-java-dengan-gradle%2f"
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbudiariyanto.github.io%2f2014%2f06%2f16%2fmembuat-project-java-dengan-gradle%2f"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
             <i class="fa fa-facebook"></i>
             <span class="hidden">Facebook</span>
         </a>
 
-        <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fblog.thewhitepal.com%2f2014%2f06%2f16%2fmembuat-project-java-dengan-gradle%2f"
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fbudiariyanto.github.io%2f2014%2f06%2f16%2fmembuat-project-java-dengan-gradle%2f"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
            <i class="fa fa-google-plus"></i>
             <span class="hidden">Google+</span>
@@ -324,10 +329,10 @@ subprojects {
     <div class="comments">
         <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'blogthewhitepalcom';
-    var disqus_identifier = 'http:\/\/blog.thewhitepal.com\/2014\/06\/16\/membuat-project-java-dengan-gradle\/';
+    var disqus_shortname = 'budiariyanto';
+    var disqus_identifier = 'https:\/\/budiariyanto.github.io\/2014\/06\/16\/membuat-project-java-dengan-gradle\/';
     var disqus_title = 'Membuat Project Java Dengan Gradle';
-    var disqus_url = 'http:\/\/blog.thewhitepal.com\/2014\/06\/16\/membuat-project-java-dengan-gradle\/';
+    var disqus_url = 'https:\/\/budiariyanto.github.io\/2014\/06\/16\/membuat-project-java-dengan-gradle\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -349,7 +354,7 @@ subprojects {
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
-                        <a title="Budi Ariyanto" href="http://blog.thewhitepal.com/">Budi Ariyanto</a>
+                        <a title="Budi Ariyanto" href="https://budiariyanto.github.io/">Budi Ariyanto</a>
                     </h1>
                     <a class="button-square button-jump-top js-jump-top" href="#">
                         <i class="fa fa-angle-up"></i>
@@ -357,7 +362,7 @@ subprojects {
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2014 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
@@ -370,10 +375,10 @@ subprojects {
             </div>
         </footer>
 
-        <script src="http://blog.thewhitepal.com/js/jquery-1.11.3.min.js"></script>
-        <script src="http://blog.thewhitepal.com/js/highlight.min.js"></script>
-        <script src="http://blog.thewhitepal.com/js/jquery.fitvids.js"></script>
-        <script src="http://blog.thewhitepal.com/js/scripts.js"></script>
+        <script src="https://budiariyanto.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://budiariyanto.github.io/js/highlight.min.js"></script>
+        <script src="https://budiariyanto.github.io/js/jquery.fitvids.js"></script>
+        <script src="https://budiariyanto.github.io/js/scripts.js"></script>
     </body>
 </html>
 

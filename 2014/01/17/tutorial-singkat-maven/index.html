@@ -7,14 +7,14 @@
         <meta name="description" content="About My Actvities">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.16" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="http://blog.thewhitepal.com/css/normalize.css">
-        <link rel="stylesheet" href="http://blog.thewhitepal.com/css/highlight.css">
-        <link rel="stylesheet" href="http://blog.thewhitepal.com/css/style.css">
+        <link rel="stylesheet" href="https://budiariyanto.github.io/css/normalize.css">
+        <link rel="stylesheet" href="https://budiariyanto.github.io/css/highlight.css">
+        <link rel="stylesheet" href="https://budiariyanto.github.io/css/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
-        <link rel="stylesheet" href="http://blog.thewhitepal.com/font-awesome-4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://budiariyanto.github.io/font-awesome-4.5.0/css/font-awesome.min.css">
     </head>
     <body>
         
@@ -35,14 +35,15 @@ ga('send', 'pageview');
                     <div class="site-title-wrapper">
                         
                             <h1 class="site-title">
-                                <a title="Budi Ariyanto" href="http://blog.thewhitepal.com/">Budi Ariyanto</a>
+                                <a title="Budi Ariyanto" href="https://budiariyanto.github.io/">Budi Ariyanto</a>
                             </h1>
                         
-                        <a class="button-square" href="http://blog.thewhitepal.com/index.xml"><i class="fa fa-rss"></i></a>
+                        <a class="button-square" href="https://budiariyanto.github.io/index.xml"><i class="fa fa-rss"></i></a>
                         
                             <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/fxbudiariyanto">
                                 <i class="fa fa-twitter"></i>
                             </a>
+                        
                         
                         
                             <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/budiariyanto">
@@ -66,6 +67,10 @@ ga('send', 'pageview');
                         
     <li class="site-nav-item">
         <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Quotes" href="/quote/">Quotes</a>
     </li>
 
 <li class="site-nav-item">
@@ -113,15 +118,15 @@ ga('send', 'pageview');
 <ul>
 <li>
 <ul>
-<li><a href="#apa-itu-maven:08345d41fa3ab5f8829b2194f0f0a22e">Apa itu Maven?</a></li>
-<li><a href="#kenapa-harus-pakai-maven:08345d41fa3ab5f8829b2194f0f0a22e">Kenapa harus pakai Maven?</a></li>
-<li><a href="#installasi-dan-konfigurasi-maven:08345d41fa3ab5f8829b2194f0f0a22e">Installasi dan Konfigurasi Maven</a></li>
-<li><a href="#pom-project-object-model:08345d41fa3ab5f8829b2194f0f0a22e">POM (Project Object Model)</a></li>
-<li><a href="#archetypes:08345d41fa3ab5f8829b2194f0f0a22e">Archetypes</a></li>
-<li><a href="#membuat-sendiri-archetype:08345d41fa3ab5f8829b2194f0f0a22e">Membuat Sendiri Archetype</a></li>
-<li><a href="#mendeploy-archetype:08345d41fa3ab5f8829b2194f0f0a22e">Mendeploy Archetype</a></li>
-<li><a href="#mendeploy-archetype-buatan-sendiri-ke-repository-nexus:08345d41fa3ab5f8829b2194f0f0a22e">Mendeploy Archetype Buatan Sendiri ke Repository Nexus</a></li>
-<li><a href="#menggenerate-project-menggunakan-archetype-buatan-sendiri:08345d41fa3ab5f8829b2194f0f0a22e">Menggenerate Project Menggunakan Archetype Buatan Sendiri</a></li>
+<li><a href="#apa-itu-maven">Apa itu Maven?</a></li>
+<li><a href="#kenapa-harus-pakai-maven">Kenapa harus pakai Maven?</a></li>
+<li><a href="#installasi-dan-konfigurasi-maven">Installasi dan Konfigurasi Maven</a></li>
+<li><a href="#pom-project-object-model">POM (Project Object Model)</a></li>
+<li><a href="#archetypes">Archetypes</a></li>
+<li><a href="#membuat-sendiri-archetype">Membuat Sendiri Archetype</a></li>
+<li><a href="#mendeploy-archetype">Mendeploy Archetype</a></li>
+<li><a href="#mendeploy-archetype-buatan-sendiri-ke-repository-nexus">Mendeploy Archetype Buatan Sendiri ke Repository Nexus</a></li>
+<li><a href="#menggenerate-project-menggunakan-archetype-buatan-sendiri">Menggenerate Project Menggunakan Archetype Buatan Sendiri</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -129,11 +134,11 @@ ga('send', 'pageview');
 
     
 
-<h2 id="apa-itu-maven:08345d41fa3ab5f8829b2194f0f0a22e">Apa itu Maven?</h2>
+<h2 id="apa-itu-maven">Apa itu Maven?</h2>
 
 <p>Maven adalah suatu <em>tool</em> untuk menstandarkan dan <em>memanage</em> project, mempermudah proses <em>build</em> dalam suatu project, mendefinisikan secara jelas apa saja isi project dan mempermudah dalam membagi-bagikan (<em>share</em>) file .jar di semua project. Maven sering di-versuskan dengan ant, atau bahkan ada yang bilang sama saja. Menurut saya, maven mempunyai tujuan yang lebih luas daripada ant yang hanya fokus untuk <em>build tool</em> dan membuat task-task tertentu saja. Fitur-fitur ant ada pada maven bahkan maven bisa diintegrasikan dengan ant via maven plugin.</p>
 
-<h2 id="kenapa-harus-pakai-maven:08345d41fa3ab5f8829b2194f0f0a22e">Kenapa harus pakai Maven?</h2>
+<h2 id="kenapa-harus-pakai-maven">Kenapa harus pakai Maven?</h2>
 
 <p>Suatu project pasti mempunyai struktur direktori. Struktur direktori project ini biasa disebut <em>project template</em>. Struktur direktori setiap orang atau setiap tim berbeda. Setiap tim menentukan standarnya sendiri, lalu jika ada orang baru masuk dalam tim tersebut, orang baru itu mengikuti standar project template yang sudah ada. Yang biasa dilakukan, orang baru tersebut membuat project baru di IDE, lalu melihat catatan project template yang sudah ada itu bagaimana. Struktur direktori project baru tersebut berusaha dibuat sama dengan struktur direktori standar project dengan membuat folder-folder, menambahkan file-file dan sebagainya. Dengan maven, pada umumnya kita cukup sekali membuat archetype untuk 1 jenis project. Setelah itu ketika membuat project baru, kita tinggal mengenerate project template dengan menggunakan archetype yang sudah dibuat tadi. Semua hal mengenai project template langsung bisa terkonfigurasi secara otomatis sesuai standar. Kalau ada keperluan khusus, baru kita tambahkan sendiri.</p>
 
@@ -141,7 +146,7 @@ ga('send', 'pageview');
 
 <p>Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. <em>Last but not least</em>, hal-hal inilah yang membuat maven berperan penting dalam setiap project.</p>
 
-<h2 id="installasi-dan-konfigurasi-maven:08345d41fa3ab5f8829b2194f0f0a22e">Installasi dan Konfigurasi Maven</h2>
+<h2 id="installasi-dan-konfigurasi-maven">Installasi dan Konfigurasi Maven</h2>
 
 <p>Maven bisa didownload di <a href="http://maven.apache.org">maven website</a>. Saya merekomendasikan menggunakan Maven 3. Setelah didownload, cara menginstallnya cukup diekstrak saja. Setelah diekstrak, Anda harus setting environment variable supaya Anda dapat menjalankan maven dengan mudah.</p>
 
@@ -153,7 +158,7 @@ PATH = $PATH:$M2_HOME
 
 <p>Kalau Anda menggunakan linux, coba cek dulu di package repository distro yang Anda pakai ada maven atau tidak. Kalau ada, barang kali Anda bisa mencoba menginstall maven menggunakan repository dari distro tersebut supaya lebih mudah. Kalau saya pribadi lebih suka download dari website maven, install dan konfigurasi sendiri.</p>
 
-<h2 id="pom-project-object-model:08345d41fa3ab5f8829b2194f0f0a22e">POM (Project Object Model)</h2>
+<h2 id="pom-project-object-model">POM (Project Object Model)</h2>
 
 <p>POM pasti ada dalam setiap project maven. Letaknya di root directory project dan bernama <code>pom.xml</code>. POM berisi deskripsi dan konfigurasi project. Contohnya di dalam POM ada <code>groupId</code>, <code>artifactId</code>, <code>version</code>, nama project, website project, siapa developernya, deklarasi project dependensi, deklarasi maven plugin dan konfigurasi pluginnya dan lain sebagainya. Bentuk umum POM seperti ini:</p>
 
@@ -203,7 +208,7 @@ PATH = $PATH:$M2_HOME
 
 <p>Kita bisa lihat ada 4 bagian dalam 1 POM. Basic, build settings, project information dan environment settings. Yang paling sering dituliskan dalam POM adalah bagian basic dan build settings. Anda bisa membaca referensi tentang <code>pom.xml</code> secara lengkap di <a href="http://maven.apache.org/pom.html">sini</a>.</p>
 
-<h2 id="archetypes:08345d41fa3ab5f8829b2194f0f0a22e">Archetypes</h2>
+<h2 id="archetypes">Archetypes</h2>
 
 <p>Archetype bisa diartikan sebagai deskripsi dari project template. Archetype maven sebetulnya sudah ada dan siap digunakan. Untuk mengecek sekaligus menggunakannya, Anda bisa menjalankan perintah</p>
 
@@ -212,7 +217,7 @@ PATH = $PATH:$M2_HOME
 
 <p>Tapi, karena archetype yang tersedia sangat general, maka kadang kala kita perlu membuat archetype sendiri yang sesuai dengan kebutuhan kita.</p>
 
-<h2 id="membuat-sendiri-archetype:08345d41fa3ab5f8829b2194f0f0a22e">Membuat Sendiri Archetype</h2>
+<h2 id="membuat-sendiri-archetype">Membuat Sendiri Archetype</h2>
 
 <p>Membuat archetype bisa dengan 2 cara. Kita buat project template sendiri dengan membuat folder-folder sendiri, disusun sendiri, menambah resource yang diperlukan lalu membuat <code>pom.xml</code>nya. Cara kedua dengan menggenerate general archetype terlebih dahulu menggunakan maven. Karena cara kedua menurut saya lebih bagus, mari kita bahas.</p>
 
@@ -294,7 +299,7 @@ src/site
 
 <p>Di dalam folder <code>src/main/java</code> harus ada file <code>App.java</code> dan di dalam folder <code>src/test/java</code> harus ada file <code>AppTest.java</code>. Ini berarti bisa dikatakan apa yang sudah dideklarasikan di dalam archetype deskriptor harus dibuat secara nyata di dalam folder archetype-resources. Setelah semua ini selesai, berarti archetype Anda sudah siap dideploy.</p>
 
-<h2 id="mendeploy-archetype:08345d41fa3ab5f8829b2194f0f0a22e">Mendeploy Archetype</h2>
+<h2 id="mendeploy-archetype">Mendeploy Archetype</h2>
 
 <p>Untuk mendeploy archetype di mesin lokal kita, masuk ke root directory archetype project dan jalankan perintah</p>
 
@@ -303,7 +308,7 @@ src/site
 
 <p>Jika hasilnya sukses, berarti archetype sudah bisa digunakan, tapi ya hanya di mesin lokal kita. Nah, bagaimana caranya supaya teman-teman 1 tim kita bisa menggunakannya? Kita bisa mendeploynya ke repository maven internal kita misalnya. Saya sendiri menggunakan nexus. Saya akan membahas bagaimana mendeploy archetype bikinan sendiri ke repository nexus, tapi saya akan berasumsi Anda sudah menginstall nexus sendiri. Kalau Anda belum tau tentang nexus dan ingin menginstallnya, Anda bisa baca dokumentasi dari <a href="http://www.sonatype.org/nexus/">website resminya</a>.</p>
 
-<h2 id="mendeploy-archetype-buatan-sendiri-ke-repository-nexus:08345d41fa3ab5f8829b2194f0f0a22e">Mendeploy Archetype Buatan Sendiri ke Repository Nexus</h2>
+<h2 id="mendeploy-archetype-buatan-sendiri-ke-repository-nexus">Mendeploy Archetype Buatan Sendiri ke Repository Nexus</h2>
 
 <p>Sebelum mendeploy ke nexus, jangan lupa konfigurasi untuk authorization ke server repository nexus. Coba lihat di <code>~/.m2/settings.xml</code>. Kalau belum ada setting untuk authorization, tambahkan konfigurasi ini</p>
 
@@ -330,7 +335,7 @@ src/site
 
 <p>Kalau sukses, berarti archetype Anda sudah ada di server nexus, archetype catalog juga sudah diupdate dan teman-teman 1 tim Anda sudah bisa menikmati archetype yang Anda buat. Bagaimana caranya?</p>
 
-<h2 id="menggenerate-project-menggunakan-archetype-buatan-sendiri:08345d41fa3ab5f8829b2194f0f0a22e">Menggenerate Project Menggunakan Archetype Buatan Sendiri</h2>
+<h2 id="menggenerate-project-menggunakan-archetype-buatan-sendiri">Menggenerate Project Menggunakan Archetype Buatan Sendiri</h2>
 
 <p>Jalankan perintah</p>
 
@@ -357,19 +362,19 @@ src/site
     
 
     <div class="share">
-        <a class="icon-twitter" href="http://twitter.com/share?text=Tutorial%20Singkat%20Maven&url=http%3a%2f%2fblog.thewhitepal.com%2f2014%2f01%2f17%2ftutorial-singkat-maven%2f"
+        <a class="icon-twitter" href="http://twitter.com/share?text=Tutorial%20Singkat%20Maven&url=https%3a%2f%2fbudiariyanto.github.io%2f2014%2f01%2f17%2ftutorial-singkat-maven%2f"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
             <i class="fa fa-twitter"></i>
             <span class="hidden">Twitter</span>
         </a>
 
-        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.thewhitepal.com%2f2014%2f01%2f17%2ftutorial-singkat-maven%2f"
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbudiariyanto.github.io%2f2014%2f01%2f17%2ftutorial-singkat-maven%2f"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
             <i class="fa fa-facebook"></i>
             <span class="hidden">Facebook</span>
         </a>
 
-        <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fblog.thewhitepal.com%2f2014%2f01%2f17%2ftutorial-singkat-maven%2f"
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fbudiariyanto.github.io%2f2014%2f01%2f17%2ftutorial-singkat-maven%2f"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
            <i class="fa fa-google-plus"></i>
             <span class="hidden">Google+</span>
@@ -382,10 +387,10 @@ src/site
     <div class="comments">
         <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'blogthewhitepalcom';
-    var disqus_identifier = 'http:\/\/blog.thewhitepal.com\/2014\/01\/17\/tutorial-singkat-maven\/';
+    var disqus_shortname = 'budiariyanto';
+    var disqus_identifier = 'https:\/\/budiariyanto.github.io\/2014\/01\/17\/tutorial-singkat-maven\/';
     var disqus_title = 'Tutorial Singkat Maven';
-    var disqus_url = 'http:\/\/blog.thewhitepal.com\/2014\/01\/17\/tutorial-singkat-maven\/';
+    var disqus_url = 'https:\/\/budiariyanto.github.io\/2014\/01\/17\/tutorial-singkat-maven\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -407,7 +412,7 @@ src/site
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
-                        <a title="Budi Ariyanto" href="http://blog.thewhitepal.com/">Budi Ariyanto</a>
+                        <a title="Budi Ariyanto" href="https://budiariyanto.github.io/">Budi Ariyanto</a>
                     </h1>
                     <a class="button-square button-jump-top js-jump-top" href="#">
                         <i class="fa fa-angle-up"></i>
@@ -415,7 +420,7 @@ src/site
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2014 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
@@ -428,10 +433,10 @@ src/site
             </div>
         </footer>
 
-        <script src="http://blog.thewhitepal.com/js/jquery-1.11.3.min.js"></script>
-        <script src="http://blog.thewhitepal.com/js/highlight.min.js"></script>
-        <script src="http://blog.thewhitepal.com/js/jquery.fitvids.js"></script>
-        <script src="http://blog.thewhitepal.com/js/scripts.js"></script>
+        <script src="https://budiariyanto.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://budiariyanto.github.io/js/highlight.min.js"></script>
+        <script src="https://budiariyanto.github.io/js/jquery.fitvids.js"></script>
+        <script src="https://budiariyanto.github.io/js/scripts.js"></script>
     </body>
 </html>
 

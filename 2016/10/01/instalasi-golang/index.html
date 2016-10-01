@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Maven Multi Module Project &middot; Budi Ariyanto</title>
-        <meta name="description" content="About My Actvities">
+        <title>Instalasi Golang &middot; Budi Ariyanto</title>
+        <meta name="description" content="Tutorial golang (1)">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="generator" content="Hugo 0.16" />
@@ -96,10 +96,12 @@ ga('send', 'pageview');
 <div class="container">
     <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
         <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Maven Multi Module Project</h1>
+    <h1 class="post-title" itemprop="name headline">Instalasi Golang</h1>
+    
+        <p class="post-description" itemprop="description">Tutorial golang (1)</p>
     
     <p class="post-date">
-        <span>Published <time datetime="2014-05-19" itemprop="datePublished">Mon, May 19, 2014</time></span>
+        <span>Published <time datetime="2016-10-01" itemprop="datePublished">Sat, Oct 1, 2016</time></span>
         <span>by</span>
         <span itemscope="" itemprop="author" itemtype="http://schema.org/Person">
             <span itemprop="name">
@@ -118,11 +120,9 @@ ga('send', 'pageview');
 <ul>
 <li>
 <ul>
-<li><a href="#briefing">Briefing</a></li>
-<li><a href="#parent-pom">Parent POM</a></li>
-<li><a href="#project-inheritance">Project Inheritance</a></li>
-<li><a href="#project-aggregation">Project Aggregation</a></li>
-<li><a href="#coba">Coba</a></li>
+<li><a href="#download-golang">Download Golang</a></li>
+<li><a href="#setup-environment-variable">Setup Environment Variable</a></li>
+<li><a href="#check-instalasi-golang">Check Instalasi Golang</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -130,158 +130,62 @@ ga('send', 'pageview');
 
     
 
-<p>Dalam membuat satu project besar, sebaiknya kita bagi menjadi beberapa project kecil. Project kecil ini tujuannya untuk membagi project supaya strukturnya projectnya lebih mudah dipahami dan juga lebih modular. Maven mempunyai fitur untuk membantu merealisasikan hal ini, yaitu project inheritance dan project aggregation. Mari kita bahas satu per satu.</p>
+<p>:bowtie: Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.</p>
 
-<h2 id="briefing">Briefing</h2>
+<h2 id="download-golang">Download Golang</h2>
 
-<p>Untuk membantu memahami dengan mudah, kita akan membuat sebuah project sederhana bernama &ldquo;Manusia&rdquo; dimana project ini punya modul yang bernama &ldquo;Kepala&rdquo;, &ldquo;Badan&rdquo;, &ldquo;Tangan&rdquo; dan &ldquo;Kaki&rdquo;. Modul-modul ini meng-inherit/mewarisi apa yang menjadi kepunyaan project &ldquo;Manusia&rdquo; dan sekaligus menjadi agregasinya, karena bisa dibayangkan bahwa manusia mempunyai kepala, badan, tangan dan kaki.</p>
+<p>Kita bisa mendownload golang di <a href="https://golang.org/dl/">sini</a>. Downloadlah yg cocok dengan OS kita.</p>
 
-<h2 id="parent-pom">Parent POM</h2>
+<h2 id="setup-environment-variable">Setup Environment Variable</h2>
 
-<p>Buat parent POM di direktori terserah Anda. Pada tutorial ini akan saya buat pada direktori <code>/home/budi/project/manusia</code>. Parent POM adalah POM milik project &ldquo;Manusia&rdquo;. Definisinya sebagai berikut:</p>
+<p>Setelah kita download, extractlah di sembarang folder. Sebelum bisa ngoding menggunakan tools di golang, kita harus setup 2 hal, yaitu environment variabel <code>GOROOT</code> dan <code>GOPATH</code>. <code>GOROOT</code> kita set menuju path dimana golang diextract. <code>GOPATH</code> kita set terserah di folder mana, yang penting tidak menjadi satu di dalam <code>GOROOT</code> supaya kalau kita upgrade golang nya akan mudah, tinggal hapus dan extract ulang. Tidak usah menyelamatkan folder <code>GOPATH</code>. Setelah selesai setup environment variable, logout dan login ulang atau restart komputer kita.</p>
 
-<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+<h2 id="check-instalasi-golang">Check Instalasi Golang</h2>
 
-  &lt;groupId&gt;org.projects&lt;/groupId&gt;
-  &lt;artifactId&gt;manusia&lt;/artifactId&gt;
-  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
-  &lt;packaging&gt;pom&lt;/packaging&gt;
+<p>Untuk mengecek apakah instalasi golang kita sudah benar atau belum, ketik <code>go</code> di terminal. Seharusnya akan muncul output seperti ini:</p>
 
-  &lt;name&gt;manusia&lt;/name&gt;
-  &lt;url&gt;http://manusia.projects.org&lt;/url&gt;
+<pre><code>    Go is a tool for managing Go source code.
 
-  &lt;properties&gt;
-    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-  &lt;/properties&gt;
+    Usage:
 
-  &lt;dependencies&gt;
-	&lt;dependency&gt; 
-	  &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
-	  &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;
-	  &lt;version&gt;1.1.2&lt;/version&gt;
-	&lt;/dependency&gt;
-  	&lt;dependency&gt;
-		&lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-		&lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
-		&lt;version&gt;1.7.7&lt;/version&gt;
-	&lt;/dependency&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;junit&lt;/groupId&gt;
-      &lt;artifactId&gt;junit&lt;/artifactId&gt;
-      &lt;version&gt;3.8.1&lt;/version&gt;
-      &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-  &lt;/dependencies&gt;
-&lt;/project&gt;
+        go command [arguments]
+
+    The commands are:
+
+        build       compile packages and dependencies
+        clean       remove object files
+        doc         show documentation for package or symbol
+        env         print Go environment information
+        fix         run go tool fix on packages
+        fmt         run gofmt on package sources
+        generate    generate Go files by processing source
+        get         download and install packages and dependencies
+        install     compile and install packages and dependencies
+        list        list packages
+        run         compile and run Go program
+        test        test packages
+        tool        run specified go tool
+        version     print Go version
+        vet         run go tool vet on packages
+
+    Use &quot;go help [command]&quot; for more information about a command.
+
+    Additional help topics:
+
+        c           calling between Go and C
+        buildmode   description of build modes
+        filetype    file types
+        gopath      GOPATH environment variable
+        environment environment variables
+        importpath  import path syntax
+        packages    description of package lists
+        testflag    description of testing flags
+        testfunc    description of testing functions
+
+    Use &quot;go help [topic]&quot; for more information about that topic.
 </code></pre>
 
-<p>Parent POM sebetulnya adalah POM biasa. Yang perlu diperhatikan adalah <code>packaging</code>nya adalah <strong>pom</strong>.</p>
-
-<h2 id="project-inheritance">Project Inheritance</h2>
-
-<p>Setelah tadi sudah membuat parent POM maka sekarang kita akan membuat POM dari masing-masing modul yang diinherit dari parent POM. Kita akan membuat POM-nya pada direktori:</p>
-
-<ul>
-<li><code>/home/budi/project/manusia/manusia-kepala</code> untuk modul manusia-kepala</li>
-<li><code>/home/budi/project/manusia/manusia-badan</code> untuk modul manusia-badan</li>
-<li><code>/home/budi/project/manusia/manusia-tangan</code> untuk modul manusia-tangan</li>
-<li><code>/home/budi/project/manusia/manusia-kaki</code> untuk modul manusia-kaki</li>
-</ul>
-
-<p>Berikut ini contoh POMnya:</p>
-
-<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-	xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-
-    &lt;!-- Penting! Inherit dari parent POM --&gt;
-	&lt;parent&gt;
-		&lt;groupId&gt;org.project&lt;/groupId&gt;
-		&lt;artifactId&gt;manusia&lt;/artifactId&gt;
-		&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
-	&lt;/parent&gt;
-
-    &lt;!-- groupId dan version tidak didefinisikan lagi --&gt;
-	&lt;artifactId&gt;manusia-kepala&lt;/artifactId&gt;
-	&lt;packaging&gt;jar&lt;/packaging&gt;
-
-	&lt;name&gt;manusia-kepala&lt;/name&gt;
-	&lt;url&gt;http://kepala.manusia.projects.org&lt;/url&gt;
-
-    &lt;!-- Walaupun dependecy di sini hanya ada 2, yaitu spring-core dan postgresql driver,
-         sebetulnya juga ada slf4j, logback-classic dan junit yang diinherit dari parent POM --&gt;
-	&lt;dependencies&gt;
-		&lt;dependency&gt;
-			&lt;groupId&gt;org.springframework&lt;/groupId&gt;
-			&lt;artifactId&gt;spring-core&lt;/artifactId&gt;
-			&lt;version&gt;4.0.4.RELEASE&lt;/version&gt;
-		&lt;/dependency&gt;
-		&lt;dependency&gt;
-			&lt;groupId&gt;org.postgresql&lt;/groupId&gt;
-			&lt;artifactId&gt;postgresql&lt;/artifactId&gt;
-			&lt;version&gt;9.3-1100-jdbc41&lt;/version&gt;
-		&lt;/dependency&gt;
-	&lt;/dependencies&gt;
-&lt;/project&gt;
-</code></pre>
-
-<p>Untuk POM manusia-badan, manusia-tangan dan manusia-kaki sama saja. tinggal sesuaikan saja artifactId, packaging, name, url dan daftar dependency-nya.</p>
-
-<h2 id="project-aggregation">Project Aggregation</h2>
-
-<p>Project aggregation bertujuan supaya kita dapat mengagregasi module project ke parent project dengan menambahkan tag <code>modules</code> pada parent POM. Jadi, sekarang parent POM nya menjadi seperti ini:</p>
-
-<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-
-  &lt;groupId&gt;org.projects&lt;/groupId&gt;
-  &lt;artifactId&gt;manusia&lt;/artifactId&gt;
-  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
-  &lt;packaging&gt;pom&lt;/packaging&gt;
-
-  &lt;name&gt;manusia&lt;/name&gt;
-  &lt;url&gt;http://manusia.projects.org&lt;/url&gt;
-  
-  &lt;!-- Agregasi project yang berkaitan.
-       Definisinya menggunakan artifact id dari masing-masing modul. --&gt;
-  &lt;modules&gt;
-  	&lt;module&gt;manusia-kepala&lt;/module&gt;
-  	&lt;module&gt;manusia-badan&lt;/module&gt;
-  	&lt;module&gt;manusia-tangan&lt;/module&gt;
-  	&lt;module&gt;manusia-kaki&lt;/module&gt;
-  &lt;/modules&gt;
-
-  &lt;properties&gt;
-    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-  &lt;/properties&gt;
-
-  &lt;dependencies&gt;
-	&lt;dependency&gt; 
-	  &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
-	  &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;
-	  &lt;version&gt;1.1.2&lt;/version&gt;
-	&lt;/dependency&gt;
-  	&lt;dependency&gt;
-		&lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-		&lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
-		&lt;version&gt;1.7.7&lt;/version&gt;
-	&lt;/dependency&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;junit&lt;/groupId&gt;
-      &lt;artifactId&gt;junit&lt;/artifactId&gt;
-      &lt;version&gt;3.8.1&lt;/version&gt;
-      &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-  &lt;/dependencies&gt;
-&lt;/project&gt;
-</code></pre>
-
-<h2 id="coba">Coba</h2>
-
-<p>Untuk melihat hasilnya seperti apa, masuk ke direktori <code>/home/budi/project/manusia</code> (direktori parent project), lalu jalankan perintah <code>mvn clean package</code></p>
+<p>Jika instalasi sudah benar, maka kita sudah siap ngoding.</p>
 
 </div>
 
@@ -299,23 +203,25 @@ ga('send', 'pageview');
             
                  <a href="/tags/tutorial/">tutorial</a>
             
+                 <a href="/tags/golang/">golang</a>
+            
         </p>
     
 
     <div class="share">
-        <a class="icon-twitter" href="http://twitter.com/share?text=Maven%20Multi%20Module%20Project&url=https%3a%2f%2fbudiariyanto.github.io%2f2014%2f05%2f19%2fmaven-multi-module-project%2f"
+        <a class="icon-twitter" href="http://twitter.com/share?text=Instalasi%20Golang&url=https%3a%2f%2fbudiariyanto.github.io%2f2016%2f10%2f01%2finstalasi-golang%2f"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
             <i class="fa fa-twitter"></i>
             <span class="hidden">Twitter</span>
         </a>
 
-        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbudiariyanto.github.io%2f2014%2f05%2f19%2fmaven-multi-module-project%2f"
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbudiariyanto.github.io%2f2016%2f10%2f01%2finstalasi-golang%2f"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
             <i class="fa fa-facebook"></i>
             <span class="hidden">Facebook</span>
         </a>
 
-        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fbudiariyanto.github.io%2f2014%2f05%2f19%2fmaven-multi-module-project%2f"
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fbudiariyanto.github.io%2f2016%2f10%2f01%2finstalasi-golang%2f"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
            <i class="fa fa-google-plus"></i>
             <span class="hidden">Google+</span>
@@ -329,9 +235,9 @@ ga('send', 'pageview');
         <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'budiariyanto';
-    var disqus_identifier = 'https:\/\/budiariyanto.github.io\/2014\/05\/19\/maven-multi-module-project\/';
-    var disqus_title = 'Maven Multi Module Project';
-    var disqus_url = 'https:\/\/budiariyanto.github.io\/2014\/05\/19\/maven-multi-module-project\/';
+    var disqus_identifier = 'https:\/\/budiariyanto.github.io\/2016\/10\/01\/instalasi-golang\/';
+    var disqus_title = 'Instalasi Golang';
+    var disqus_url = 'https:\/\/budiariyanto.github.io\/2016\/10\/01\/instalasi-golang\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
