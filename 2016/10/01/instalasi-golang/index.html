@@ -130,7 +130,7 @@ ga('send', 'pageview');
 
     
 
-<p>:bowtie: Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.</p>
+<p>Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.</p>
 
 <h2 id="download-golang">Download Golang</h2>
 
@@ -138,7 +138,18 @@ ga('send', 'pageview');
 
 <h2 id="setup-environment-variable">Setup Environment Variable</h2>
 
-<p>Setelah kita download, extractlah di sembarang folder. Sebelum bisa ngoding menggunakan tools di golang, kita harus setup 2 hal, yaitu environment variabel <code>GOROOT</code> dan <code>GOPATH</code>. <code>GOROOT</code> kita set menuju path dimana golang diextract. <code>GOPATH</code> kita set terserah di folder mana, yang penting tidak menjadi satu di dalam <code>GOROOT</code> supaya kalau kita upgrade golang nya akan mudah, tinggal hapus dan extract ulang. Tidak usah menyelamatkan folder <code>GOPATH</code>. Setelah selesai setup environment variable, logout dan login ulang atau restart komputer kita.</p>
+<p>Setelah kita download, extractlah di sembarang folder. Sebelum bisa ngoding menggunakan tools di golang, kita harus setup 2 hal, yaitu environment variabel <code>GOROOT</code> dan <code>GOPATH</code>. <code>GOROOT</code> kita set menuju path dimana golang diextract. <code>GOPATH</code> kita set terserah di folder mana, yang penting tidak menjadi satu di dalam <code>GOROOT</code> supaya kalau kita upgrade golang nya akan mudah, tinggal hapus dan extract ulang. Tidak usah menyelamatkan folder <code>GOPATH</code>.</p>
+
+<p>Tambahkan environment variabel <code>GOROOT/bin</code> dan <code>GOPATH/bin</code>  pada variabel <code>PATH</code> di dalam <code>/etc/profile.d/go.sh</code> supaya binary dari project yang kita buat maupun binary dependency dari github/tempat lain bisa ditemukan oleh OS menggunakan script di bawah ini:</p>
+
+<pre><code class="language-bash">export GOROOT=/data/development/go
+export GOPATH=/data/development/gopkg
+
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin
+</code></pre>
+
+<p>Setelah selesai setup environment variable, logout dan login ulang atau restart komputer kita.</p>
 
 <h2 id="check-instalasi-golang">Check Instalasi Golang</h2>
 
