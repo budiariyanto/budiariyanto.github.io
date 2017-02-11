@@ -2,12 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorial on Budi Ariyanto</title>
-    <link>https://budiariyanto.github.io/tags/tutorial/</link>
+    <link>https://budiariyanto.github.io/tags/tutorial/index.xml</link>
     <description>Recent content in Tutorial on Budi Ariyanto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Budi Ariyanto</copyright>
-    <lastBuildDate>Sat, 01 Oct 2016 21:11:36 +0700</lastBuildDate>
     <atom:link href="https://budiariyanto.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -94,9 +93,7 @@ export PATH=$PATH:$GOPATH/bin
       <pubDate>Mon, 16 Jun 2014 03:29:56 +0700</pubDate>
       
       <guid>https://budiariyanto.github.io/2014/06/16/membuat-project-java-dengan-gradle/</guid>
-      <description>
-
-&lt;p&gt;Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.&lt;/p&gt;
+      <description>&lt;p&gt;Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.&lt;/p&gt;
 
 &lt;h2 id=&#34;kenapa-kita-butuh-build-tools&#34;&gt;Kenapa Kita Butuh Build Tools&lt;/h2&gt;
 
@@ -121,6 +118,8 @@ export PATH=$PATH:$GOPATH/bin
 &lt;li&gt;Buat environment variable bernama &lt;code&gt;GRADLE_HOME&lt;/code&gt; dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi.&lt;/li&gt;
 &lt;li&gt;Logout dari sistem, login lagi. Selesai. :)&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;java-project-layout&#34;&gt;Java Project Layout&lt;/h2&gt;
 
@@ -247,8 +246,7 @@ subprojects {
    +-settings.gradle
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Setup project sudah selesai :). Kekurangan dari Gradle ini adalah belum mempunyai archetype generator seperti maven. Jadi setiap kali kita membuat subproject, kita membuat layout direktori secara manual. Ke depannya Gradle diharapkan mempunyai fitur seperti maven archetype.&lt;/p&gt;
-</description>
+&lt;p&gt;Setup project sudah selesai :). Kekurangan dari Gradle ini adalah belum mempunyai archetype generator seperti maven. Jadi setiap kali kita membuat subproject, kita membuat layout direktori secara manual. Ke depannya Gradle diharapkan mempunyai fitur seperti maven archetype.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -420,9 +418,7 @@ subprojects {
       <pubDate>Fri, 17 Jan 2014 17:26:33 +0700</pubDate>
       
       <guid>https://budiariyanto.github.io/2014/01/17/tutorial-singkat-maven/</guid>
-      <description>
-
-&lt;h2 id=&#34;apa-itu-maven&#34;&gt;Apa itu Maven?&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;apa-itu-maven&#34;&gt;Apa itu Maven?&lt;/h2&gt;
 
 &lt;p&gt;Maven adalah suatu &lt;em&gt;tool&lt;/em&gt; untuk menstandarkan dan &lt;em&gt;memanage&lt;/em&gt; project, mempermudah proses &lt;em&gt;build&lt;/em&gt; dalam suatu project, mendefinisikan secara jelas apa saja isi project dan mempermudah dalam membagi-bagikan (&lt;em&gt;share&lt;/em&gt;) file .jar di semua project. Maven sering di-versuskan dengan ant, atau bahkan ada yang bilang sama saja. Menurut saya, maven mempunyai tujuan yang lebih luas daripada ant yang hanya fokus untuk &lt;em&gt;build tool&lt;/em&gt; dan membuat task-task tertentu saja. Fitur-fitur ant ada pada maven bahkan maven bisa diintegrasikan dengan ant via maven plugin.&lt;/p&gt;
 
@@ -433,6 +429,8 @@ subprojects {
 &lt;p&gt;Selain permasalahan project template, hampir di setiap project kita menggunakan library. Jika kita menggunakan library dalam suatu project, berarti project kita dependen terhadap library tersebut. Maka library tersebut adalah dependency dari project kita. Nah, peran maven di sini adalah memanage dependency sehingga programmer dapat dengan mudah menambahkan library yang ingin digunakan. &amp;ldquo;Ah, cuma nambah dependency gitu aja kok harus pakai maven? Repot banget sih..&amp;rdquo;. Perlu diketahui, library tidak selamanya &lt;em&gt;&amp;ldquo;stand-alone&amp;rdquo;&lt;/em&gt;. Jangan berasumsi bahwa jika kita ingin menambahkan library A dan B, yang kita tambahkan ke project ya hanya A dan B. Sering kali misalnya library A dependen terhadap library B, C, D, E, F dan G. Library H dependen terhadap library I, J dan K. Jadi, library yang ingin kita tambahkan sebetulnya hanya 2 (A dan H), tapi karena harus menambahkan juga dependensinya(B, C, D, E, F, G, I, J, K) pada akhirnya ada 11 library yang harus ditambahkan. Belum lagi kalau ternyata semua dependensi itu harus didownload satu per satu, di tempat yang berbeda-beda pula. Belum lagi kalau source code kita karena sesuatu hal harus dipindahkan ke mesin lain. Dengan asumsi bahwa environmentnya berbeda, kita harus setting ulang semua path dari library tersebut supaya dapat ditemukan oleh IDE. Hal ini membuat pusing kepala. Yang tadinya saya mau mulai membuat kode program dengan nyaman, harus repot mengurus hal-hal yang demikian. Maven membantu menyelesaikan permasalahan ini.&lt;/p&gt;
 
 &lt;p&gt;Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. &lt;em&gt;Last but not least&lt;/em&gt;, hal-hal inilah yang membuat maven berperan penting dalam setiap project.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;installasi-dan-konfigurasi-maven&#34;&gt;Installasi dan Konfigurasi Maven&lt;/h2&gt;
 
@@ -628,8 +626,7 @@ src/site
 &lt;p&gt;Jalankan perintah&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ mvn archetype:generate -DarchetypeCatalog=http://&amp;lt;host&amp;gt;:&amp;lt;port&amp;gt;/&amp;lt;path/to/repositories&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

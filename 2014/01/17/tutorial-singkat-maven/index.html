@@ -7,7 +7,7 @@
         <meta name="description" content="About My Actvities">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.16" />
+        <meta name="generator" content="Hugo 0.18.1" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://budiariyanto.github.io/css/normalize.css">
@@ -132,9 +132,7 @@ ga('send', 'pageview');
 </nav>
     
 
-    
-
-<h2 id="apa-itu-maven">Apa itu Maven?</h2>
+    <h2 id="apa-itu-maven">Apa itu Maven?</h2>
 
 <p>Maven adalah suatu <em>tool</em> untuk menstandarkan dan <em>memanage</em> project, mempermudah proses <em>build</em> dalam suatu project, mendefinisikan secara jelas apa saja isi project dan mempermudah dalam membagi-bagikan (<em>share</em>) file .jar di semua project. Maven sering di-versuskan dengan ant, atau bahkan ada yang bilang sama saja. Menurut saya, maven mempunyai tujuan yang lebih luas daripada ant yang hanya fokus untuk <em>build tool</em> dan membuat task-task tertentu saja. Fitur-fitur ant ada pada maven bahkan maven bisa diintegrasikan dengan ant via maven plugin.</p>
 
@@ -145,6 +143,8 @@ ga('send', 'pageview');
 <p>Selain permasalahan project template, hampir di setiap project kita menggunakan library. Jika kita menggunakan library dalam suatu project, berarti project kita dependen terhadap library tersebut. Maka library tersebut adalah dependency dari project kita. Nah, peran maven di sini adalah memanage dependency sehingga programmer dapat dengan mudah menambahkan library yang ingin digunakan. &ldquo;Ah, cuma nambah dependency gitu aja kok harus pakai maven? Repot banget sih..&rdquo;. Perlu diketahui, library tidak selamanya <em>&ldquo;stand-alone&rdquo;</em>. Jangan berasumsi bahwa jika kita ingin menambahkan library A dan B, yang kita tambahkan ke project ya hanya A dan B. Sering kali misalnya library A dependen terhadap library B, C, D, E, F dan G. Library H dependen terhadap library I, J dan K. Jadi, library yang ingin kita tambahkan sebetulnya hanya 2 (A dan H), tapi karena harus menambahkan juga dependensinya(B, C, D, E, F, G, I, J, K) pada akhirnya ada 11 library yang harus ditambahkan. Belum lagi kalau ternyata semua dependensi itu harus didownload satu per satu, di tempat yang berbeda-beda pula. Belum lagi kalau source code kita karena sesuatu hal harus dipindahkan ke mesin lain. Dengan asumsi bahwa environmentnya berbeda, kita harus setting ulang semua path dari library tersebut supaya dapat ditemukan oleh IDE. Hal ini membuat pusing kepala. Yang tadinya saya mau mulai membuat kode program dengan nyaman, harus repot mengurus hal-hal yang demikian. Maven membantu menyelesaikan permasalahan ini.</p>
 
 <p>Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. <em>Last but not least</em>, hal-hal inilah yang membuat maven berperan penting dalam setiap project.</p>
+
+<p></p>
 
 <h2 id="installasi-dan-konfigurasi-maven">Installasi dan Konfigurasi Maven</h2>
 
@@ -341,7 +341,6 @@ src/site
 
 <pre><code class="language-bash">$ mvn archetype:generate -DarchetypeCatalog=http://&lt;host&gt;:&lt;port&gt;/&lt;path/to/repositories&gt;
 </code></pre>
-
 </div>
 
 
