@@ -7,8 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Budi Ariyanto</copyright>
-    <lastBuildDate>Sat, 01 Oct 2016 21:11:36 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 12 Mar 2017 17:59:06 +0700</lastBuildDate>
     <atom:link href="https://budiariyanto.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Bulk Renaming in Linux</title>
+      <link>https://budiariyanto.github.io/2017/03/12/linux_bulk_renaming/</link>
+      <pubDate>Sun, 12 Mar 2017 17:59:06 +0700</pubDate>
+      
+      <guid>https://budiariyanto.github.io/2017/03/12/linux_bulk_renaming/</guid>
+      <description>
+
+&lt;p&gt;There is a handy tools in linux for renaming bulk/mass files a once called
+rename. It&amp;rsquo;s a perl script and included in most linux distros.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-bulk-rename-files&#34;&gt;How to bulk rename files&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ rename &#39;s/&amp;lt;files to rename regex pattern&amp;gt;/&amp;lt;expected regex pattern&amp;gt;/&#39; &amp;lt;destination files&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;how-to-bulk-rename-files-add-prefix&#34;&gt;How to bulk rename files, add prefix&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ rename &#39;s/^/&amp;lt;expected regex pattern&amp;gt;/&#39; &amp;lt;destination files&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Instalasi Golang</title>
