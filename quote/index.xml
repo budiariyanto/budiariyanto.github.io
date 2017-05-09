@@ -2,22 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quotes on Budi Ariyanto</title>
-    <link>https://budiariyanto.github.io/quote/</link>
+    <link>https://budiariyanto.github.io/quote/index.xml</link>
     <description>Recent content in Quotes on Budi Ariyanto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Budi Ariyanto</copyright>
-    
-	<atom:link href="https://budiariyanto.github.io/quote/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="https://budiariyanto.github.io/quote/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title></title>
-      <link>https://budiariyanto.github.io/quote/readme/</link>
+      <link>https://budiariyanto.github.io/quote/README/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://budiariyanto.github.io/quote/readme/</guid>
-      <description>Quote load content from file</description>
+      <guid>https://budiariyanto.github.io/quote/README/</guid>
+      <description>&lt;p&gt;Quote load content from file&lt;/p&gt;
+</description>
     </item>
     
   </channel>

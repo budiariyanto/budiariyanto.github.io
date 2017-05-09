@@ -2,15 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Golang on Budi Ariyanto</title>
-    <link>https://budiariyanto.github.io/tags/golang/</link>
+    <link>https://budiariyanto.github.io/tags/golang/index.xml</link>
     <description>Recent content in Golang on Budi Ariyanto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Budi Ariyanto</copyright>
-    <lastBuildDate>Sat, 01 Oct 2016 21:11:36 +0700</lastBuildDate>
-    
-	<atom:link href="https://budiariyanto.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="https://budiariyanto.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Instalasi Golang</title>
@@ -18,9 +15,76 @@
       <pubDate>Sat, 01 Oct 2016 21:11:36 +0700</pubDate>
       
       <guid>https://budiariyanto.github.io/2016/10/01/instalasi-golang/</guid>
-      <description>Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.
-Download Golang Kita bisa mendownload golang di sini. Downloadlah yg cocok dengan OS kita.
-Setup Environment Variable Setelah kita download, extractlah di sembarang folder.</description>
+      <description>
+
+&lt;p&gt;Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.&lt;/p&gt;
+
+&lt;h2 id=&#34;download-golang&#34;&gt;Download Golang&lt;/h2&gt;
+
+&lt;p&gt;Kita bisa mendownload golang di &lt;a href=&#34;https://golang.org/dl/&#34;&gt;sini&lt;/a&gt;. Downloadlah yg cocok dengan OS kita.&lt;/p&gt;
+
+&lt;h2 id=&#34;setup-environment-variable&#34;&gt;Setup Environment Variable&lt;/h2&gt;
+
+&lt;p&gt;Setelah kita download, extractlah di sembarang folder. Sebelum bisa ngoding menggunakan tools di golang, kita harus setup 2 hal, yaitu environment variabel &lt;code&gt;GOROOT&lt;/code&gt; dan &lt;code&gt;GOPATH&lt;/code&gt;. &lt;code&gt;GOROOT&lt;/code&gt; kita set menuju path dimana golang diextract. &lt;code&gt;GOPATH&lt;/code&gt; kita set terserah di folder mana, yang penting tidak menjadi satu di dalam &lt;code&gt;GOROOT&lt;/code&gt; supaya kalau kita upgrade golang nya akan mudah, tinggal hapus dan extract ulang. Tidak usah menyelamatkan folder &lt;code&gt;GOPATH&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tambahkan environment variabel &lt;code&gt;GOROOT/bin&lt;/code&gt; dan &lt;code&gt;GOPATH/bin&lt;/code&gt;  pada variabel &lt;code&gt;PATH&lt;/code&gt; di dalam &lt;code&gt;/etc/profile.d/go.sh&lt;/code&gt; supaya binary dari project yang kita buat maupun binary dependency dari github/tempat lain bisa ditemukan oleh OS menggunakan script di bawah ini:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export GOROOT=/data/development/go
+export GOPATH=/data/development/gopkg
+
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Setelah selesai setup environment variable, logout dan login ulang atau restart komputer kita.&lt;/p&gt;
+
+&lt;h2 id=&#34;check-instalasi-golang&#34;&gt;Check Instalasi Golang&lt;/h2&gt;
+
+&lt;p&gt;Untuk mengecek apakah instalasi golang kita sudah benar atau belum, ketik &lt;code&gt;go&lt;/code&gt; di terminal. Seharusnya akan muncul output seperti ini:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    Go is a tool for managing Go source code.
+
+    Usage:
+
+        go command [arguments]
+
+    The commands are:
+
+        build       compile packages and dependencies
+        clean       remove object files
+        doc         show documentation for package or symbol
+        env         print Go environment information
+        fix         run go tool fix on packages
+        fmt         run gofmt on package sources
+        generate    generate Go files by processing source
+        get         download and install packages and dependencies
+        install     compile and install packages and dependencies
+        list        list packages
+        run         compile and run Go program
+        test        test packages
+        tool        run specified go tool
+        version     print Go version
+        vet         run go tool vet on packages
+
+    Use &amp;quot;go help [command]&amp;quot; for more information about a command.
+
+    Additional help topics:
+
+        c           calling between Go and C
+        buildmode   description of build modes
+        filetype    file types
+        gopath      GOPATH environment variable
+        environment environment variables
+        importpath  import path syntax
+        packages    description of package lists
+        testflag    description of testing flags
+        testfunc    description of testing functions
+
+    Use &amp;quot;go help [topic]&amp;quot; for more information about that topic.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jika instalasi sudah benar, maka kita sudah siap ngoding.&lt;/p&gt;
+</description>
     </item>
     
   </channel>
