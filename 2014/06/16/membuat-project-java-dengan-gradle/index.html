@@ -69,7 +69,8 @@ Logout dari sistem, login lagi. Selesai. :)
 <meta property="og:url" content="https://budiariyanto.github.io/2014/06/16/membuat-project-java-dengan-gradle/">
         <link rel="stylesheet" href="https://budiariyanto.github.io/dist/styles.css">
         <link rel="stylesheet" href="https://budiariyanto.github.io/css/highlight.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300|Roboto+Mono&amp;subset=latin,cyrillic-ext,latin-ext,cyrillic">
         <link rel="stylesheet" href="https://budiariyanto.github.io/font-awesome/css/font-awesome.min.css">
         
     </head>
@@ -239,7 +240,7 @@ ga('send', 'pageview');
 
 <p>Selanjutnya kita akan bahas isi dari file <code>build.gradle</code> ini yang merupakan konfigurasi dari root project yang kita buat. Saya beri contoh isi filenya:</p>
 
-<pre><code class="language-groovy">// Dengan apply java plugin, kita dibuatkan task-task untuk membuild program java kita
+<pre><code class="language-gradle">// Dengan apply java plugin, kita dibuatkan task-task untuk membuild program java kita
 // Untuk mengeceknya, kita bisa jalankan perintah: gradle tasks
 // nanti akan tampil task-task apa saja yang available. Bandingkan daftar tasknya ketika kita belum apply plugin java
 apply plugin: 'java'
@@ -308,7 +309,7 @@ subprojects {
 
 <p>Root project sudah dibuat. Saatnya kita membuat subproject. Untuk membuatnya sangat gampang. Cukup membuat direktori baru di dalam direktori root project. Misalkan kita buat namanya <code>coba_gradle_subproject</code>. Di dalam direktori ini, kita buat layout project java yang sudah dibahas sebelumnya. Jangan lupa kita juga wajib membuat file <code>build.gradle</code> di dalam direktori <code>coba_gradle_subproject</code> ini. Sebagai contoh, isinya hanya seperti ini:</p>
 
-<pre><code class="language-groovy">version = '1.0.0.SNAPSHOT'
+<pre><code class="language-gradle">version = '1.0.0.SNAPSHOT'
 </code></pre>
 
 <p>Walaupun isinya hanya seperti itu, namun karena root project sudah mendefinisikan konfigurasi pada block <code>subprojects</code>, maka otomatis subproject ini mewarisi apa yang sudah dideklarasikan di sana, dari plugin dan dependencynya. Variabel version ini perlu kita deklarasikan supaya nanti ketika subproject ini kita compile menjadi bentuk jar misalnya, filenamenya akan ditambahkan version dari project ini. Jadi misalkan versionnya kita set <code>1.0.0.SNAPSHOT</code>, maka file yang tercipta nantinya akan bernama <code>coba_gradle_subproject-1.0.0.SNAPSHOT.jar</code>.</p>
@@ -317,7 +318,7 @@ subprojects {
 
 <p>Nah, subproject sudah dibuat. Bagaimana caranya supaya root project mengenali subproject ini? Mari kita kembali lagi ke direktori <code>coba_gradle</code>. Dalam direktori tersebut, buatlah file bernama <code>settings.gradle</code> dan deklarasikan subprojectnya di dalam file tersebut seperti berikut:</p>
 
-<pre><code class="language-groovy">include 'coba_gradle_subproject'
+<pre><code class="language-gradle">include 'coba_gradle_subproject'
 
 // tambahkan subproject lain jika ada
 // include 'subproject2'
