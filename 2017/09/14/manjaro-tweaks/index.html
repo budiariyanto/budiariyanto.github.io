@@ -148,11 +148,14 @@ ga('send', 'pageview');
 
 <h3 id="ada-bunyi-buzz-crackling-seperti-bunyi-listrik-ketika-laptop-tidak-dalam-kondisi-dicharge-dan-sound-device-tidak-dalam-keadaan-bekerja-idle">Ada bunyi buzz/crackling seperti bunyi listrik ketika laptop tidak dalam kondisi dicharge dan sound device tidak dalam keadaan bekerja (idle).</h3>
 
-<p>Bunyi buzz/crackling ini disebabkan karena Manjaro menggunakan <a href="http://linrunner.de/en/tlp/tlp.html">TLP</a>. TLP ini berfungsi mengatur power di setiap device yang ada di laptop termasuk sound device. Sayangnya ternyata tidak semua device lancar menggunakan TLP. Di laptop saya, ketika sound device idle maka TLP akan melakukan power save pada sound device tersebut, sehingga mungkin listrik yang dialirkan dihemat. Tapi efek sampingnya adalah terjadinya bunyi buzz/crackling. Untuk menonaktifkan TLP pada sound device, perintahnya adalah:
-1. Buka file <code>/etc/default/tlp</code> menggunakan text editor favorit Anda.
-1. Cari bagian <code>SOUND_POWER_SAVE_ON_BAT=1</code>.
-1. Ganti menjadi <code>SOUND_POWER_SAVE_ON_BAT=0</code>
-1. Restart laptop.</p>
+<p>Bunyi buzz/crackling ini disebabkan karena Manjaro menggunakan <a href="http://linrunner.de/en/tlp/tlp.html">TLP</a>. TLP ini berfungsi mengatur power di setiap device yang ada di laptop termasuk sound device. Sayangnya ternyata tidak semua device lancar menggunakan TLP. Di laptop saya, ketika sound device idle maka TLP akan melakukan power save pada sound device tersebut, sehingga mungkin listrik yang dialirkan dihemat. Tapi efek sampingnya adalah terjadinya bunyi buzz/crackling. Untuk menonaktifkan TLP pada sound device, perintahnya adalah:</p>
+
+<ol>
+<li>Buka file <code>/etc/default/tlp</code> menggunakan text editor favorit Anda.</li>
+<li>Cari bagian <code>SOUND_POWER_SAVE_ON_BAT=1</code>.</li>
+<li>Ganti menjadi <code>SOUND_POWER_SAVE_ON_BAT=0</code></li>
+<li>Restart laptop.</li>
+</ol>
 
 <h2 id="vga-related">VGA Related</h2>
 
@@ -162,17 +165,20 @@ ga('send', 'pageview');
 Contohnya video tearing bisa dilihat <a href="https://en.wikipedia.org/wiki/Screen_tearing">di sini</a>.
 Sebetulnya hal ini tidak terlalu menjadi masalah. Hanya saja mengganggu
 kesempurnaan menonton ketika kita menonton film yg kita suka. Untuk mengatasi
-hal ini, ikuti langkah berikut:
-1. Edit file <code>/etc/X11/mhwd.d/intel.conf</code> menggunakan text editor favorit Anda.
-1. Cari bagian device, lalu tambahkan <code>Option  &quot;TearFree&quot; &quot;true&quot;</code> pada section
-   device. Kira-kira seperti ini:</p>
+hal ini, ikuti langkah berikut:</p>
 
-<pre><code>   Section &quot;Device&quot;
-        Identifier  &quot;Intel Graphics&quot;
-        Driver      &quot;intel&quot;
-        Option      &quot;TearFree&quot; &quot;true&quot;
-   EndSection
-</code></pre>
+<ol>
+<li>Edit file <code>/etc/X11/mhwd.d/intel.conf</code> menggunakan text editor favorit Anda.</li>
+<li>Cari bagian device, lalu tambahkan <code>Option  &quot;TearFree&quot; &quot;true&quot;</code> pada section
+device. Kira-kira seperti ini:
+<code>
+Section &quot;Device&quot;
+    Identifier  &quot;Intel Graphics&quot;
+    Driver      &quot;intel&quot;
+    Option      &quot;TearFree&quot; &quot;true&quot;
+EndSection
+</code></li>
+</ol>
 
 </div>
 
