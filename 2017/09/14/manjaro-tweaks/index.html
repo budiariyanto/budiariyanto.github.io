@@ -169,15 +169,15 @@ hal ini, ikuti langkah berikut:</p>
 
 <ol>
 <li>Edit file <code>/etc/X11/mhwd.d/intel.conf</code> menggunakan text editor favorit Anda.</li>
-<li>Cari bagian device, lalu tambahkan <code>Option  &quot;TearFree&quot; &quot;true&quot;</code> pada section
-device. Kira-kira seperti ini:
-<code>
-Section &quot;Device&quot;
-    Identifier  &quot;Intel Graphics&quot;
-    Driver      &quot;intel&quot;
-    Option      &quot;TearFree&quot; &quot;true&quot;
+
+<li><p>Cari bagian device, lalu tambahkan <code>Option  &quot;TearFree&quot; &quot;true&quot;</code> pada section device. Kira-kira seperti ini:</p>
+
+<pre><code>Section &quot;Device&quot;
+     Identifier  &quot;Intel Graphics&quot;
+     Driver      &quot;intel&quot;
+     Option      &quot;TearFree&quot; &quot;true&quot;
 EndSection
-</code></li>
+</code></pre></li>
 </ol>
 
 </div>
