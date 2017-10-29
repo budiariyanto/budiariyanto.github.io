@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://budiariyanto.github.io/2017/09/14/manjaro-tweaks/</loc>
+    <lastmod>2017-09-14T23:26:59+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://budiariyanto.github.io/2017/05/01/birthday/</loc>
     <lastmod>2017-05-01T20:40:28+07:00</lastmod>
   </url>
@@ -58,7 +63,7 @@
   
   <url>
     <loc>https://budiariyanto.github.io/</loc>
-    <lastmod>2017-05-01T20:40:28+07:00</lastmod>
+    <lastmod>2017-09-14T23:26:59+07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -81,6 +86,12 @@
   </url>
   
   <url>
+    <loc>https://budiariyanto.github.io/tags/linux/</loc>
+    <lastmod>2017-09-14T23:26:59+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://budiariyanto.github.io/tags/opinion/</loc>
     <lastmod>2014-05-19T17:56:45+07:00</lastmod>
     <priority>0</priority>
@@ -88,7 +99,7 @@
   
   <url>
     <loc>https://budiariyanto.github.io/post/</loc>
-    <lastmod>2017-05-01T20:40:28+07:00</lastmod>
+    <lastmod>2017-09-14T23:26:59+07:00</lastmod>
     <priority>0</priority>
   </url>
   

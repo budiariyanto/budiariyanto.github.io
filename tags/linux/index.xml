@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Budi Ariyanto</title>
+    <link>https://budiariyanto.github.io/tags/linux/</link>
+    <description>Recent content in Linux on Budi Ariyanto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Budi Ariyanto</copyright>
+    <lastBuildDate>Thu, 14 Sep 2017 23:26:59 +0700</lastBuildDate>
+    
+	<atom:link href="https://budiariyanto.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Manjaro Troubleshooting</title>
+      <link>https://budiariyanto.github.io/2017/09/14/manjaro-tweaks/</link>
+      <pubDate>Thu, 14 Sep 2017 23:26:59 +0700</pubDate>
+      
+      <guid>https://budiariyanto.github.io/2017/09/14/manjaro-tweaks/</guid>
+      <description>Manjaro adalah salah satu distro linux yang masih baru. Distro ini based on Arch Linux. Manjaro menarik sekali untuk dicoba. Setelah saya coba, ada beberapa masalah di hardware. Nah pada artikel ini, saya akan share permasalahan yang saya hadapi dan solusinya. Sebagai informasi, saya menggunakan laptop Acer E5-475G-541U. Siapa tau solusi yg saya share di sini berguna untuk Anda meskipun beda laptop, karena permasalahan yg sama bisa saja terjadi di berbagai macam laptop yang berbeda.</description>
+    </item>
+    
+  </channel>
+</rss>

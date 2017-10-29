@@ -3,18 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Bulk Renaming in Linux &middot; Budi Ariyanto</title>
-        <meta name="description" content="Bulk Renaming in Linux">
+        <title>Manjaro Troubleshooting &middot; Budi Ariyanto</title>
+        <meta name="description" content="Troubleshooting permasalahan di Manjaro linux">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="generator" content="Hugo 0.30.2" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta property="og:title" content="Bulk Renaming in Linux">
-<meta property="og:description" content="Bulk Renaming in Linux">
+        <meta property="og:title" content="Manjaro Troubleshooting">
+<meta property="og:description" content="Troubleshooting permasalahan di Manjaro linux">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://budiariyanto.github.io/2017/03/12/linux_bulk_renaming/">
+<meta property="og:url" content="https://budiariyanto.github.io/2017/09/14/manjaro-tweaks/">
         <link rel="stylesheet" href="https://budiariyanto.github.io/dist/styles.css">
         <link rel="stylesheet" href="https://budiariyanto.github.io/css/highlight.css">
         <link rel="stylesheet"
@@ -103,12 +103,12 @@ ga('send', 'pageview');
 <div class="container">
     <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
         <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Bulk Renaming in Linux</h1>
+    <h1 class="post-title" itemprop="name headline">Manjaro Troubleshooting</h1>
     
-        <p class="post-description" itemprop="description">Bulk Renaming in Linux</p>
+        <p class="post-description" itemprop="description">Troubleshooting permasalahan di Manjaro linux</p>
     
     <p class="post-date">
-        <span>Published <time datetime="2017-03-12" itemprop="datePublished">Sun, March 12, 2017</time></span>
+        <span>Published <time datetime="2017-09-14" itemprop="datePublished">Thu, September 14, 2017</time></span>
         <span>by</span>
         <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
             <span itemprop="name">
@@ -127,8 +127,14 @@ ga('send', 'pageview');
 <ul>
 <li>
 <ul>
-<li><a href="#how-to-bulk-rename-files">How to bulk rename files</a></li>
-<li><a href="#how-to-bulk-rename-files-add-prefix">How to bulk rename files, add prefix</a></li>
+<li><a href="#sound-related">Sound Related</a>
+<ul>
+<li><a href="#ada-bunyi-buzz-crackling-seperti-bunyi-listrik-ketika-laptop-tidak-dalam-kondisi-dicharge-dan-sound-device-tidak-dalam-keadaan-bekerja-idle">Ada bunyi buzz/crackling seperti bunyi listrik ketika laptop tidak dalam kondisi dicharge dan sound device tidak dalam keadaan bekerja (idle).</a></li>
+</ul></li>
+<li><a href="#vga-related">VGA Related</a>
+<ul>
+<li><a href="#waktu-nonton-video-terjadi-video-tearing">Waktu nonton video terjadi video tearing</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -136,17 +142,36 @@ ga('send', 'pageview');
 
     
 
-<p>There is a handy tools in linux for renaming bulk/mass files a once called
-rename. It&rsquo;s a perl script and included in most linux distros.</p>
+<p><a href="https://manjaro.org">Manjaro</a> adalah salah satu distro linux yang masih baru. Distro ini based on <a href="https://www.archlinux.org">Arch Linux</a>. Manjaro menarik sekali untuk dicoba. Setelah saya coba, ada beberapa masalah di hardware. Nah pada artikel ini, saya akan share permasalahan yang saya hadapi dan solusinya. Sebagai informasi, saya menggunakan laptop Acer E5-475G-541U. Siapa tau solusi yg saya share di sini berguna untuk Anda meskipun beda laptop, karena permasalahan yg sama bisa saja terjadi di berbagai macam laptop yang berbeda.</p>
 
-<h2 id="how-to-bulk-rename-files">How to bulk rename files</h2>
+<h2 id="sound-related">Sound Related</h2>
 
-<pre><code class="language-bash">$ rename 's/&lt;files to rename regex pattern&gt;/&lt;expected regex pattern&gt;/' &lt;destination files&gt;
-</code></pre>
+<h3 id="ada-bunyi-buzz-crackling-seperti-bunyi-listrik-ketika-laptop-tidak-dalam-kondisi-dicharge-dan-sound-device-tidak-dalam-keadaan-bekerja-idle">Ada bunyi buzz/crackling seperti bunyi listrik ketika laptop tidak dalam kondisi dicharge dan sound device tidak dalam keadaan bekerja (idle).</h3>
 
-<h2 id="how-to-bulk-rename-files-add-prefix">How to bulk rename files, add prefix</h2>
+<p>Bunyi buzz/crackling ini disebabkan karena Manjaro menggunakan <a href="http://linrunner.de/en/tlp/tlp.html">TLP</a>. TLP ini berfungsi mengatur power di setiap device yang ada di laptop termasuk sound device. Sayangnya ternyata tidak semua device lancar menggunakan TLP. Di laptop saya, ketika sound device idle maka TLP akan melakukan power save pada sound device tersebut, sehingga mungkin listrik yang dialirkan dihemat. Tapi efek sampingnya adalah terjadinya bunyi buzz/crackling. Untuk menonaktifkan TLP pada sound device, perintahnya adalah:
+1. Buka file <code>/etc/default/tlp</code> menggunakan text editor favorit Anda.
+1. Cari bagian <code>SOUND_POWER_SAVE_ON_BAT=1</code>.
+1. Ganti menjadi <code>SOUND_POWER_SAVE_ON_BAT=0</code>
+1. Restart laptop.</p>
 
-<pre><code class="language-bash">$ rename 's/^/&lt;expected regex pattern&gt;/' &lt;destination files&gt;
+<h2 id="vga-related">VGA Related</h2>
+
+<h3 id="waktu-nonton-video-terjadi-video-tearing">Waktu nonton video terjadi video tearing</h3>
+
+<p>Video tearing adalah semacam visual glitch pada video ketika dimainkan.
+Contohnya video tearing bisa dilihat <a href="https://en.wikipedia.org/wiki/Screen_tearing">di sini</a>.
+Sebetulnya hal ini tidak terlalu menjadi masalah. Hanya saja mengganggu
+kesempurnaan menonton ketika kita menonton film yg kita suka. Untuk mengatasi
+hal ini, ikuti langkah berikut:
+1. Edit file <code>/etc/X11/mhwd.d/intel.conf</code> menggunakan text editor favorit Anda.
+1. Cari bagian device, lalu tambahkan <code>Option  &quot;TearFree&quot; &quot;true&quot;</code> pada section
+   device. Kira-kira seperti ini:</p>
+
+<pre><code>   Section &quot;Device&quot;
+        Identifier  &quot;Intel Graphics&quot;
+        Driver      &quot;intel&quot;
+        Option      &quot;TearFree&quot; &quot;true&quot;
+   EndSection
 </code></pre>
 
 </div>
@@ -164,14 +189,14 @@ rename. It&rsquo;s a perl script and included in most linux distros.</p>
             <span>Tagged:</span>
             
             
-                <a href="/tags/tutorial/">tutorial</a>
+                <a href="/tags/linux/">linux</a>
             
         </p>
     
 
     <div class="share">
         
-            <a class="icon-twitter" href="https://twitter.com/share?text=Bulk%20Renaming%20in%20Linux&url=https%3a%2f%2fbudiariyanto.github.io%2f2017%2f03%2f12%2flinux_bulk_renaming%2f"
+            <a class="icon-twitter" href="https://twitter.com/share?text=Manjaro%20Troubleshooting&url=https%3a%2f%2fbudiariyanto.github.io%2f2017%2f09%2f14%2fmanjaro-tweaks%2f"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fa fa-twitter"></i>
                 <span class="hidden">Twitter</span>
@@ -179,7 +204,7 @@ rename. It&rsquo;s a perl script and included in most linux distros.</p>
         
 
         
-            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbudiariyanto.github.io%2f2017%2f03%2f12%2flinux_bulk_renaming%2f"
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbudiariyanto.github.io%2f2017%2f09%2f14%2fmanjaro-tweaks%2f"
                 onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                 <i class="fa fa-facebook"></i>
                 <span class="hidden">Facebook</span>
@@ -187,14 +212,14 @@ rename. It&rsquo;s a perl script and included in most linux distros.</p>
         
 
         
-            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fbudiariyanto.github.io%2f2017%2f03%2f12%2flinux_bulk_renaming%2f"
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fbudiariyanto.github.io%2f2017%2f09%2f14%2fmanjaro-tweaks%2f"
               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
               <i class="fa fa-google-plus"></i>
                 <span class="hidden">Google+</span>
             </a>
         
         
-            <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&title=Bulk%20Renaming%20in%20Linux&url=https%3a%2f%2fbudiariyanto.github.io%2f2017%2f03%2f12%2flinux_bulk_renaming%2f&summary=Bulk%20Renaming%20in%20Linux"
+            <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&title=Manjaro%20Troubleshooting&url=https%3a%2f%2fbudiariyanto.github.io%2f2017%2f09%2f14%2fmanjaro-tweaks%2f&summary=Troubleshooting%20permasalahan%20di%20Manjaro%20linux"
                onclick="window.open(this.href, 'linkedin-share', 'width=554,height=481');return false;">
                <i class="fa fa-linkedin"></i>
                <span class="hidden">LinkedIn</span>
