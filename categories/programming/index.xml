@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on Budi Ariyanto</title>
+    <link>http://localhost:1313/categories/programming/</link>
+    <description>Recent content in Programming on Budi Ariyanto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Oct 2016 21:11:36 +0700</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Instalasi Golang</title>
+      <link>http://localhost:1313/post/instalasi-golang/</link>
+      <pubDate>Sat, 01 Oct 2016 21:11:36 +0700</pubDate>
+      
+      <guid>http://localhost:1313/post/instalasi-golang/</guid>
+      <description>Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.
+Download Golang Kita bisa mendownload golang di sini. Downloadlah yg cocok dengan OS kita.
+Setup Environment Variable Setelah kita download, extractlah di sembarang folder.</description>
+    </item>
+    
+    <item>
+      <title>Membuat Project Java Dengan Gradle</title>
+      <link>http://localhost:1313/post/membuat-project-java-dengan-gradle/</link>
+      <pubDate>Mon, 16 Jun 2014 03:29:56 +0700</pubDate>
+      
+      <guid>http://localhost:1313/post/membuat-project-java-dengan-gradle/</guid>
+      <description>&lt;p&gt;Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.&lt;/p&gt;
+
+&lt;h2 id=&#34;kenapa-kita-butuh-build-tools&#34;&gt;Kenapa Kita Butuh Build Tools&lt;/h2&gt;
+
+&lt;p&gt;Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses peng&lt;strong&gt;compile&lt;/strong&gt;an biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.&lt;/p&gt;
+
+&lt;p&gt;Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu &lt;a href=&#34;http://maven.apache.org&#34;&gt;Maven&lt;/a&gt; dan &lt;a href=&#34;http://www.gradle.org&#34;&gt;Gradle&lt;/a&gt;. Maven sebelumnya sudah pernah saya bahas secara singkat di &lt;a href=&#34;http://localhost:1313/post/tutorial-singkat-maven/&#34;&gt;sini&lt;/a&gt; dan di &lt;a href=&#34;http://localhost:1313/post/maven-multi-module-project/&#34;&gt;sini&lt;/a&gt;. Sekarang saya akan membahas Gradle.&lt;/p&gt;
+
+&lt;h2 id=&#34;gradle&#34;&gt;Gradle&lt;/h2&gt;
+
+&lt;p&gt;Gradle adalah build tools modern yang sedang booming akhir-akhir ini, terutama di kalangan penggemar bahasa pemrograman Java. Gradle ini mirip seperti build tools lain, contohnya make atau rake. Konfigurasi build automation pada gradle menggunakan bahasa pemrograman Groovy. Pada artikel ini saya tidak membahas tentang bahasa pemrograman Groovy, tapi saya ambil yang penting-pentingnya saja supaya kita dapat membuat project Java menggunakan Gradle diintegrasikan dengan Maven. Wah kenapa Maven masih ikut-ikut?&lt;/p&gt;
+
+&lt;p&gt;Jadi begini, kegunaan Gradle sedikit berbeda dengan Maven. Gradle adalah build tools yang tidak spesifik terhadap satu bahasa pemrograman tertentu, sedangkan Maven spesifik untuk membantu membuat project yang kita buat menggunakan Java. Kalau kita perhatikan di ebook-ebook Gradle yang ada, pasti tutorial yang ada di dalam buku tersebut malah membahas bagaimana membuat project dan task Gradle secara umum menggunakan bahasa pemrograman Groovy, bukan langsung membahas bagaimana membuat project Java dengan menggunakan Gradle. Nah nanti kita akan membahas bagaimana membuat task dan mengatur project yang kita buat menggunakan Gradle, tapi masih menggunakan maven untuk memanage dependency project yang ada.&lt;/p&gt;
+
+&lt;p&gt;Jadi, Gradle bisa digunakan untuk project apa saja karena kita bisa membuat task sendiri di dalamnya dimana task tersebut kita sendiri yang membuatnya mau jadi bagaimana. Itulah sekilas tentang Gradle.&lt;/p&gt;
+
+&lt;h2 id=&#34;menginstall-gradle&#34;&gt;Menginstall Gradle&lt;/h2&gt;
+
+&lt;p&gt;Berikut ini langkah-langkah setup gradle di komputer kita:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Download gradle di websitenya lalu ekstrak di direktori mana saja.&lt;/li&gt;
+&lt;li&gt;Buat environment variable bernama &lt;code&gt;GRADLE_HOME&lt;/code&gt; dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi.&lt;/li&gt;
+&lt;li&gt;Logout dari sistem, login lagi. Selesai. :)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Maven Multi Module Project</title>
+      <link>http://localhost:1313/post/maven-multi-module-project/</link>
+      <pubDate>Mon, 19 May 2014 17:19:49 +0700</pubDate>
+      
+      <guid>http://localhost:1313/post/maven-multi-module-project/</guid>
+      <description>Dalam membuat satu project besar, sebaiknya kita bagi menjadi beberapa project kecil. Project kecil ini tujuannya untuk membagi project supaya strukturnya projectnya lebih mudah dipahami dan juga lebih modular. Maven mempunyai fitur untuk membantu merealisasikan hal ini, yaitu project inheritance dan project aggregation. Mari kita bahas satu per satu.
+Briefing Untuk membantu memahami dengan mudah, kita akan membuat sebuah project sederhana bernama &amp;ldquo;Manusia&amp;rdquo; dimana project ini punya modul yang bernama &amp;ldquo;Kepala&amp;rdquo;, &amp;ldquo;Badan&amp;rdquo;, &amp;ldquo;Tangan&amp;rdquo; dan &amp;ldquo;Kaki&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Tutorial Singkat Maven</title>
+      <link>http://localhost:1313/post/tutorial-singkat-maven/</link>
+      <pubDate>Fri, 17 Jan 2014 17:26:33 +0700</pubDate>
+      
+      <guid>http://localhost:1313/post/tutorial-singkat-maven/</guid>
+      <description>&lt;h2 id=&#34;apa-itu-maven&#34;&gt;Apa itu Maven?&lt;/h2&gt;
+
+&lt;p&gt;Maven adalah suatu &lt;em&gt;tool&lt;/em&gt; untuk menstandarkan dan &lt;em&gt;memanage&lt;/em&gt; project, mempermudah proses &lt;em&gt;build&lt;/em&gt; dalam suatu project, mendefinisikan secara jelas apa saja isi project dan mempermudah dalam membagi-bagikan (&lt;em&gt;share&lt;/em&gt;) file .jar di semua project. Maven sering di-versuskan dengan ant, atau bahkan ada yang bilang sama saja. Menurut saya, maven mempunyai tujuan yang lebih luas daripada ant yang hanya fokus untuk &lt;em&gt;build tool&lt;/em&gt; dan membuat task-task tertentu saja. Fitur-fitur ant ada pada maven bahkan maven bisa diintegrasikan dengan ant via maven plugin.&lt;/p&gt;
+
+&lt;h2 id=&#34;kenapa-harus-pakai-maven&#34;&gt;Kenapa harus pakai Maven?&lt;/h2&gt;
+
+&lt;p&gt;Suatu project pasti mempunyai struktur direktori. Struktur direktori project ini biasa disebut &lt;em&gt;project template&lt;/em&gt;. Struktur direktori setiap orang atau setiap tim berbeda. Setiap tim menentukan standarnya sendiri, lalu jika ada orang baru masuk dalam tim tersebut, orang baru itu mengikuti standar project template yang sudah ada. Yang biasa dilakukan, orang baru tersebut membuat project baru di IDE, lalu melihat catatan project template yang sudah ada itu bagaimana. Struktur direktori project baru tersebut berusaha dibuat sama dengan struktur direktori standar project dengan membuat folder-folder, menambahkan file-file dan sebagainya. Dengan maven, pada umumnya kita cukup sekali membuat archetype untuk 1 jenis project. Setelah itu ketika membuat project baru, kita tinggal mengenerate project template dengan menggunakan archetype yang sudah dibuat tadi. Semua hal mengenai project template langsung bisa terkonfigurasi secara otomatis sesuai standar. Kalau ada keperluan khusus, baru kita tambahkan sendiri.&lt;/p&gt;
+
+&lt;p&gt;Selain permasalahan project template, hampir di setiap project kita menggunakan library. Jika kita menggunakan library dalam suatu project, berarti project kita dependen terhadap library tersebut. Maka library tersebut adalah dependency dari project kita. Nah, peran maven di sini adalah memanage dependency sehingga programmer dapat dengan mudah menambahkan library yang ingin digunakan. &amp;ldquo;Ah, cuma nambah dependency gitu aja kok harus pakai maven? Repot banget sih..&amp;rdquo;. Perlu diketahui, library tidak selamanya &lt;em&gt;&amp;ldquo;stand-alone&amp;rdquo;&lt;/em&gt;. Jangan berasumsi bahwa jika kita ingin menambahkan library A dan B, yang kita tambahkan ke project ya hanya A dan B. Sering kali misalnya library A dependen terhadap library B, C, D, E, F dan G. Library H dependen terhadap library I, J dan K. Jadi, library yang ingin kita tambahkan sebetulnya hanya 2 (A dan H), tapi karena harus menambahkan juga dependensinya(B, C, D, E, F, G, I, J, K) pada akhirnya ada 11 library yang harus ditambahkan. Belum lagi kalau ternyata semua dependensi itu harus didownload satu per satu, di tempat yang berbeda-beda pula. Belum lagi kalau source code kita karena sesuatu hal harus dipindahkan ke mesin lain. Dengan asumsi bahwa environmentnya berbeda, kita harus setting ulang semua path dari library tersebut supaya dapat ditemukan oleh IDE. Hal ini membuat pusing kepala. Yang tadinya saya mau mulai membuat kode program dengan nyaman, harus repot mengurus hal-hal yang demikian. Maven membantu menyelesaikan permasalahan ini.&lt;/p&gt;
+
+&lt;p&gt;Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. &lt;em&gt;Last but not least&lt;/em&gt;, hal-hal inilah yang membuat maven berperan penting dalam setiap project.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

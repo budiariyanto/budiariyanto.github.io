@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>System Administration on Budi Ariyanto</title>
+    <link>http://localhost:1313/categories/system-administration/</link>
+    <description>Recent content in System Administration on Budi Ariyanto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 12 Mar 2017 17:59:06 +0700</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/system-administration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bulk Renaming in Linux</title>
+      <link>http://localhost:1313/post/bulk-renaming-in-linux/</link>
+      <pubDate>Sun, 12 Mar 2017 17:59:06 +0700</pubDate>
+      
+      <guid>http://localhost:1313/post/bulk-renaming-in-linux/</guid>
+      <description>&lt;p&gt;There is a handy tools in linux for renaming bulk/mass files a once called
+rename. It&amp;rsquo;s a perl script and included in most linux distros.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-bulk-rename-files&#34;&gt;How to bulk rename files&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ rename &#39;s/&amp;lt;files to rename regex pattern&amp;gt;/&amp;lt;expected regex pattern&amp;gt;/&#39; &amp;lt;destination files&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Memilih Distro Linux</title>
+      <link>http://localhost:1313/post/memilih-distro-linux/</link>
+      <pubDate>Sat, 25 Jan 2014 17:50:04 +0700</pubDate>
+      
+      <guid>http://localhost:1313/post/memilih-distro-linux/</guid>
+      <description>&lt;p&gt;Saya sudah cukup lama berkelana gonta-ganti distro linux, sejak akhir tahun 2006. Distro yang pernah saya pakai adalah &lt;a href=&#34;http://www.ubuntu.com&#34;&gt;Ubuntu&lt;/a&gt;, &lt;a href=&#34;http://www.opensuse.org&#34;&gt;openSUSE&lt;/a&gt;, &lt;a href=&#34;http://fedoraproject.org&#34;&gt;Fedora&lt;/a&gt;, &lt;a href=&#34;http://www.linuxmint.com&#34;&gt;Mint&lt;/a&gt;, &lt;a href=&#34;http://www.slackware.com&#34;&gt;Slackware&lt;/a&gt; dan &lt;a href=&#34;http://www.archlinux.org&#34;&gt;Arch&lt;/a&gt;. Pernah juga hanya sekedar coba-coba Backtrack(sekarang namanya &lt;a href=&#34;http://www.kali.org&#34;&gt;Kali Linux&lt;/a&gt;), &lt;a href=&#34;http://www.slax.org&#34;&gt;Slax&lt;/a&gt; dan &lt;a href=&#34;http://puppylinux.org&#34;&gt;Puppy&lt;/a&gt;. Orang yang baru berkenalan dengan linux biasanya bernasib sama seperti saya waktu dulu. Bingung dengan banyaknya pilihan distro linux yang sudah seperti hutan belantara. Karena bingung, akhirnya bertanya ke sana kemari distro linux yang ini dengan yang itu bagus yang mana? Jawaban orang-orang yang ditanya pun bervariasi. Orang-orang biasanya menjawab dengan hal-hal yang bagus-bagus mengenai distro linux yang dia gunakan. Karena semuanya bagus, bertanya kepada orang-orang yang sudah menggunakan distro linux tidak menjawab kebingungan saya. Yang ada malah tambah bingung karena kok semuanya bagus. Akhirnya ya harus coba-coba sendiri. Lama kelamaan, saya tau bahwa distro linux itu memang ada faktor selera dan masing-masing distro linux mempunyai rancangan dan tujuan masing-masing. Jadi, tidak ada distro linux yang paling bagus. Semua tergantung selera dan kebutuhan. Maka dari itu, saya ingin membantu Anda yang baru berkenalan dengan linux, dengan membagikan pengalaman saya mengenai perjalanan saya belajar linux. Semoga membantu.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

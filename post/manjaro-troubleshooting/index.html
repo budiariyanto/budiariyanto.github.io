@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Manjaro Troubleshooting - Budi Ariyanto</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Budi Ariyanto" />
+  <meta name="description" content="Manjaro adalah salah satu distro linux yang masih baru. Distro ini based on Arch Linux. Manjaro menarik sekali untuk dicoba. Setelah saya coba, ada beberapa masalah di hardware. Nah pada artikel ini, saya akan share permasalahan yang saya hadapi dan solusinya. Sebagai informasi, saya menggunakan laptop Acer E5-475G-541U. Siapa tau solusi yg saya share di sini berguna untuk Anda meskipun beda laptop, karena permasalahan yg sama bisa saja terjadi di berbagai macam laptop yang berbeda." />
+<meta name="keywords" content="manjaro, manjaro troubleshoot, manjaro problem" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.37.1" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/manjaro-troubleshooting/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="Manjaro Troubleshooting" />
+<meta property="og:description" content="Manjaro adalah salah satu distro linux yang masih baru. Distro ini based on Arch Linux. Manjaro menarik sekali untuk dicoba. Setelah saya coba, ada beberapa masalah di hardware. Nah pada artikel ini, saya akan share permasalahan yang saya hadapi dan solusinya. Sebagai informasi, saya menggunakan laptop Acer E5-475G-541U. Siapa tau solusi yg saya share di sini berguna untuk Anda meskipun beda laptop, karena permasalahan yg sama bisa saja terjadi di berbagai macam laptop yang berbeda." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/manjaro-troubleshooting/" />
+
+
+
+<meta property="article:published_time" content="2017-09-14T23:26:59&#43;07:00"/>
+
+<meta property="article:modified_time" content="2017-09-14T23:26:59&#43;07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Manjaro Troubleshooting">
+<meta itemprop="description" content="Manjaro adalah salah satu distro linux yang masih baru. Distro ini based on Arch Linux. Manjaro menarik sekali untuk dicoba. Setelah saya coba, ada beberapa masalah di hardware. Nah pada artikel ini, saya akan share permasalahan yang saya hadapi dan solusinya. Sebagai informasi, saya menggunakan laptop Acer E5-475G-541U. Siapa tau solusi yg saya share di sini berguna untuk Anda meskipun beda laptop, karena permasalahan yg sama bisa saja terjadi di berbagai macam laptop yang berbeda.">
+
+
+<meta itemprop="datePublished" content="2017-09-14T23:26:59&#43;07:00" />
+<meta itemprop="dateModified" content="2017-09-14T23:26:59&#43;07:00" />
+<meta itemprop="wordCount" content="266">
+
+
+
+<meta itemprop="keywords" content="linux,manjaro," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Manjaro Troubleshooting"/>
+<meta name="twitter:description" content="Manjaro adalah salah satu distro linux yang masih baru. Distro ini based on Arch Linux. Manjaro menarik sekali untuk dicoba. Setelah saya coba, ada beberapa masalah di hardware. Nah pada artikel ini, saya akan share permasalahan yang saya hadapi dan solusinya. Sebagai informasi, saya menggunakan laptop Acer E5-475G-541U. Siapa tau solusi yg saya share di sini berguna untuk Anda meskipun beda laptop, karena permasalahan yg sama bisa saja terjadi di berbagai macam laptop yang berbeda."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tail -f posts.log</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tail -f posts.log</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Manjaro Troubleshooting</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 14 Sep 2017 </span>
+        <div class="post-category">
+            
+              <a href="/categories/tech-faq/"> Tech FAQ </a>
+            
+          </div>
+        <span class="more-meta"> 266 words </span>
+        <span class="more-meta"> 2 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#sound-related">Sound Related</a>
+<ul>
+<li><a href="#ada-bunyi-buzz-crackling-seperti-bunyi-listrik-ketika-laptop-tidak-dalam-kondisi-dicharge-dan-sound-device-tidak-dalam-keadaan-bekerja-idle">Ada bunyi buzz/crackling seperti bunyi listrik ketika laptop tidak dalam kondisi dicharge dan sound device tidak dalam keadaan bekerja (idle).</a></li>
+</ul></li>
+<li><a href="#vga-related">VGA Related</a>
+<ul>
+<li><a href="#waktu-nonton-video-terjadi-video-tearing">Waktu nonton video terjadi video tearing</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p><a href="https://manjaro.org">Manjaro</a> adalah salah satu distro linux yang masih baru. Distro ini based on <a href="https://www.archlinux.org">Arch Linux</a>. Manjaro menarik sekali untuk dicoba. Setelah saya coba, ada beberapa masalah di hardware. Nah pada artikel ini, saya akan share permasalahan yang saya hadapi dan solusinya. Sebagai informasi, saya menggunakan laptop Acer E5-475G-541U. Siapa tau solusi yg saya share di sini berguna untuk Anda meskipun beda laptop, karena permasalahan yg sama bisa saja terjadi di berbagai macam laptop yang berbeda.</p>
+
+<h2 id="sound-related">Sound Related</h2>
+
+<h3 id="ada-bunyi-buzz-crackling-seperti-bunyi-listrik-ketika-laptop-tidak-dalam-kondisi-dicharge-dan-sound-device-tidak-dalam-keadaan-bekerja-idle">Ada bunyi buzz/crackling seperti bunyi listrik ketika laptop tidak dalam kondisi dicharge dan sound device tidak dalam keadaan bekerja (idle).</h3>
+
+<p>Bunyi buzz/crackling ini disebabkan karena Manjaro menggunakan <a href="http://linrunner.de/en/tlp/tlp.html">TLP</a>. TLP ini berfungsi mengatur power di setiap device yang ada di laptop termasuk sound device. Sayangnya ternyata tidak semua device lancar menggunakan TLP. Di laptop saya, ketika sound device idle maka TLP akan melakukan power save pada sound device tersebut, sehingga mungkin listrik yang dialirkan dihemat. Tapi efek sampingnya adalah terjadinya bunyi buzz/crackling. Untuk menonaktifkan TLP pada sound device, perintahnya adalah:</p>
+
+<ol>
+<li>Buka file <code>/etc/default/tlp</code> menggunakan text editor favorit Anda.</li>
+<li>Cari bagian <code>SOUND_POWER_SAVE_ON_BAT=1</code>.</li>
+<li>Ganti menjadi <code>SOUND_POWER_SAVE_ON_BAT=0</code></li>
+<li>Restart laptop.</li>
+</ol>
+
+<h2 id="vga-related">VGA Related</h2>
+
+<h3 id="waktu-nonton-video-terjadi-video-tearing">Waktu nonton video terjadi video tearing</h3>
+
+<p>Video tearing adalah semacam visual glitch pada video ketika dimainkan.
+Contohnya video tearing bisa dilihat <a href="https://en.wikipedia.org/wiki/Screen_tearing">di sini</a>.
+Sebetulnya hal ini tidak terlalu menjadi masalah. Hanya saja mengganggu
+kesempurnaan menonton ketika kita menonton film yg kita suka. Untuk mengatasi
+hal ini, ikuti langkah berikut:</p>
+
+<ol>
+<li>Edit file <code>/etc/X11/mhwd.d/intel.conf</code> menggunakan text editor favorit Anda.</li>
+
+<li><p>Cari bagian device, lalu tambahkan <code>Option  &quot;TearFree&quot; &quot;true&quot;</code> pada section device. Kira-kira seperti ini:</p>
+
+<pre><code>Section &quot;Device&quot;
+     Identifier  &quot;Intel Graphics&quot;
+     Driver      &quot;intel&quot;
+     Option      &quot;TearFree&quot; &quot;true&quot;
+EndSection
+</code></pre></li>
+</ol>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Budi Ariyanto</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">14 Sep 2017</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/linux/">linux</a>
+          
+          <a href="/tags/manjaro/">manjaro</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/memaknai-hari-ulang-tahun/">
+            <span class="next-text nav-default">Memaknai Hari Ulang Tahun</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'budiariyanto';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:fx.budi.ariyanto@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/fxbudiariyanto" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://linkedin.com/in/budiariyanto/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://google.com/&#43;BudiAriyanto" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/budiariyanto" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Budi Ariyanto</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script><script></script>
+<script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script>
+<script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-57148145-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

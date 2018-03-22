@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech Faq on Budi Ariyanto</title>
+    <link>http://localhost:1313/categories/tech-faq/</link>
+    <description>Recent content in Tech Faq on Budi Ariyanto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 14 Sep 2017 23:26:59 +0700</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/tech-faq/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Manjaro Troubleshooting</title>
+      <link>http://localhost:1313/post/manjaro-troubleshooting/</link>
+      <pubDate>Thu, 14 Sep 2017 23:26:59 +0700</pubDate>
+      
+      <guid>http://localhost:1313/post/manjaro-troubleshooting/</guid>
+      <description>Manjaro adalah salah satu distro linux yang masih baru. Distro ini based on Arch Linux. Manjaro menarik sekali untuk dicoba. Setelah saya coba, ada beberapa masalah di hardware. Nah pada artikel ini, saya akan share permasalahan yang saya hadapi dan solusinya. Sebagai informasi, saya menggunakan laptop Acer E5-475G-541U. Siapa tau solusi yg saya share di sini berguna untuk Anda meskipun beda laptop, karena permasalahan yg sama bisa saja terjadi di berbagai macam laptop yang berbeda.</description>
+    </item>
+    
+    <item>
+      <title>Fix Docker Networking Problem</title>
+      <link>http://localhost:1313/post/fix-docker-networking-problem/</link>
+      <pubDate>Wed, 22 Mar 2017 10:56:18 +0700</pubDate>
+      
+      <guid>http://localhost:1313/post/fix-docker-networking-problem/</guid>
+      <description>&lt;p&gt;We may met situations that docker cannot connect to the internet. And the error message look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Step 1/3 : FROM docker/whalesay:latest
+ ---&amp;gt; 6b362a9f73eb
+Step 2/3 : RUN apt-get -y update &amp;amp;&amp;amp; apt-get install -y fortunes
+ ---&amp;gt; Running in 10c0ca4a809a
+Err http://archive.ubuntu.com trusty InRelease
+  
+Err http://archive.ubuntu.com trusty-updates InRelease
+  
+Err http://archive.ubuntu.com trusty-security InRelease
+  
+Err http://archive.ubuntu.com trusty Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+Err http://archive.ubuntu.com trusty-updates Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+Err http://archive.ubuntu.com trusty-security Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+Reading package lists...
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty/InRelease  
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-updates/InRelease  
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-security/InRelease  
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty/Release.gpg  Could not resolve &#39;archive.ubuntu.com&#39;
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-updates/Release.gpg  Could not resolve &#39;archive.ubuntu.com&#39;
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-security/Release.gpg  Could not resolve &#39;archive.ubuntu.com&#39;
+
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+....
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

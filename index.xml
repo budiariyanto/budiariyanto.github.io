@@ -2,61 +2,99 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Budi Ariyanto</title>
-    <link>https://budiariyanto.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Budi Ariyanto</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Budi Ariyanto</copyright>
+    <language>en</language>
     <lastBuildDate>Thu, 14 Sep 2017 23:26:59 +0700</lastBuildDate>
     
-	<atom:link href="https://budiariyanto.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Manjaro Troubleshooting</title>
-      <link>https://budiariyanto.github.io/2017/09/14/manjaro-tweaks/</link>
+      <link>http://localhost:1313/post/manjaro-troubleshooting/</link>
       <pubDate>Thu, 14 Sep 2017 23:26:59 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2017/09/14/manjaro-tweaks/</guid>
+      <guid>http://localhost:1313/post/manjaro-troubleshooting/</guid>
       <description>Manjaro adalah salah satu distro linux yang masih baru. Distro ini based on Arch Linux. Manjaro menarik sekali untuk dicoba. Setelah saya coba, ada beberapa masalah di hardware. Nah pada artikel ini, saya akan share permasalahan yang saya hadapi dan solusinya. Sebagai informasi, saya menggunakan laptop Acer E5-475G-541U. Siapa tau solusi yg saya share di sini berguna untuk Anda meskipun beda laptop, karena permasalahan yg sama bisa saja terjadi di berbagai macam laptop yang berbeda.</description>
     </item>
     
     <item>
       <title>Memaknai Hari Ulang Tahun</title>
-      <link>https://budiariyanto.github.io/2017/05/01/birthday/</link>
+      <link>http://localhost:1313/post/memaknai-hari-ulang-tahun/</link>
       <pubDate>Mon, 01 May 2017 20:40:28 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2017/05/01/birthday/</guid>
+      <guid>http://localhost:1313/post/memaknai-hari-ulang-tahun/</guid>
       <description>Hari ulang tahun umumnya ditandai dengan perayaan bersama orang terdekat kita. Perayaan ini sebagai simbol kebahagiaan yang kita bagikan kepada orang lain. Kerap kali orang memaknai hari ulang tahun hanya sampai di situ saja. Menurut saya, ulang tahun mempunyai dua buah perspektif dan dapat menjadi bahan refleksi diri. Perspektif yang pertama adalah umur kita bertambah satu dan perspektif yang kedua adalah umur kita berkurang satu.
 Ketika kita memaknai ulang tahun sebagai umur kita bertambah satu, maka kita akan mengingat pencapaian yang sudah kita lakukan dan pengalaman hidup seperti apa yang sudah kita lalui, juga tentunya kita ingat mengucap syukur kepada Tuhan karena diberi kesempatan untuk memulai tahun yang baru di hidup kita.</description>
     </item>
     
     <item>
       <title>Fix Docker Networking Problem</title>
-      <link>https://budiariyanto.github.io/2017/03/22/docker-networking/</link>
+      <link>http://localhost:1313/post/fix-docker-networking-problem/</link>
       <pubDate>Wed, 22 Mar 2017 10:56:18 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2017/03/22/docker-networking/</guid>
-      <description>We may met situations that docker cannot connect to the internet. And the error message look like this:
-Step 1/3 : FROM docker/whalesay:latest ---&amp;gt; 6b362a9f73eb Step 2/3 : RUN apt-get -y update &amp;amp;&amp;amp; apt-get install -y fortunes ---&amp;gt; Running in 10c0ca4a809a Err http://archive.ubuntu.com trusty InRelease Err http://archive.ubuntu.com trusty-updates InRelease Err http://archive.ubuntu.com trusty-security InRelease Err http://archive.ubuntu.com trusty Release.gpg Could not resolve &#39;archive.ubuntu.com&#39; Err http://archive.ubuntu.com trusty-updates Release.gpg Could not resolve &#39;archive.ubuntu.com&#39; Err http://archive.</description>
+      <guid>http://localhost:1313/post/fix-docker-networking-problem/</guid>
+      <description>&lt;p&gt;We may met situations that docker cannot connect to the internet. And the error message look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Step 1/3 : FROM docker/whalesay:latest
+ ---&amp;gt; 6b362a9f73eb
+Step 2/3 : RUN apt-get -y update &amp;amp;&amp;amp; apt-get install -y fortunes
+ ---&amp;gt; Running in 10c0ca4a809a
+Err http://archive.ubuntu.com trusty InRelease
+  
+Err http://archive.ubuntu.com trusty-updates InRelease
+  
+Err http://archive.ubuntu.com trusty-security InRelease
+  
+Err http://archive.ubuntu.com trusty Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+Err http://archive.ubuntu.com trusty-updates Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+Err http://archive.ubuntu.com trusty-security Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+Reading package lists...
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty/InRelease  
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-updates/InRelease  
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-security/InRelease  
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty/Release.gpg  Could not resolve &#39;archive.ubuntu.com&#39;
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-updates/Release.gpg  Could not resolve &#39;archive.ubuntu.com&#39;
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-security/Release.gpg  Could not resolve &#39;archive.ubuntu.com&#39;
+
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+....
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
       <title>Bulk Renaming in Linux</title>
-      <link>https://budiariyanto.github.io/2017/03/12/linux_bulk_renaming/</link>
+      <link>http://localhost:1313/post/bulk-renaming-in-linux/</link>
       <pubDate>Sun, 12 Mar 2017 17:59:06 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2017/03/12/linux_bulk_renaming/</guid>
-      <description> There is a handy tools in linux for renaming bulk/mass files a once called rename. It&amp;rsquo;s a perl script and included in most linux distros.
-How to bulk rename files $ rename &#39;s/&amp;lt;files to rename regex pattern&amp;gt;/&amp;lt;expected regex pattern&amp;gt;/&#39; &amp;lt;destination files&amp;gt;  How to bulk rename files, add prefix $ rename &#39;s/^/&amp;lt;expected regex pattern&amp;gt;/&#39; &amp;lt;destination files&amp;gt;  </description>
+      <guid>http://localhost:1313/post/bulk-renaming-in-linux/</guid>
+      <description>&lt;p&gt;There is a handy tools in linux for renaming bulk/mass files a once called
+rename. It&amp;rsquo;s a perl script and included in most linux distros.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-bulk-rename-files&#34;&gt;How to bulk rename files&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ rename &#39;s/&amp;lt;files to rename regex pattern&amp;gt;/&amp;lt;expected regex pattern&amp;gt;/&#39; &amp;lt;destination files&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Instalasi Golang</title>
-      <link>https://budiariyanto.github.io/2016/10/01/instalasi-golang/</link>
+      <link>http://localhost:1313/post/instalasi-golang/</link>
       <pubDate>Sat, 01 Oct 2016 21:11:36 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2016/10/01/instalasi-golang/</guid>
+      <guid>http://localhost:1313/post/instalasi-golang/</guid>
       <description>Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.
 Download Golang Kita bisa mendownload golang di sini. Downloadlah yg cocok dengan OS kita.
 Setup Environment Variable Setelah kita download, extractlah di sembarang folder.</description>
@@ -64,17 +102,17 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
     
     <item>
       <title>Membuat Project Java Dengan Gradle</title>
-      <link>https://budiariyanto.github.io/2014/06/16/membuat-project-java-dengan-gradle/</link>
+      <link>http://localhost:1313/post/membuat-project-java-dengan-gradle/</link>
       <pubDate>Mon, 16 Jun 2014 03:29:56 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2014/06/16/membuat-project-java-dengan-gradle/</guid>
+      <guid>http://localhost:1313/post/membuat-project-java-dengan-gradle/</guid>
       <description>&lt;p&gt;Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.&lt;/p&gt;
 
 &lt;h2 id=&#34;kenapa-kita-butuh-build-tools&#34;&gt;Kenapa Kita Butuh Build Tools&lt;/h2&gt;
 
 &lt;p&gt;Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses peng&lt;strong&gt;compile&lt;/strong&gt;an biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.&lt;/p&gt;
 
-&lt;p&gt;Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu &lt;a href=&#34;http://maven.apache.org&#34;&gt;Maven&lt;/a&gt; dan &lt;a href=&#34;http://www.gradle.org&#34;&gt;Gradle&lt;/a&gt;. Maven sebelumnya sudah pernah saya bahas secara singkat di &lt;a href=&#34;https://budiariyanto.github.io/2014/01/17/tutorial-singkat-maven/&#34;&gt;sini&lt;/a&gt; dan di &lt;a href=&#34;https://budiariyanto.github.io/2014/05/19/maven-multi-module-project/&#34;&gt;sini&lt;/a&gt;. Sekarang saya akan membahas Gradle.&lt;/p&gt;
+&lt;p&gt;Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu &lt;a href=&#34;http://maven.apache.org&#34;&gt;Maven&lt;/a&gt; dan &lt;a href=&#34;http://www.gradle.org&#34;&gt;Gradle&lt;/a&gt;. Maven sebelumnya sudah pernah saya bahas secara singkat di &lt;a href=&#34;http://localhost:1313/post/tutorial-singkat-maven/&#34;&gt;sini&lt;/a&gt; dan di &lt;a href=&#34;http://localhost:1313/post/maven-multi-module-project/&#34;&gt;sini&lt;/a&gt;. Sekarang saya akan membahas Gradle.&lt;/p&gt;
 
 &lt;h2 id=&#34;gradle&#34;&gt;Gradle&lt;/h2&gt;
 
@@ -99,10 +137,10 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
     
     <item>
       <title>Menjadi Idealis</title>
-      <link>https://budiariyanto.github.io/2014/05/19/menjadi-idealis/</link>
+      <link>http://localhost:1313/post/menjadi-idealis/</link>
       <pubDate>Mon, 19 May 2014 17:56:45 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2014/05/19/menjadi-idealis/</guid>
+      <guid>http://localhost:1313/post/menjadi-idealis/</guid>
       <description>&lt;p&gt;&amp;ldquo;Udah laaahh.. nggak usah idealis gituu&amp;hellip;&amp;rdquo;. Kalimat ini sering saya dengar dari teman-teman saya. Biasanya, kalimat ini keluar kalau saya bercerita mengenai hal-hal yang ingin saya lakukan dan menurut saya benar, tapi kebanyakan orang tidak mau melakukannya. Contohnya, di tempat saya bekerja, terus terang masalah salary tidak menarik, tidak kompetitif. Sebagai programmer, saya sering kerja lembur karena deadline proyek yang singkat. Terkadang pekerjaan malah saya lanjutkan lagi di rumah. Tidak ada penghargaan untuk kerja lembur saya, berupa uang ataupun dalam bentuk lain. Jadi, lembur atau tidak take home pay saya sama saja. Meskipun begitu, saya tetap ingin proyek yang saya kerjakan selesai dengan baik dan tepat waktu. Karena hal ini, saya dibilang idealis oleh beberapa teman saya. Entah kenapa, orang idealis itu kesannya negatif.&lt;/p&gt;
 
 &lt;h2 id=&#34;apa-sih-idealis-dan-idealisme-itu&#34;&gt;Apa sih idealis dan idealisme itu?&lt;/h2&gt;
@@ -113,20 +151,20 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
     
     <item>
       <title>Maven Multi Module Project</title>
-      <link>https://budiariyanto.github.io/2014/05/19/maven-multi-module-project/</link>
+      <link>http://localhost:1313/post/maven-multi-module-project/</link>
       <pubDate>Mon, 19 May 2014 17:19:49 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2014/05/19/maven-multi-module-project/</guid>
+      <guid>http://localhost:1313/post/maven-multi-module-project/</guid>
       <description>Dalam membuat satu project besar, sebaiknya kita bagi menjadi beberapa project kecil. Project kecil ini tujuannya untuk membagi project supaya strukturnya projectnya lebih mudah dipahami dan juga lebih modular. Maven mempunyai fitur untuk membantu merealisasikan hal ini, yaitu project inheritance dan project aggregation. Mari kita bahas satu per satu.
 Briefing Untuk membantu memahami dengan mudah, kita akan membuat sebuah project sederhana bernama &amp;ldquo;Manusia&amp;rdquo; dimana project ini punya modul yang bernama &amp;ldquo;Kepala&amp;rdquo;, &amp;ldquo;Badan&amp;rdquo;, &amp;ldquo;Tangan&amp;rdquo; dan &amp;ldquo;Kaki&amp;rdquo;.</description>
     </item>
     
     <item>
       <title>Memilih Distro Linux</title>
-      <link>https://budiariyanto.github.io/2014/01/25/memilih-distro-linux/</link>
+      <link>http://localhost:1313/post/memilih-distro-linux/</link>
       <pubDate>Sat, 25 Jan 2014 17:50:04 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2014/01/25/memilih-distro-linux/</guid>
+      <guid>http://localhost:1313/post/memilih-distro-linux/</guid>
       <description>&lt;p&gt;Saya sudah cukup lama berkelana gonta-ganti distro linux, sejak akhir tahun 2006. Distro yang pernah saya pakai adalah &lt;a href=&#34;http://www.ubuntu.com&#34;&gt;Ubuntu&lt;/a&gt;, &lt;a href=&#34;http://www.opensuse.org&#34;&gt;openSUSE&lt;/a&gt;, &lt;a href=&#34;http://fedoraproject.org&#34;&gt;Fedora&lt;/a&gt;, &lt;a href=&#34;http://www.linuxmint.com&#34;&gt;Mint&lt;/a&gt;, &lt;a href=&#34;http://www.slackware.com&#34;&gt;Slackware&lt;/a&gt; dan &lt;a href=&#34;http://www.archlinux.org&#34;&gt;Arch&lt;/a&gt;. Pernah juga hanya sekedar coba-coba Backtrack(sekarang namanya &lt;a href=&#34;http://www.kali.org&#34;&gt;Kali Linux&lt;/a&gt;), &lt;a href=&#34;http://www.slax.org&#34;&gt;Slax&lt;/a&gt; dan &lt;a href=&#34;http://puppylinux.org&#34;&gt;Puppy&lt;/a&gt;. Orang yang baru berkenalan dengan linux biasanya bernasib sama seperti saya waktu dulu. Bingung dengan banyaknya pilihan distro linux yang sudah seperti hutan belantara. Karena bingung, akhirnya bertanya ke sana kemari distro linux yang ini dengan yang itu bagus yang mana? Jawaban orang-orang yang ditanya pun bervariasi. Orang-orang biasanya menjawab dengan hal-hal yang bagus-bagus mengenai distro linux yang dia gunakan. Karena semuanya bagus, bertanya kepada orang-orang yang sudah menggunakan distro linux tidak menjawab kebingungan saya. Yang ada malah tambah bingung karena kok semuanya bagus. Akhirnya ya harus coba-coba sendiri. Lama kelamaan, saya tau bahwa distro linux itu memang ada faktor selera dan masing-masing distro linux mempunyai rancangan dan tujuan masing-masing. Jadi, tidak ada distro linux yang paling bagus. Semua tergantung selera dan kebutuhan. Maka dari itu, saya ingin membantu Anda yang baru berkenalan dengan linux, dengan membagikan pengalaman saya mengenai perjalanan saya belajar linux. Semoga membantu.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -134,10 +172,10 @@ Briefing Untuk membantu memahami dengan mudah, kita akan membuat sebuah project 
     
     <item>
       <title>Tutorial Singkat Maven</title>
-      <link>https://budiariyanto.github.io/2014/01/17/tutorial-singkat-maven/</link>
+      <link>http://localhost:1313/post/tutorial-singkat-maven/</link>
       <pubDate>Fri, 17 Jan 2014 17:26:33 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2014/01/17/tutorial-singkat-maven/</guid>
+      <guid>http://localhost:1313/post/tutorial-singkat-maven/</guid>
       <description>&lt;h2 id=&#34;apa-itu-maven&#34;&gt;Apa itu Maven?&lt;/h2&gt;
 
 &lt;p&gt;Maven adalah suatu &lt;em&gt;tool&lt;/em&gt; untuk menstandarkan dan &lt;em&gt;memanage&lt;/em&gt; project, mempermudah proses &lt;em&gt;build&lt;/em&gt; dalam suatu project, mendefinisikan secara jelas apa saja isi project dan mempermudah dalam membagi-bagikan (&lt;em&gt;share&lt;/em&gt;) file .jar di semua project. Maven sering di-versuskan dengan ant, atau bahkan ada yang bilang sama saja. Menurut saya, maven mempunyai tujuan yang lebih luas daripada ant yang hanya fokus untuk &lt;em&gt;build tool&lt;/em&gt; dan membuat task-task tertentu saja. Fitur-fitur ant ada pada maven bahkan maven bisa diintegrasikan dengan ant via maven plugin.&lt;/p&gt;
@@ -155,10 +193,10 @@ Briefing Untuk membantu memahami dengan mudah, kita akan membuat sebuah project 
     
     <item>
       <title>Good Leader</title>
-      <link>https://budiariyanto.github.io/2013/12/26/good-leader/</link>
+      <link>http://localhost:1313/post/good-leader/</link>
       <pubDate>Thu, 26 Dec 2013 17:19:49 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2013/12/26/good-leader/</guid>
+      <guid>http://localhost:1313/post/good-leader/</guid>
       <description>&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
   &lt;iframe src=&#34;//www.youtube.com/embed/_3ASoBrFGlc&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34; title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
  &lt;/div&gt;
@@ -174,10 +212,10 @@ Maka dari itu, saya sebetulnya heran, sekarang banyak pelatihan untuk menjadi pe
     
     <item>
       <title></title>
-      <link>https://budiariyanto.github.io/quote/readme/</link>
+      <link>http://localhost:1313/quote/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://budiariyanto.github.io/quote/readme/</guid>
+      <guid>http://localhost:1313/quote/readme/</guid>
       <description>Quote load content from file</description>
     </item>
     

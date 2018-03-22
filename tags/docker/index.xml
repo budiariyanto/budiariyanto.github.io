@@ -2,24 +2,55 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Budi Ariyanto</title>
-    <link>https://budiariyanto.github.io/tags/docker/</link>
+    <link>http://localhost:1313/tags/docker/</link>
     <description>Recent content in Docker on Budi Ariyanto</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Budi Ariyanto</copyright>
+    <language>en</language>
     <lastBuildDate>Wed, 22 Mar 2017 10:56:18 +0700</lastBuildDate>
     
-	<atom:link href="https://budiariyanto.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Fix Docker Networking Problem</title>
-      <link>https://budiariyanto.github.io/2017/03/22/docker-networking/</link>
+      <link>http://localhost:1313/post/fix-docker-networking-problem/</link>
       <pubDate>Wed, 22 Mar 2017 10:56:18 +0700</pubDate>
       
-      <guid>https://budiariyanto.github.io/2017/03/22/docker-networking/</guid>
-      <description>We may met situations that docker cannot connect to the internet. And the error message look like this:
-Step 1/3 : FROM docker/whalesay:latest ---&amp;gt; 6b362a9f73eb Step 2/3 : RUN apt-get -y update &amp;amp;&amp;amp; apt-get install -y fortunes ---&amp;gt; Running in 10c0ca4a809a Err http://archive.ubuntu.com trusty InRelease Err http://archive.ubuntu.com trusty-updates InRelease Err http://archive.ubuntu.com trusty-security InRelease Err http://archive.ubuntu.com trusty Release.gpg Could not resolve &#39;archive.ubuntu.com&#39; Err http://archive.ubuntu.com trusty-updates Release.gpg Could not resolve &#39;archive.ubuntu.com&#39; Err http://archive.</description>
+      <guid>http://localhost:1313/post/fix-docker-networking-problem/</guid>
+      <description>&lt;p&gt;We may met situations that docker cannot connect to the internet. And the error message look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Step 1/3 : FROM docker/whalesay:latest
+ ---&amp;gt; 6b362a9f73eb
+Step 2/3 : RUN apt-get -y update &amp;amp;&amp;amp; apt-get install -y fortunes
+ ---&amp;gt; Running in 10c0ca4a809a
+Err http://archive.ubuntu.com trusty InRelease
+  
+Err http://archive.ubuntu.com trusty-updates InRelease
+  
+Err http://archive.ubuntu.com trusty-security InRelease
+  
+Err http://archive.ubuntu.com trusty Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+Err http://archive.ubuntu.com trusty-updates Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+Err http://archive.ubuntu.com trusty-security Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+Reading package lists...
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty/InRelease  
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-updates/InRelease  
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-security/InRelease  
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty/Release.gpg  Could not resolve &#39;archive.ubuntu.com&#39;
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-updates/Release.gpg  Could not resolve &#39;archive.ubuntu.com&#39;
+
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/trusty-security/Release.gpg  Could not resolve &#39;archive.ubuntu.com&#39;
+
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+....
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>
