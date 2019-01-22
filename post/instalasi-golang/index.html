@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NZVJ8SF');</script>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Instalasi Golang - Budi Ariyanto</title>
@@ -16,23 +23,19 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Budi Ariyanto" />
-  <meta name="description" content="Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.
+<meta name="author" content="Budi Ariyanto" /><meta name="description" content="Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.
 Download Golang Kita bisa mendownload golang di sini. Downloadlah yg cocok dengan OS kita.
-Setup Environment Variable Setelah kita download, extractlah di sembarang folder." />
-<meta name="keywords" content="installing golang" />
+Setup Environment Variable Setelah kita download, extractlah di sembarang folder." /><meta name="keywords" content="installing golang" />
 
 
 
 
 
 
-
-<meta name="generator" content="Hugo 0.37.1" />
+<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
 
 
 <link rel="canonical" href="http://localhost:1313/post/instalasi-golang/" />
-
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,15 +43,8 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-
-
-
-
-
-<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+<link href="/dist/even.32e7bf93.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
 
 
 <meta property="og:title" content="Instalasi Golang" />
@@ -56,23 +52,8 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
 Download Golang Kita bisa mendownload golang di sini. Downloadlah yg cocok dengan OS kita.
 Setup Environment Variable Setelah kita download, extractlah di sembarang folder." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/instalasi-golang/" />
-
-
-
-<meta property="article:published_time" content="2016-10-01T21:11:36&#43;07:00"/>
-
+<meta property="og:url" content="http://localhost:1313/post/instalasi-golang/" /><meta property="article:published_time" content="2016-10-01T21:11:36&#43;07:00"/>
 <meta property="article:modified_time" content="2016-10-01T21:11:36&#43;07:00"/>
-
-
-
-
-
-
-
-
-
-
 
 <meta itemprop="name" content="Instalasi Golang">
 <meta itemprop="description" content="Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.
@@ -82,7 +63,7 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
 
 <meta itemprop="datePublished" content="2016-10-01T21:11:36&#43;07:00" />
 <meta itemprop="dateModified" content="2016-10-01T21:11:36&#43;07:00" />
-<meta itemprop="wordCount" content="378">
+<meta itemprop="wordCount" content="422">
 
 
 
@@ -104,6 +85,10 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
 
 </head>
 <body>
+  
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZVJ8SF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
     <a href="/" class="logo">tail -f posts.log</a>
@@ -159,21 +144,16 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
       <div class="post-meta">
         <span class="post-time"> 1 Oct 2016 </span>
         <div class="post-category">
-            
-              <a href="/categories/programming/"> Programming </a>
-            
-          </div>
-        <span class="more-meta"> 378 words </span>
-        <span class="more-meta"> 2 mins read </span>
+            <a href="/categories/programming/"> Programming </a>
+            </div>
+          <span class="more-meta"> 422 words </span>
+          <span class="more-meta"> 2 mins read </span>
         
       </div>
     </header>
 
-    
-    
-<div class="post-toc" id="post-toc">
+    <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
-  
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
@@ -187,8 +167,6 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
 </nav>
   </div>
 </div>
-
-    
     <div class="post-content">
       
 
@@ -203,47 +181,97 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
 <p>Setelah kita download, extractlah di sembarang folder. Sebelum bisa ngoding menggunakan tools di golang, kita harus setup 2 hal, yaitu environment variabel <code>GOROOT</code> dan <code>GOPATH</code>. <code>GOROOT</code> kita set menuju path dimana golang diextract. <code>GOPATH</code> kita set terserah di folder mana, yang penting tidak menjadi satu di dalam <code>GOROOT</code> supaya kalau kita upgrade golang nya akan mudah, tinggal hapus dan extract ulang. Tidak usah menyelamatkan folder <code>GOPATH</code>.</p>
 
 <p>Tambahkan environment variabel <code>GOROOT/bin</code> dan <code>GOPATH/bin</code>  pada variabel <code>PATH</code> di dalam <code>/etc/profile.d/go.sh</code> supaya binary dari project yang kita buat maupun binary dependency dari github/tempat lain bisa ditemukan oleh OS menggunakan script di bawah ini:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">GOROOT</span><span class="o">=</span>/data/development/go
+<span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span>/data/development/gopkg
 
-<pre><code class="language-bash">export GOROOT=/data/development/go
-export GOPATH=/data/development/gopkg
-
-export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:$GOPATH/bin
-</code></pre>
-
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOROOT</span>/bin
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOPATH</span>/bin</code></pre></td></tr></table>
+</div>
+</div>
 <p>Setelah selesai setup environment variable, logout dan login ulang atau restart komputer kita.</p>
 
 <h2 id="check-instalasi-golang">Check Instalasi Golang</h2>
 
 <p>Untuk mengecek apakah instalasi golang kita sudah benar atau belum, ketik <code>go</code> di terminal. Seharusnya akan muncul output seperti ini:</p>
-
-<pre><code class="language-bash">    Go is a tool for managing Go source code.
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">    Go is a tool <span class="k">for</span> managing Go <span class="nb">source</span> code.
 
     Usage:
 
-        go command [arguments]
+        go <span class="nb">command</span> <span class="o">[</span>arguments<span class="o">]</span>
 
     The commands are:
 
         build       compile packages and dependencies
         clean       remove object files
-        doc         show documentation for package or symbol
+        doc         show documentation <span class="k">for</span> package or symbol
         env         print Go environment information
         fix         run go tool fix on packages
         fmt         run gofmt on package sources
-        generate    generate Go files by processing source
+        generate    generate Go files by processing <span class="nb">source</span>
         get         download and install packages and dependencies
         install     compile and install packages and dependencies
         list        list packages
         run         compile and run Go program
-        test        test packages
+        <span class="nb">test</span>        <span class="nb">test</span> packages
         tool        run specified go tool
         version     print Go version
         vet         run go tool vet on packages
 
-    Use &quot;go help [command]&quot; for more information about a command.
+    Use <span class="s2">&#34;go help [command]&#34;</span> <span class="k">for</span> more information about a command.
 
-    Additional help topics:
+    Additional <span class="nb">help</span> topics:
 
         c           calling between Go and C
         buildmode   description of build modes
@@ -255,14 +283,13 @@ export PATH=$PATH:$GOPATH/bin
         testflag    description of testing flags
         testfunc    description of testing functions
 
-    Use &quot;go help [topic]&quot; for more information about that topic.
-</code></pre>
-
+    Use <span class="s2">&#34;go help [topic]&#34;</span> <span class="k">for</span> more information about that topic.</code></pre></td></tr></table>
+</div>
+</div>
 <p>Jika instalasi sudah benar, maka kita sudah siap ngoding.</p>
 
     </div>
 
-    
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">Author</span>
@@ -277,40 +304,27 @@ export PATH=$PATH:$GOPATH/bin
     <span class="item-title">License</span>
     <span class="item-content"><a rel="license noopener" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></span>
   </p>
-</div>
-
-    
-    
-
-    <footer class="post-footer">
+</div><footer class="post-footer">
       <div class="post-tags">
-          
           <a href="/tags/tutorial/">tutorial</a>
-          
           <a href="/tags/golang/">golang</a>
-          
-        </div>
-
-      
+          </div>
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/bulk-renaming-in-linux/">
+        <a class="prev" href="/post/bulk-renaming-in-linux/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Bulk Renaming in Linux</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/membuat-project-java-dengan-gradle/">
+        <a class="next" href="/post/membuat-project-java-dengan-gradle/">
             <span class="next-text nav-default">Membuat Project Java Dengan Gradle</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -324,6 +338,7 @@ export PATH=$PATH:$GOPATH/bin
     })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
       </div>
     </main>
 
@@ -351,9 +366,8 @@ export PATH=$PATH:$GOPATH/bin
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
-    2018
+    2013 - 
+    2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -366,26 +380,27 @@ export PATH=$PATH:$GOPATH/bin
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script><script></script>
-<script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script>
-<script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
-<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script><script></script><script src="/lib/flowchartDiagrams/raphael-2.2.7.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script>
+    <script src="/lib/flowchartDiagrams/flowchart-1.8.0.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="/lib/js-sequence-diagrams/webfontloader-1.6.28.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+    <script src="/lib/js-sequence-diagrams/snap.svg-0.5.1.min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script>
+    <script src="/lib/js-sequence-diagrams/underscore-1.8.3.min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script>
+    <script src="/lib/js-sequence-diagrams/sequence-diagram-2.0.1.min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/lib/js-sequence-diagrams/sequence-diagram-2.0.1.min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
 
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-57148145-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57148145-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

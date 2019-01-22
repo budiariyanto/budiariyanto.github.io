@@ -21,11 +21,14 @@
 rename. It&amp;rsquo;s a perl script and included in most linux distros.&lt;/p&gt;
 
 &lt;h2 id=&#34;how-to-bulk-rename-files&#34;&gt;How to bulk rename files&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ rename &#39;s/&amp;lt;files to rename regex pattern&amp;gt;/&amp;lt;expected regex pattern&amp;gt;/&#39; &amp;lt;destination files&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rename &lt;span class=&#34;s1&#34;&gt;&amp;#39;s/&amp;lt;files to rename regex pattern&amp;gt;/&amp;lt;expected regex pattern&amp;gt;/&amp;#39;&lt;/span&gt; &amp;lt;destination files&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -69,9 +72,7 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
 &lt;li&gt;Download gradle di websitenya lalu ekstrak di direktori mana saja.&lt;/li&gt;
 &lt;li&gt;Buat environment variable bernama &lt;code&gt;GRADLE_HOME&lt;/code&gt; dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi.&lt;/li&gt;
 &lt;li&gt;Logout dari sistem, login lagi. Selesai. :)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -100,9 +101,7 @@ Briefing Untuk membantu memahami dengan mudah, kita akan membuat sebuah project 
 
 &lt;p&gt;Selain permasalahan project template, hampir di setiap project kita menggunakan library. Jika kita menggunakan library dalam suatu project, berarti project kita dependen terhadap library tersebut. Maka library tersebut adalah dependency dari project kita. Nah, peran maven di sini adalah memanage dependency sehingga programmer dapat dengan mudah menambahkan library yang ingin digunakan. &amp;ldquo;Ah, cuma nambah dependency gitu aja kok harus pakai maven? Repot banget sih..&amp;rdquo;. Perlu diketahui, library tidak selamanya &lt;em&gt;&amp;ldquo;stand-alone&amp;rdquo;&lt;/em&gt;. Jangan berasumsi bahwa jika kita ingin menambahkan library A dan B, yang kita tambahkan ke project ya hanya A dan B. Sering kali misalnya library A dependen terhadap library B, C, D, E, F dan G. Library H dependen terhadap library I, J dan K. Jadi, library yang ingin kita tambahkan sebetulnya hanya 2 (A dan H), tapi karena harus menambahkan juga dependensinya(B, C, D, E, F, G, I, J, K) pada akhirnya ada 11 library yang harus ditambahkan. Belum lagi kalau ternyata semua dependensi itu harus didownload satu per satu, di tempat yang berbeda-beda pula. Belum lagi kalau source code kita karena sesuatu hal harus dipindahkan ke mesin lain. Dengan asumsi bahwa environmentnya berbeda, kita harus setting ulang semua path dari library tersebut supaya dapat ditemukan oleh IDE. Hal ini membuat pusing kepala. Yang tadinya saya mau mulai membuat kode program dengan nyaman, harus repot mengurus hal-hal yang demikian. Maven membantu menyelesaikan permasalahan ini.&lt;/p&gt;
 
-&lt;p&gt;Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. &lt;em&gt;Last but not least&lt;/em&gt;, hal-hal inilah yang membuat maven berperan penting dalam setiap project.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. &lt;em&gt;Last but not least&lt;/em&gt;, hal-hal inilah yang membuat maven berperan penting dalam setiap project.&lt;/p&gt;</description>
     </item>
     
   </channel>

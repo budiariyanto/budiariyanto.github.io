@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NZVJ8SF');</script>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Membuat Project Java Dengan Gradle - Budi Ariyanto</title>
@@ -16,29 +23,24 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Budi Ariyanto" />
-  <meta name="description" content="Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.
+<meta name="author" content="Budi Ariyanto" /><meta name="description" content="Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.
 Kenapa Kita Butuh Build Tools Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses pengcompilean biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.
 Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu Maven dan Gradle. Maven sebelumnya sudah pernah saya bahas secara singkat di sini dan di sini. Sekarang saya akan membahas Gradle.
 Gradle Gradle adalah build tools modern yang sedang booming akhir-akhir ini, terutama di kalangan penggemar bahasa pemrograman Java. Gradle ini mirip seperti build tools lain, contohnya make atau rake. Konfigurasi build automation pada gradle menggunakan bahasa pemrograman Groovy. Pada artikel ini saya tidak membahas tentang bahasa pemrograman Groovy, tapi saya ambil yang penting-pentingnya saja supaya kita dapat membuat project Java menggunakan Gradle diintegrasikan dengan Maven. Wah kenapa Maven masih ikut-ikut?
 Jadi begini, kegunaan Gradle sedikit berbeda dengan Maven. Gradle adalah build tools yang tidak spesifik terhadap satu bahasa pemrograman tertentu, sedangkan Maven spesifik untuk membantu membuat project yang kita buat menggunakan Java. Kalau kita perhatikan di ebook-ebook Gradle yang ada, pasti tutorial yang ada di dalam buku tersebut malah membahas bagaimana membuat project dan task Gradle secara umum menggunakan bahasa pemrograman Groovy, bukan langsung membahas bagaimana membuat project Java dengan menggunakan Gradle. Nah nanti kita akan membahas bagaimana membuat task dan mengatur project yang kita buat menggunakan Gradle, tapi masih menggunakan maven untuk memanage dependency project yang ada.
 Jadi, Gradle bisa digunakan untuk project apa saja karena kita bisa membuat task sendiri di dalamnya dimana task tersebut kita sendiri yang membuatnya mau jadi bagaimana. Itulah sekilas tentang Gradle.
 Menginstall Gradle Berikut ini langkah-langkah setup gradle di komputer kita:
- Download gradle di websitenya lalu ekstrak di direktori mana saja. Buat environment variable bernama GRADLE_HOME dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi. Logout dari sistem, login lagi. Selesai. :)  
-" />
-<meta name="keywords" content="create java project with gradle, gradle project" />
+ Download gradle di websitenya lalu ekstrak di direktori mana saja. Buat environment variable bernama GRADLE_HOME dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi. Logout dari sistem, login lagi. Selesai. :) " /><meta name="keywords" content="create java project with gradle, gradle project" />
 
 
 
 
 
 
-
-<meta name="generator" content="Hugo 0.37.1" />
+<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
 
 
 <link rel="canonical" href="http://localhost:1313/post/membuat-project-java-dengan-gradle/" />
-
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -46,15 +48,8 @@ Menginstall Gradle Berikut ini langkah-langkah setup gradle di komputer kita:
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-
-
-
-
-
-<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+<link href="/dist/even.32e7bf93.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
 
 
 <meta property="og:title" content="Membuat Project Java Dengan Gradle" />
@@ -82,27 +77,10 @@ Berikut ini langkah-langkah setup gradle di komputer kita:
 Download gradle di websitenya lalu ekstrak di direktori mana saja.
 Buat environment variable bernama GRADLE_HOME dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi.
 Logout dari sistem, login lagi. Selesai. :)
-
-
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/membuat-project-java-dengan-gradle/" />
-
-
-
-<meta property="article:published_time" content="2014-06-16T03:29:56&#43;07:00"/>
-
+<meta property="og:url" content="http://localhost:1313/post/membuat-project-java-dengan-gradle/" /><meta property="article:published_time" content="2014-06-16T03:29:56&#43;07:00"/>
 <meta property="article:modified_time" content="2014-06-16T03:29:56&#43;07:00"/>
-
-
-
-
-
-
-
-
-
-
 
 <meta itemprop="name" content="Membuat Project Java Dengan Gradle">
 <meta itemprop="description" content="Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.
@@ -129,14 +107,12 @@ Berikut ini langkah-langkah setup gradle di komputer kita:
 Download gradle di websitenya lalu ekstrak di direktori mana saja.
 Buat environment variable bernama GRADLE_HOME dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi.
 Logout dari sistem, login lagi. Selesai. :)
-
-
 ">
 
 
 <meta itemprop="datePublished" content="2014-06-16T03:29:56&#43;07:00" />
 <meta itemprop="dateModified" content="2014-06-16T03:29:56&#43;07:00" />
-<meta itemprop="wordCount" content="1279">
+<meta itemprop="wordCount" content="1367">
 
 
 
@@ -167,8 +143,6 @@ Berikut ini langkah-langkah setup gradle di komputer kita:
 Download gradle di websitenya lalu ekstrak di direktori mana saja.
 Buat environment variable bernama GRADLE_HOME dan isi valuenya dengan path menuju direktori gradle yang diekstrak tadi.
 Logout dari sistem, login lagi. Selesai. :)
-
-
 "/>
 
 <!--[if lte IE 9]>
@@ -182,6 +156,10 @@ Logout dari sistem, login lagi. Selesai. :)
 
 </head>
 <body>
+  
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZVJ8SF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
     <a href="/" class="logo">tail -f posts.log</a>
@@ -237,21 +215,16 @@ Logout dari sistem, login lagi. Selesai. :)
       <div class="post-meta">
         <span class="post-time"> 16 Jun 2014 </span>
         <div class="post-category">
-            
-              <a href="/categories/programming/"> Programming </a>
-            
-          </div>
-        <span class="more-meta"> 1279 words </span>
-        <span class="more-meta"> 7 mins read </span>
+            <a href="/categories/programming/"> Programming </a>
+            </div>
+          <span class="more-meta"> 1367 words </span>
+          <span class="more-meta"> 7 mins read </span>
         
       </div>
     </header>
 
-    
-    
-<div class="post-toc" id="post-toc">
+    <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
-  
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
@@ -268,8 +241,6 @@ Logout dari sistem, login lagi. Selesai. :)
 </nav>
   </div>
 </div>
-
-    
     <div class="post-content">
       <p>Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.</p>
 
@@ -297,22 +268,31 @@ Logout dari sistem, login lagi. Selesai. :)
 <li>Logout dari sistem, login lagi. Selesai. :)</li>
 </ol>
 
-<p></p>
-
 <h2 id="java-project-layout">Java Project Layout</h2>
 
 <p>Project layout sebetulnya terserah kita mau bagaimana. Tapi java punya konvensi terhadap project layout ini. Project layout yang saya gunakan biasanya ada 3 yaitu untuk project java, java web dan java enterprise. Untuk mendukung contoh penggunaan Gradle pada pembahasan artikel ini, saya akan memilih menggunakan project layout java. Layoutnya seperti ini:</p>
-
-<pre><code> +-projectRootDir
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"> +-projectRootDir
   +-src
    +-main
    | +-java
    | +-resources
    +-test
     +-java
-    +-resources
-</code></pre>
-
+    +-resources</pre></td></tr></table>
+</div>
+</div>
 <p>Layout di atas adalah layout untuk project tunggal. Nanti kita akan buat menjadi layout multi project menggunakan Gradle. Multi project pengertiannya adalah ada satu atau banyak project di dalam satu project. Kenapa harus multi project? Karena menurut saya project akan lebih jelas peranannya karena lebih modular dan lebih gampang memaintainnya.</p>
 
 <h2 id="gradle-project-dan-task">Gradle Project dan Task</h2>
@@ -322,96 +302,187 @@ Logout dari sistem, login lagi. Selesai. :)
 <p>Gradle task adalah task yang kita coding sendiri menggunakan bahasa pemrograman Groovy. Karena kita akan membuat project java kita akan menggunakan <strong>plugin</strong> java pada Gradle. Apa peran atau fungsi plugin? Plugin pada Gradle adalah untuk meringankan kita dalam membuat task. Jika kita menggunakan plugin maka kita tidak perlu membuat task lagi.</p>
 
 <p>Selanjutnya kita akan bahas isi dari file <code>build.gradle</code> ini yang merupakan konfigurasi dari root project yang kita buat. Saya beri contoh isi filenya:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="c1">// Dengan apply java plugin, kita dibuatkan task-task untuk membuild program java kita
+</span><span class="c1">// Untuk mengeceknya, kita bisa jalankan perintah: gradle tasks
+</span><span class="c1">// nanti akan tampil task-task apa saja yang available. Bandingkan daftar tasknya ketika kita belum apply plugin java
+</span><span class="c1"></span><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;java&#39;</span>
 
-<pre><code class="language-gradle">// Dengan apply java plugin, kita dibuatkan task-task untuk membuild program java kita
-// Untuk mengeceknya, kita bisa jalankan perintah: gradle tasks
-// nanti akan tampil task-task apa saja yang available. Bandingkan daftar tasknya ketika kita belum apply plugin java
-apply plugin: 'java'
+<span class="c1">// Ini adalah project properties. Saya menggunakannya untuk listing masing-masing versi dari dependency yang digunakan
+</span><span class="c1">// Project properties ini digunakan ketika mendeklarasikan dependency
+</span><span class="c1"></span><span class="n">project</span><span class="o">.</span><span class="na">ext</span> <span class="o">{</span>
+    <span class="n">JUNIT_VERSION</span> <span class="o">=</span> <span class="s1">&#39;4.11&#39;</span>
+    <span class="n">SPRING_CORE_VERSION</span> <span class="o">=</span> <span class="s1">&#39;4.0.5.RELEASE&#39;</span>
+<span class="o">}</span>
 
-// Ini adalah project properties. Saya menggunakannya untuk listing masing-masing versi dari dependency yang digunakan
-// Project properties ini digunakan ketika mendeklarasikan dependency
-project.ext {
-    JUNIT_VERSION = '4.11'
-    SPRING_CORE_VERSION = '4.0.5.RELEASE'
-}
+<span class="c1">// Konfigurasi untuk semua project
+</span><span class="c1"></span><span class="n">allprojects</span> <span class="o">{</span>
+    <span class="c1">// Konfigurasi repository maven
+</span><span class="c1"></span>    <span class="c1">// Kita menggunakan 2 repository. Local dan maven central
+</span><span class="c1"></span>    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="c1">// Konfigurasi repository lokal maven. Kita arahkan ke komputer lokal di direktori
+</span><span class="c1"></span>        <span class="c1">// /home/budi/.m2/repository
+</span><span class="c1"></span>        <span class="c1">// Bisa juga diarahkan ke local repository server seperti nexus atau artifactory
+</span><span class="c1"></span>        <span class="n">maven</span> <span class="o">{</span>
+            <span class="n">url</span> <span class="s2">&#34;file://home/budi/.m2/repository&#34;</span>
+        <span class="o">}</span>
 
-// Konfigurasi untuk semua project
-allprojects {
-    // Konfigurasi repository maven
-    // Kita menggunakan 2 repository. Local dan maven central
-    repositories {
-        // Konfigurasi repository lokal maven. Kita arahkan ke komputer lokal di direktori
-        // /home/budi/.m2/repository
-        // Bisa juga diarahkan ke local repository server seperti nexus atau artifactory
-        maven {
-            url &quot;file://home/budi/.m2/repository&quot;
-        }
+        <span class="c1">// Special Gradle notation yang berguna untuk memberitahu Gradle bahwa kita menggunakan repository maven central
+</span><span class="c1"></span>        <span class="n">mavenCentral</span><span class="o">()</span> 
+    <span class="o">}</span>    
+<span class="o">}</span>
 
-        // Special Gradle notation yang berguna untuk memberitahu Gradle bahwa kita menggunakan repository maven central
-        mavenCentral() 
-    }    
-}
+<span class="c1">// Konfigurasi untuk tiap subproject
+</span><span class="c1">// Nantinya ketika kita membuat subproject, konfigurasi ini akan diwariskan ke subproject tersebut
+</span><span class="c1"></span><span class="n">subprojects</span> <span class="o">{</span>
+    <span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;java&#39;</span>
 
-// Konfigurasi untuk tiap subproject
-// Nantinya ketika kita membuat subproject, konfigurasi ini akan diwariskan ke subproject tersebut
-subprojects {
-    apply plugin: 'java'
-
-    // Supaya kita tidak usah repot membuat maven task.
-    apply plugin: 'maven'
+    <span class="c1">// Supaya kita tidak usah repot membuat maven task.
+</span><span class="c1"></span>    <span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;maven&#39;</span>
                 
-    // Konfigurasi maven plugin supaya mengupload artifact ke path yang kita inginkan
-    uploadArchives {
-        repositories {
-            mavenDeployer {
-                // Path kita set ke direktori komputer lokal /home/budi/.m2/repository
-                repository(url: &quot;file://home/budi/.m2/repository/&quot;)
-            }
-        }
-    }
+    <span class="c1">// Konfigurasi maven plugin supaya mengupload artifact ke path yang kita inginkan
+</span><span class="c1"></span>    <span class="n">uploadArchives</span> <span class="o">{</span>
+        <span class="n">repositories</span> <span class="o">{</span>
+            <span class="n">mavenDeployer</span> <span class="o">{</span>
+                <span class="c1">// Path kita set ke direktori komputer lokal /home/budi/.m2/repository
+</span><span class="c1"></span>                <span class="n">repository</span><span class="o">(</span><span class="nl">url:</span> <span class="s2">&#34;file://home/budi/.m2/repository/&#34;</span><span class="o">)</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
     
-    // Deklarasi dependency untuk setiap subproject
-    dependencies {
-        // Syntaxnya adalah &lt;scope&gt; &quot;&lt;groupId&gt;:&lt;artifactId&gt;:&lt;version&gt;&quot;
-        // Scope ada 4, yaitu compile, runtime, testCompile, testRuntime
-        // compile: dependency diperlukan saat compile ataupun development
-        // runtime: dependency diperlukan saat runtime
-        // testCompile: dependency diperlukan saat ngetes-ngetes program
-        // testRuntime: dependency diperlukan saat program yang untuk ngetes-ngetes berjalan
-        
-        // Sebagai contoh, kita menggunakan 2 library. JUnit dan spring-context
-        // Bisa kita lihat pada deklarasi version menggunakan variable dari project properties
-        testCompile &quot;junit:junit:${project.JUNIT_VERSION}&quot;
-        compile &quot;org.springframework:spring-context:${project.SPRING_CORE_VERSION}&quot;
-    }
-}
-
-</code></pre>
-
+    <span class="c1">// Deklarasi dependency untuk setiap subproject
+</span><span class="c1"></span>    <span class="n">dependencies</span> <span class="o">{</span>
+        <span class="c1">// Syntaxnya adalah &lt;scope&gt; &#34;&lt;groupId&gt;:&lt;artifactId&gt;:&lt;version&gt;&#34;
+</span><span class="c1"></span>        <span class="c1">// Scope ada 4, yaitu compile, runtime, testCompile, testRuntime
+</span><span class="c1"></span>        <span class="c1">// compile: dependency diperlukan saat compile ataupun development
+</span><span class="c1"></span>        <span class="c1">// runtime: dependency diperlukan saat runtime
+</span><span class="c1"></span>        <span class="c1">// testCompile: dependency diperlukan saat ngetes-ngetes program
+</span><span class="c1"></span>        <span class="c1">// testRuntime: dependency diperlukan saat program yang untuk ngetes-ngetes berjalan
+</span><span class="c1"></span>        
+        <span class="c1">// Sebagai contoh, kita menggunakan 2 library. JUnit dan spring-context
+</span><span class="c1"></span>        <span class="c1">// Bisa kita lihat pada deklarasi version menggunakan variable dari project properties
+</span><span class="c1"></span>        <span class="n">testCompile</span> <span class="s2">&#34;junit:junit:${project.JUNIT_VERSION}&#34;</span>
+        <span class="n">compile</span> <span class="s2">&#34;org.springframework:spring-context:${project.SPRING_CORE_VERSION}&#34;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="membuat-subproject">Membuat Subproject</h2>
 
 <p>Root project sudah dibuat. Saatnya kita membuat subproject. Untuk membuatnya sangat gampang. Cukup membuat direktori baru di dalam direktori root project. Misalkan kita buat namanya <code>coba_gradle_subproject</code>. Di dalam direktori ini, kita buat layout project java yang sudah dibahas sebelumnya. Jangan lupa kita juga wajib membuat file <code>build.gradle</code> di dalam direktori <code>coba_gradle_subproject</code> ini. Sebagai contoh, isinya hanya seperti ini:</p>
-
-<pre><code class="language-gradle">version = '1.0.0.SNAPSHOT'
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0.SNAPSHOT&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Walaupun isinya hanya seperti itu, namun karena root project sudah mendefinisikan konfigurasi pada block <code>subprojects</code>, maka otomatis subproject ini mewarisi apa yang sudah dideklarasikan di sana, dari plugin dan dependencynya. Variabel version ini perlu kita deklarasikan supaya nanti ketika subproject ini kita compile menjadi bentuk jar misalnya, filenamenya akan ditambahkan version dari project ini. Jadi misalkan versionnya kita set <code>1.0.0.SNAPSHOT</code>, maka file yang tercipta nantinya akan bernama <code>coba_gradle_subproject-1.0.0.SNAPSHOT.jar</code>.</p>
 
 <p>Pada file ini, kita juga bisa mendeklarasikan lagi konfigurasi yang sama dengan yang sudah ada di root project atau yang lain. Nantinya Gradle pertama kali akan membaca <code>build.gradle</code> dari direktori subproject, lalu membaca lagi <code>build.gradle</code> dari direktori root project dan mengakumulasikannya.</p>
 
 <p>Nah, subproject sudah dibuat. Bagaimana caranya supaya root project mengenali subproject ini? Mari kita kembali lagi ke direktori <code>coba_gradle</code>. Dalam direktori tersebut, buatlah file bernama <code>settings.gradle</code> dan deklarasikan subprojectnya di dalam file tersebut seperti berikut:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">include</span> <span class="s1">&#39;coba_gradle_subproject&#39;</span>
 
-<pre><code class="language-gradle">include 'coba_gradle_subproject'
-
-// tambahkan subproject lain jika ada
-// include 'subproject2'
-// include 'subproject3'
-// dst...
-</code></pre>
-
+<span class="c1">// tambahkan subproject lain jika ada
+</span><span class="c1">// include &#39;subproject2&#39;
+</span><span class="c1">// include &#39;subproject3&#39;
+</span><span class="c1"></span><span class="s">//</span> <span class="n">dst</span><span class="o">...</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Gambaran akhir dari struktur direktorinya adalah sebagai berikut:</p>
-
-<pre><code> +-coba_gradle
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"> +-coba_gradle
    +-coba_gradle_subproject
    |  +-src
    |  |  +-main
@@ -421,13 +492,12 @@ subprojects {
    |  |    +-java
    |  +-build.gradle
    +-build.gradle
-   +-settings.gradle
-</code></pre>
-
+   +-settings.gradle</pre></td></tr></table>
+</div>
+</div>
 <p>Setup project sudah selesai :). Kekurangan dari Gradle ini adalah belum mempunyai archetype generator seperti maven. Jadi setiap kali kita membuat subproject, kita membuat layout direktori secara manual. Ke depannya Gradle diharapkan mempunyai fitur seperti maven archetype.</p>
     </div>
 
-    
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">Author</span>
@@ -442,38 +512,26 @@ subprojects {
     <span class="item-title">License</span>
     <span class="item-content"><a rel="license noopener" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></span>
   </p>
-</div>
-
-    
-    
-
-    <footer class="post-footer">
+</div><footer class="post-footer">
       <div class="post-tags">
-          
           <a href="/tags/tutorial/">tutorial</a>
-          
-        </div>
-
-      
+          </div>
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/instalasi-golang/">
+        <a class="prev" href="/post/instalasi-golang/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Instalasi Golang</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/menjadi-idealis/">
+        <a class="next" href="/post/menjadi-idealis/">
             <span class="next-text nav-default">Menjadi Idealis</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -487,6 +545,7 @@ subprojects {
     })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
       </div>
     </main>
 
@@ -514,9 +573,8 @@ subprojects {
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
-    2018
+    2013 - 
+    2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -529,26 +587,27 @@ subprojects {
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script><script></script>
-<script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script>
-<script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
-<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script><script></script><script src="/lib/flowchartDiagrams/raphael-2.2.7.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script>
+    <script src="/lib/flowchartDiagrams/flowchart-1.8.0.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="/lib/js-sequence-diagrams/webfontloader-1.6.28.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+    <script src="/lib/js-sequence-diagrams/snap.svg-0.5.1.min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script>
+    <script src="/lib/js-sequence-diagrams/underscore-1.8.3.min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script>
+    <script src="/lib/js-sequence-diagrams/sequence-diagram-2.0.1.min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/lib/js-sequence-diagrams/sequence-diagram-2.0.1.min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
 
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-57148145-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57148145-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

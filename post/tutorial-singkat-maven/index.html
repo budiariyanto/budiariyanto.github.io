@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NZVJ8SF');</script>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Tutorial Singkat Maven - Budi Ariyanto</title>
@@ -16,26 +23,21 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Budi Ariyanto" />
-  <meta name="description" content="Apa itu Maven? Maven adalah suatu tool untuk menstandarkan dan memanage project, mempermudah proses build dalam suatu project, mendefinisikan secara jelas apa saja isi project dan mempermudah dalam membagi-bagikan (share) file .jar di semua project. Maven sering di-versuskan dengan ant, atau bahkan ada yang bilang sama saja. Menurut saya, maven mempunyai tujuan yang lebih luas daripada ant yang hanya fokus untuk build tool dan membuat task-task tertentu saja. Fitur-fitur ant ada pada maven bahkan maven bisa diintegrasikan dengan ant via maven plugin.
+<meta name="author" content="Budi Ariyanto" /><meta name="description" content="Apa itu Maven? Maven adalah suatu tool untuk menstandarkan dan memanage project, mempermudah proses build dalam suatu project, mendefinisikan secara jelas apa saja isi project dan mempermudah dalam membagi-bagikan (share) file .jar di semua project. Maven sering di-versuskan dengan ant, atau bahkan ada yang bilang sama saja. Menurut saya, maven mempunyai tujuan yang lebih luas daripada ant yang hanya fokus untuk build tool dan membuat task-task tertentu saja. Fitur-fitur ant ada pada maven bahkan maven bisa diintegrasikan dengan ant via maven plugin.
 Kenapa harus pakai Maven? Suatu project pasti mempunyai struktur direktori. Struktur direktori project ini biasa disebut project template. Struktur direktori setiap orang atau setiap tim berbeda. Setiap tim menentukan standarnya sendiri, lalu jika ada orang baru masuk dalam tim tersebut, orang baru itu mengikuti standar project template yang sudah ada. Yang biasa dilakukan, orang baru tersebut membuat project baru di IDE, lalu melihat catatan project template yang sudah ada itu bagaimana. Struktur direktori project baru tersebut berusaha dibuat sama dengan struktur direktori standar project dengan membuat folder-folder, menambahkan file-file dan sebagainya. Dengan maven, pada umumnya kita cukup sekali membuat archetype untuk 1 jenis project. Setelah itu ketika membuat project baru, kita tinggal mengenerate project template dengan menggunakan archetype yang sudah dibuat tadi. Semua hal mengenai project template langsung bisa terkonfigurasi secara otomatis sesuai standar. Kalau ada keperluan khusus, baru kita tambahkan sendiri.
 Selain permasalahan project template, hampir di setiap project kita menggunakan library. Jika kita menggunakan library dalam suatu project, berarti project kita dependen terhadap library tersebut. Maka library tersebut adalah dependency dari project kita. Nah, peran maven di sini adalah memanage dependency sehingga programmer dapat dengan mudah menambahkan library yang ingin digunakan. &amp;ldquo;Ah, cuma nambah dependency gitu aja kok harus pakai maven? Repot banget sih..&amp;rdquo;. Perlu diketahui, library tidak selamanya &amp;ldquo;stand-alone&amp;rdquo;. Jangan berasumsi bahwa jika kita ingin menambahkan library A dan B, yang kita tambahkan ke project ya hanya A dan B. Sering kali misalnya library A dependen terhadap library B, C, D, E, F dan G. Library H dependen terhadap library I, J dan K. Jadi, library yang ingin kita tambahkan sebetulnya hanya 2 (A dan H), tapi karena harus menambahkan juga dependensinya(B, C, D, E, F, G, I, J, K) pada akhirnya ada 11 library yang harus ditambahkan. Belum lagi kalau ternyata semua dependensi itu harus didownload satu per satu, di tempat yang berbeda-beda pula. Belum lagi kalau source code kita karena sesuatu hal harus dipindahkan ke mesin lain. Dengan asumsi bahwa environmentnya berbeda, kita harus setting ulang semua path dari library tersebut supaya dapat ditemukan oleh IDE. Hal ini membuat pusing kepala. Yang tadinya saya mau mulai membuat kode program dengan nyaman, harus repot mengurus hal-hal yang demikian. Maven membantu menyelesaikan permasalahan ini.
 Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. Last but not least, hal-hal inilah yang membuat maven berperan penting dalam setiap project.
-
-" />
-<meta name="keywords" content="beginning maven" />
+" /><meta name="keywords" content="beginning maven" />
 
 
 
 
 
 
-
-<meta name="generator" content="Hugo 0.37.1" />
+<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
 
 
 <link rel="canonical" href="http://localhost:1313/post/tutorial-singkat-maven/" />
-
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -43,15 +45,8 @@ Maven juga membantu dalam hal portability project. Saya pribadi menginginkan pro
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-
-
-
-
-
-<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+<link href="/dist/even.32e7bf93.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
 
 
 <meta property="og:title" content="Tutorial Singkat Maven" />
@@ -65,27 +60,10 @@ Suatu project pasti mempunyai struktur direktori. Struktur direktori project ini
 
 Selain permasalahan project template, hampir di setiap project kita menggunakan library. Jika kita menggunakan library dalam suatu project, berarti project kita dependen terhadap library tersebut. Maka library tersebut adalah dependency dari project kita. Nah, peran maven di sini adalah memanage dependency sehingga programmer dapat dengan mudah menambahkan library yang ingin digunakan. &ldquo;Ah, cuma nambah dependency gitu aja kok harus pakai maven? Repot banget sih..&rdquo;. Perlu diketahui, library tidak selamanya &ldquo;stand-alone&rdquo;. Jangan berasumsi bahwa jika kita ingin menambahkan library A dan B, yang kita tambahkan ke project ya hanya A dan B. Sering kali misalnya library A dependen terhadap library B, C, D, E, F dan G. Library H dependen terhadap library I, J dan K. Jadi, library yang ingin kita tambahkan sebetulnya hanya 2 (A dan H), tapi karena harus menambahkan juga dependensinya(B, C, D, E, F, G, I, J, K) pada akhirnya ada 11 library yang harus ditambahkan. Belum lagi kalau ternyata semua dependensi itu harus didownload satu per satu, di tempat yang berbeda-beda pula. Belum lagi kalau source code kita karena sesuatu hal harus dipindahkan ke mesin lain. Dengan asumsi bahwa environmentnya berbeda, kita harus setting ulang semua path dari library tersebut supaya dapat ditemukan oleh IDE. Hal ini membuat pusing kepala. Yang tadinya saya mau mulai membuat kode program dengan nyaman, harus repot mengurus hal-hal yang demikian. Maven membantu menyelesaikan permasalahan ini.
 
-Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. Last but not least, hal-hal inilah yang membuat maven berperan penting dalam setiap project.
-
-" />
+Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. Last but not least, hal-hal inilah yang membuat maven berperan penting dalam setiap project." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/tutorial-singkat-maven/" />
-
-
-
-<meta property="article:published_time" content="2014-01-17T17:26:33&#43;07:00"/>
-
+<meta property="og:url" content="http://localhost:1313/post/tutorial-singkat-maven/" /><meta property="article:published_time" content="2014-01-17T17:26:33&#43;07:00"/>
 <meta property="article:modified_time" content="2014-01-17T17:26:33&#43;07:00"/>
-
-
-
-
-
-
-
-
-
-
 
 <meta itemprop="name" content="Tutorial Singkat Maven">
 <meta itemprop="description" content="Apa itu Maven?
@@ -98,14 +76,12 @@ Suatu project pasti mempunyai struktur direktori. Struktur direktori project ini
 
 Selain permasalahan project template, hampir di setiap project kita menggunakan library. Jika kita menggunakan library dalam suatu project, berarti project kita dependen terhadap library tersebut. Maka library tersebut adalah dependency dari project kita. Nah, peran maven di sini adalah memanage dependency sehingga programmer dapat dengan mudah menambahkan library yang ingin digunakan. &ldquo;Ah, cuma nambah dependency gitu aja kok harus pakai maven? Repot banget sih..&rdquo;. Perlu diketahui, library tidak selamanya &ldquo;stand-alone&rdquo;. Jangan berasumsi bahwa jika kita ingin menambahkan library A dan B, yang kita tambahkan ke project ya hanya A dan B. Sering kali misalnya library A dependen terhadap library B, C, D, E, F dan G. Library H dependen terhadap library I, J dan K. Jadi, library yang ingin kita tambahkan sebetulnya hanya 2 (A dan H), tapi karena harus menambahkan juga dependensinya(B, C, D, E, F, G, I, J, K) pada akhirnya ada 11 library yang harus ditambahkan. Belum lagi kalau ternyata semua dependensi itu harus didownload satu per satu, di tempat yang berbeda-beda pula. Belum lagi kalau source code kita karena sesuatu hal harus dipindahkan ke mesin lain. Dengan asumsi bahwa environmentnya berbeda, kita harus setting ulang semua path dari library tersebut supaya dapat ditemukan oleh IDE. Hal ini membuat pusing kepala. Yang tadinya saya mau mulai membuat kode program dengan nyaman, harus repot mengurus hal-hal yang demikian. Maven membantu menyelesaikan permasalahan ini.
 
-Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. Last but not least, hal-hal inilah yang membuat maven berperan penting dalam setiap project.
-
-">
+Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. Last but not least, hal-hal inilah yang membuat maven berperan penting dalam setiap project.">
 
 
 <meta itemprop="datePublished" content="2014-01-17T17:26:33&#43;07:00" />
 <meta itemprop="dateModified" content="2014-01-17T17:26:33&#43;07:00" />
-<meta itemprop="wordCount" content="1412">
+<meta itemprop="wordCount" content="1524">
 
 
 
@@ -122,9 +98,7 @@ Suatu project pasti mempunyai struktur direktori. Struktur direktori project ini
 
 Selain permasalahan project template, hampir di setiap project kita menggunakan library. Jika kita menggunakan library dalam suatu project, berarti project kita dependen terhadap library tersebut. Maka library tersebut adalah dependency dari project kita. Nah, peran maven di sini adalah memanage dependency sehingga programmer dapat dengan mudah menambahkan library yang ingin digunakan. &ldquo;Ah, cuma nambah dependency gitu aja kok harus pakai maven? Repot banget sih..&rdquo;. Perlu diketahui, library tidak selamanya &ldquo;stand-alone&rdquo;. Jangan berasumsi bahwa jika kita ingin menambahkan library A dan B, yang kita tambahkan ke project ya hanya A dan B. Sering kali misalnya library A dependen terhadap library B, C, D, E, F dan G. Library H dependen terhadap library I, J dan K. Jadi, library yang ingin kita tambahkan sebetulnya hanya 2 (A dan H), tapi karena harus menambahkan juga dependensinya(B, C, D, E, F, G, I, J, K) pada akhirnya ada 11 library yang harus ditambahkan. Belum lagi kalau ternyata semua dependensi itu harus didownload satu per satu, di tempat yang berbeda-beda pula. Belum lagi kalau source code kita karena sesuatu hal harus dipindahkan ke mesin lain. Dengan asumsi bahwa environmentnya berbeda, kita harus setting ulang semua path dari library tersebut supaya dapat ditemukan oleh IDE. Hal ini membuat pusing kepala. Yang tadinya saya mau mulai membuat kode program dengan nyaman, harus repot mengurus hal-hal yang demikian. Maven membantu menyelesaikan permasalahan ini.
 
-Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. Last but not least, hal-hal inilah yang membuat maven berperan penting dalam setiap project.
-
-"/>
+Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. Last but not least, hal-hal inilah yang membuat maven berperan penting dalam setiap project."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -137,6 +111,10 @@ Maven juga membantu dalam hal portability project. Saya pribadi menginginkan pro
 
 </head>
 <body>
+  
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZVJ8SF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
     <a href="/" class="logo">tail -f posts.log</a>
@@ -192,21 +170,16 @@ Maven juga membantu dalam hal portability project. Saya pribadi menginginkan pro
       <div class="post-meta">
         <span class="post-time"> 17 Jan 2014 </span>
         <div class="post-category">
-            
-              <a href="/categories/programming/"> Programming </a>
-            
-          </div>
-        <span class="more-meta"> 1412 words </span>
-        <span class="more-meta"> 7 mins read </span>
+            <a href="/categories/programming/"> Programming </a>
+            </div>
+          <span class="more-meta"> 1524 words </span>
+          <span class="more-meta"> 8 mins read </span>
         
       </div>
     </header>
 
-    
-    
-<div class="post-toc" id="post-toc">
+    <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
-  
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
@@ -226,8 +199,6 @@ Maven juga membantu dalam hal portability project. Saya pribadi menginginkan pro
 </nav>
   </div>
 </div>
-
-    
     <div class="post-content">
       <h2 id="apa-itu-maven">Apa itu Maven?</h2>
 
@@ -241,16 +212,19 @@ Maven juga membantu dalam hal portability project. Saya pribadi menginginkan pro
 
 <p>Maven juga membantu dalam hal portability project. Saya pribadi menginginkan project dapat dibuka di IDE manapun dengan baik. Nah, kalau kita buat project baru di Netbeans nanti kalau ganti IDE menggunakan Eclipse project jadi tidak bisa dibuka. Kalau awalnya menggunakan Eclipse, dibuka menggunakan Netbeans harus menggunakan project importer milik Netbeans, yang saya sendiri masih ragu apakah bisa menyelesaikan semua kasus import project dengan baik. Untuk mengatasi hal ini, semua project saya buat menggunakan maven. Hati saya menjadi tenang. IDE java kelas kakap seperti Netbeans, Eclipse dan IntelliJ IDEA dapat membuka maven project dengan baik. Atau kalau project mau dibuka menggunakan editor seperti nano atau vim pun juga tidak masalah. <em>Last but not least</em>, hal-hal inilah yang membuat maven berperan penting dalam setiap project.</p>
 
-<p></p>
-
 <h2 id="installasi-dan-konfigurasi-maven">Installasi dan Konfigurasi Maven</h2>
 
 <p>Maven bisa didownload di <a href="http://maven.apache.org">maven website</a>. Saya merekomendasikan menggunakan Maven 3. Setelah didownload, cara menginstallnya cukup diekstrak saja. Setelah diekstrak, Anda harus setting environment variable supaya Anda dapat menjalankan maven dengan mudah.</p>
-
-<pre><code class="language-bash">M2_HOME = /path/to/your/maven/installation/directory
-PATH = $PATH:$M2_HOME
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">M2_HOME</span> <span class="o">=</span> /path/to/your/maven/installation/directory
+<span class="nv">PATH</span> <span class="o">=</span> <span class="nv">$PATH</span>:<span class="nv">$M2_HOME</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Sebagai catatan, setting untuk environment variable berbeda-beda caranya. Sesuaikan dengan OS yang Anda gunakan.</p>
 
 <p>Kalau Anda menggunakan linux, coba cek dulu di package repository distro yang Anda pakai ada maven atau tidak. Kalau ada, barang kali Anda bisa mencoba menginstall maven menggunakan repository dari distro tersebut supaya lebih mudah. Kalau saya pribadi lebih suka download dari website maven, install dan konfigurasi sendiri.</p>
@@ -258,60 +232,109 @@ PATH = $PATH:$M2_HOME
 <h2 id="pom-project-object-model">POM (Project Object Model)</h2>
 
 <p>POM pasti ada dalam setiap project maven. Letaknya di root directory project dan bernama <code>pom.xml</code>. POM berisi deskripsi dan konfigurasi project. Contohnya di dalam POM ada <code>groupId</code>, <code>artifactId</code>, <code>version</code>, nama project, website project, siapa developernya, deklarasi project dependensi, deklarasi maven plugin dan konfigurasi pluginnya dan lain sebagainya. Bentuk umum POM seperti ini:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0
+</span><span class="s">                      http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 
-<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
-  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0
-                      http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  <span class="c">&lt;!-- The Basics --&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>...<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>...<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;packaging&gt;</span>...<span class="nt">&lt;/packaging&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>...<span class="nt">&lt;/dependencies&gt;</span>
+  <span class="nt">&lt;parent&gt;</span>...<span class="nt">&lt;/parent&gt;</span>
+  <span class="nt">&lt;dependencyManagement&gt;</span>...<span class="nt">&lt;/dependencyManagement&gt;</span>
+  <span class="nt">&lt;modules&gt;</span>...<span class="nt">&lt;/modules&gt;</span>
+  <span class="nt">&lt;properties&gt;</span>...<span class="nt">&lt;/properties&gt;</span>
 
-  &lt;!-- The Basics --&gt;
-  &lt;groupId&gt;...&lt;/groupId&gt;
-  &lt;artifactId&gt;...&lt;/artifactId&gt;
-  &lt;version&gt;...&lt;/version&gt;
-  &lt;packaging&gt;...&lt;/packaging&gt;
-  &lt;dependencies&gt;...&lt;/dependencies&gt;
-  &lt;parent&gt;...&lt;/parent&gt;
-  &lt;dependencyManagement&gt;...&lt;/dependencyManagement&gt;
-  &lt;modules&gt;...&lt;/modules&gt;
-  &lt;properties&gt;...&lt;/properties&gt;
+  <span class="c">&lt;!-- Build Settings --&gt;</span>
+  <span class="nt">&lt;build&gt;</span>...<span class="nt">&lt;/build&gt;</span>
+  <span class="nt">&lt;reporting&gt;</span>...<span class="nt">&lt;/reporting&gt;</span>
 
-  &lt;!-- Build Settings --&gt;
-  &lt;build&gt;...&lt;/build&gt;
-  &lt;reporting&gt;...&lt;/reporting&gt;
+  <span class="c">&lt;!-- More Project Information --&gt;</span>
+  <span class="nt">&lt;name&gt;</span>...<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;description&gt;</span>...<span class="nt">&lt;/description&gt;</span>
+  <span class="nt">&lt;url&gt;</span>...<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;inceptionYear&gt;</span>...<span class="nt">&lt;/inceptionYear&gt;</span>
+  <span class="nt">&lt;licenses&gt;</span>...<span class="nt">&lt;/licenses&gt;</span>
+  <span class="nt">&lt;organization&gt;</span>...<span class="nt">&lt;/organization&gt;</span>
+  <span class="nt">&lt;developers&gt;</span>...<span class="nt">&lt;/developers&gt;</span>
+  <span class="nt">&lt;contributors&gt;</span>...<span class="nt">&lt;/contributors&gt;</span>
 
-  &lt;!-- More Project Information --&gt;
-  &lt;name&gt;...&lt;/name&gt;
-  &lt;description&gt;...&lt;/description&gt;
-  &lt;url&gt;...&lt;/url&gt;
-  &lt;inceptionYear&gt;...&lt;/inceptionYear&gt;
-  &lt;licenses&gt;...&lt;/licenses&gt;
-  &lt;organization&gt;...&lt;/organization&gt;
-  &lt;developers&gt;...&lt;/developers&gt;
-  &lt;contributors&gt;...&lt;/contributors&gt;
-
-  &lt;!-- Environment Settings --&gt;
-  &lt;issueManagement&gt;...&lt;/issueManagement&gt;
-  &lt;ciManagement&gt;...&lt;/ciManagement&gt;
-  &lt;mailingLists&gt;...&lt;/mailingLists&gt;
-  &lt;scm&gt;...&lt;/scm&gt;
-  &lt;prerequisites&gt;...&lt;/prerequisites&gt;
-  &lt;repositories&gt;...&lt;/repositories&gt;
-  &lt;pluginRepositories&gt;...&lt;/pluginRepositories&gt;
-  &lt;distributionManagement&gt;...&lt;/distributionManagement&gt;
-  &lt;profiles&gt;...&lt;/profiles&gt;
-&lt;/project&gt;
-</code></pre>
-
+  <span class="c">&lt;!-- Environment Settings --&gt;</span>
+  <span class="nt">&lt;issueManagement&gt;</span>...<span class="nt">&lt;/issueManagement&gt;</span>
+  <span class="nt">&lt;ciManagement&gt;</span>...<span class="nt">&lt;/ciManagement&gt;</span>
+  <span class="nt">&lt;mailingLists&gt;</span>...<span class="nt">&lt;/mailingLists&gt;</span>
+  <span class="nt">&lt;scm&gt;</span>...<span class="nt">&lt;/scm&gt;</span>
+  <span class="nt">&lt;prerequisites&gt;</span>...<span class="nt">&lt;/prerequisites&gt;</span>
+  <span class="nt">&lt;repositories&gt;</span>...<span class="nt">&lt;/repositories&gt;</span>
+  <span class="nt">&lt;pluginRepositories&gt;</span>...<span class="nt">&lt;/pluginRepositories&gt;</span>
+  <span class="nt">&lt;distributionManagement&gt;</span>...<span class="nt">&lt;/distributionManagement&gt;</span>
+  <span class="nt">&lt;profiles&gt;</span>...<span class="nt">&lt;/profiles&gt;</span>
+<span class="nt">&lt;/project&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Kita bisa lihat ada 4 bagian dalam 1 POM. Basic, build settings, project information dan environment settings. Yang paling sering dituliskan dalam POM adalah bagian basic dan build settings. Anda bisa membaca referensi tentang <code>pom.xml</code> secara lengkap di <a href="http://maven.apache.org/pom.html">sini</a>.</p>
 
 <h2 id="archetypes">Archetypes</h2>
 
 <p>Archetype bisa diartikan sebagai deskripsi dari project template. Archetype maven sebetulnya sudah ada dan siap digunakan. Untuk mengecek sekaligus menggunakannya, Anda bisa menjalankan perintah</p>
-
-<pre><code class="language-bash">$ mvn archetype:generate
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ mvn archetype:generate</code></pre></td></tr></table>
+</div>
+</div>
 <p>Tapi, karena archetype yang tersedia sangat general, maka kadang kala kita perlu membuat archetype sendiri yang sesuai dengan kebutuhan kita.</p>
 
 <h2 id="membuat-sendiri-archetype">Membuat Sendiri Archetype</h2>
@@ -319,16 +342,43 @@ PATH = $PATH:$M2_HOME
 <p>Membuat archetype bisa dengan 2 cara. Kita buat project template sendiri dengan membuat folder-folder sendiri, disusun sendiri, menambah resource yang diperlukan lalu membuat <code>pom.xml</code>nya. Cara kedua dengan menggenerate general archetype terlebih dahulu menggunakan maven. Karena cara kedua menurut saya lebih bagus, mari kita bahas.</p>
 
 <p>Buka terminal, buat folder baru, misalkan namanya <code>archetypeku</code> lalu masuklah ke folder tersebut. Untuk menggenerate general archetype, kita dapat menjalankan perintah berikut</p>
-
-<pre><code class="language-bash">$ mvn archetype:generate
-   -DgroupId=[group id project kita]
-   -DartifactId=[artifact id project kita]
-   -DarchetypeArtifactId=maven-archetype-archetype
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ mvn archetype:generate
+   -DgroupId<span class="o">=[</span>group id project kita<span class="o">]</span>
+   -DartifactId<span class="o">=[</span>artifact id project kita<span class="o">]</span>
+   -DarchetypeArtifactId<span class="o">=</span>maven-archetype-archetype</code></pre></td></tr></table>
+</div>
+</div>
 <p>Setelah digenerate, akan terbentuk struktur direktori sebagai berikut</p>
-
-<pre><code>archetypeku
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">archetypeku
 |-- pom.xml
 `-- src
     `-- main
@@ -344,103 +394,173 @@ PATH = $PATH:$M2_HOME
                     |       `-- App.java
                     `-- test
                         `-- java
-                            `-- AppTest.java
-</code></pre>
-
+                            `-- AppTest.java</pre></td></tr></table>
+</div>
+</div>
 <p>File-file hasil generate ini punya kesalahan. Kesalahannya ada pada file <code>pom.xml</code> yang ada di dalam folder <code>archetype-resources</code>. Buka <code>pom.xml</code> menggunakan text editor apa saja, lalu ganti bagian groupId, artifactId dan version sehingga tampak seperti berikut</p>
-
-<pre><code class="language-xml">&lt;groupId&gt;${groupId}&lt;/groupId&gt;
-&lt;artifactId&gt;${artifactId}&lt;/artifactId&gt;
-&lt;version&gt;${version}&lt;/version&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;groupId&gt;</span>${groupId}<span class="nt">&lt;/groupId&gt;</span>
+<span class="nt">&lt;artifactId&gt;</span>${artifactId}<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;version&gt;</span>${version}<span class="nt">&lt;/version&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Setelah kesalahan dibetulkan, kita bisa dengan tenang menambahkan apa saja yang diperlukan ke dalam <code>pom.xml</code> tadi, misalnya deklarasi dependensi yang diperlukan dan informasi-informasi lain tentang project. Kita juga bisa menambahkan folder-folder yang diperlukan, tapi jangan lupa untuk mendaftarkan folder-folder tambahan tadi ke dalam archetype descriptor(<code>archetype.xml</code>). Contoh archetype.xml adalah sebagai berikut</p>
-
-<pre><code class="language-xml">&lt;archetype&gt;
-&lt;archetype&gt;
-  &lt;id&gt;archetypeku&lt;/id&gt;
-  &lt;sources&gt;
-    &lt;source&gt;src/main/java/App.java&lt;/source&gt;
-  &lt;/sources&gt;
-  &lt;resources&gt;
-		&lt;resource&gt;src/main/resources&lt;/resource&gt;
-  &lt;/resrouces&gt;
-  &lt;testSources&gt;
-    &lt;source&gt;src/test/java/AppTest.java&lt;/source&gt;
-  &lt;/testSources&gt;
-  &lt;siteResources&gt;
-    &lt;siteResource&gt;src/site&lt;/siteResource&gt;
-  &lt;/siteResources&gt;
-&lt;/archetype&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;archetype&gt;</span>
+<span class="nt">&lt;archetype&gt;</span>
+  <span class="nt">&lt;id&gt;</span>archetypeku<span class="nt">&lt;/id&gt;</span>
+  <span class="nt">&lt;sources&gt;</span>
+    <span class="nt">&lt;source&gt;</span>src/main/java/App.java<span class="nt">&lt;/source&gt;</span>
+  <span class="nt">&lt;/sources&gt;</span>
+  <span class="nt">&lt;resources&gt;</span>
+		<span class="nt">&lt;resource&gt;</span>src/main/resources<span class="nt">&lt;/resource&gt;</span>
+  <span class="nt">&lt;/resrouces&gt;</span>
+  <span class="nt">&lt;testSources&gt;</span>
+    <span class="nt">&lt;source&gt;</span>src/test/java/AppTest.java<span class="nt">&lt;/source&gt;</span>
+  <span class="nt">&lt;/testSources&gt;</span>
+  <span class="nt">&lt;siteResources&gt;</span>
+    <span class="nt">&lt;siteResource&gt;</span>src/site<span class="nt">&lt;/siteResource&gt;</span>
+  <span class="nt">&lt;/siteResources&gt;</span>
+<span class="nt">&lt;/archetype&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Tag <code>id</code> nilainya harus sama dengan tag <code>id</code> pada archetype <code>pom.xml</code> yang terletak pada root directory.</p>
 
 <p><code>&lt;sources&gt;, &lt;resources&gt;, &lt;testSources&gt;, &lt;testResources&gt;</code> dan <code>&lt;siteResources&gt;</code> tag mencerminkan pengelompokan pada project. Misalkan seperti yang tampak pada contoh archetype descriptor di atas</p>
-
-<pre><code>    &lt;sources&gt; = src/main/java
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;sources&gt; = src/main/java
     &lt;resources&gt; = src/main/resources
     &lt;testSources&gt; = src/test/java
     &lt;testResources&gt; = src/test/resources
-    &lt;siteResources&gt; = src/site
-</code></pre>
-
+    &lt;siteResources&gt; = src/site</pre></td></tr></table>
+</div>
+</div>
 <p>Berarti, di dalam folder <code>archetype-resources</code> harus ada folder-folder:</p>
-
-<pre><code>src/main/java
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">src/main/java
 src/main/resources
 src/test/java
 src/test/resources
-src/site
-</code></pre>
-
+src/site</pre></td></tr></table>
+</div>
+</div>
 <p>Di dalam folder <code>src/main/java</code> harus ada file <code>App.java</code> dan di dalam folder <code>src/test/java</code> harus ada file <code>AppTest.java</code>. Ini berarti bisa dikatakan apa yang sudah dideklarasikan di dalam archetype deskriptor harus dibuat secara nyata di dalam folder archetype-resources. Setelah semua ini selesai, berarti archetype Anda sudah siap dideploy.</p>
 
 <h2 id="mendeploy-archetype">Mendeploy Archetype</h2>
 
 <p>Untuk mendeploy archetype di mesin lokal kita, masuk ke root directory archetype project dan jalankan perintah</p>
-
-<pre><code class="language-bash">$ mvn install
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ mvn install</code></pre></td></tr></table>
+</div>
+</div>
 <p>Jika hasilnya sukses, berarti archetype sudah bisa digunakan, tapi ya hanya di mesin lokal kita. Nah, bagaimana caranya supaya teman-teman 1 tim kita bisa menggunakannya? Kita bisa mendeploynya ke repository maven internal kita misalnya. Saya sendiri menggunakan nexus. Saya akan membahas bagaimana mendeploy archetype bikinan sendiri ke repository nexus, tapi saya akan berasumsi Anda sudah menginstall nexus sendiri. Kalau Anda belum tau tentang nexus dan ingin menginstallnya, Anda bisa baca dokumentasi dari <a href="http://www.sonatype.org/nexus/">website resminya</a>.</p>
 
 <h2 id="mendeploy-archetype-buatan-sendiri-ke-repository-nexus">Mendeploy Archetype Buatan Sendiri ke Repository Nexus</h2>
 
 <p>Sebelum mendeploy ke nexus, jangan lupa konfigurasi untuk authorization ke server repository nexus. Coba lihat di <code>~/.m2/settings.xml</code>. Kalau belum ada setting untuk authorization, tambahkan konfigurasi ini</p>
-
-<pre><code class="language-xml">&lt;settings&gt;
-&lt;servers&gt;
-        &lt;server&gt;
-                &lt;id&gt;snapshots&lt;/id&gt;
-                &lt;username&gt;usernameAnda&lt;/username&gt;
-                &lt;password&gt;passwordAnda&lt;/password&gt;
-        &lt;/server&gt;
-			&lt;server&gt;
-                &lt;id&gt;releases&lt;/id&gt;
-                &lt;username&gt;usernameAnda&lt;/username&gt;
-                &lt;password&gt;passwordAnda&lt;/password&gt;
-        &lt;/server&gt;
-&lt;/servers&gt;
-&lt;/settings&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;settings&gt;</span>
+<span class="nt">&lt;servers&gt;</span>
+        <span class="nt">&lt;server&gt;</span>
+                <span class="nt">&lt;id&gt;</span>snapshots<span class="nt">&lt;/id&gt;</span>
+                <span class="nt">&lt;username&gt;</span>usernameAnda<span class="nt">&lt;/username&gt;</span>
+                <span class="nt">&lt;password&gt;</span>passwordAnda<span class="nt">&lt;/password&gt;</span>
+        <span class="nt">&lt;/server&gt;</span>
+			<span class="nt">&lt;server&gt;</span>
+                <span class="nt">&lt;id&gt;</span>releases<span class="nt">&lt;/id&gt;</span>
+                <span class="nt">&lt;username&gt;</span>usernameAnda<span class="nt">&lt;/username&gt;</span>
+                <span class="nt">&lt;password&gt;</span>passwordAnda<span class="nt">&lt;/password&gt;</span>
+        <span class="nt">&lt;/server&gt;</span>
+<span class="nt">&lt;/servers&gt;</span>
+<span class="nt">&lt;/settings&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Kalau sudah, masuk ke root directory project archetype yang Anda buat, lalu jalankan perintah</p>
-
-<pre><code class="language-bash">$ mvn deploy
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ mvn deploy</code></pre></td></tr></table>
+</div>
+</div>
 <p>Kalau sukses, berarti archetype Anda sudah ada di server nexus, archetype catalog juga sudah diupdate dan teman-teman 1 tim Anda sudah bisa menikmati archetype yang Anda buat. Bagaimana caranya?</p>
 
 <h2 id="menggenerate-project-menggunakan-archetype-buatan-sendiri">Menggenerate Project Menggunakan Archetype Buatan Sendiri</h2>
 
 <p>Jalankan perintah</p>
-
-<pre><code class="language-bash">$ mvn archetype:generate -DarchetypeCatalog=http://&lt;host&gt;:&lt;port&gt;/&lt;path/to/repositories&gt;
-</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ mvn archetype:generate -DarchetypeCatalog<span class="o">=</span>http://&lt;host&gt;:&lt;port&gt;/&lt;path/to/repositories&gt;</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
-    
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">Author</span>
@@ -455,42 +575,28 @@ src/site
     <span class="item-title">License</span>
     <span class="item-content"><a rel="license noopener" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></span>
   </p>
-</div>
-
-    
-    
-
-    <footer class="post-footer">
+</div><footer class="post-footer">
       <div class="post-tags">
-          
           <a href="/tags/tutorial/">tutorial</a>
-          
           <a href="/tags/maven/">maven</a>
-          
           <a href="/tags/java/">java</a>
-          
-        </div>
-
-      
+          </div>
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/memilih-distro-linux/">
+        <a class="prev" href="/post/memilih-distro-linux/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Memilih Distro Linux</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/good-leader/">
+        <a class="next" href="/post/good-leader/">
             <span class="next-text nav-default">Good Leader</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -504,6 +610,7 @@ src/site
     })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
       </div>
     </main>
 
@@ -531,9 +638,8 @@ src/site
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
-    2018
+    2013 - 
+    2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -546,26 +652,27 @@ src/site
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script><script></script>
-<script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script>
-<script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
-<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script><script></script><script src="/lib/flowchartDiagrams/raphael-2.2.7.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script>
+    <script src="/lib/flowchartDiagrams/flowchart-1.8.0.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="/lib/js-sequence-diagrams/webfontloader-1.6.28.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+    <script src="/lib/js-sequence-diagrams/snap.svg-0.5.1.min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script>
+    <script src="/lib/js-sequence-diagrams/underscore-1.8.3.min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script>
+    <script src="/lib/js-sequence-diagrams/sequence-diagram-2.0.1.min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/lib/js-sequence-diagrams/sequence-diagram-2.0.1.min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
 
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-57148145-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57148145-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 
