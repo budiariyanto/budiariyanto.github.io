@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Budi Ariyanto</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://budiariyanto.github.io/tags/</link>
     <description>Recent content in Tags on Budi Ariyanto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 22 Mar 2017 10:56:18 +0700</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://budiariyanto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker</title>
-      <link>http://localhost:1313/tags/docker/</link>
+      <link>https://budiariyanto.github.io/tags/docker/</link>
       <pubDate>Wed, 22 Mar 2017 10:56:18 +0700</pubDate>
       
-      <guid>http://localhost:1313/tags/docker/</guid>
+      <guid>https://budiariyanto.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>http://localhost:1313/tags/golang/</link>
+      <link>https://budiariyanto.github.io/tags/golang/</link>
       <pubDate>Sat, 01 Oct 2016 21:11:36 +0700</pubDate>
       
-      <guid>http://localhost:1313/tags/golang/</guid>
+      <guid>https://budiariyanto.github.io/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Java</title>
-      <link>http://localhost:1313/tags/java/</link>
+      <link>https://budiariyanto.github.io/tags/java/</link>
       <pubDate>Mon, 19 May 2014 17:19:49 +0700</pubDate>
       
-      <guid>http://localhost:1313/tags/java/</guid>
+      <guid>https://budiariyanto.github.io/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Leadership</title>
-      <link>http://localhost:1313/tags/leadership/</link>
+      <link>https://budiariyanto.github.io/tags/leadership/</link>
       <pubDate>Thu, 26 Dec 2013 17:19:49 +0700</pubDate>
       
-      <guid>http://localhost:1313/tags/leadership/</guid>
+      <guid>https://budiariyanto.github.io/tags/leadership/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Life</title>
-      <link>http://localhost:1313/tags/life/</link>
+      <link>https://budiariyanto.github.io/tags/life/</link>
       <pubDate>Mon, 01 May 2017 20:40:28 +0700</pubDate>
       
-      <guid>http://localhost:1313/tags/life/</guid>
+      <guid>https://budiariyanto.github.io/tags/life/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>http://localhost:1313/tags/linux/</link>
+      <link>https://budiariyanto.github.io/tags/linux/</link>
       <pubDate>Thu, 14 Sep 2017 23:26:59 +0700</pubDate>
       
-      <guid>http://localhost:1313/tags/linux/</guid>
+      <guid>https://budiariyanto.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Manjaro</title>
-      <link>http://localhost:1313/tags/manjaro/</link>
+      <link>https://budiariyanto.github.io/tags/manjaro/</link>
       <pubDate>Thu, 14 Sep 2017 23:26:59 +0700</pubDate>
       
-      <guid>http://localhost:1313/tags/manjaro/</guid>
+      <guid>https://budiariyanto.github.io/tags/manjaro/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Maven</title>
-      <link>http://localhost:1313/tags/maven/</link>
+      <link>https://budiariyanto.github.io/tags/maven/</link>
       <pubDate>Mon, 19 May 2014 17:19:49 +0700</pubDate>
       
-      <guid>http://localhost:1313/tags/maven/</guid>
+      <guid>https://budiariyanto.github.io/tags/maven/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Opinion</title>
-      <link>http://localhost:1313/tags/opinion/</link>
+      <link>https://budiariyanto.github.io/tags/opinion/</link>
       <pubDate>Mon, 19 May 2014 17:56:45 +0700</pubDate>
       
-      <guid>http://localhost:1313/tags/opinion/</guid>
+      <guid>https://budiariyanto.github.io/tags/opinion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tutorial</title>
-      <link>http://localhost:1313/tags/tutorial/</link>
+      <link>https://budiariyanto.github.io/tags/tutorial/</link>
       <pubDate>Sun, 12 Mar 2017 17:59:06 +0700</pubDate>
       
-      <guid>http://localhost:1313/tags/tutorial/</guid>
+      <guid>https://budiariyanto.github.io/tags/tutorial/</guid>
       <description></description>
     </item>
     

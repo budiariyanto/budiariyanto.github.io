@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorial on Budi Ariyanto</title>
-    <link>http://localhost:1313/tags/tutorial/</link>
+    <link>https://budiariyanto.github.io/tags/tutorial/</link>
     <description>Recent content in Tutorial on Budi Ariyanto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 12 Mar 2017 17:59:06 +0700</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://budiariyanto.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bulk Renaming in Linux</title>
-      <link>http://localhost:1313/post/bulk-renaming-in-linux/</link>
+      <link>https://budiariyanto.github.io/post/bulk-renaming-in-linux/</link>
       <pubDate>Sun, 12 Mar 2017 17:59:06 +0700</pubDate>
       
-      <guid>http://localhost:1313/post/bulk-renaming-in-linux/</guid>
+      <guid>https://budiariyanto.github.io/post/bulk-renaming-in-linux/</guid>
       <description>&lt;p&gt;There is a handy tools in linux for renaming bulk/mass files a once called
 rename. It&amp;rsquo;s a perl script and included in most linux distros.&lt;/p&gt;
 
@@ -33,10 +33,10 @@ rename. It&amp;rsquo;s a perl script and included in most linux distros.&lt;/p&g
     
     <item>
       <title>Instalasi Golang</title>
-      <link>http://localhost:1313/post/instalasi-golang/</link>
+      <link>https://budiariyanto.github.io/post/instalasi-golang/</link>
       <pubDate>Sat, 01 Oct 2016 21:11:36 +0700</pubDate>
       
-      <guid>http://localhost:1313/post/instalasi-golang/</guid>
+      <guid>https://budiariyanto.github.io/post/instalasi-golang/</guid>
       <description>Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.
 Download Golang Kita bisa mendownload golang di sini. Downloadlah yg cocok dengan OS kita.
 Setup Environment Variable Setelah kita download, extractlah di sembarang folder.</description>
@@ -44,17 +44,17 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
     
     <item>
       <title>Membuat Project Java Dengan Gradle</title>
-      <link>http://localhost:1313/post/membuat-project-java-dengan-gradle/</link>
+      <link>https://budiariyanto.github.io/post/membuat-project-java-dengan-gradle/</link>
       <pubDate>Mon, 16 Jun 2014 03:29:56 +0700</pubDate>
       
-      <guid>http://localhost:1313/post/membuat-project-java-dengan-gradle/</guid>
+      <guid>https://budiariyanto.github.io/post/membuat-project-java-dengan-gradle/</guid>
       <description>&lt;p&gt;Build tools adalah sebuah tools atau alat untuk mengcompile suatu project berisi source code yang kita buat. Build tools banyak macamnya dan sudah ada sejak lama.&lt;/p&gt;
 
 &lt;h2 id=&#34;kenapa-kita-butuh-build-tools&#34;&gt;Kenapa Kita Butuh Build Tools&lt;/h2&gt;
 
 &lt;p&gt;Setelah kita selesai ngoding, tentunya kita compile aplikasi kita. Nah proses peng&lt;strong&gt;compile&lt;/strong&gt;an biasanya mencakup banyak hal, misalnya yang paling mendasar adalah mengubah source code menjadi binary. Proses ini kadang menjadi rumit ketika code yang kita buat menggunakan satu atau lebih library eksternal. Project kita menjadi dependen(bergantung) kepada library yang kita gunakan. Ternyata library yang kita gunakan pun dependen terhadap library lainnya lagi. Semuanya ini kalau kita selesaikan satu per satu secara manual bisa membuat pusing kepala.&lt;/p&gt;
 
-&lt;p&gt;Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu &lt;a href=&#34;http://maven.apache.org&#34;&gt;Maven&lt;/a&gt; dan &lt;a href=&#34;http://www.gradle.org&#34;&gt;Gradle&lt;/a&gt;. Maven sebelumnya sudah pernah saya bahas secara singkat di &lt;a href=&#34;http://localhost:1313/post/tutorial-singkat-maven/&#34;&gt;sini&lt;/a&gt; dan di &lt;a href=&#34;http://localhost:1313/post/maven-multi-module-project/&#34;&gt;sini&lt;/a&gt;. Sekarang saya akan membahas Gradle.&lt;/p&gt;
+&lt;p&gt;Masalah lainnya lagi adalah ketika packaging. Packaging project adalah aktivitas kita sebelum mendistribusikan project kita. Dalam kegiatan packaging ini, kita seleksi file-file mana saja yang harus diikutsertakan, bagaimana layoutnya, apa tipe packagenya dan sebagainya. Nah build tools ini mempunyai kemampuan untuk membantu kita dalam mengerjakan hal ini. Cukup sekali melakukan konfigurasi saja, selanjutnya biar build tools yang melakukannya. Jadi intinya adalah build tools ini membantu mengotomatisasi pekerjaan kita dalam hal distribusi dan build project. Pertanyaannya, apa build tools yang bagus untuk project Java? Menurut saya ada 2 yaitu &lt;a href=&#34;http://maven.apache.org&#34;&gt;Maven&lt;/a&gt; dan &lt;a href=&#34;http://www.gradle.org&#34;&gt;Gradle&lt;/a&gt;. Maven sebelumnya sudah pernah saya bahas secara singkat di &lt;a href=&#34;https://budiariyanto.github.io/post/tutorial-singkat-maven/&#34;&gt;sini&lt;/a&gt; dan di &lt;a href=&#34;https://budiariyanto.github.io/post/maven-multi-module-project/&#34;&gt;sini&lt;/a&gt;. Sekarang saya akan membahas Gradle.&lt;/p&gt;
 
 &lt;h2 id=&#34;gradle&#34;&gt;Gradle&lt;/h2&gt;
 
@@ -77,20 +77,20 @@ Setup Environment Variable Setelah kita download, extractlah di sembarang folder
     
     <item>
       <title>Maven Multi Module Project</title>
-      <link>http://localhost:1313/post/maven-multi-module-project/</link>
+      <link>https://budiariyanto.github.io/post/maven-multi-module-project/</link>
       <pubDate>Mon, 19 May 2014 17:19:49 +0700</pubDate>
       
-      <guid>http://localhost:1313/post/maven-multi-module-project/</guid>
+      <guid>https://budiariyanto.github.io/post/maven-multi-module-project/</guid>
       <description>Dalam membuat satu project besar, sebaiknya kita bagi menjadi beberapa project kecil. Project kecil ini tujuannya untuk membagi project supaya strukturnya projectnya lebih mudah dipahami dan juga lebih modular. Maven mempunyai fitur untuk membantu merealisasikan hal ini, yaitu project inheritance dan project aggregation. Mari kita bahas satu per satu.
 Briefing Untuk membantu memahami dengan mudah, kita akan membuat sebuah project sederhana bernama &amp;ldquo;Manusia&amp;rdquo; dimana project ini punya modul yang bernama &amp;ldquo;Kepala&amp;rdquo;, &amp;ldquo;Badan&amp;rdquo;, &amp;ldquo;Tangan&amp;rdquo; dan &amp;ldquo;Kaki&amp;rdquo;.</description>
     </item>
     
     <item>
       <title>Tutorial Singkat Maven</title>
-      <link>http://localhost:1313/post/tutorial-singkat-maven/</link>
+      <link>https://budiariyanto.github.io/post/tutorial-singkat-maven/</link>
       <pubDate>Fri, 17 Jan 2014 17:26:33 +0700</pubDate>
       
-      <guid>http://localhost:1313/post/tutorial-singkat-maven/</guid>
+      <guid>https://budiariyanto.github.io/post/tutorial-singkat-maven/</guid>
       <description>&lt;h2 id=&#34;apa-itu-maven&#34;&gt;Apa itu Maven?&lt;/h2&gt;
 
 &lt;p&gt;Maven adalah suatu &lt;em&gt;tool&lt;/em&gt; untuk menstandarkan dan &lt;em&gt;memanage&lt;/em&gt; project, mempermudah proses &lt;em&gt;build&lt;/em&gt; dalam suatu project, mendefinisikan secara jelas apa saja isi project dan mempermudah dalam membagi-bagikan (&lt;em&gt;share&lt;/em&gt;) file .jar di semua project. Maven sering di-versuskan dengan ant, atau bahkan ada yang bilang sama saja. Menurut saya, maven mempunyai tujuan yang lebih luas daripada ant yang hanya fokus untuk &lt;em&gt;build tool&lt;/em&gt; dan membuat task-task tertentu saja. Fitur-fitur ant ada pada maven bahkan maven bisa diintegrasikan dengan ant via maven plugin.&lt;/p&gt;

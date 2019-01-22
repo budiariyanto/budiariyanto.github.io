@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Golang on Budi Ariyanto</title>
-    <link>http://localhost:1313/tags/golang/</link>
+    <link>https://budiariyanto.github.io/tags/golang/</link>
     <description>Recent content in Golang on Budi Ariyanto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 01 Oct 2016 21:11:36 +0700</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://budiariyanto.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Instalasi Golang</title>
-      <link>http://localhost:1313/post/instalasi-golang/</link>
+      <link>https://budiariyanto.github.io/post/instalasi-golang/</link>
       <pubDate>Sat, 01 Oct 2016 21:11:36 +0700</pubDate>
       
-      <guid>http://localhost:1313/post/instalasi-golang/</guid>
+      <guid>https://budiariyanto.github.io/post/instalasi-golang/</guid>
       <description>Bahasa pemrograman saat ini berkembang begitu cepat. Banyak bahasa pemrograman baru bermunculan dan beragam. Bahasa pemrograman baru yang sempat saya coba adalah go atau biasa disebut golang(go language) yang dikembangkan oleh Google. Golang dirilis pada tahun 2009, dan saat artikel ini ditulis sudah mencapai versi 1.7.1.
 Download Golang Kita bisa mendownload golang di sini. Downloadlah yg cocok dengan OS kita.
 Setup Environment Variable Setelah kita download, extractlah di sembarang folder.</description>

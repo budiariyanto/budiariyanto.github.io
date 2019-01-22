@@ -1,216 +1,216 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<?xml-stylesheet type="text/xsl" href="http://localhost:1313/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://budiariyanto.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/post/manjaro-troubleshooting/</loc>
+    <loc>https://budiariyanto.github.io/post/manjaro-troubleshooting/</loc>
     <lastmod>2017-09-14T23:26:59+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/memaknai-hari-ulang-tahun/</loc>
+    <loc>https://budiariyanto.github.io/post/memaknai-hari-ulang-tahun/</loc>
     <lastmod>2017-05-01T20:40:28+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/fix-docker-networking-problem/</loc>
+    <loc>https://budiariyanto.github.io/post/fix-docker-networking-problem/</loc>
     <lastmod>2017-03-22T10:56:18+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/bulk-renaming-in-linux/</loc>
+    <loc>https://budiariyanto.github.io/post/bulk-renaming-in-linux/</loc>
     <lastmod>2017-03-12T17:59:06+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/instalasi-golang/</loc>
+    <loc>https://budiariyanto.github.io/post/instalasi-golang/</loc>
     <lastmod>2016-10-01T21:11:36+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/membuat-project-java-dengan-gradle/</loc>
+    <loc>https://budiariyanto.github.io/post/membuat-project-java-dengan-gradle/</loc>
     <lastmod>2014-06-16T03:29:56+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/menjadi-idealis/</loc>
+    <loc>https://budiariyanto.github.io/post/menjadi-idealis/</loc>
     <lastmod>2014-05-19T17:56:45+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/maven-multi-module-project/</loc>
+    <loc>https://budiariyanto.github.io/post/maven-multi-module-project/</loc>
     <lastmod>2014-05-19T17:19:49+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/memilih-distro-linux/</loc>
+    <loc>https://budiariyanto.github.io/post/memilih-distro-linux/</loc>
     <lastmod>2014-01-25T17:50:04+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/tutorial-singkat-maven/</loc>
+    <loc>https://budiariyanto.github.io/post/tutorial-singkat-maven/</loc>
     <lastmod>2014-01-17T17:26:33+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/good-leader/</loc>
+    <loc>https://budiariyanto.github.io/post/good-leader/</loc>
     <lastmod>2013-12-26T17:19:49+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/quote/readme/</loc>
+    <loc>https://budiariyanto.github.io/quote/readme/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://budiariyanto.github.io/</loc>
     <lastmod>2017-09-14T23:26:59+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://budiariyanto.github.io/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/docker/</loc>
+    <loc>https://budiariyanto.github.io/tags/docker/</loc>
     <lastmod>2017-03-22T10:56:18+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/golang/</loc>
+    <loc>https://budiariyanto.github.io/tags/golang/</loc>
     <lastmod>2016-10-01T21:11:36+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/java/</loc>
+    <loc>https://budiariyanto.github.io/tags/java/</loc>
     <lastmod>2014-05-19T17:19:49+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/leadership/</loc>
+    <loc>https://budiariyanto.github.io/tags/leadership/</loc>
     <lastmod>2013-12-26T17:19:49+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/life/</loc>
+    <loc>https://budiariyanto.github.io/tags/life/</loc>
     <lastmod>2017-05-01T20:40:28+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/life-retrospective/</loc>
+    <loc>https://budiariyanto.github.io/categories/life-retrospective/</loc>
     <lastmod>2017-05-01T20:40:28+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/linux/</loc>
+    <loc>https://budiariyanto.github.io/tags/linux/</loc>
     <lastmod>2017-09-14T23:26:59+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/manjaro/</loc>
+    <loc>https://budiariyanto.github.io/tags/manjaro/</loc>
     <lastmod>2017-09-14T23:26:59+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/maven/</loc>
+    <loc>https://budiariyanto.github.io/tags/maven/</loc>
     <lastmod>2014-05-19T17:19:49+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/opinion/</loc>
+    <loc>https://budiariyanto.github.io/tags/opinion/</loc>
     <lastmod>2014-05-19T17:56:45+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>https://budiariyanto.github.io/post/</loc>
     <lastmod>2017-09-14T23:26:59+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/programming/</loc>
+    <loc>https://budiariyanto.github.io/categories/programming/</loc>
     <lastmod>2016-10-01T21:11:36+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/quote/</loc>
+    <loc>https://budiariyanto.github.io/quote/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/system-administration/</loc>
+    <loc>https://budiariyanto.github.io/categories/system-administration/</loc>
     <lastmod>2017-03-12T17:59:06+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://budiariyanto.github.io/tags/</loc>
     <lastmod>2017-03-22T10:56:18+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/tech-faq/</loc>
+    <loc>https://budiariyanto.github.io/categories/tech-faq/</loc>
     <lastmod>2017-09-14T23:26:59+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/tutorial/</loc>
+    <loc>https://budiariyanto.github.io/tags/tutorial/</loc>
     <lastmod>2017-03-12T17:59:06+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
